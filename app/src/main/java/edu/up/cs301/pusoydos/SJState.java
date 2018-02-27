@@ -27,7 +27,7 @@ public class SJState extends GameState
 	// are passed as null.
     private Deck[] piles;
     private int[] pileSizes;
-    
+
     // whose turn is it to turn a card?
     private int turnNum;
 
@@ -137,8 +137,8 @@ public class SJState extends GameState
 
 		String gameInfo = "Player 1 has "+piles[0].getLength()+" cards remaining. \n"
 				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
-				+"Player 1 has "+piles[0].getLength()+" cards remaining. \n"
-				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
+				+"Player 1 has "+piles[2].getLength()+" cards remaining. \n"
+				+"Player 2 has "+piles[3].getLength()+" cards remaining. \n"
 				+"Your cards: "+piles[0].toString();
 
 

@@ -94,10 +94,11 @@ public final class R {
         public static final int counterLabelTextView=0x7f090002;
         public static final int counterValueTextView=0x7f090004;
         public static final int delPlayerButton=0x7f090016;
+        public static final int editText=0x7f09001d;
         public static final int ipCodeLabel=0x7f09000e;
         public static final int localGameTab=0x7f090008;
         public static final int localTabLayout=0x7f090009;
-        public static final int menu_settings=0x7f09001d;
+        public static final int menu_settings=0x7f09001f;
         public static final int minusButton=0x7f090003;
         public static final int playGameButton=0x7f090007;
         public static final int playerNameEditText=0x7f090014;
@@ -110,6 +111,7 @@ public final class R {
         public static final int remoteNameEditText=0x7f090018;
         public static final int remoteTabLayout=0x7f09000b;
         public static final int remote_player_spinner=0x7f090019;
+        public static final int runTestButton=0x7f09001e;
         public static final int saveConfigButton=0x7f090006;
         public static final int serverIPCode=0x7f09001a;
         public static final int tabHost=0x7f090005;
