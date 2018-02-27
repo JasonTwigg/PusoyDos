@@ -91,7 +91,6 @@ public class SJState extends GameState
      */
     public Deck getDeck(int num) {
         if (num < 0 || num > 4) return null;
-
         return piles[num];
     }
     
