@@ -43,16 +43,19 @@ public class SJState extends GameState
     	// - each player deck (#0 and #1) gets half the cards, randomly
     	//   selected
     	// - the middle deck (#2) is empty
-    	piles = new Deck[3];
+    	piles = new Deck[5];
     	piles[0] = new Deck(); // create empty deck
     	piles[1] = new Deck(); // create empty deck
     	piles[2] = new Deck(); // create empty deck
-    	piles[toPlay].add52(); // give all cards to player whose turn it is, in order
-    	piles[toPlay].shuffle(); // shuffle the cards
+		piles[3] = new Deck(); // create empty deck
+		piles[4] = new Deck(); // create empty deck
+    	piles[0].add52(); // give all cards to player whose turn it is, in order
+    	piles[0].shuffle(); // shuffle the cards
     	// move cards to opponent, until to piles have ~same size
-    	while (piles[toPlay].size() >=
-    			piles[1-toPlay].size()+1) {
+    	while (piles[0].size() >= 14 ){
+
     		piles[toPlay].moveTopCardTo(piles[1-toPlay]);
+
     	}
     }
     
