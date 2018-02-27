@@ -3,6 +3,7 @@ package edu.up.cs301.pusoydos;
 import android.util.Log;
 import edu.up.cs301.card.Rank;
 import edu.up.cs301.game.GameComputerPlayer;
+import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -86,17 +87,24 @@ public class SJLocalGame extends LocalGame {
 		}
 
 		GamePlayer player = p;
+		int pNum = 0;
 
 		if( p instanceof GameComputerPlayer ){
 
 			player = (GameComputerPlayer)p;
-			p.
+			pNum = ((GameComputerPlayer) p).getPlayerNum();
+
+		}
+		else if( p instanceof GameHumanPlayer ){
+
+			player = (GameHumanPlayer)p;
+			pNum = ((GameHumanPlayer) p).getPlayerNum();
 
 		}
 
 		// make a copy of the state; null out all cards except for the
 		// top card in the middle deck
-		SJState stateForPlayer = new SJState(state); // copy of state
+		SJState stateForPlayer = new SJState(state,pNum); // copy of state
 		stateForPlayer.nullAllButTopOf2(); // put nulls except for visible card
 		
 		// send the modified copy of the state to the player
