@@ -1,4 +1,4 @@
-package edu.up.cs301.slapjack;
+package edu.up.cs301.pusoydos;
 
 import java.io.Serializable;
 import java.util.ArrayList;

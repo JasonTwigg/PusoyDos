@@ -41,7 +41,7 @@ ADDED from D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\src
 		ADDED from D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\src\main\AndroidManifest.xml:14:9-45
 	android:theme
 		ADDED from D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\src\main\AndroidManifest.xml:16:9-40
-activity#edu.up.cs301.slapjack.SJMainActivity
+activity#edu.up.cs301.pusoydos.SJMainActivity
 ADDED from D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\src\main\AndroidManifest.xml:18:9-24:20
 	android:configChanges
 		ADDED from D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\src\main\AndroidManifest.xml:19:13-83

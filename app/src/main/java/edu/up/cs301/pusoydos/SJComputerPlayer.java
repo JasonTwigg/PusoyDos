@@ -1,4 +1,4 @@
-package edu.up.cs301.slapjack;
+package edu.up.cs301.pusoydos;
 
 import android.util.Log;
 import edu.up.cs301.card.Card;
