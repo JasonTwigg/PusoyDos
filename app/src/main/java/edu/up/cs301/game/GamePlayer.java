@@ -32,4 +32,5 @@ public interface GamePlayer {
 	// whether this player supports a GUI
 	public boolean supportsGui();
 
+
 }// interface GamePlayer

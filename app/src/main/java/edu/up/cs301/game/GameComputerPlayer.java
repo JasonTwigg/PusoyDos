@@ -270,6 +270,12 @@ public abstract class GameComputerPlayer implements GamePlayer, Tickable {
 		} catch (InterruptedException e) {
 		}
 	}
+
+	public int getPlayerNum(){
+
+		return playerNum;
+
+	}
 	
 	/**
 	 * Tells whether this player requires a GUI. Since this is a computer

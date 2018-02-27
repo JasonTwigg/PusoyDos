@@ -2,6 +2,7 @@ package edu.up.cs301.pusoydos;
 
 import android.util.Log;
 import edu.up.cs301.card.Rank;
+import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -82,6 +83,15 @@ public class SJLocalGame extends LocalGame {
 		// if there is no state to send, ignore
 		if (state == null) {
 			return;
+		}
+
+		GamePlayer player = p;
+
+		if( p instanceof GameComputerPlayer ){
+
+			player = (GameComputerPlayer)p;
+			p.
+
 		}
 
 		// make a copy of the state; null out all cards except for the
