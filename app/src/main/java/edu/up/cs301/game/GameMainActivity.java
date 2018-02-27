@@ -201,6 +201,7 @@ View.OnClickListener {
 		editText.setText(secondInstance.toString());
 		editText.setText(editText.getText()+fourthInstance.toString());
 
+		/*
 		Log.i("onClick", "just clicked");
 
 		// if the GUI many not have been fully initialized, ignore
@@ -249,7 +250,7 @@ View.OnClickListener {
 				MessageBox.popUpMessage(msg, this);
 			}
 
-		}
+		}*/
 
 	}// onClick
 
