@@ -20,6 +20,8 @@ public class Deck implements Serializable {
 	// the cards in our deck; the last card in the ArrayList is the top card
 	// in the deck
 	private ArrayList<Card> cards;
+
+	private int length;
 	
 	/**
 	 * constructor, creating an empty deck
@@ -231,5 +233,9 @@ public class Deck implements Serializable {
 		// surround by brackets and retuirn
 		rtnVal = "[" + rtnVal + " ]";
 		return rtnVal;
+	}
+
+	public int getLength() {
+		return length;
 	}
 }
