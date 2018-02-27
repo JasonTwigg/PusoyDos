@@ -26,9 +26,10 @@ public class SJState extends GameState
 	// Note that when players receive the state, all but the top card in all piles
 	// are passed as null.
     private Deck[] piles;
+    private int[] pileSizes;
     
     // whose turn is it to turn a card?
-    private int toPlay;
+    private int turnNum;
 
     /**
      * Constructor for objects of class SJState. Initializes for the beginning of the
@@ -37,7 +38,7 @@ public class SJState extends GameState
      */
     public SJState() {
     	// randomly pick the player who starts
-    	toPlay = (int)(2*Math.random());
+    	turnNum = (int)(4*Math.random());
     	
     	// initialize the decks as follows:
     	// - each player deck (#0 and #1) gets half the cards, randomly
@@ -51,10 +52,14 @@ public class SJState extends GameState
 		piles[4] = new Deck(); // create empty deck
     	piles[0].add52(); // give all cards to player whose turn it is, in order
     	piles[0].shuffle(); // shuffle the cards
-    	// move cards to opponent, until to piles have ~same size
+
+
+    	// move cards to opponents, until to piles have ~same size
     	while (piles[0].size() >= 14 ){
 
-    		piles[toPlay].moveTopCardTo(piles[1-toPlay]);
+			piles[0].moveTopCardTo(piles[1]);
+			piles[0].moveTopCardTo(piles[2]);
+			piles[0].moveTopCardTo(piles[3]);
 
     	}
     }
@@ -64,14 +69,18 @@ public class SJState extends GameState
      *  
      * @param orig  the state to be copied
      */
-    public SJState(SJState orig) {
+    public SJState(SJState orig, int playerNun) {
     	// set index of player whose turn it is
-    	toPlay = orig.toPlay;
+    	turnNum = orig.turnNum;
     	// create new deck array, making copy of each deck
-    	piles = new Deck[3];
-    	piles[0] = new Deck(orig.piles[0]);
-    	piles[1] = new Deck(orig.piles[1]);
-    	piles[2] = new Deck(orig.piles[2]);
+    	piles = new Deck[5];
+    	piles[playerNun] = new Deck(orig.piles[playerNun]);
+
+        for( int i = 0; i < 5; i++ ){
+
+            pileSizes[i] = orig.piles[i].size();
+
+        }
     }
     
     /**
@@ -81,7 +90,7 @@ public class SJState extends GameState
      *   index is 2
      */
     public Deck getDeck(int num) {
-        if (num < 0 || num > 2) return null;
+        if (num < 0 || num > 4) return null;
         return piles[num];
     }
     
@@ -91,7 +100,7 @@ public class SJState extends GameState
      * @return the index (0 or 1) of the player whose turn it is.
      */
     public int toPlay() {
-        return toPlay;
+        return turnNum;
     }
     
     /**
@@ -101,7 +110,7 @@ public class SJState extends GameState
      * 		the index of the player whose move it now is
      */
     public void setToPlay(int idx) {
-    	toPlay = idx;
+    	turnNum = idx;
     }
  
     /**

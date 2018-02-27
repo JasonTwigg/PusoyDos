@@ -128,6 +128,7 @@ public final class R {
         public static final int game_player_list_row=0x7f030005;
         public static final int game_remote_tab=0x7f030006;
         public static final int sj_human_player=0x7f030007;
+        public static final int tester=0x7f030008;
     }
     public static final class menu {
         public static final int game_main=0x7f080000;
