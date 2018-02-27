@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -29,6 +30,7 @@ import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 import edu.up.cs301.game.util.IPCoder;
 import edu.up.cs301.game.util.MessageBox;
+import edu.up.cs301.pusoydos.SJState;
 
 /**
  * class GameMainActivity
@@ -79,6 +81,8 @@ View.OnClickListener {
 	// Each of these is initialized to point to various GUI controls
 	TableLayout playerTable = null;
 	ArrayList<TableRow> tableRows = new ArrayList<TableRow>();
+	EditText editText;
+	SJState firstInstance, secondInstance, thirdInstance, fourthInstance;
 
 	/*
 	 * ====================================================================
@@ -141,7 +145,7 @@ View.OnClickListener {
 		super.onCreate(savedInstanceState);
 
 		// Initialize the layout
-		setContentView(R.layout.game_config_main);
+		setContentView(R.layout.tester);
 
 		// create the default configuration for this game
 		this.config = createDefaultConfig();
@@ -175,14 +179,80 @@ View.OnClickListener {
 
 		//-------------------------------------------------------------------------------
 		//set up runTestButton
-
+		Button runTestButton = (Button)findViewById(R.id.runTestButton);
 		//connect runTestButton to listener
-
-
-
+		runTestButton.setOnClickListener(this);
+		editText = (EditText)findViewById(R.id.editText);
 
 
 	}// onCreate
+
+
+
+
+	public void onClick(View button) {
+
+		editText.setText("");
+		firstInstance = new SJState();
+		secondInstance = new SJState( firstInstance, 0 );
+		thirdInstance = new SJState();
+		fourthInstance = new SJState( thirdInstance, 0 );
+
+		editText.setText(secondInstance.toString());
+		editText.setText(editText.getText()+fourthInstance.toString());
+
+		Log.i("onClick", "just clicked");
+
+		// if the GUI many not have been fully initialized, ignore
+		if (justStarted) {
+			return;
+		}
+
+		// Add Player Button
+		if (button.getId() == R.id.addPlayerButton) {
+			addPlayer();
+			this.playerTable.invalidate(); // show the user the change
+		}
+
+		// Delete Player Button
+		else if (button.getId() == R.id.delPlayerButton) {
+			// Search the existing players to find out which delete button got
+			// clicked
+			for (int i = 0; i < this.tableRows.size(); i++) {
+				TableRow row = tableRows.get(i);
+
+				View v = row.findViewById(R.id.delPlayerButton);
+				if (v == button) {
+					// found it! remove from the layout and the list
+					removePlayer(row);
+				}
+			}
+
+		}// else if (delete button)
+
+		//Save Config Button
+		else if (button.getId() == R.id.saveConfigButton) {
+			GameConfig configTemp = scrapeData();
+			if (configTemp.saveConfig(saveFileName(), this)) {
+				MessageBox.popUpMessage("Game configuration saved.", this);
+			}
+			else {
+				MessageBox.popUpMessage("Unable to save game configuration.", this);
+			}
+		}
+
+		//Start Game Button
+		else if (button.getId() == R.id.playGameButton) {
+			String msg = startGame();
+			if (msg != null) {
+				// we have an error message
+				MessageBox.popUpMessage(msg, this);
+			}
+
+		}
+
+	}// onClick
+
 
 	/**
 	 * Returns the name of the configuration save-file.
@@ -483,59 +553,7 @@ View.OnClickListener {
 	 * <p>
 	 * NOTE: With the current layout it could either be a Button or ImageButton.
 	 */
-	public void onClick(View button) {
-		
-		Log.i("onClick", "just clicked");
-		
-		// if the GUI many not have been fully initialized, ignore
-		if (justStarted) {
-			return;
-		}
-		
-		// Add Player Button
-		if (button.getId() == R.id.addPlayerButton) {
-			addPlayer();
-			this.playerTable.invalidate(); // show the user the change
-		}
 
-		// Delete Player Button
-		else if (button.getId() == R.id.delPlayerButton) {
-			// Search the existing players to find out which delete button got
-			// clicked
-			for (int i = 0; i < this.tableRows.size(); i++) {
-				TableRow row = tableRows.get(i);
-
-				View v = row.findViewById(R.id.delPlayerButton);
-				if (v == button) {
-					// found it! remove from the layout and the list
-					removePlayer(row);
-				}
-			}
-
-		}// else if (delete button)
-
-		//Save Config Button
-		else if (button.getId() == R.id.saveConfigButton) {
-			GameConfig configTemp = scrapeData();
-			if (configTemp.saveConfig(saveFileName(), this)) {
-				MessageBox.popUpMessage("Game configuration saved.", this);
-			}
-			else {
-				MessageBox.popUpMessage("Unable to save game configuration.", this);
-			}
-		}
-
-		//Start Game Button
-		else if (button.getId() == R.id.playGameButton) {
-			String msg = startGame();
-			if (msg != null) {
-				// we have an error message
-				MessageBox.popUpMessage(msg, this);
-			}
-
-		}
-
-	}// onClick
 
 	private String startGame() {
 		GameConfig finalConfig = scrapeData();

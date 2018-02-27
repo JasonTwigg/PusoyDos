@@ -84,6 +84,10 @@
         "source": "C:\\Users\\motoyama20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
+        "merged": "C:\\Users\\motoyama20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
+        "source": "C:\\Users\\motoyama20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
+    },
+    {
         "merged": "C:\\Users\\motoyama20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
         "source": "C:\\Users\\motoyama20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
     },

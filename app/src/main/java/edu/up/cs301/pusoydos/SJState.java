@@ -64,7 +64,7 @@ public class SJState extends GameState
      *  
      * @param orig  the state to be copied
      */
-    public SJState(SJState orig) {
+    public SJState(SJState orig, int toPlay) {
     	// set index of player whose turn it is
     	toPlay = orig.toPlay;
     	// create new deck array, making copy of each deck
@@ -127,8 +127,8 @@ public class SJState extends GameState
 
 		String gameInfo = "Player 1 has "+piles[0].getLength()+" cards remaining. \n"
 				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
-				+"Player 1 has "+piles[0].getLength()+" cards remaining. \n"
-				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
+				+"Player 1 has "+piles[2].getLength()+" cards remaining. \n"
+				+"Player 2 has "+piles[3].getLength()+" cards remaining. \n"
 				+"Your cards: "+piles[0].toString();
 
 
