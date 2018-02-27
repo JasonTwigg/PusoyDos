@@ -122,4 +122,16 @@ public class SJState extends GameState
     		piles[2].add(c);
     	}
     }
+
+    public String toString() {
+
+		String gameInfo = "Player 1 has "+piles[0].getLength()+" cards remaining. \n"
+				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
+				+"Player 1 has "+piles[0].getLength()+" cards remaining. \n"
+				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
+				+"Your cards: "+piles[0].toString();
+
+
+		return gameInfo;
+	}
 }

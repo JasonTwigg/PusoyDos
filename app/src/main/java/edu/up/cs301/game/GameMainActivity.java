@@ -173,6 +173,15 @@ View.OnClickListener {
 			}
 		}
 
+		//-------------------------------------------------------------------------------
+		//set up runTestButton
+
+		//connect runTestButton to listener
+
+
+
+
+
 	}// onCreate
 
 	/**
