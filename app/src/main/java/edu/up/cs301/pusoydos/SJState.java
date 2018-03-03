@@ -161,10 +161,12 @@ public class SJState extends GameState
 				Card c = piles[playerNum].getCards().get(pos);
 				if (c.isSelected()) {
 					c.setSelected(false);
+					return "Card " + c.toString() + " was deselected! \n";
 				} else {
 					c.setSelected(true);
+					return "Card " + c.toString() + " was selected! \n";
 				}
-				return "Card " + c.toString() + " was selected! \n";
+
 			}
 
 		}

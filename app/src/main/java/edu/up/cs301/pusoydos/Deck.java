@@ -101,7 +101,7 @@ public class Deck implements Serializable {
 		synchronized(this.cards) {
 			size = this.size();
 			if (size > 0) {
-				c = cards.remove(cards.size()-1);
+				c = cards.remove(position);
 			}
 		}
 
