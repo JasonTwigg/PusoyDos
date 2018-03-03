@@ -178,8 +178,20 @@ public class SJState extends GameState
 
 	public String playCard( int playerNum, int pos ){
 
+		for( Card c : piles[playerNum].getCards() ) {
+
+			if( c.isSelected() == true ) {
+
+				piles[playerNum].moveSelectedCard( piles[4], pos );
+				return "Player " + playerNum + " just played their "+ c.toString()+ "\n";
+
+			}
+
+		}
+
 		return null;
 	}
+
 
 	public String pass( int playerNum, int pos ){
 
