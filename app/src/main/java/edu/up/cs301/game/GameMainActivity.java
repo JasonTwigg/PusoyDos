@@ -224,6 +224,7 @@ View.OnClickListener {
 			//editText.setText(thirdInstance.toString());
 			fourthInstance = new SJState(thirdInstance,0);
 			editText.setText(fourthInstance.toString());
+			editText.setText(thirdInstance.selectCard(0,1));
 
 		}
 

@@ -70,6 +70,7 @@ public class SJState extends GameState
 			piles[0].moveTopCardTo(piles[2]);
 			piles[0].moveTopCardTo(piles[3]);
 
+
     	}
     }
     
@@ -154,29 +155,43 @@ public class SJState extends GameState
 	public String selectCard( int playerNum, int pos ){
 
 		if( playerNum == turnNum ) {
+			Log.i("0","0");
+			if( piles[playerNum].getCards().get(pos) != null) {
+				Log.i("1","1");
+				Card c = piles[playerNum].getCards().get(pos);
+				if (c.isSelected()) {
+					Log.i("2","2");
+					c.setSelected(false);
+					return "Card " + c.toString() + " was deselected! \n";
+				} else {
+					Log.i("3","3");
+					c.setSelected(true);
+					return "Card " + c.toString() + " was selected! \n";
+				}
 
-			Card c = piles[playerNum].getCards().get(pos);
-			if (c.isSelected()) {
-				c.setSelected(false);
-			} else {
-				c.setSelected(true);
 			}
-			return "Card " + c.toString() + " was selected! \n";
 
 		}
-        return null;
 
+		return "ERROR";
 	}
 
 	public String playCard( int playerNum, int pos ){
 
-		for(Card c : piles[playerNum].getCards())
-		{
-			if(c.isSelected());
+		for( Card c : piles[playerNum].getCards() ) {
+
+			if( c.isSelected() == true ) {
+
+				piles[playerNum].moveSelectedCard( piles[4], pos );
+				return "Player " + playerNum + " just played their "+ c.toString()+ "\n";
+
+			}
+
 		}
-        //Hey ladies! <3
+
 		return null;
 	}
+
 
 	public String pass( int playerNum, int pos ){
 
@@ -215,5 +230,9 @@ public class SJState extends GameState
 			turnNum++;
 		}
 
+	}
+
+	public static boolean canPlay( Deck d ){
+		return true;
 	}
 }
