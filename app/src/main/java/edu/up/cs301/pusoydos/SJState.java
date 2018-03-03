@@ -70,7 +70,6 @@ public class SJState extends GameState
 			piles[0].moveTopCardTo(piles[2]);
 			piles[0].moveTopCardTo(piles[3]);
 
-
     	}
     }
     
@@ -156,40 +155,28 @@ public class SJState extends GameState
 
 		if( playerNum == turnNum ) {
 
-			if( piles[playerNum].getCards().get(pos) != null) {
-
-				Card c = piles[playerNum].getCards().get(pos);
-				if (c.isSelected()) {
-					c.setSelected(false);
-					return "Card " + c.toString() + " was deselected! \n";
-				} else {
-					c.setSelected(true);
-					return "Card " + c.toString() + " was selected! \n";
-				}
-
+			Card c = piles[playerNum].getCards().get(pos);
+			if (c.isSelected()) {
+				c.setSelected(false);
+			} else {
+				c.setSelected(true);
 			}
+			return "Card " + c.toString() + " was selected! \n";
 
 		}
+        return null;
 
-		return "ERROR";
 	}
 
 	public String playCard( int playerNum, int pos ){
 
-		for( Card c : piles[playerNum].getCards() ) {
-
-			if( c.isSelected() == true ) {
-
-				piles[playerNum].moveSelectedCard( piles[4], pos );
-				return "Player " + playerNum + " just played their "+ c.toString()+ "\n";
-
-			}
-
+		for(Card c : piles[playerNum].getCards())
+		{
+			if(c.isSelected());
 		}
-
+        //Hey ladies! <3
 		return null;
 	}
-
 
 	public String pass( int playerNum, int pos ){
 
