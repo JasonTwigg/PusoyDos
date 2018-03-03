@@ -155,14 +155,16 @@ public class SJState extends GameState
 	public String selectCard( int playerNum, int pos ){
 
 		if( playerNum == turnNum ) {
-
+			Log.i("0","0");
 			if( piles[playerNum].getCards().get(pos) != null) {
-
+				Log.i("1","1");
 				Card c = piles[playerNum].getCards().get(pos);
 				if (c.isSelected()) {
+					Log.i("2","2");
 					c.setSelected(false);
 					return "Card " + c.toString() + " was deselected! \n";
 				} else {
+					Log.i("3","3");
 					c.setSelected(true);
 					return "Card " + c.toString() + " was selected! \n";
 				}
@@ -216,5 +218,9 @@ public class SJState extends GameState
 			turnNum++;
 		}
 
+	}
+
+	public static boolean canPlay( Deck d ){
+		return true;
 	}
 }
