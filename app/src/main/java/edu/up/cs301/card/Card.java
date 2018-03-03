@@ -34,6 +34,8 @@ public class Card implements Serializable {
     private Rank rank;
     private Suit suit;
 
+	private boolean selected;
+
 	/**
 	 * Constructor for class card
 	 *
@@ -43,6 +45,7 @@ public class Card implements Serializable {
 	public Card(Rank r, Suit s) {
 		rank = r;
 		suit = s;
+		selected = false;
 	}
 
 	/**
@@ -213,6 +216,14 @@ public class Card implements Serializable {
     		R.drawable.card_ks, 
     	},
     };
+
+	public void setSelected( boolean sel){
+		selected = sel;
+	}
+
+	public boolean isSelected(){
+		return selected;
+	}
     
     // the array of card images
     private static Bitmap[][] cardImages = null;

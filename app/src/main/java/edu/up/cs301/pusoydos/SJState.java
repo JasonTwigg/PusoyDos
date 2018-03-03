@@ -35,6 +35,8 @@ public class SJState extends GameState
 
 	private int perspective;
 
+	private boolean[] cardsSelected;
+
     /**
      * Constructor for objects of class SJState. Initializes for the beginning of the
      * game, with a random player as the first to turn card
@@ -149,6 +151,34 @@ public class SJState extends GameState
     	}
     }
 
+	public String selectCard( int playerNum, int pos ){
+
+		if( playerNum == turnNum ) {
+
+			Card c = piles[playerNum].getCards().get(pos);
+			if (c.isSelected()) {
+				c.setSelected(false);
+			} else {
+				c.setSelected(true);
+			}
+			return "Card " + c.toString() + " was selected! \n";
+
+		}
+
+
+	}
+
+	public String playCard( int playerNum, int pos ){
+
+		return null;
+	}
+
+	public String pass( int playerNum, int pos ){
+
+		return null;
+	}
+
+
     public String toString() {
 		String gameInfo = "";
 		if( perspective != 4 ) {
@@ -168,5 +198,17 @@ public class SJState extends GameState
 		}
 
 		return gameInfo;
+	}
+
+	public void changeTurn(){
+
+		if( turnNum == 3 ) {
+
+			turnNum = 0;
+
+		}else{
+			turnNum++;
+		}
+
 	}
 }
