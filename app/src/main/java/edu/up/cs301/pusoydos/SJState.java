@@ -156,8 +156,7 @@ public class SJState extends GameState
 
 	public String selectCard( int playerNum, int pos ){
 
-		currPos = pos;
-    	if( playerNum == turnNum ) {
+		if( playerNum == turnNum ) {
 
 			if( piles[playerNum].getCards().get(pos) != null) {
 
@@ -237,5 +236,9 @@ public class SJState extends GameState
 			turnNum++;
 		}
 
+	}
+
+	public static boolean canPlay( Deck d ){
+		return true;
 	}
 }
