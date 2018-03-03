@@ -149,18 +149,22 @@ View.OnClickListener {
 
 		// create the default configuration for this game
 		this.config = createDefaultConfig();
-		
+
+
 		// if there is a saved configuration, modify the default configuration accordingly
 		if (!this.config.restoreSavedConfig(saveFileName(), this)) {
 			MessageBox.popUpMessage("Error in attempting to read game configuration file.",
 					this);
 		}
+
+
 		
 		if (this.config.isUserModifiable()) { // normal run: user has chance to modify configuration
 
 			// initialize and show the GUI that allows the user to specify the game's
 			// configuration
-			initStarterGui();
+			//remember to uncomment
+			//initStarterGui();
 
 			// hide the soft keyboard, so the that user does not need to dismiss it (which
 			// he would often want to do)
@@ -169,6 +173,8 @@ View.OnClickListener {
 			// allow buttons to interact
 			justStarted = false;
 		}
+
+		/*
 		else { // special run (during debugging?): use the given configuration, unmodified
 			String msg = launchGame(this.config);
 			if (msg != null) {
@@ -184,7 +190,7 @@ View.OnClickListener {
 		runTestButton.setOnClickListener(this);
 		editText = (EditText)findViewById(R.id.editText);
 
-
+		*/
 	}// onCreate
 
 
