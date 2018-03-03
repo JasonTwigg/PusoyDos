@@ -1,5 +1,7 @@
 package edu.up.cs301.pusoydos;
 
+import android.util.Log;
+
 import edu.up.cs301.card.Card;
 import edu.up.cs301.game.infoMsg.GameState;
 
@@ -31,12 +33,17 @@ public class SJState extends GameState
     // whose turn is it to turn a card?
     private int turnNum;
 
+	private int perspective;
+
     /**
      * Constructor for objects of class SJState. Initializes for the beginning of the
      * game, with a random player as the first to turn card
      *  
      */
     public SJState() {
+
+		perspective = 4;
+
     	// randomly pick the player who starts
     	turnNum = (int)(4*Math.random());
     	
@@ -69,18 +76,28 @@ public class SJState extends GameState
      *  
      * @param orig  the state to be copied
      */
-    public SJState(SJState orig, int playerNun) {
+    public SJState(SJState orig, int playerNum) {
     	// set index of player whose turn it is
     	turnNum = orig.turnNum;
     	// create new deck array, making copy of each deck
     	piles = new Deck[5];
-    	piles[playerNun] = new Deck(orig.piles[playerNun]);
 
+
+    	piles[playerNum] = new Deck(orig.piles[playerNum]);
+
+
+		pileSizes = new int[5];
         for( int i = 0; i < 5; i++ ){
 
             pileSizes[i] = orig.piles[i].size();
+			Log.i("Sizes",orig.piles[i].size()+"");
 
         }
+
+		perspective = playerNum;
+
+
+
     }
     
     /**
@@ -133,13 +150,22 @@ public class SJState extends GameState
     }
 
     public String toString() {
+		String gameInfo = "";
+		if( perspective != 4 ) {
+			gameInfo =  "Your cards: " + piles[perspective].toString() + "\n"
+					+ "Player 1 has " + pileSizes[0] + " cards remaining. \n"
+					+ "Player 2 has " + pileSizes[1] + " cards remaining. \n"
+					+ "Player 3 has " + pileSizes[2] + " cards remaining. \n"
+					+ "Player 4 has " + pileSizes[3] + " cards remaining. \n";
 
-		String gameInfo = "Player 1 has "+piles[0].getLength()+" cards remaining. \n"
-				+"Player 2 has "+piles[1].getLength()+" cards remaining. \n"
-				+"Player 1 has "+piles[2].getLength()+" cards remaining. \n"
-				+"Player 2 has "+piles[3].getLength()+" cards remaining. \n"
-				+"Your cards: "+piles[0].toString();
 
+		} else {
+			gameInfo =  "Your cards: " + piles[0].toString();
+			/*gameInfo = "Player 1 has " + piles[0].toString() + "\n"
+					+ "Player 2 has " + piles[1].toString() + "\n"
+					+ "Player 3 has " + piles[2].toString() + "\n"
+					+ "Player 4 has " + piles[3].toString() + "\n";*/
+		}
 
 		return gameInfo;
 	}

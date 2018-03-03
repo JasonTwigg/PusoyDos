@@ -82,6 +82,7 @@ View.OnClickListener {
 	TableLayout playerTable = null;
 	ArrayList<TableRow> tableRows = new ArrayList<TableRow>();
 	EditText editText;
+	private Button runTestButton;
 	SJState firstInstance, secondInstance, thirdInstance, fourthInstance;
 
 	/*
@@ -158,6 +159,8 @@ View.OnClickListener {
 		}
 
 
+
+
 		
 		if (this.config.isUserModifiable()) { // normal run: user has chance to modify configuration
 
@@ -173,6 +176,10 @@ View.OnClickListener {
 			// allow buttons to interact
 			justStarted = false;
 		}
+
+		runTestButton = (Button)findViewById(R.id.runTestButton);
+		runTestButton.setOnClickListener(this);
+		editText = (EditText)findViewById(R.id.editText);
 
 		/*
 		else { // special run (during debugging?): use the given configuration, unmodified
@@ -198,14 +205,27 @@ View.OnClickListener {
 
 	public void onClick(View button) {
 
-		editText.setText("");
-		firstInstance = new SJState();
-		secondInstance = new SJState( firstInstance, 0 );
-		thirdInstance = new SJState();
-		fourthInstance = new SJState( thirdInstance, 0 );
 
-		editText.setText(secondInstance.toString());
-		editText.setText(editText.getText()+fourthInstance.toString());
+		if( button.getId() == runTestButton.getId()) {
+
+			/*
+			editText.setText("");
+			firstInstance = new SJState();
+			secondInstance = new SJState(firstInstance, 0);
+			thirdInstance = new SJState();
+			fourthInstance = new SJState(thirdInstance, 0);
+
+			editText.setText(secondInstance.toString());
+			editText.setText(editText.getText() + fourthInstance.toString());
+			*/
+
+			Log.i("yes","yes");
+			thirdInstance = new SJState();
+			//editText.setText(thirdInstance.toString());
+			fourthInstance = new SJState(thirdInstance,0);
+			editText.setText(fourthInstance.toString());
+
+		}
 
 		/*
 		Log.i("onClick", "just clicked");

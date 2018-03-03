@@ -16,12 +16,14 @@ public class Deck implements Serializable {
 
 	// to satisfy Serializable interface
 	private static final long serialVersionUID = 3216223171210121485L;
-	
+
+
+
 	// the cards in our deck; the last card in the ArrayList is the top card
 	// in the deck
 	private ArrayList<Card> cards;
 
-	private int length;
+
 	
 	/**
 	 * constructor, creating an empty deck
@@ -235,7 +237,8 @@ public class Deck implements Serializable {
 		return rtnVal;
 	}
 
-	public int getLength() {
-		return length;
+	public ArrayList<Card> getCards() {
+		return cards;
 	}
+
 }
