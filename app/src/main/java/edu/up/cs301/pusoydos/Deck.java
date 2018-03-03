@@ -88,6 +88,30 @@ public class Deck implements Serializable {
 		return this;
 	}
 
+	public void moveSelectedCard(Deck targetDeck, int position) {
+
+		// will hold the card
+		Card c = null;
+
+		// size of the first deck
+		int size;
+
+		// indivisibly check the deck for empty, and remove the card, to
+		// avoid a race condition
+		synchronized(this.cards) {
+			size = this.size();
+			if (size > 0) {
+				c = cards.remove(cards.size()-1);
+			}
+		}
+
+		// if the original size was non-zero, add the card to the top of the
+		// target deck
+		if (size > 0) {
+			targetDeck.add(c);
+		}
+	}
+
 	/**
 	 * Moves the top card the current deck to the top of another; does nothing if
 	 * the first deck is empty
