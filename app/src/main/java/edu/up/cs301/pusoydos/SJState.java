@@ -38,6 +38,9 @@ public class SJState extends GameState
 	private boolean[] cardsSelected;
 
 	private int currPos;
+	private int selectedVal;
+	private int totalVal;
+	private int randCenter;
 
     /**
      * Constructor for objects of class SJState. Initializes for the beginning of the
@@ -115,6 +118,7 @@ public class SJState extends GameState
         if (num < 0 || num > 4) return null;
         return piles[num];
     }
+
     
     /**
      * Tells which player's turn it is.
@@ -161,12 +165,14 @@ public class SJState extends GameState
 			if( piles[playerNum].getCards().get(pos) != null) {
 
 				Card c = piles[playerNum].getCards().get(pos);
+				c.getRank();
 				if (c.isSelected()) {
 					c.setSelected(false);
 					return "Card " + c.toString() + " was deselected! \n";
 				} else {
 					c.setSelected(true);
-					return "Card " + c.toString() + " was selected! \n";
+					return "Card " + c.toString() + " was selected! \n" +
+							"The rank of this card is "+ c.getRank().shortName() +". \n";
 				}
 
 			}
@@ -178,18 +184,24 @@ public class SJState extends GameState
 
 	public String playCard( int playerNum ){
 
+		setCenterVal();
 		for( Card c : piles[playerNum].getCards() ) {
 
 			if( c.isSelected() == true ) {
 
-
-				piles[playerNum].moveSelectedCard( piles[4], currPos );
-				return "Player " + (playerNum+1) + " just played their "+ c.toString()+ "\n";
-
+				if( c.getRank().shortName() > randCenter ) {
+					piles[playerNum].moveSelectedCard( piles[4], currPos );
+					changeTurn();
+					//selectedVal++;
+					return "Center value is "+randCenter+" \n"+
+							"Player " + (playerNum+1) + " just played their "+ c.toString()+ "\n";
+				}
+				else {
+					return "Center value is "+randCenter+ "\nILLEGAL MOVE";
+				}
 			}
 
 		}
-
 		return "ERROR \n";
 	}
 
@@ -203,6 +215,7 @@ public class SJState extends GameState
 		return playerPassed;
 
 	}
+
 
 
     public String toString() {
@@ -238,7 +251,28 @@ public class SJState extends GameState
 
 	}
 
-	public static boolean canPlay( Deck d ){
-		return true;
+	public boolean canPlay( Card c ){
+
+		int value = c.getRank().shortName();
+		if( value > totalVal ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public int centerDeckVal( Deck d ) {
+
+		for( Card c : d.getCards() ) {
+			totalVal = c.getRank().shortName()+totalVal;
+		}
+
+		return totalVal;
+	}
+
+	public int setCenterVal() {
+
+		randCenter = (int) (Math.random()*9+1);
+		return randCenter;
 	}
 }

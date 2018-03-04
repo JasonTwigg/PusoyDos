@@ -221,22 +221,16 @@ View.OnClickListener {
 
 			Log.i("yes","yes");
 			thirdInstance = new SJState();
-			//editText.setText(thirdInstance.toString());
-
-
 
 			editText.setText( thirdInstance.selectCard(0, 3) );
-
 			editText.setText(editText.getText() + thirdInstance.playCard(0 ) );
-
 			editText.setText( editText.getText() + thirdInstance.passString(0 ));
-
 
 
 			fourthInstance = new SJState(thirdInstance,0);
 
-
 			editText.setText(editText.getText()+fourthInstance.toString());
+
 
 		}
 
