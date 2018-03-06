@@ -216,7 +216,7 @@ View.OnClickListener {
 
 			firstInstance = new SJState();
 			secondInstance = new SJState(firstInstance,0);
-
+			editText.setText("");
 			//editText.setText(editText.getText()+firstInstance.toString());
 
 			//editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
@@ -242,10 +242,7 @@ View.OnClickListener {
 
 			editText.setText(editText.getText()+"--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
 
-
 			thirdInstance = new SJState();
-
-
 
 			fourthInstance = new SJState(thirdInstance, 0);
 
@@ -254,7 +251,6 @@ View.OnClickListener {
 
 			editText.setText(editText.getText()+"--FOURTH INSTANCE (Should be Same as Second)--\n");
 			editText.setText(editText.getText()+fourthInstance.toString());
-
 
 		}
 
