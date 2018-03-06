@@ -219,7 +219,7 @@ View.OnClickListener {
 
 			//editText.setText(editText.getText()+firstInstance.toString());
 
-			editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
+			//editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
 
 			//The player who is chosed to play first plays their lowest card(Three of Clubs)
 			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
@@ -240,7 +240,7 @@ View.OnClickListener {
 
 			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 
-			editText.setText("--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
+			editText.setText(editText.getText()+"--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
 
 
 			thirdInstance = new SJState();
@@ -249,10 +249,10 @@ View.OnClickListener {
 
 			fourthInstance = new SJState(thirdInstance, 0);
 
-			editText.setText("--SECOND INSTANCE--\n" + firstInstance.toString());
+			editText.setText(editText.getText()+"--SECOND INSTANCE (Should be Same as Fourth)--\n");
 			editText.setText(editText.getText()+secondInstance.toString());
 
-			editText.setText("--FOURTH INSTANCE--\n" + firstInstance.toString());
+			editText.setText(editText.getText()+"--FOURTH INSTANCE (Should be Same as Second)--\n");
 			editText.setText(editText.getText()+fourthInstance.toString());
 
 
