@@ -208,17 +208,20 @@ View.OnClickListener {
 
 		if( button.getId() == runTestButton.getId()) {
 
-			/*
-			editText.setText("");
+
+			editText.setText("--FIRST INSTANCE--\n\n");
+
+
+
 			firstInstance = new SJState();
-			secondInstance = new SJState(firstInstance, 0);
-			thirdInstance = new SJState();
-			fourthInstance = new SJState(thirdInstance, 0);
 
-			editText.setText(secondInstance.toString());
-			editText.setText(editText.getText() + fourthInstance.toString());
-			*/
+			//The player who is chosed to play first plays their lowest card(Three of Clubs)
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
 
+			//secondInstance = new SJState(firstInstance);
+
+
+			/*
 			Log.i("yes","yes");
 			thirdInstance = new SJState();
 			//editText.setText(thirdInstance.toString());
@@ -233,11 +236,6 @@ View.OnClickListener {
 			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
 			//editText.setText(editText.getText()+thirdInstance.toString());
 			editText.setText(editText.getText()+thirdInstance.passString(thirdInstance.getTurnNum()));
-			/*editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),1));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),2));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),3));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),4));*/
 
 			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
 			//editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
@@ -245,7 +243,7 @@ View.OnClickListener {
 			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
 			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
 			editText.setText(editText.getText()+thirdInstance.toString());
-
+			*/
 		}
 
 		/*

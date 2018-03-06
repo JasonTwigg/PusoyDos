@@ -15,35 +15,31 @@ import edu.up.cs301.game.infoMsg.GameState;
  * @author Steven R. Vegdahl 
  * @version July 2013
  */
-public class SJState extends GameState
-{
+public class SJState extends GameState {
 	private static final long serialVersionUID = -8269749892027578792L;
 
-    ///////////////////////////////////////////////////
-    // ************** instance variables ************
-    ///////////////////////////////////////////////////
+	///////////////////////////////////////////////////
+	// ************** instance variables ************
+	///////////////////////////////////////////////////
 
 	// the three piles of cards:
-    //  - 0: pile for player 0
-    //  - 1: pile for player 1
-    //  - 2: the "up" pile, where the top card
+	//  - 0: pile for player 0
+	//  - 1: pile for player 1
+	//  - 2: pile for player 2
+	//  - 3: pile for player 3
+	//  - 4: pile that knows all of the player's cards
 	// Note that when players receive the state, all but the top card in all piles
 	// are passed as null.
-    private Deck[] piles;
-    private int[] pileSizes;
+	private Deck[] piles;
+	private int[] pileSizes;
 
-    // whose turn is it to turn a card?
-    private int turnNum;
+	// whose turn is it to turn a card?
+	private int turnNum;
 
 
 	private int perspective;
 
 	private boolean[] cardsSelected;
-
-	private int currPos;
-	private int selectedVal;
-	private int totalVal;
-	private int randCenter;
 
 	private int playerLastPlayed;
 
@@ -58,12 +54,11 @@ public class SJState extends GameState
 
 	boolean isFirst;
 
-    /**
-     * Constructor for objects of class SJState. Initializes for the beginning of the
-     * game, with a random player as the first to turn card
-     *  
-     */
-    public SJState() {
+	/**
+	 * Constructor for objects of class SJState. Initializes for the beginning of the
+	 * game, with a random player as the first to turn card
+	 */
+	public SJState() {
 
 		perspective = 4;
 		modeType = 0;
@@ -72,127 +67,127 @@ public class SJState extends GameState
 		isFirst = true;
 
 
-    	
-    	// initialize the decks as follows:
-    	// - each player deck (#0 and #1) gets half the cards, randomly
-    	//   selected
-    	// - the middle deck (#2) is empty
-    	piles = new Deck[5];
-    	piles[0] = new Deck(); // create empty deck
-    	piles[1] = new Deck(); // create empty deck
-    	piles[2] = new Deck(); // create empty deck
+		// initialize the decks as follows:
+		// - each player deck (#0 and #1) gets half the cards, randomly
+		//   selected
+		// - the middle deck (#2) is empty
+		piles = new Deck[5];
+		piles[0] = new Deck(); // create empty deck
+		piles[1] = new Deck(); // create empty deck
+		piles[2] = new Deck(); // create empty deck
 		piles[3] = new Deck(); // create empty deck
 		piles[4] = new Deck(); // create empty deck
-    	piles[0].add52(); // give all cards to player whose turn it is, in order
-    	piles[0].shuffle(); // shuffle the cards
+		piles[0].add52(); // give all cards to player whose turn it is, in order
+		piles[0].shuffle(); // shuffle the cards
 
 
-    	// move cards to opponents, until to piles have ~same size
-    	while (piles[0].size() >= 14 ){
+		// move cards to opponents, until to piles have ~same size
+		while (piles[0].size() >= 14) {
 
 			piles[0].moveTopCardTo(piles[1]);
 			piles[0].moveTopCardTo(piles[2]);
 			piles[0].moveTopCardTo(piles[3]);
 
 
-    	}
+		}
 
-    	piles[0].sort();
+		piles[0].sort();
 		piles[1].sort();
 		piles[2].sort();
 		piles[3].sort();
 
-		for( int i = 0; i < 4; i++ ) {
-			if( piles[i].getCards().get(12).getPower() == 0 ) {
-				turnNum =i;
+		for (int i = 0; i < 4; i++) {
+			if (piles[i].getCards().get(12).getPower() == 0) {
+				turnNum = i;
 			}
 		}
-    }
-    
-    /**
-     * Copy constructor for objects of class SJState. Makes a copy of the given state
-     *  
-     * @param orig  the state to be copied
-     */
-    public SJState(SJState orig, int playerNum) {
-    	// set index of player whose turn it is
-    	turnNum = orig.turnNum;
-    	// create new deck array, making copy of each deck
-    	piles = new Deck[5];
+	}
+
+	/**
+	 * Copy constructor for objects of class SJState. Makes a copy of the given state
+	 *
+	 * @param orig the state to be copied
+	 */
+	public SJState(SJState orig, int playerNum) {
+		// set index of player whose turn it is
+		turnNum = orig.turnNum;
+		// create new deck array, making copy of each deck
+		piles = new Deck[5];
 
 
-    	piles[playerNum] = new Deck(orig.piles[playerNum]);
+		piles[playerNum] = new Deck(orig.piles[playerNum]);
 
 
 		pileSizes = new int[5];
-        for( int i = 0; i < 5; i++ ){
+		for (int i = 0; i < 5; i++) {
 
-            pileSizes[i] = orig.piles[i].size();
-			Log.i("Sizes",orig.piles[i].size()+"");
+			pileSizes[i] = orig.piles[i].size();
 
-        }
+		}
 
 		perspective = playerNum;
 
+		playerLastPlayed = orig.playerLastPlayed;
+		modeType = orig.modeType;
+		isFirst = orig.isFirst;
 
 
-    }
-    
-    /**
-     * Gives the given deck.
-     * 
-     * @return  the deck for the given player, or the middle deck if the
-     *   index is 2
-     */
-    public Deck getDeck(int num) {
-        if (num < 0 || num > 4) return null;
-        return piles[num];
-    }
+	}
 
-    
-    /**
-     * Tells which player's turn it is.
-     * 
-     * @return the index (0 or 1) of the player whose turn it is.
-     */
-    public int toPlay() {
-        return turnNum;
-    }
-    
-    /**
-     * change whose move it is
-     * 
-     * @param idx
-     * 		the index of the player whose move it now is
-     */
-    public void setToPlay(int idx) {
-    	turnNum = idx;
-    }
- 
-    /**
-     * Replaces all cards with null, except for the top card of deck 2
-     */
-    public void nullAllButTopOf2() {
-    	// see if the middle deck is empty; remove top card from middle deck
-    	boolean empty2 = piles[2].size() == 0;
-    	Card c = piles[2].removeTopCard();
-    	
-    	// set all cards in deck to null
-    	for (Deck d : piles) {
-    		d.nullifyDeck();
-    	}
-    	
-    	// if middle deck had not been empty, add back the top (non-null) card
-    	if (!empty2) {
-    		piles[2].add(c);
-    	}
-    }
+	/**
+	 * Gives the given deck.
+	 *
+	 * @return the deck for the given player, or the middle deck if the
+	 * index is 2
+	 */
+	public Deck getDeck(int num) {
+		if (num < 0 || num > 4) return null;
+		return piles[num];
+	}
 
-	public String selectCard( int playerNum, int pos ){
 
-		if( playerNum == turnNum ) {
+	/**
+	 * Tells which player's turn it is.
+	 *
+	 * @return the index (0 or 1) of the player whose turn it is.
+	 */
+	public int toPlay() {
+		return turnNum;
+	}
 
-			if( piles[playerNum].getCards().get(pos) != null) {
+	/**
+	 * change whose move it is
+	 *
+	 * @param idx the index of the player whose move it now is
+	 */
+	public void setToPlay(int idx) {
+		turnNum = idx;
+	}
+
+	/**
+	 * Replaces all cards with null, except for the top card of deck 2
+	 */
+	public void nullAllButTopOf2() {
+		// see if the middle deck is empty; remove top card from middle deck
+		boolean empty2 = piles[2].size() == 0;
+		Card c = piles[2].removeTopCard();
+
+		// set all cards in deck to null
+		for (Deck d : piles) {
+			d.nullifyDeck();
+		}
+
+		// if middle deck had not been empty, add back the top (non-null) card
+		if (!empty2) {
+			piles[2].add(c);
+		}
+	}
+
+	public String selectCard(int playerNum, int pos) {
+
+		if (playerNum == turnNum) {
+
+			if (piles[playerNum].getCards().get(pos) != null) {
 
 				Card c = piles[playerNum].getCards().get(pos);
 				c.getRank();
@@ -201,18 +196,18 @@ public class SJState extends GameState
 					return "Card " + c.toString() + " was deselected! \n";
 				} else {
 					c.setSelected(true);
-					return "Card " + c.toString() + " was selected by Player "+(playerNum+1)+".\n" +
-							"The rank of this card is "+ c.getRank().shortName() +". \n";
+					return "Card " + c.toString() + " was selected by Player " + (playerNum + 1) + ".\n" +
+							"The rank of this card is " + c.getRank().shortName() + ". \n";
 				}
 
 			}
 
 		}
 
-		return "It is not your turn "+playerNum+". Please stop trying to select a card.\n";
+		return "It is not your turn " + playerNum + ". Please stop trying to select a card.\n";
 	}
 
-	public String playCard( int playerNum ){
+	public String playCard(int playerNum) {
 
 		//setCenterVal();
 
@@ -221,11 +216,11 @@ public class SJState extends GameState
 
 
 		//for( Card c : piles[playerNum].getCards() ) {
-		for( int i = 0; i < piles[playerNum].getCards().size(); i++){
+		for (int i = 0; i < piles[playerNum].getCards().size(); i++) {
 
 			Card c = piles[playerNum].getCards().get(i);
 
-			if( c.isSelected() == true ) {
+			if (c.isSelected() == true) {
 
 				/*
 				piles[playerNum].moveSelectedCard( piles[4], i );
@@ -254,14 +249,14 @@ public class SJState extends GameState
 
 		}
 
-		if( selectedCards.size() > 0 ){
-			if (canPlay(selectedCards) ){
+		if (selectedCards.size() > 0) {
+			if (canPlay(selectedCards)) {
 				String returnValue = "";
 				int count = 0;
-				for(int i = 0; i < selectedCards.size(); i++) {
-					Card c = piles[turnNum].getCards().get(selectedPos.get(i)-count);
-					piles[playerNum].moveSelectedCard(piles[4], selectedPos.get(i)-count);
-					returnValue += "Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
+				for (int i = 0; i < selectedCards.size(); i++) {
+					Card c = piles[turnNum].getCards().get(selectedPos.get(i) - count);
+					piles[playerNum].moveSelectedCard(piles[4], selectedPos.get(i) - count);
+					returnValue += "Player " + (playerNum + 1) + " just played their " + c.toString() + " to the center pile.\n";
 					count++;
 
 				}
@@ -271,33 +266,31 @@ public class SJState extends GameState
 			} else {
 				return "Cannot play selected Cards!\n";
 			}
-		}
-		else {
+		} else {
 			return "No cards selected! \n";
 		}
 
 	}
 
-	public String passString( int playerNum ){
+	public String passString(int playerNum) {
 
 		String playerPassed = "";
-		if(playerNum == turnNum){
+		if (playerNum == turnNum) {
 			changeTurn();
-			playerPassed = "Player " + (playerNum+1) + " passed \n";
-		}else if(playerNum != turnNum){
-			return "It is not your turn Player "+(playerNum+1)+", It is player " + (turnNum+1) + "'s Turn!\n";
+			playerPassed = "Player " + (playerNum + 1) + " passed \n";
+		} else if (playerNum != turnNum) {
+			return "It is not your turn Player " + (playerNum + 1) + ", It is player " + (turnNum + 1) + "'s Turn!\n";
 		}
 		return playerPassed;
 
 	}
 
 
-
-    public String toString() {
+	public String toString() {
 		String gameInfo = "";
-		gameInfo = "Player " + (turnNum+1) +"'s turn.\n";
-		if( perspective != 4 ) {
-			gameInfo +=  "Your cards: " + piles[perspective].toString() + "\n"
+		gameInfo = "Player " + (turnNum + 1) + "'s turn.\n";
+		if (perspective != 4) {
+			gameInfo += "Your cards: " + piles[perspective].toString() + "\n"
 					+ "Player 1 has " + pileSizes[0] + " cards remaining. \n"
 					+ "Player 2 has " + pileSizes[1] + " cards remaining. \n"
 					+ "Player 3 has " + pileSizes[2] + " cards remaining. \n"
@@ -317,22 +310,22 @@ public class SJState extends GameState
 		return gameInfo;
 	}
 
-	public void changeTurn(){
+	public void changeTurn() {
 
-		if( turnNum == 3 ) {
+		if (turnNum == 3) {
 
 			turnNum = 0;
 
-			if( turnNum == playerLastPlayed) {
+			if (turnNum == playerLastPlayed) {
 
 				modeType = 0;
 
 			}
 
-		}else{
+		} else {
 			turnNum++;
 
-			if( turnNum == playerLastPlayed) {
+			if (turnNum == playerLastPlayed) {
 
 				modeType = 0;
 
@@ -343,7 +336,7 @@ public class SJState extends GameState
 
 	}
 
-	public boolean canPlay( ArrayList<Card> Cards ){
+	public boolean canPlay(ArrayList<Card> Cards) {
 
 		int size = Cards.size();
 		int firstCardPower = Cards.get(0).getPower();
@@ -351,63 +344,60 @@ public class SJState extends GameState
 		int[] powers = new int[size];
 
 		int count = 0;
-		for( Card c : Cards){
+		for (Card c : Cards) {
 			powers[count] = c.getPower();
 			count++;
 		}
 
-		if( isFirst ) {
+		if (isFirst) {
 			boolean has3Club = false;
 			for (Card c : Cards) {
-				if( c.getPower() == 0 ){
+				if (c.getPower() == 0) {
 					has3Club = true;
-					isFirst=false;
+					isFirst = false;
 				}
 			}
-			if(!has3Club){
+			if (!has3Club) {
 				return false;
 			}
 		}
 
-		if( size == 1 && (modeType == 0 || modeType == 1) ){
+		if (size == 1 && (modeType == 0 || modeType == 1)) {
 
 
-
-
-			if( piles[4].getCards().size() == 0 ) {
+			if (piles[4].getCards().size() == 0) {
 				modeType = 1;
 				return true;
-			}else if( firstCardPower > piles[4].getCards().get(0).getPower() ){
-				Log.i(firstCardPower+"",piles[4].getCards().get(0).getPower()+"");
+			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
+				Log.i(firstCardPower + "", piles[4].getCards().get(0).getPower() + "");
 				modeType = 1;
 				return true;
 			} else {
 				return false;
 			}
 
-		} else if ( size == 2 && (modeType == 0 || modeType == 2)){
+		} else if (size == 2 && (modeType == 0 || modeType == 2)) {
 
 
-			if(Cards.get(0).getRank() != Cards.get(1).getRank() ){
+			if (Cards.get(0).getRank() != Cards.get(1).getRank()) {
 				return false;
 			}
 
-			if( modeType == 0 ){
+			if (modeType == 0) {
 				return true;
 			}
 
-			if( piles[4].getCards().size() == 0 ) {
+			if (piles[4].getCards().size() == 0) {
 				modeType = 2;
 				return true;
-			}else if( firstCardPower > piles[4].getCards().get(0).getPower() ){
+			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
 				modeType = 2;
 				return true;
 			} else {
 				return false;
 			}
 
-		} else if ( size == 5 && (modeType == 0 || modeType == 3 || modeType == 4 || modeType == 5 )){
-
+		} else if (size == 5 && (modeType == 0 || modeType == 3 || modeType == 4 || modeType == 5)) {
 
 
 			boolean isFlush = true;
@@ -418,27 +408,27 @@ public class SJState extends GameState
 			Card tempCard = Cards.get(0);
 			Card nextCard;
 
-			for(int i = 1; i < 5; i++ ){
+			for (int i = 1; i < 5; i++) {
 
 				nextCard = Cards.get(i);
 				//Check for a straight
-				if( tempCard.getPower()%4 != nextCard.getPower()%4+1 ){
+				if (tempCard.getPower() % 4 != nextCard.getPower() % 4 + 1) {
 
 					isStraight = false;
 
 				}
-                //check for a flush
-				if(tempCard.getSuit() != nextCard.getSuit() ) {
+				//check for a flush
+				if (tempCard.getSuit() != nextCard.getSuit()) {
 					isFlush = false;
 				}
 
-				if(tempCard.getRank() != nextCard.getRank()) {
+				if (tempCard.getRank() != nextCard.getRank()) {
 
-					if(secondChance4) {
+					if (secondChance4) {
 
 						secondChance4 = false;
 
-					}else {
+					} else {
 
 						is4ofKind = false;
 
@@ -450,38 +440,38 @@ public class SJState extends GameState
 			}
 
 
-			if( isStraight){
-				if(modeType == 3 ) {
+			if (isStraight) {
+				if (modeType == 3) {
 					if (Cards.get(0).getPower() > piles[4].getCards().get(4).getPower()) {
 						modeType = 3;
 						return true;
 					}
-				} else if( modeType == 0 ){
+				} else if (modeType == 0) {
 					return true;
 				}
 
 				return false;
-			} else if ( isFlush ){
-				if(modeType == 3 ) {
+			} else if (isFlush) {
+				if (modeType == 3) {
 					return true;
-				} else if( modeType == 4 ){
+				} else if (modeType == 4) {
 					if (Cards.get(0).getPower() > piles[4].getCards().get(4).getPower()) {
 						modeType = 4;
 						return true;
 					}
-				} else if( modeType == 0 ){
+				} else if (modeType == 0) {
 					return true;
 				}
 
 				return false;
-			} else if ( is4ofKind ){
-				if(modeType == 3 || modeType == 4 ) {
+			} else if (is4ofKind) {
+				if (modeType == 3 || modeType == 4) {
 					return true;
-				} else if( modeType == 5 ){
+				} else if (modeType == 5) {
 					if (Cards.get(2).getPower() > piles[4].getCards().get(4).getPower()) ;
 					modeType = 4;
 					return true;
-				} else if( modeType == 0 ){
+				} else if (modeType == 0) {
 					return true;
 				}
 
@@ -498,20 +488,6 @@ public class SJState extends GameState
 
 	}
 
-	public int centerDeckVal( Deck d ) {
-
-		for( Card c : d.getCards() ) {
-			totalVal = c.getRank().shortName()+totalVal;
-		}
-
-		return totalVal;
-	}
-
-	public int setCenterVal() {
-
-		randCenter = (int) (Math.random()*9+1);
-		return randCenter;
-	}
 
 	public Deck[] getPiles() {
 		return piles;
@@ -553,35 +529,6 @@ public class SJState extends GameState
 		this.cardsSelected = cardsSelected;
 	}
 
-	public int getCurrPos() {
-		return currPos;
-	}
 
-	public void setCurrPos(int currPos) {
-		this.currPos = currPos;
-	}
 
-	public int getSelectedVal() {
-		return selectedVal;
-	}
-
-	public void setSelectedVal(int selectedVal) {
-		this.selectedVal = selectedVal;
-	}
-
-	public int getTotalVal() {
-		return totalVal;
-	}
-
-	public void setTotalVal(int totalVal) {
-		this.totalVal = totalVal;
-	}
-
-	public int getRandCenter() {
-		return randCenter;
-	}
-
-	public void setRandCenter(int randCenter) {
-		this.randCenter = randCenter;
-	}
 }
