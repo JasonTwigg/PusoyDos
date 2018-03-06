@@ -130,7 +130,7 @@ public class Card implements Serializable {
 		* H - 2
 		* D - 3
 		*
-		**/
+		*/
 		if( suitValue == 'C'){
 			suitPower = 0;
 		} else if( suitValue == 'S') {
