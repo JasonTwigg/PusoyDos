@@ -8,6 +8,12 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * a move.
  * 
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version 2 July 2001
  */
 public abstract class SJMoveAction extends GameAction {

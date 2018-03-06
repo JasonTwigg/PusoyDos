@@ -23,6 +23,12 @@ import android.graphics.RectF;
  * res/drawable-hdpi project area.
  * 
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version December 2016
  */
 public class Card implements Serializable {

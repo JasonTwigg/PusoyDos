@@ -6,7 +6,13 @@ import java.util.ArrayList;
 /**
  * Suit the suit of a playing card (e.g., Club).
  * 
- * @author Steven R. Vegdahl 
+ * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version December 2016
  */
 public enum Suit implements Serializable {

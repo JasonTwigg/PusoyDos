@@ -22,6 +22,12 @@ import android.os.Looper;
  * 
  * @author Steven R. Vegdahl
  * @author Andrew Nuxoll
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  */
 public abstract class GameComputerPlayer implements GamePlayer, Tickable {

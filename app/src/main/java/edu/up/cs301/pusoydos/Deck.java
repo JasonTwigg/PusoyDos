@@ -9,6 +9,12 @@ import edu.up.cs301.card.Card;
  * Deck class - represents a deck of cards (not necessarily a full one)
  * 
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  *
  */

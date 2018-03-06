@@ -9,9 +9,12 @@ import edu.up.cs301.game.infoMsg.GameState;
  * Contains the state of a Slapjack game.  Sent by the game when
  * a player wants to enquire about the state of the game.  (E.g., to display
  * it, or to help figure out its next move.)
- * 
- * @author Steven R. Vegdahl and Cole Holbrook, Jason Twigg,
- * Tawny Motoyama and Josh Azicate
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  */
 public class SJState extends GameState {
@@ -127,6 +130,15 @@ public class SJState extends GameState {
 
 			pileSizes[i] = orig.piles[i].size();
 
+			/**
+ 			External Citation
+ 			Date: March 3, 2018
+ 			Problem: Not sure of the syntax for a deep copy
+ 			Resource:
+			 //https://stackoverflow.com/questions/64036/
+			 how-do-you-make-a-deep-copy-of-an-object-in-java
+ 			Solution: We used the example code from this post.
+ 			*/
 		}
 	}
 
@@ -262,23 +274,43 @@ public class SJState extends GameState {
 		}
 	}
 
+	/**
+	 * Allows the player to pass instead of selecting any cards
+	 * and playing any cards. They are not allowed to do this
+	 * if they are in control (Game Mode 0)
+	 *
+	 * @param playerNum the index of the player whose move it now is
+	 *
+	 */
 	public String passAction(int playerNum) {
 
 		String playerPassed = "";
-
+		//Making sure it is the player's turn who is tring to pass
 		if (playerNum == turnNum) {
+			//Checks if the player is in control
 			if( isFirst || modeType == 0 ){
+				//Message to tell naughty players they can't pass while in control
 				return "You have Control Player " + (playerNum+1) + ". You cannot Pass!\n";
 			}
+			//Changes the turn to the next player
 			changeTurn();
+			//Message for good players who are passing when they should
 			playerPassed = "Player " + (playerNum + 1) + " passed \n";
 		} else if (playerNum != turnNum) {
+			//An error message for naughty players who are trying to pass on somebody else's turn
 			return "It is not your turn Player " + (playerNum + 1) + ", It is player " + (turnNum + 1) + "'s Turn!\n";
 		}
+		//Returns one of the messages
 		return playerPassed;
 	}
 
-
+	/**
+	 * The method makes it possible to print out who's
+	 * turn it is as well the cards in each player's
+	 * hand. If the perspective is that of the Master
+	 * than everything is showed.
+	 *
+	 */
 	public String toString() {
 		String gameInfo = "";
 		gameInfo = "Player " + (turnNum + 1) + "'s turn.\n";
@@ -289,36 +321,41 @@ public class SJState extends GameState {
 					+ "Player 3 has " + pileSizes[2] + " cards remaining. \n"
 					+ "Player 4 has " + pileSizes[3] + " cards remaining. \n";
 		} else {
-			//gameInfo +=  "Your cards: " + piles[0].toString() +"\n";
-
 			gameInfo += "Player 1 has " + piles[0].toString() + "\n"
 					+ "Player 2 has " + piles[1].toString() + "\n"
 					+ "Player 3 has " + piles[2].toString() + "\n"
 					+ "Player 4 has " + piles[3].toString() + "\n"
 					+ "Middle Pile has " + piles[4].toString() + "\n";
 		}
-
 		return gameInfo;
 	}
 
+	/**
+	 * The method changes the player turn. This rotates through
+	 * the four players in clockwise order. (1->4)
+	 *
+	 */
 	public void changeTurn() {
-
+		//Checks to see if it the last player's turn
 		if (turnNum == 3) {
-
+			//Goes back to the first player
 			turnNum = 0;
-
+			//Checks to see if the turn went all the way
+			//back to the player who played the cads in the center
+			//and if it did gives that player control
 			if (turnNum == playerLastPlayed) {
 
 				modeType = 0;
 			}
-
+		//Moves the player turn from 0 to 1, 1 to 2 or 2 to 3.
 		} else {
 			turnNum++;
-
+			//Checks to see if the turn went all the way
+			//back to the player who played the cads in the center
+			//and if it did gives that player control
 			if (turnNum == playerLastPlayed) {
 
 				modeType = 0;
-
 			}
 		}
 	}

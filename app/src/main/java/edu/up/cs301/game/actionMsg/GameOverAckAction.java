@@ -5,7 +5,9 @@ import edu.up.cs301.game.GamePlayer;
 /**
  * An action by which the player acknowledges that the game is over.
  *
- * @author Steven R. Vegdahl 
+ * @author Steven R. Vegdahl
+ *
+ *
  * @version July 2013
  */
 public class GameOverAckAction extends GameAction {

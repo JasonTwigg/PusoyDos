@@ -6,7 +6,11 @@ import edu.up.cs301.game.GamePlayer;
  * A SJPlayAction is an action that represents playing a card on the "up"
  * pile.
  * 
- * @author Steven R. Vegdahl
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version 31 July 2002
  */
 public class SJPlayAction extends SJMoveAction

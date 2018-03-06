@@ -14,6 +14,12 @@ import android.graphics.Color;
  * this is the primary activity for Slapjack game
  * 
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  */
 public class SJMainActivity extends GameMainActivity {

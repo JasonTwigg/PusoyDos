@@ -26,6 +26,12 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * skinny.
  * 
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  */
 public class SJHumanPlayer extends GameHumanPlayer implements Animator {

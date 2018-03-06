@@ -40,6 +40,12 @@ import edu.up.cs301.pusoydos.SJState;
  * 
  * @author Andrew M. Nuxoll
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @date Version 2013
  */
 public abstract class GameMainActivity extends Activity implements

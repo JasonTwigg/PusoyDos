@@ -9,6 +9,12 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * 
  * @author Steven R. Vegdahl
  * @author Andrew M. Nuxoll
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  * @see LocalGame
  * @see ProxyGame
@@ -61,9 +67,6 @@ Step 7: Android Manifest (XML file that is a part of the project; describes ever
 
 
  */
-
-
-
 
 public interface Game {
 	

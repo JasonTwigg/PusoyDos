@@ -13,7 +13,13 @@ import edu.up.cs301.game.config.GameConfig;
  * The LocalGame class for a slapjack game.  Defines and enforces
  * the game rules; handles interactions between players.
  * 
- * @author Steven R. Vegdahl 
+ * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  */
 
