@@ -6,6 +6,15 @@ import edu.up.cs301.card.Card;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
+ External Citation
+ Date: March 3, 2018
+ Problem: We weren't sure how to start on the game interface
+ Resource:
+ Nuxoll and Vegdahl
+ Solution: We started out with the code for SlapJack and modified it.
+ */
+
+/**
  * Contains the state of a Slapjack game.  Sent by the game when
  * a player wants to enquire about the state of the game.  (E.g., to display
  * it, or to help figure out its next move.)
@@ -190,6 +199,8 @@ public class SJState extends GameState {
 		}
 	}
 
+
+
 	/**
 	 * Allows the player to select which cards they would like to play
 	 * by changing the boolean value of isSelected()
@@ -302,6 +313,15 @@ public class SJState extends GameState {
 		}
 		//Returns one of the messages
 		return playerPassed;
+
+		/**
+		 External Citation
+		 Date: March 3, 2018
+		 Problem: We forgot the syntax for logical or
+		 Resource:
+		 http://www.cafeaulait.org/course/week2/45.html
+		 Solution: We used the example code from this post.
+		 */
 	}
 
 	/**
