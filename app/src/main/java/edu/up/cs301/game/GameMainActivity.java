@@ -221,16 +221,30 @@ View.OnClickListener {
 
 			Log.i("yes","yes");
 			thirdInstance = new SJState();
-
-			editText.setText( thirdInstance.selectCard(0, 3) );
-			editText.setText(editText.getText() + thirdInstance.playCard(0 ) );
-			editText.setText( editText.getText() + thirdInstance.passString(0 ));
-
-
+			//editText.setText(thirdInstance.toString());
 			fourthInstance = new SJState(thirdInstance,0);
+			editText.setText(fourthInstance.toString());
 
-			editText.setText(editText.getText()+fourthInstance.toString());
+			//editText.setText(thirdInstance.playCard(0));
+			editText.setText((thirdInstance.toString()));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),11));
 
+			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
+			//editText.setText(editText.getText()+thirdInstance.toString());
+			editText.setText(editText.getText()+thirdInstance.passString(thirdInstance.getTurnNum()));
+			/*editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),1));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),2));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),3));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),4));*/
+
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
+			//editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
+			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
+			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
+			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
+			editText.setText(editText.getText()+thirdInstance.toString());
 
 		}
 

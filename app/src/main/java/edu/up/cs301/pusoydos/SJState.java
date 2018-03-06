@@ -2,6 +2,8 @@ package edu.up.cs301.pusoydos;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import edu.up.cs301.card.Card;
 import edu.up.cs301.game.infoMsg.GameState;
 
@@ -33,6 +35,7 @@ public class SJState extends GameState
     // whose turn is it to turn a card?
     private int turnNum;
 
+
 	private int perspective;
 
 	private boolean[] cardsSelected;
@@ -42,6 +45,19 @@ public class SJState extends GameState
 	private int totalVal;
 	private int randCenter;
 
+	private int playerLastPlayed;
+
+
+	// 0 - open hand/control
+	// 1 - singles
+	// 2 - doubles
+	// 3 - hands - straight
+	// 4 - hands - flush
+	// 5 - hands - four of a kind
+	private int modeType;
+
+	boolean isFirst;
+
     /**
      * Constructor for objects of class SJState. Initializes for the beginning of the
      * game, with a random player as the first to turn card
@@ -50,9 +66,12 @@ public class SJState extends GameState
     public SJState() {
 
 		perspective = 4;
+		modeType = 0;
 
-    	// randomly pick the player who starts
-    	turnNum = (int)(4*Math.random());
+
+		isFirst = true;
+
+
     	
     	// initialize the decks as follows:
     	// - each player deck (#0 and #1) gets half the cards, randomly
@@ -77,6 +96,17 @@ public class SJState extends GameState
 
 
     	}
+
+    	piles[0].sort();
+		piles[1].sort();
+		piles[2].sort();
+		piles[3].sort();
+
+		for( int i = 0; i < 4; i++ ) {
+			if( piles[i].getCards().get(12).getPower() == 0 ) {
+				turnNum =i;
+			}
+		}
     }
     
     /**
@@ -171,7 +201,7 @@ public class SJState extends GameState
 					return "Card " + c.toString() + " was deselected! \n";
 				} else {
 					c.setSelected(true);
-					return "Card " + c.toString() + " was selected! \n" +
+					return "Card " + c.toString() + " was selected by Player "+(playerNum+1)+".\n" +
 							"The rank of this card is "+ c.getRank().shortName() +". \n";
 				}
 
@@ -179,30 +209,73 @@ public class SJState extends GameState
 
 		}
 
-		return "ERROR \n";
+		return "It is not your turn "+playerNum+". Please stop trying to select a card.\n";
 	}
 
 	public String playCard( int playerNum ){
 
-		setCenterVal();
-		for( Card c : piles[playerNum].getCards() ) {
+		//setCenterVal();
+
+		ArrayList<Card> selectedCards = new ArrayList<Card>();
+		ArrayList<Integer> selectedPos = new ArrayList<Integer>();
+
+
+		//for( Card c : piles[playerNum].getCards() ) {
+		for( int i = 0; i < piles[playerNum].getCards().size(); i++){
+
+			Card c = piles[playerNum].getCards().get(i);
 
 			if( c.isSelected() == true ) {
 
+				/*
+				piles[playerNum].moveSelectedCard( piles[4], i );
+				changeTurn();
+				return "Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
+				*/
+				/*
 				if( c.getRank().shortName() > randCenter ) {
-					piles[playerNum].moveSelectedCard( piles[4], currPos );
+					piles[playerNum].moveSelectedCard( piles[4], i );
 					changeTurn();
 					//selectedVal++;
 					return "Center value is "+randCenter+" \n"+
-							"Player " + (playerNum+1) + " just played their "+ c.toString()+ "\n";
+							"Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
+
 				}
 				else {
-					return "Center value is "+randCenter+ "\nILLEGAL MOVE";
+					return "Center value is "+randCenter+ ".\nILLEGAL MOVE\n";
 				}
+				*/
+
+				selectedCards.add(c);
+				selectedPos.add(i);
+
+
 			}
 
 		}
-		return "ERROR \n";
+
+		if( selectedCards.size() > 0 ){
+			if (canPlay(selectedCards) ){
+				String returnValue = "";
+				int count = 0;
+				for(int i = 0; i < selectedCards.size(); i++) {
+					Card c = piles[turnNum].getCards().get(selectedPos.get(i)-count);
+					piles[playerNum].moveSelectedCard(piles[4], selectedPos.get(i)-count);
+					returnValue += "Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
+					count++;
+
+				}
+				changeTurn();
+				return returnValue;
+
+			} else {
+				return "Cannot play selected Cards!\n";
+			}
+		}
+		else {
+			return "No cards selected! \n";
+		}
+
 	}
 
 	public String passString( int playerNum ){
@@ -211,6 +284,8 @@ public class SJState extends GameState
 		if(playerNum == turnNum){
 			changeTurn();
 			playerPassed = "Player " + (playerNum+1) + " passed \n";
+		}else if(playerNum != turnNum){
+			return "It is not your turn Player "+(playerNum+1)+", It is player " + (turnNum+1) + "'s Turn!\n";
 		}
 		return playerPassed;
 
@@ -220,8 +295,9 @@ public class SJState extends GameState
 
     public String toString() {
 		String gameInfo = "";
+		gameInfo = "Player " + (turnNum+1) +"'s turn.\n";
 		if( perspective != 4 ) {
-			gameInfo =  "Your cards: " + piles[perspective].toString() + "\n"
+			gameInfo +=  "Your cards: " + piles[perspective].toString() + "\n"
 					+ "Player 1 has " + pileSizes[0] + " cards remaining. \n"
 					+ "Player 2 has " + pileSizes[1] + " cards remaining. \n"
 					+ "Player 3 has " + pileSizes[2] + " cards remaining. \n"
@@ -229,11 +305,13 @@ public class SJState extends GameState
 
 
 		} else {
-			gameInfo =  "Your cards: " + piles[0].toString();
-			/*gameInfo = "Player 1 has " + piles[0].toString() + "\n"
+			//gameInfo +=  "Your cards: " + piles[0].toString() +"\n";
+
+			gameInfo += "Player 1 has " + piles[0].toString() + "\n"
 					+ "Player 2 has " + piles[1].toString() + "\n"
 					+ "Player 3 has " + piles[2].toString() + "\n"
-					+ "Player 4 has " + piles[3].toString() + "\n";*/
+					+ "Player 4 has " + piles[3].toString() + "\n"
+					+ "Middle Pile has " + piles[4].toString() + "\n";
 		}
 
 		return gameInfo;
@@ -245,20 +323,179 @@ public class SJState extends GameState
 
 			turnNum = 0;
 
+			if( turnNum == playerLastPlayed) {
+
+				modeType = 0;
+
+			}
+
 		}else{
 			turnNum++;
+
+			if( turnNum == playerLastPlayed) {
+
+				modeType = 0;
+
+			}
+
+
 		}
 
 	}
 
-	public boolean canPlay( Card c ){
+	public boolean canPlay( ArrayList<Card> Cards ){
 
-		int value = c.getRank().shortName();
-		if( value > totalVal ) {
-			return true;
+		int size = Cards.size();
+		int firstCardPower = Cards.get(0).getPower();
+
+		int[] powers = new int[size];
+
+		int count = 0;
+		for( Card c : Cards){
+			powers[count] = c.getPower();
+			count++;
 		}
 
-		return false;
+		if( isFirst ) {
+			boolean has3Club = false;
+			for (Card c : Cards) {
+				if( c.getPower() == 0 ){
+					has3Club = true;
+					isFirst=false;
+				}
+			}
+			if(!has3Club){
+				return false;
+			}
+		}
+
+		if( size == 1 && (modeType == 0 || modeType == 1) ){
+
+
+
+
+			if( piles[4].getCards().size() == 0 ) {
+				modeType = 1;
+				return true;
+			}else if( firstCardPower > piles[4].getCards().get(0).getPower() ){
+				Log.i(firstCardPower+"",piles[4].getCards().get(0).getPower()+"");
+				modeType = 1;
+				return true;
+			} else {
+				return false;
+			}
+
+		} else if ( size == 2 && (modeType == 0 || modeType == 2)){
+
+
+			if(Cards.get(0).getRank() != Cards.get(1).getRank() ){
+				return false;
+			}
+
+			if( modeType == 0 ){
+				return true;
+			}
+
+			if( piles[4].getCards().size() == 0 ) {
+				modeType = 2;
+				return true;
+			}else if( firstCardPower > piles[4].getCards().get(0).getPower() ){
+				modeType = 2;
+				return true;
+			} else {
+				return false;
+			}
+
+		} else if ( size == 5 && (modeType == 0 || modeType == 3 || modeType == 4 || modeType == 5 )){
+
+
+
+			boolean isFlush = true;
+			boolean isStraight = true;
+			boolean is4ofKind = true;
+			boolean secondChance4 = false;
+
+			Card tempCard = Cards.get(0);
+			Card nextCard;
+
+			for(int i = 1; i < 5; i++ ){
+
+				nextCard = Cards.get(i);
+				//Check for a straight
+				if( tempCard.getPower()%4 != nextCard.getPower()%4+1 ){
+
+					isStraight = false;
+
+				}
+                //check for a flush
+				if(tempCard.getSuit() != nextCard.getSuit() ) {
+					isFlush = false;
+				}
+
+				if(tempCard.getRank() != nextCard.getRank()) {
+
+					if(secondChance4) {
+
+						secondChance4 = false;
+
+					}else {
+
+						is4ofKind = false;
+
+					}
+				}
+
+				tempCard = Cards.get(i);
+
+			}
+
+
+			if( isStraight){
+				if(modeType == 3 ) {
+					if (Cards.get(0).getPower() > piles[4].getCards().get(4).getPower()) {
+						modeType = 3;
+						return true;
+					}
+				} else if( modeType == 0 ){
+					return true;
+				}
+
+				return false;
+			} else if ( isFlush ){
+				if(modeType == 3 ) {
+					return true;
+				} else if( modeType == 4 ){
+					if (Cards.get(0).getPower() > piles[4].getCards().get(4).getPower()) {
+						modeType = 4;
+						return true;
+					}
+				} else if( modeType == 0 ){
+					return true;
+				}
+
+				return false;
+			} else if ( is4ofKind ){
+				if(modeType == 3 || modeType == 4 ) {
+					return true;
+				} else if( modeType == 5 ){
+					if (Cards.get(2).getPower() > piles[4].getCards().get(4).getPower()) ;
+					modeType = 4;
+					return true;
+				} else if( modeType == 0 ){
+					return true;
+				}
+
+				return false;
+			}
+
+			return false;
+
+
+		} else {
+			return false;
+		}
+
+
 	}
 
 	public int centerDeckVal( Deck d ) {
@@ -274,5 +511,77 @@ public class SJState extends GameState
 
 		randCenter = (int) (Math.random()*9+1);
 		return randCenter;
+	}
+
+	public Deck[] getPiles() {
+		return piles;
+	}
+
+	public void setPiles(Deck[] piles) {
+		this.piles = piles;
+	}
+
+	public int[] getPileSizes() {
+		return pileSizes;
+	}
+
+	public void setPileSizes(int[] pileSizes) {
+		this.pileSizes = pileSizes;
+	}
+
+	public int getTurnNum() {
+		return turnNum;
+	}
+
+	public void setTurnNum(int turnNum) {
+		this.turnNum = turnNum;
+	}
+
+	public int getPerspective() {
+		return perspective;
+	}
+
+	public void setPerspective(int perspective) {
+		this.perspective = perspective;
+	}
+
+	public boolean[] getCardsSelected() {
+		return cardsSelected;
+	}
+
+	public void setCardsSelected(boolean[] cardsSelected) {
+		this.cardsSelected = cardsSelected;
+	}
+
+	public int getCurrPos() {
+		return currPos;
+	}
+
+	public void setCurrPos(int currPos) {
+		this.currPos = currPos;
+	}
+
+	public int getSelectedVal() {
+		return selectedVal;
+	}
+
+	public void setSelectedVal(int selectedVal) {
+		this.selectedVal = selectedVal;
+	}
+
+	public int getTotalVal() {
+		return totalVal;
+	}
+
+	public void setTotalVal(int totalVal) {
+		this.totalVal = totalVal;
+	}
+
+	public int getRandCenter() {
+		return randCenter;
+	}
+
+	public void setRandCenter(int randCenter) {
+		this.randCenter = randCenter;
 	}
 }

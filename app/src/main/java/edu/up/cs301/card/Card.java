@@ -34,6 +34,8 @@ public class Card implements Serializable {
     private Rank rank;
     private Suit suit;
 
+	private int power;
+
 	private boolean selected;
 
 	/**
@@ -45,7 +47,9 @@ public class Card implements Serializable {
 	public Card(Rank r, Suit s) {
 		rank = r;
 		suit = s;
+		power = powerCalc();
 		selected = false;
+
 	}
 
 	/**
@@ -56,6 +60,8 @@ public class Card implements Serializable {
 	public Card(Card orig) {
 		rank = orig.rank;
 		suit = orig.suit;
+		power = powerCalc();
+		selected = orig.isSelected();
 	}
 
     /**
@@ -90,6 +96,50 @@ public class Card implements Serializable {
         // card; if either is null, return null
         return r==null || s == null ? null : new Card(r, s);
     }
+
+
+
+
+    public int powerCalc(){
+
+		int rankValue = this.rank.value(14);
+		char suitValue = suit.shortName();
+
+		int suitPower = 0;
+		int rankPower = 0;
+
+
+		//switch (suit.shortName()){
+
+		if( suitValue == 'C'){
+			suitPower = 0;
+		} else if( suitValue == 'S') {
+			suitPower = 1;
+		} else if(suitValue == 'H') {
+			suitPower = 2;
+		} else {
+			suitPower = 3;
+		}
+
+
+
+
+
+		if( rankValue == 2 ){
+			rankPower=12;
+		} else if( rankValue == 14 ) {
+			rankPower=11;
+		} else {
+			rankPower = rankValue-3;
+		}
+
+		return 4*rankPower+suitPower;
+
+
+
+
+
+	}
 
     /**
      * Produces a textual description of a Card.
@@ -129,7 +179,14 @@ public class Card implements Serializable {
 		return rank.hashCode()*18737 + suit.hashCode()*1737372;
 	}
 
-    /**
+
+
+	public int getPower() {
+		return power;
+	}
+
+
+	/**
      * Draws the card on a Graphics object.  The card is drawn as a
      * white card with a black border.  If the card's rank is numerih, the
      * appropriate number of spots is drawn.  Otherwise the appropriate

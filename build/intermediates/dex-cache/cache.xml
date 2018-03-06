@@ -2,13 +2,31 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Jason\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/coleholbrook/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
+        revision="26.0.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="D:\Users\Jason\Desktop\Spring2018\Object\TeamProject\pusoydos\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_077cd5c4a4b24b851717ddaa4678c86350536c1b.jar" />
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_8c22ffb1ba5c267add4f8ca280da66d953e852cf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8068fd2f7d4c75321687f1ea8fd17649622842b3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8e3be167234772aa1e73cd78878e0bad5006764d">
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f98ce1d1df9d6ab45a92c8c38ed7723d169e4332/classes.dex" />
     </item>
 
 </items>

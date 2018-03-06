@@ -88,6 +88,48 @@ public class Deck implements Serializable {
 		return this;
 	}
 
+	public Deck sort() {
+
+		synchronized (this.cards) {
+			// go through a loop that randomly rearranges the cards
+
+			int max = -1;
+			int maxIdx = 0;
+			int count = 0;
+
+			for (int i = 0; i < cards.size(); i++) {
+				max = -1;
+				maxIdx = 0;
+				for (int j = 0; j < cards.size() - count; j++) {
+
+					Card c = this.cards.get(j);
+
+					if (c.getPower() > max) {
+
+						max = c.getPower();
+						maxIdx = j;
+
+					}
+
+
+				}
+
+
+				this.cards.add(this.cards.get(maxIdx));
+				this.cards.remove(maxIdx);
+
+				count++;
+			}
+
+			return this;
+		}
+
+
+	}
+
+
+
+
 	public void moveSelectedCard(Deck targetDeck, int position) {
 
 		// will hold the card
@@ -251,7 +293,8 @@ public class Deck implements Serializable {
 					rtnVal += " --";
 				}
 				else {
-					rtnVal += " "+c.shortName();
+					rtnVal += " "+c.shortName()+"-";
+                    rtnVal += ""+c.getPower();
 				}
 			}
 		}
