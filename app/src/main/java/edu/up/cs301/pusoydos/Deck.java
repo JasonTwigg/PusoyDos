@@ -73,13 +73,17 @@ public class Deck implements Serializable {
 		// return the deck
 		return this;
 	}
-	
+
 	/**
-	 * 
+	 * Shuffles the cards to be randomized, mimicking if it was shuffled in real life
+	 *
+	 * @return
+	 * 		the deck
 	 */
 	public Deck shuffle() {
 		// synchronize so that we don't have someone trying to modify the
 		// deck as we're modifying it
+
 		synchronized (this.cards) {
 			// go through a loop that randomly rearranges the cards
 			for (int i = cards.size(); i > 1; i--) {
@@ -94,24 +98,43 @@ public class Deck implements Serializable {
 		return this;
 	}
 
+	/**
+	 * Sorts the cards, from high to low, this takes suit and rank into consideration
+	 * It used the card's 'Power' which is set up in the Card Class
+	 *
+	 * @return
+	 * 		the deck
+	 */
 	public Deck sort() {
-
+		// synchronize so that we don't have someone trying to modify the
+		// deck as we're modifying it
 		synchronized (this.cards) {
-			// go through a loop that randomly rearranges the cards
 
+			//setup two ints, one for keeping track of the max value of the cards searched through
+			//and one being its index
 			int max = -1;
 			int maxIdx = 0;
+
+			//integer that keeps track how many times we have gone through the next for loop
 			int count = 0;
 
+			//loop that loops for the amount of cards in the deck
 			for (int i = 0; i < cards.size(); i++) {
+				//everytime before it starts the loop reset the max value and index
 				max = -1;
 				maxIdx = 0;
+
+				//loops through the remaining unsorted cards, once a card is sorted its removed,
+				//therefore we search through one less after each loop
 				for (int j = 0; j < cards.size() - count; j++) {
 
+					//gets the card from that index of the list
 					Card c = this.cards.get(j);
 
+					//checks to see if that card is greater than the max
 					if (c.getPower() > max) {
 
+						//if they are greater, set that as the new max and save its index
 						max = c.getPower();
 						maxIdx = j;
 
@@ -119,12 +142,16 @@ public class Deck implements Serializable {
 
 				}
 
+				//after all of the cards have been gone through, add the max card to end of the list
+				// and remove the old version of that number
 				this.cards.add(this.cards.get(maxIdx));
 				this.cards.remove(maxIdx);
 
+				//increase the count after every loop
 				count++;
 			}
 
+			//returns the now sorted deck at the end
 			return this;
 		}
 
@@ -176,6 +203,7 @@ public class Deck implements Serializable {
 		// indivisibly check the deck for empty, and remove the card, to
 		// avoid a race condition
 		synchronized(this.cards) {
+
 			size = this.size();
 			if (size > 0) {
 				c = cards.remove(cards.size()-1);

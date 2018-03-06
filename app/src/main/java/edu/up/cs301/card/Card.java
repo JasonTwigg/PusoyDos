@@ -105,18 +105,32 @@ public class Card implements Serializable {
 
 
 
-
+	/**
+	 * Creates a Card from a String.  (Can be used instead of the
+	 * constructor.)
+	 *
+	 * @return
+	 * 		An int that represents the power of an individual card
+	 */
     public int powerCalc(){
 
+		// gets tje rank value and suit char of the card
 		int rankValue = this.rank.value(14);
 		char suitValue = suit.shortName();
 
+		//creates two values for the suit and rank power
 		int suitPower = 0;
 		int rankPower = 0;
 
 
-		//switch (suit.shortName()){
-
+		/*set the value of suit power
+		*
+		* C - 0
+		* S - 1
+		* H - 2
+		* D - 3
+		*
+		**/
 		if( suitValue == 'C'){
 			suitPower = 0;
 		} else if( suitValue == 'S') {
@@ -130,7 +144,9 @@ public class Card implements Serializable {
 
 
 
-
+		//Changes the values so that
+		//3 corresponds to 0, 4 to 1 ext.
+		//set ace to 11 and 2 to 12
 		if( rankValue == 2 ){
 			rankPower=12;
 		} else if( rankValue == 14 ) {
@@ -139,11 +155,8 @@ public class Card implements Serializable {
 			rankPower = rankValue-3;
 		}
 
+		//returns 4*rankpower + suitpower this makes each card go in order from 0 to 51
 		return 4*rankPower+suitPower;
-
-
-
-
 
 	}
 
