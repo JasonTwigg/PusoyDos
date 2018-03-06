@@ -11,7 +11,7 @@ import edu.up.cs301.game.config.GamePlayerType;
 import android.graphics.Color;
 
 /**
- * this is the primary activity for Slapjack game
+ * this is the primary activity for pusoyDos game
  * 
  * @author Steven R. Vegdahl
  *
@@ -26,7 +26,7 @@ public class SJMainActivity extends GameMainActivity {
 	
 	public static final int PORT_NUMBER = 4752;
 
-	/** a slapjack game for two players. The default is human vs. computer */
+	/** a pusoydos game for four players. The default is human vs. computer */
 	@Override
 	public GameConfig createDefaultConfig() {
 
@@ -68,8 +68,8 @@ public class SJMainActivity extends GameMainActivity {
 			}
 		});
 
-		// Create a game configuration class for SlapJack
-		GameConfig defaultConfig = new GameConfig(playerTypes, 2, 2, "SlapJack", PORT_NUMBER);
+		// Create a game configuration class for PusoyJack
+		GameConfig defaultConfig = new GameConfig(playerTypes, 2, 2, "PusoyDos", PORT_NUMBER);
 
 		// Add the default players
 		defaultConfig.addPlayer("Human", 0);
