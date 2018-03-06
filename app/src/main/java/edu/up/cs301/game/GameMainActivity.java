@@ -208,42 +208,48 @@ View.OnClickListener {
 
 		if( button.getId() == runTestButton.getId()) {
 
-
-			editText.setText("--FIRST INSTANCE--\n\n");
-
-
-
 			firstInstance = new SJState();
+			secondInstance = new SJState(firstInstance,0);
+
+			//editText.setText(editText.getText()+firstInstance.toString());
+
+			editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
 
 			//The player who is chosed to play first plays their lowest card(Three of Clubs)
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 
-			//secondInstance = new SJState(firstInstance);
+			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),12));
+
+			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
+
+			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),0));
+
+			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
+
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
+
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
+
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
+
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
+
+			editText.setText("--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
 
 
-			/*
-			Log.i("yes","yes");
 			thirdInstance = new SJState();
-			//editText.setText(thirdInstance.toString());
-			fourthInstance = new SJState(thirdInstance,0);
-			editText.setText(fourthInstance.toString());
 
-			//editText.setText(thirdInstance.playCard(0));
-			editText.setText((thirdInstance.toString()));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),11));
 
-			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
-			//editText.setText(editText.getText()+thirdInstance.toString());
-			editText.setText(editText.getText()+thirdInstance.passString(thirdInstance.getTurnNum()));
 
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
-			//editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),12));
-			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
-			editText.setText(editText.getText()+thirdInstance.selectCard(thirdInstance.getTurnNum(),0));
-			editText.setText(editText.getText()+thirdInstance.playCard(thirdInstance.getTurnNum()));
-			editText.setText(editText.getText()+thirdInstance.toString());
-			*/
+			fourthInstance = new SJState(thirdInstance, 0);
+
+			editText.setText("--SECOND INSTANCE--\n" + firstInstance.toString());
+			editText.setText(editText.getText()+secondInstance.toString());
+
+			editText.setText("--FOURTH INSTANCE--\n" + firstInstance.toString());
+			editText.setText(editText.getText()+fourthInstance.toString());
+
+
 		}
 
 		/*

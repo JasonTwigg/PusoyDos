@@ -67,6 +67,7 @@ public class SJState extends GameState {
 		isFirst = true;
 
 
+
 		// initialize the decks as follows:
 		// - each player deck (#0 and #1) gets half the cards, randomly
 		//   selected
@@ -78,7 +79,7 @@ public class SJState extends GameState {
 		piles[3] = new Deck(); // create empty deck
 		piles[4] = new Deck(); // create empty deck
 		piles[0].add52(); // give all cards to player whose turn it is, in order
-		piles[0].shuffle(); // shuffle the cards
+		//piles[0].shuffle(); // shuffle the cards
 
 
 		// move cards to opponents, until to piles have ~same size
@@ -101,6 +102,8 @@ public class SJState extends GameState {
 				turnNum = i;
 			}
 		}
+
+		playerLastPlayed = turnNum;
 	}
 
 	/**
@@ -196,8 +199,7 @@ public class SJState extends GameState {
 					return "Card " + c.toString() + " was deselected! \n";
 				} else {
 					c.setSelected(true);
-					return "Card " + c.toString() + " was selected by Player " + (playerNum + 1) + ".\n" +
-							"The rank of this card is " + c.getRank().shortName() + ". \n";
+					return "Card " + c.toString() + " was selected by Player " + (playerNum + 1) + ".\n";
 				}
 
 			}
@@ -222,24 +224,6 @@ public class SJState extends GameState {
 
 			if (c.isSelected() == true) {
 
-				/*
-				piles[playerNum].moveSelectedCard( piles[4], i );
-				changeTurn();
-				return "Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
-				*/
-				/*
-				if( c.getRank().shortName() > randCenter ) {
-					piles[playerNum].moveSelectedCard( piles[4], i );
-					changeTurn();
-					//selectedVal++;
-					return "Center value is "+randCenter+" \n"+
-							"Player " + (playerNum+1) + " just played their "+ c.toString()+ " to the center pile.\n";
-
-				}
-				else {
-					return "Center value is "+randCenter+ ".\nILLEGAL MOVE\n";
-				}
-				*/
 
 				selectedCards.add(c);
 				selectedPos.add(i);
@@ -260,6 +244,7 @@ public class SJState extends GameState {
 					count++;
 
 				}
+				playerLastPlayed = turnNum;
 				changeTurn();
 				return returnValue;
 
@@ -272,10 +257,16 @@ public class SJState extends GameState {
 
 	}
 
-	public String passString(int playerNum) {
+	public String passAction(int playerNum) {
 
 		String playerPassed = "";
+
+
+
 		if (playerNum == turnNum) {
+			if( isFirst || modeType == 0 ){
+				return "You have Control Player " + (playerNum+1) + ". You cannot Pass!\n";
+			}
 			changeTurn();
 			playerPassed = "Player " + (playerNum + 1) + " passed \n";
 		} else if (playerNum != turnNum) {
