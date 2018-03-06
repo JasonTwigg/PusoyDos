@@ -111,9 +111,7 @@ public class Deck implements Serializable {
 
 					}
 
-
 				}
-
 
 				this.cards.add(this.cards.get(maxIdx));
 				this.cards.remove(maxIdx);
