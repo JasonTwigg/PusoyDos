@@ -1,9 +1,7 @@
 package edu.up.cs301.pusoydos;
 
 import android.util.Log;
-
 import java.util.ArrayList;
-
 import edu.up.cs301.card.Card;
 import edu.up.cs301.game.infoMsg.GameState;
 
@@ -12,7 +10,8 @@ import edu.up.cs301.game.infoMsg.GameState;
  * a player wants to enquire about the state of the game.  (E.g., to display
  * it, or to help figure out its next move.)
  * 
- * @author Steven R. Vegdahl 
+ * @author Steven R. Vegdahl and Cole Holbrook, Jason Twigg,
+ * Tawny Motoyama and Josh Azicate
  * @version July 2013
  */
 public class SJState extends GameState {
@@ -31,19 +30,18 @@ public class SJState extends GameState {
 	// Note that when players receive the state, all but the top card in all piles
 	// are passed as null.
 	private Deck[] piles;
+	//The size of each of the piles
 	private int[] pileSizes;
-
-	// whose turn is it to turn a card?
+	//whose turn is it to turn a card?
 	private int turnNum;
-
-
+	//Integers assigned to each player to represent their perspective of the game
 	private int perspective;
-
+	//A boolean value given to each Card object to tell if it is selected or not
 	private boolean[] cardsSelected;
-
+	//The integer value of the player who just played so that the player turn can be moved.
 	private int playerLastPlayed;
-
-
+	//A boolean value to determine if it the first play of the game
+	boolean isFirst;
 	// 0 - open hand/control
 	// 1 - singles
 	// 2 - doubles
@@ -52,20 +50,22 @@ public class SJState extends GameState {
 	// 5 - hands - four of a kind
 	private int modeType;
 
-	boolean isFirst;
+	///////////////////////////////////////////////////
+	// ********** End of instance variables ********* /
+	///////////////////////////////////////////////////
+
 
 	/**
 	 * Constructor for objects of class SJState. Initializes for the beginning of the
 	 * game, with a random player as the first to turn card
 	 */
 	public SJState() {
-
+		//Perspective of four is the master copy perspective
 		perspective = 4;
-		modeType = 0;
-
-
+		//This means that it is the first turn
 		isFirst = true;
-
+		//Mode zero means that the person playing is in control
+		modeType = 0;
 
 
 		// initialize the decks as follows:
@@ -81,22 +81,21 @@ public class SJState extends GameState {
 		piles[0].add52(); // give all cards to player whose turn it is, in order
 		//piles[0].shuffle(); // shuffle the cards
 
-
-		// move cards to opponents, until to piles have ~same size
+		// deal the cards to opponents, until to piles have ~same size
 		while (piles[0].size() >= 14) {
 
 			piles[0].moveTopCardTo(piles[1]);
 			piles[0].moveTopCardTo(piles[2]);
 			piles[0].moveTopCardTo(piles[3]);
-
-
 		}
-
+		//Sorts each player's hand from high card to low
 		piles[0].sort();
 		piles[1].sort();
 		piles[2].sort();
 		piles[3].sort();
 
+		//This for loop checks to see who has the 3 of Clubs (power of 0)
+		//and makes the first turn theirs
 		for (int i = 0; i < 4; i++) {
 			if (piles[i].getCards().get(12).getPower() == 0) {
 				turnNum = i;
@@ -114,34 +113,27 @@ public class SJState extends GameState {
 	public SJState(SJState orig, int playerNum) {
 		// set index of player whose turn it is
 		turnNum = orig.turnNum;
-		// create new deck array, making copy of each deck
+		// create new deck array, making a deep copy of the deck
 		piles = new Deck[5];
-
-
+		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
-
-
+		//Creates deep copy of each of the data values stored in SJState
+		perspective = playerNum;
+		playerLastPlayed = orig.playerLastPlayed;
+		modeType = orig.modeType;
+		isFirst = orig.isFirst;
 		pileSizes = new int[5];
 		for (int i = 0; i < 5; i++) {
 
 			pileSizes[i] = orig.piles[i].size();
 
 		}
-
-		perspective = playerNum;
-
-		playerLastPlayed = orig.playerLastPlayed;
-		modeType = orig.modeType;
-		isFirst = orig.isFirst;
-
-
 	}
 
 	/**
 	 * Gives the given deck.
 	 *
-	 * @return the deck for the given player, or the middle deck if the
-	 * index is 2
+	 * @return the deck for the given player
 	 */
 	public Deck getDeck(int num) {
 		if (num < 0 || num > 4) return null;
@@ -186,18 +178,27 @@ public class SJState extends GameState {
 		}
 	}
 
+	/**
+	 * Allows the player to select which cards they would like to play
+	 * by changing the boolean value of isSelected()
+	 *
+	 * @param playerNum the index of the player whose move it now is
+	 * @param pos the position of the card being selected
+	 */
 	public String selectCard(int playerNum, int pos) {
-
+		//Makes sure it is actually the players turn
 		if (playerNum == turnNum) {
-
+			//Makes sure there is a card being selected
 			if (piles[playerNum].getCards().get(pos) != null) {
 
+				//Set a card equal to that being chosen
 				Card c = piles[playerNum].getCards().get(pos);
 				c.getRank();
-				if (c.isSelected()) {
+
+				if (c.isSelected()) { //If the card is selected the card is then deselected
 					c.setSelected(false);
 					return "Card " + c.toString() + " was deselected! \n";
-				} else {
+				} else { //If the card is not selected it is now selected
 					c.setSelected(true);
 					return "Card " + c.toString() + " was selected by Player " + (playerNum + 1) + ".\n";
 				}
@@ -205,38 +206,42 @@ public class SJState extends GameState {
 			}
 
 		}
-
+		//Error message for naughty players who try and select a card when it is not their turn.
 		return "It is not your turn " + playerNum + ". Please stop trying to select a card.\n";
 	}
 
+	/**
+	 * Allows the player to play the cards that they currently have selected IF they are
+	 * allowed within the rules
+	 *
+	 * @param playerNum the index of the player whose move it now is
+	 *
+	 */
 	public String playCard(int playerNum) {
-
-		//setCenterVal();
-
+		//Make two array lists, one of cards and the other of
+		//integers. The one of cards is the selected cards of the player
+		//and the one of integers is the index/location of those cards.
 		ArrayList<Card> selectedCards = new ArrayList<Card>();
 		ArrayList<Integer> selectedPos = new ArrayList<Integer>();
 
-
-		//for( Card c : piles[playerNum].getCards() ) {
+		//To loop through the selected cards.
 		for (int i = 0; i < piles[playerNum].getCards().size(); i++) {
 
 			Card c = piles[playerNum].getCards().get(i);
-
+			//Adds to the arrays if the card is selected
 			if (c.isSelected() == true) {
-
 
 				selectedCards.add(c);
 				selectedPos.add(i);
-
-
 			}
-
 		}
-
+		//Makes sure that the array actually has a card in it (there are some selected)
 		if (selectedCards.size() > 0) {
+			//Makes sure that the selected cards are allowed within the rules
 			if (canPlay(selectedCards)) {
 				String returnValue = "";
 				int count = 0;
+				//Moves each of the cards from the player's hand to the center pile
 				for (int i = 0; i < selectedCards.size(); i++) {
 					Card c = piles[turnNum].getCards().get(selectedPos.get(i) - count);
 					piles[playerNum].moveSelectedCard(piles[4], selectedPos.get(i) - count);
@@ -244,24 +249,22 @@ public class SJState extends GameState {
 					count++;
 
 				}
+				//The turn moves to the next player
 				playerLastPlayed = turnNum;
 				changeTurn();
 				return returnValue;
 
-			} else {
+			} else { //Cards selected are not allowed according to the rules so none are played
 				return "Cannot play selected Cards!\n";
 			}
-		} else {
+		} else { //There are not any cards selected therefore none to move
 			return "No cards selected! \n";
 		}
-
 	}
 
 	public String passAction(int playerNum) {
 
 		String playerPassed = "";
-
-
 
 		if (playerNum == turnNum) {
 			if( isFirst || modeType == 0 ){
@@ -273,7 +276,6 @@ public class SJState extends GameState {
 			return "It is not your turn Player " + (playerNum + 1) + ", It is player " + (turnNum + 1) + "'s Turn!\n";
 		}
 		return playerPassed;
-
 	}
 
 
@@ -286,8 +288,6 @@ public class SJState extends GameState {
 					+ "Player 2 has " + pileSizes[1] + " cards remaining. \n"
 					+ "Player 3 has " + pileSizes[2] + " cards remaining. \n"
 					+ "Player 4 has " + pileSizes[3] + " cards remaining. \n";
-
-
 		} else {
 			//gameInfo +=  "Your cards: " + piles[0].toString() +"\n";
 
@@ -310,7 +310,6 @@ public class SJState extends GameState {
 			if (turnNum == playerLastPlayed) {
 
 				modeType = 0;
-
 			}
 
 		} else {
@@ -321,10 +320,7 @@ public class SJState extends GameState {
 				modeType = 0;
 
 			}
-
-
 		}
-
 	}
 
 	public boolean canPlay(ArrayList<Card> Cards) {
