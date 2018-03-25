@@ -91,7 +91,7 @@ public class SJState extends GameState {
 		piles[3] = new Deck(); // create empty deck
 		piles[4] = new Deck(); // create empty deck
 		piles[0].add52(); // give all cards to player whose turn it is, in order
-		//piles[0].shuffle(); // shuffle the cards
+		piles[0].shuffle(); // shuffle the cards
 
 		// deal the cards to opponents, until to piles have ~same size
 		while (piles[0].size() >= 14) {
@@ -443,7 +443,7 @@ public class SJState extends GameState {
 		        set modeType to 1
 			    */
 			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
-				Log.i(firstCardPower + "", piles[4].getCards().get(0).getPower() + "");
+				//Log.i(firstCardPower + "", piles[4].getCards().get(0).getPower() + "");
 				modeType = 1;
 				return true;
 			} else {
