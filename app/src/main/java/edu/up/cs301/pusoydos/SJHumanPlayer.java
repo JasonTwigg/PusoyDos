@@ -230,19 +230,31 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		*/
 
 
-		//draws my cards!!!!!
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
-		int count = 0;
-		for( int i = 0; i < 4; i++ ){
 
-			if( state.getDeck(i) != null ) {
-				if (state.getDeck(i).getCards().size() > 0) {
-					count++;
-				}
-			}
+
+
+
+
+		int rectLeft = 0;
+		int rectRight = 200;
+		int rectTop = 0;
+		int rectBottom = 400;
+
+
+
+		Card c = state.getDeck(playerNum).getCards().get(0);
+		if (c != null) {
+			// if middle card is not empty, draw a set of N card-backs
+			// behind the middle card, so that the user can see the size of
+			// the pile
+			RectF midTopLocation = middlePileTopCardLocation();
+
+			// draw the top card, face-up
+			drawCard(g, new RectF(rectLeft, rectTop, rectRight, rectBottom), c);
 		}
-		g.drawRect(0,0,100*count,100*count,paint);
+
 
 	}
 	
