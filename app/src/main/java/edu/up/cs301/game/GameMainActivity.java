@@ -208,53 +208,68 @@ View.OnClickListener {
 
 
 
-
+	//Click listener for the main button, this will allow us to run the test once the button is clicked
 	public void onClick(View button) {
 
 
 		if( button.getId() == runTestButton.getId()) {
 
+
+			//creates a first instance, using the normal contructor for SJState
 			firstInstance = new SJState();
+
+			//creates the second instance as a deep copy of the first instance, changes in the first
+			//instance should NOT affect the first instance, this is also in the perspective of player 1
 			secondInstance = new SJState(firstInstance,0);
 
+			//clears the editText text
+			editText.setText("");
 			//editText.setText(editText.getText()+firstInstance.toString());
 
 			//editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
 
-			//The player who is chosed to play first plays their lowest card(Three of Clubs)
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-
+			//The player who is chosen to play first selects their lowest card in this case the Three of Clubs
 			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),12));
 
+			//After selecting the card, the player plays his selected card (Three of Clubs)
 			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
 
+			//Now it is the next player's card, they select their highest or first card
 			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),0));
 
+			//The player plays his selected card
 			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
 
+			//The other three players pass, bringing it back to the player who played last
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
+			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 
+			//Because this player was the last to play and everyone skipped he is in control, therefore he cannot skip
+			//The pass action is called anyways to show what will happen if you try passing while in control
 			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
 
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-
+			//The result of the first instance it printed onto the text view, they are displayed in the form
+			//(RankChar,SuitChar-PowerLevel) Where power level is their ranking in the game, 51 being the highest
 			editText.setText(editText.getText()+"--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
 
 
+			//A third instance it created using the normal constructor
 			thirdInstance = new SJState();
 
-
-
+			//The Fourth instance is created as a deep copy of the third instance in the perspect of
+			//player 1
 			fourthInstance = new SJState(thirdInstance, 0);
 
+			//print the second instances, this is in the perspective of player 1
 			editText.setText(editText.getText()+"--SECOND INSTANCE (Should be Same as Fourth)--\n");
 			editText.setText(editText.getText()+secondInstance.toString());
 
+			//prints the fourth instance, this should be equal exactly to the second instance, because
+			//the shuffling method had been removed
 			editText.setText(editText.getText()+"--FOURTH INSTANCE (Should be Same as Second)--\n");
 			editText.setText(editText.getText()+fourthInstance.toString());
-
 
 		}
 
