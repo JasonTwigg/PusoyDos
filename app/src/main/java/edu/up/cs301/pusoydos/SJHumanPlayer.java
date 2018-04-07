@@ -265,9 +265,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		cardPositions = new RectF[deck.size()];
 
-		int cardWidth = width/15;
+		cardWidth = width/15;
 		int cardGap = (int)(width*(.4/deck.size()));
-		int cardHeight = height/6;
+		cardHeight = height/6;
 
 		int rectLeft = (int)(width*.3);
 		int rectRight = rectLeft + cardWidth;
