@@ -53,7 +53,7 @@ public class SJState extends GameState {
 	//The integer value of the player who just played so that the player turn can be moved.
 	private int playerLastPlayed;
 	//A boolean value to determine if it the first play of the game
-	boolean isFirst;
+	private boolean isFirst;
 	// 0 - open hand/control
 	// 1 - singles
 	// 2 - doubles
@@ -399,6 +399,9 @@ public class SJState extends GameState {
 	public boolean canPlay(ArrayList<Card> Cards) {
 
 		int size = Cards.size();
+		if( size == 0 ){
+			return false;
+		}
 		int firstCardPower = Cards.get(0).getPower();
 
         /*
@@ -430,11 +433,12 @@ public class SJState extends GameState {
         //The following considers plays of single cards
 		if (size == 1 && (modeType == 0 || modeType == 1)) {
 
+
             /*
 			If the center pile is empty, and the current player plays a single card,
 			set the modeType to 1
 			*/
-			if (piles[4].getCards().size() == 0) {
+			if (piles[4].getCards().size() == 0 || modeType == 0) {
 				modeType = 1;
 				return true;
                 /*
@@ -459,13 +463,14 @@ public class SJState extends GameState {
 			}
 
 			if (modeType == 0) {
+				modeType = 2;
 				return true;
 			}
 
 			if (piles[4].getCards().size() == 0) {
 				modeType = 2;
 				return true;
-			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
+			} else if (firstCardPower > piles[4].getCards().get(1).getPower()) {
 				modeType = 2;
 				return true;
 			} else {
@@ -534,10 +539,10 @@ public class SJState extends GameState {
                      */
 					return true;
 				}
-                //Otherwise return false (not legal)
+				//Otherwise return false (not legal)
 				return false;
 
-             //To consider plays with a flush
+				//To consider plays with a flush
 			} else if (isFlush) {
 				if (modeType == 3) {
 					return true;
@@ -553,7 +558,7 @@ public class SJState extends GameState {
 				} else if (modeType == 0) {
 					return true;
 				}
-                //Otherwise, return false
+				//Otherwise, return false
 				return false;
 			} else if (is4ofKind) {
 			    /*
@@ -561,7 +566,7 @@ public class SJState extends GameState {
                 because a 4-of-a-kind is higher than all straights or flushes
                 */
 
-        if (modeType == 3 || modeType == 4) {
+				if (modeType == 3 || modeType == 4) {
 					return true;
 				} else if (modeType == 5) {
 					/*
@@ -570,27 +575,31 @@ public class SJState extends GameState {
 				    is greater than the power of the 4 cards that are currently played in the center
 				    pile, the move is legal (return true).
 				    */
-                    if (Cards.get(2).getPower() > piles[4].getCards().get(4).getPower()) ;
-					modeType = 4;
-					return true;
-				} else if (modeType == 0) {
-		        /*
-				If none of the two cases above, but the player is in control, then the play is
-				legal, return true.
-				 */
-                return true;
+					if (Cards.get(2).getPower() > piles[4].getCards().get(2).getPower()) {
+						modeType = 5;
+						return true;
+					} else if (modeType == 0) {
+						/*
+						If none of the two cases above, but the player is in control, then the play is
+						legal, return true.
+						 */
+						return true;
+					}
+
+					return false;
 				}
 
 				return false;
+
+
+			} else {
+				//Otherwise, return false
+				return false;
 			}
-
-			return false;
-
-
 		} else {
-            //Otherwise, return false
-            return false;
-        }
+			return false;
+		}
+
 	}
 
 
