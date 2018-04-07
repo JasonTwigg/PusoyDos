@@ -177,10 +177,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	 */
 	public void tick(Canvas g) {
 
+
 		//tick for player;
 
 		// ignore if we have not yet received the game state
 		if (state == null) return;
+
 
 
 
@@ -243,18 +245,22 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectBottom = 400;
 
 
+		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
+			Card c = state.getDeck(playerNum).getCards().get(i);
+			if (c != null) {
+				// if middle card is not empty, draw a set of N card-backs
+				// behind the middle card, so that the user can see the size of
+				// the pile
+				RectF midTopLocation = middlePileTopCardLocation();
 
-		Card c = state.getDeck(playerNum).getCards().get(0);
-		if (c != null) {
-			// if middle card is not empty, draw a set of N card-backs
-			// behind the middle card, so that the user can see the size of
-			// the pile
-			RectF midTopLocation = middlePileTopCardLocation();
+				// draw the top card, face-up
+				drawCard(g, new RectF(rectLeft, rectTop, rectRight, rectBottom), c);
+				rectLeft+=200;
+				rectRight+=200;
 
-			// draw the top card, face-up
-			drawCard(g, new RectF(rectLeft, rectTop, rectRight, rectBottom), c);
+			}
+
 		}
-
 
 	}
 	
