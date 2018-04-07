@@ -55,6 +55,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	
 	// the background color
 	private int backgroundColor;
+
+	private RectF[] cardPositions;
 	
 	/**
 	 * constructor
@@ -193,6 +195,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 
 
+
+
 		/*// draw the middle card-pile
 		Card c = state.getDeck(2).peekAtTopCard(); // top card in pile
 		if (c != null) {
@@ -239,11 +243,31 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 
 
-		int rectLeft = 0;
-		int rectRight = 200;
-		int rectTop = 0;
-		int rectBottom = 400;
 
+
+		/*
+		double percentLeft = .25;
+		double percentTop = .8;
+		double percentWidth = 0.05;
+		double percentHeight = .1;
+		int rectLeft = (int)(width*(percentLeft));
+		int rectRight = (int)(width*(percentLeft-percentWidth));
+		int rectTop = (int)(height*percentTop);
+		int rectBottom = (int)(height*(percentTop+percentHeight));
+		*/
+
+		Deck deck = state.getDeck(playerNum);
+
+		cardPositions = new RectF[deck.size()];
+
+		int cardWidth = width/15;
+		int cardGap = (int)(width*(.6/deck.size()));
+		int cardHeight = height/6;
+
+		int rectLeft = (int)(width*.2);
+		int rectRight = rectLeft + cardWidth;
+		int rectTop = (int)(height*.8);
+		int rectBottom = rectTop + cardHeight;
 
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
 			Card c = state.getDeck(playerNum).getCards().get(i);
@@ -254,9 +278,15 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				RectF midTopLocation = middlePileTopCardLocation();
 
 				// draw the top card, face-up
-				drawCard(g, new RectF(rectLeft, rectTop, rectRight, rectBottom), c);
-				rectLeft+=200;
-				rectRight+=200;
+
+				cardPositions[i] = new RectF(rectLeft, rectTop, rectRight, rectBottom);
+
+				drawCard(g, cardPositions[i], c);
+				rectLeft+=cardGap;
+				rectRight+=cardGap;
+
+				//rectLeft = (int)(width*(percentLeft*(i+1)));
+				//rectRight = (int)(width*(percentLeft-percentWidth*(i+1)));
 
 			}
 
@@ -280,7 +310,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				(LEFT_BORDER_PERCENT+CARD_WIDTH_PERCENT)*width/100f,
 				(100-VERTICAL_BORDER_PERCENT)*height/100f);
 	}
-	
+
+
+
 	/**
 	 * @return
 	 * 		the rectangle that represents the location on the drawing
