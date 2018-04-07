@@ -89,8 +89,10 @@ public class SJComputerPlayer extends GameComputerPlayer
     	savedState = (SJState)info;
     	
     	// access the state's middle deck
-    	Deck middleDeck = savedState.getDeck(2);
-    	
+    	Deck middleDeck = savedState.getDeck(4);
+
+		//WHERE COMPUTER THINKS
+		/*
     	// look at the top card
     	Card topCard = middleDeck.peekAtTopCard();
     	
@@ -113,5 +115,7 @@ public class SJComputerPlayer extends GameComputerPlayer
         	// submit our move to the game object
         	game.sendAction(new SJPlayAction(this));
     	}
+
+    	*/
     }
 }

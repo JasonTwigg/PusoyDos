@@ -183,21 +183,7 @@ public class SJState extends GameState {
 	/**
 	 * Replaces all cards with null, except for the top card of deck 2
 	 */
-	public void nullAllButTopOf2() {
-		// see if the middle deck is empty; remove top card from middle deck
-		boolean empty2 = piles[2].size() == 0;
-		Card c = piles[2].removeTopCard();
 
-		// set all cards in deck to null
-		for (Deck d : piles) {
-			d.nullifyDeck();
-		}
-
-		// if middle deck had not been empty, add back the top (non-null) card
-		if (!empty2) {
-			piles[2].add(c);
-		}
-	}
 
 
 
