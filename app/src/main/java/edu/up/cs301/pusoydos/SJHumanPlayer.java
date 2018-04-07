@@ -261,14 +261,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		cardPositions = new RectF[deck.size()];
 
 		int cardWidth = width/15;
-		int cardGap = (int)(width*(.4/deck.size()));
+		int cardGap = (int)(width*(.6/deck.size()));
 		int cardHeight = height/6;
 
-		int rectLeft = (int)(width*.3);
+		int rectLeft = (int)(width*.2);
 		int rectRight = rectLeft + cardWidth;
-		int rectTop = (int)(height*.7);
-		int rectTopNonSelected = (int)(height*.8);
-		int rectTopSelected = (int)(height*.75);
+		int rectTop = (int)(height*.8);
 		int rectBottom = rectTop + cardHeight;
 
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
@@ -280,15 +278,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				RectF midTopLocation = middlePileTopCardLocation();
 
 				// draw the top card, face-up
-
-				if(deck.getCards().get(i).isSelected()){
-					rectTop = rectTopSelected;
-					rectBottom = rectTop + cardHeight;
-				} else {
-					rectTop = rectTopNonSelected;
-					rectBottom = rectTop + cardHeight;
-				}
-
 
 				cardPositions[i] = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 
@@ -303,34 +292,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		}
 
-		float deltaX = (float) (cardWidth*.1);
+		this.drawButton(g, "PASS", 600, 750, 800, 850);
+		this.drawButton(g, "PLAY", 1200, 750, 1400, 850);
 
-		//to set LEFT PLAYER card back
-		int rectLeftL = (int)(width*.1);
-		int rectRightL = rectLeftL+cardWidth;
-		int rectTopL = (int)((height*.5)-cardHeight);
-		int rectBottomL = rectTopL+cardHeight;
 
-		RectF cardBackL = new RectF(rectLeftL, rectTopL, rectRightL, rectBottomL);
-		drawCardBacks(g, cardBackL, deltaX, 0.0f, state.getPileSizes()[playerNum]);
 
-		//to set TOP PLAYER card back
-		int rectLeftT = (int)((width*.5)-cardWidth);
-		int rectRightT = rectLeftT+cardWidth;
-		int rectTopT = (int)(height*.1);
-		int rectBottomT = rectTopT+cardHeight;
 
-		RectF cardBackT = new RectF(rectLeftT, rectTopT, rectRightT, rectBottomT);
-		drawCardBacks(g, cardBackT, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-
-		//to set RIGHT PLAYER card back
-		int rectLeftR = (int) (width*.75);
-		int rectRightR = rectLeftR+cardWidth;
-		int rectTopR = (int)((height*.5)-cardHeight);
-		int rectBottomR = rectTopR+cardHeight;
-
-		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
-		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
 
 
 	}
@@ -436,7 +403,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		
 		// determine whether the touch occurred on the top-card of either
 		// the player's pile or the middle pile
-		/*
 		RectF myTopCardLoc = thisPlayerTopCardLocation();
 		RectF middleTopCardLoc = middlePileTopCardLocation();
 		if (myTopCardLoc.contains(x, y)) {
@@ -448,25 +414,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			// it's on the middlel pile: we're slapping a card: send
 			// action to the game
 			game.sendAction(new SJSlapAction(this));
-		}
-		*/
-		int find = -1;
-		Deck myDeck = state.getDeck(playerNum);
-		for( int i = 0; i < myDeck.size(); i++){
-			if(cardPositions[i].contains(x,y)){
-				find = i;
-			}
-		}
-
-		if( find != -1 ){
-			//game.sendAction(new SJSlapAction(this));
-			game.sendAction(new PDSelectAction(this, find));
-			/*
-			if( myDeck.getCards().get(find).isSelected()) {
-				myDeck.getCards().get(find).setSelected(false);
-			} else {
-				myDeck.getCards().get(find).setSelected(true);
-			}*/
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second
@@ -536,5 +483,16 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		
 		// create/return the new rectangle
 		return new RectF(left, top, right, bottom);
+	}
+
+	public void drawButton(Canvas g, String title, float left, float top, float right, float bottom){
+		Paint redPaint = new Paint();
+		redPaint.setColor(Color.RED);
+		Paint blackPaint = new Paint();
+		blackPaint.setColor(Color.BLACK);
+		blackPaint.setTextSize(80);
+		g.drawRect(left, top, right, bottom, redPaint);
+		g.drawText(title, 0, title.length(), left+5, top+70, blackPaint);
+
 	}
 }
