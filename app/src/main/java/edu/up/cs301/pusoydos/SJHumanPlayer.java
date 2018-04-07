@@ -292,6 +292,36 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		}
 
+		float deltaX = (float) (cardWidth*.1);
+
+		//to set LEFT PLAYER card back
+		int rectLeftL = (int)(width*.1);
+		int rectRightL = rectLeftL+cardWidth;
+		int rectTopL = (int)((height*.5)-cardHeight);
+		int rectBottomL = rectTopL+cardHeight;
+
+		RectF cardBackL = new RectF(rectLeftL, rectTopL, rectRightL, rectBottomL);
+		drawCardBacks(g, cardBackL, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+
+		//to set TOP PLAYER card back
+		int rectLeftT = (int)((width*.5)-cardWidth);
+		int rectRightT = rectLeftT+cardWidth;
+		int rectTopT = (int)(height*.1);
+		int rectBottomT = rectTopT+cardHeight;
+
+		RectF cardBackT = new RectF(rectLeftT, rectTopT, rectRightT, rectBottomT);
+		drawCardBacks(g, cardBackT, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+
+		//to set RIGHT PLAYER card back
+		int rectLeftR = (int) (width*.75);
+		int rectRightR = rectLeftR+cardWidth;
+		int rectTopR = (int)((height*.5)-cardHeight);
+		int rectBottomR = rectTopR+cardHeight;
+
+		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
+		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+
+
 	}
 	
 	/**
