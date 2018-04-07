@@ -267,6 +267,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectLeft = (int)(width*.2);
 		int rectRight = rectLeft + cardWidth;
 		int rectTop = (int)(height*.8);
+		int rectTopNonSelected = (int)(height*.8);
+		int rectTopSelected = (int)(height*.7);
 		int rectBottom = rectTop + cardHeight;
 
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
@@ -278,6 +280,15 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				RectF midTopLocation = middlePileTopCardLocation();
 
 				// draw the top card, face-up
+
+				if(deck.getCards().get(i).isSelected()){
+					rectTop = rectTopSelected;
+					rectBottom = rectTop + cardHeight;
+				} else {
+					rectTop = rectTopNonSelected;
+					rectBottom = rectTop + cardHeight;
+				}
+
 
 				cardPositions[i] = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 
@@ -395,6 +406,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		
 		// determine whether the touch occurred on the top-card of either
 		// the player's pile or the middle pile
+		/*
 		RectF myTopCardLoc = thisPlayerTopCardLocation();
 		RectF middleTopCardLoc = middlePileTopCardLocation();
 		if (myTopCardLoc.contains(x, y)) {
@@ -406,6 +418,22 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			// it's on the middlel pile: we're slapping a card: send
 			// action to the game
 			game.sendAction(new SJSlapAction(this));
+		}
+		*/
+		int find = -1;
+		Deck myDeck = state.getDeck(playerNum);
+		for( int i = 0; i < myDeck.size(); i++){
+			if(cardPositions[i].contains(x,y)){
+				find = i;
+			}
+		}
+
+		if( find != -1 ){
+			if( myDeck.getCards().get(find).isSelected()) {
+				myDeck.getCards().get(find).setSelected(false);
+			} else {
+				myDeck.getCards().get(find).setSelected(true);
+			}
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second
