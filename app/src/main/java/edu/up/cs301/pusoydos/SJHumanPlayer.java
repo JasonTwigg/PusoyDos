@@ -62,7 +62,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private int cardWidth,cardGap, cardHeight, width, height;
 	private float deltaX;
 
-	
+
 	/**
 	 * constructor
 	 * 
@@ -244,6 +244,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 
+
+
+
+
+
+
 		/*
 		double percentLeft = .25;
 		double percentTop = .8;
@@ -259,15 +265,15 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		cardPositions = new RectF[deck.size()];
 
-		cardWidth = width/15;
-		cardGap = (int)(width*(.6/deck.size()));
-		cardHeight = height/6;
+		int cardWidth = width/15;
+		int cardGap = (int)(width*(.4/deck.size()));
+		int cardHeight = height/6;
 
-		int rectLeft = (int)(width*.2);
+		int rectLeft = (int)(width*.3);
 		int rectRight = rectLeft + cardWidth;
-		int rectTop = (int)(height*.8);
+		int rectTop = (int)(height*.7);
 		int rectTopNonSelected = (int)(height*.8);
-		int rectTopSelected = (int)(height*.7);
+		int rectTopSelected = (int)(height*.75);
 		int rectBottom = rectTop + cardHeight;
 
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
@@ -503,11 +509,14 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 
 		if( find != -1 ){
+			//game.sendAction(new SJSlapAction(this));
+			game.sendAction(new PDSelectAction(this, find));
+			/*
 			if( myDeck.getCards().get(find).isSelected()) {
 				myDeck.getCards().get(find).setSelected(false);
 			} else {
 				myDeck.getCards().get(find).setSelected(true);
-			}
+			}*/
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second
