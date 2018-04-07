@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -57,6 +58,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private int backgroundColor;
 
 	private RectF[] cardPositions;
+
+	private int cardWidth,cardGap, cardHeight, width, height;
+	private float deltaX;
+
 	
 	/**
 	 * constructor
@@ -189,8 +194,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 
 		// get the height and width of the animation surface
-		int height = surface.getHeight();
-		int width = surface.getWidth();
+		height = surface.getHeight();
+		width = surface.getWidth();
 
 
 
@@ -239,12 +244,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 
-
-
-
-
-
-
 		/*
 		double percentLeft = .25;
 		double percentTop = .8;
@@ -260,9 +259,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		cardPositions = new RectF[deck.size()];
 
-		int cardWidth = width/15;
-		int cardGap = (int)(width*(.6/deck.size()));
-		int cardHeight = height/6;
+		cardWidth = width/15;
+		cardGap = (int)(width*(.6/deck.size()));
+		cardHeight = height/6;
 
 		int rectLeft = (int)(width*.2);
 		int rectRight = rectLeft + cardWidth;
@@ -303,7 +302,46 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		}
 
-		float deltaX = (float) (cardWidth*.1);
+		Paint whitePaint = new Paint();
+		whitePaint.setColor(Color.WHITE);
+		whitePaint.setTextSize(150);
+		whitePaint.setFakeBoldText(true);
+		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+		g.drawText("Pusoy Dos", 50, 150, whitePaint);
+
+
+
+        whitePaint.setTextSize(35);
+
+		deltaX = (float) (cardWidth*.1);
+
+		//to draw card backs for other players
+		int otherPlayer = 0;
+		if( otherPlayer == playerNum ) {
+			otherPlayer++;
+		}
+		drawLeftPlayer(g, otherPlayer, whitePaint);
+		otherPlayer++;
+		if( otherPlayer == playerNum ) {
+			otherPlayer++;
+		}
+		drawTopPlayer(g, otherPlayer, whitePaint);
+		otherPlayer++;
+		if( otherPlayer == playerNum ) {
+			otherPlayer++;
+		}
+		drawRightPlayer(g, otherPlayer, whitePaint);
+
+		if( state.getDeck(4) == null){
+			drawCard(g, middlePileTopCardLocation(), state.getDeck(playerNum).getCards().get(0));
+		}
+
+
+
+
+	}
+
+	public void drawLeftPlayer( Canvas g, int playerNum, Paint textPaint ) {
 
 		//to set LEFT PLAYER card back
 		int rectLeftL = (int)(width*.1);
@@ -313,6 +351,11 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		RectF cardBackL = new RectF(rectLeftL, rectTopL, rectRightL, rectBottomL);
 		drawCardBacks(g, cardBackL, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftL+(cardWidth*.2)), (float) (rectBottomL+(cardHeight*.2)), textPaint);
+
+	}
+
+	public void drawTopPlayer( Canvas g, int playerNum, Paint textPaint ) {
 
 		//to set TOP PLAYER card back
 		int rectLeftT = (int)((width*.5)-cardWidth);
@@ -322,6 +365,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		RectF cardBackT = new RectF(rectLeftT, rectTopT, rectRightT, rectBottomT);
 		drawCardBacks(g, cardBackT, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftT+(cardWidth*.2)), (float) (rectBottomT+(cardHeight*.2)), textPaint);
+	}
+
+	public void drawRightPlayer( Canvas g, int playerNum, Paint textPaint ) {
 
 		//to set RIGHT PLAYER card back
 		int rectLeftR = (int) (width*.75);
@@ -331,8 +378,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
 		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-
-
+		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
 	}
 	
 	/**
@@ -380,12 +426,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private RectF middlePileTopCardLocation() {
 		// near the middle-bottom of the drawing surface, based on the height
 		// and width, and the percentages defined above
-		int height = surface.getHeight();
-		int width = surface.getWidth();
-		float rectLeft = (100-CARD_WIDTH_PERCENT+LEFT_BORDER_PERCENT-RIGHT_BORDER_PERCENT)*width/200;
-		float rectRight = rectLeft + width*CARD_WIDTH_PERCENT/100;
-		float rectTop = (100-VERTICAL_BORDER_PERCENT-CARD_HEIGHT_PERCENT)*height/100f;
-		float rectBottom = (100-VERTICAL_BORDER_PERCENT)*height/100f;
+		float rectLeft = (float) ((width*.5)-(cardWidth*.5));
+		float rectRight = rectLeft+cardWidth;
+		float rectTop = (float) ((height*.5)-(cardHeight*.5));
+		float rectBottom = rectTop+cardHeight;
 		return new RectF(rectLeft, rectTop, rectRight, rectBottom);
 	}
 		
