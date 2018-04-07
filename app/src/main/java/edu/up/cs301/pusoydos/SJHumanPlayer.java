@@ -338,9 +338,17 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 		drawRightPlayer(g, otherPlayer, whitePaint);
 
-		if( state.getDeck(4) == null){
-			drawCard(g, middlePileTopCardLocation(), state.getDeck(playerNum).getCards().get(0));
+		if( (state.getDeck(4) != null) && (state.getDeck(4).size()>0)){
+			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(0));
 		}
+		else{
+			RectF emptyCenter = (middlePileTopCardLocation());
+			drawCardBacks(g, emptyCenter, 0, 0, 1);
+		}
+
+
+		this.drawButton(g, "PASS", 600, 750, 800, 850);
+		this.drawButton(g, "PLAY", 1200, 750, 1400, 850);
 
 
 
@@ -385,6 +393,16 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
 		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
 		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
+	}
+
+	public void drawButton( Canvas g, String title, float left, float top, float right, float bottom) {
+		Paint redPaint = new Paint();
+		redPaint.setColor(Color.RED);
+		Paint blackPaint = new Paint();
+		blackPaint.setColor(Color.BLACK);
+		blackPaint.setTextSize(80);
+		g.drawRect(left, top, right, bottom, redPaint);
+		g.drawText(title, 0, title.length(), left+5, top+70, blackPaint);
 	}
 	
 	/**
