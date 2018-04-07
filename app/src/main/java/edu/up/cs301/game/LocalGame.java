@@ -82,6 +82,8 @@ public abstract class LocalGame implements Game, Tickable {
 	 * 			the list of players who are playing in the game
 	 */
 	public void start(GamePlayer[] players) {
+
+
 		// if the game has already started, don't restart
 		if (this.players != null) return;
 		
@@ -116,7 +118,10 @@ public abstract class LocalGame implements Game, Tickable {
 		// at this point the game is running, so set our game stage to be that of
 		// waiting for the players to tell us their names
 		gameStage = GameStage.WAITING_FOR_NAMES;
-		
+		//gameStage = GameStage.DURING_GAME;
+
+
+
 		// start each player, telling them each who their game and playerID are
 		for (int i = 0; i < players.length; i++) {
 			players[i].start();

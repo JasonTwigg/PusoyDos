@@ -176,15 +176,22 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	 * 		the canvas on which we are to draw
 	 */
 	public void tick(Canvas g) {
-		
+
+		//tick for player;
+
 		// ignore if we have not yet received the game state
 		if (state == null) return;
+
+
 
 		// get the height and width of the animation surface
 		int height = surface.getHeight();
 		int width = surface.getWidth();
 
-		// draw the middle card-pile
+
+
+
+		/*// draw the middle card-pile
 		Card c = state.getDeck(2).peekAtTopCard(); // top card in pile
 		if (c != null) {
 			// if middle card is not empty, draw a set of N card-backs
@@ -196,7 +203,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			// draw the top card, face-up
 			drawCard(g, midTopLocation, c);
 		}
-		
+		*/
+
+		/*
 		// draw the opponent's cards, face down
 		RectF oppTopLocation = opponentTopCardLocation(); // drawing size/location
 		drawCardBacks(g, oppTopLocation,
@@ -218,6 +227,23 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 		g.drawRect(turnIndicator, paint);
+		*/
+
+
+		//draws my cards!!!!!
+		Paint paint = new Paint();
+		paint.setColor(Color.RED);
+		int count = 0;
+		for( int i = 0; i < 4; i++ ){
+
+			if( state.getDeck(i) != null ) {
+				if (state.getDeck(i).getCards().size() > 0) {
+					count++;
+				}
+			}
+		}
+		g.drawRect(0,0,100*count,100*count,paint);
+
 	}
 	
 	/**

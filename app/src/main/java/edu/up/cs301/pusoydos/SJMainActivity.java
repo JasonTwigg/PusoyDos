@@ -69,10 +69,12 @@ public class SJMainActivity extends GameMainActivity {
 		});
 
 		// Create a game configuration class for PusoyJack
-		GameConfig defaultConfig = new GameConfig(playerTypes, 2, 2, "PusoyDos", PORT_NUMBER);
+		GameConfig defaultConfig = new GameConfig(playerTypes, 4, 4, "PusoyDos", PORT_NUMBER);
 
 		// Add the default players
 		defaultConfig.addPlayer("Human", 0);
+		defaultConfig.addPlayer("Computer", 2);
+		defaultConfig.addPlayer("Computer", 2);
 		defaultConfig.addPlayer("Computer", 2);
 		
 		// Set the initial information for the remote player

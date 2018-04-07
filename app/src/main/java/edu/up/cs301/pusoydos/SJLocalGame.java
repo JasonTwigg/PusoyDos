@@ -111,7 +111,7 @@ public class SJLocalGame extends LocalGame {
 		// make a copy of the state; null out all cards except for the
 		// top card in the middle deck
 		SJState stateForPlayer = new SJState(state,pNum); // copy of state
-		stateForPlayer.nullAllButTopOf2(); // put nulls except for visible card
+		//stateForPlayer.nullAllButTopOf2(); // put nulls except for visible card
 		
 		// send the modified copy of the state to the player
 		p.sendInfo(stateForPlayer);

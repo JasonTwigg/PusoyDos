@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -30,26 +29,19 @@ import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 import edu.up.cs301.game.util.IPCoder;
 import edu.up.cs301.game.util.MessageBox;
-import edu.up.cs301.pusoydos.SJState;
 
 /**
  * class GameMainActivity
- * 
+ *
  * is the main activity for the game framework. To create a new game, create a
  * sub-class of this class that implements its abstract methods below.
- * 
+ *
  * @author Andrew M. Nuxoll
  * @author Steven R. Vegdahl
- *
- * @author Jason Twigg
- * @author Cole Holbrook
- * @author Tawny Motoyama
- * @author Josh Azicate
- *
  * @date Version 2013
  */
 public abstract class GameMainActivity extends Activity implements
-View.OnClickListener {
+		View.OnClickListener {
 
 	/*
 	 * ====================================================================
@@ -70,7 +62,7 @@ View.OnClickListener {
 
 	// whether the game is over
 	private boolean gameIsOver = false;
-	
+
 	// whether it is so early in the game that the configuration screen may
 	// not have been fully linked to the GUI
 	private boolean justStarted = true;
@@ -87,23 +79,20 @@ View.OnClickListener {
 	// Each of these is initialized to point to various GUI controls
 	TableLayout playerTable = null;
 	ArrayList<TableRow> tableRows = new ArrayList<TableRow>();
-	EditText editText;
-	private Button runTestButton;
-	SJState firstInstance, secondInstance, thirdInstance, fourthInstance;
 
 	/*
 	 * ====================================================================
 	 * Abstract Methods
-	 * 
+	 *
 	 * To create a game using the game framework you must create a subclass of
 	 * GameMainActivity that implements the following methods.
 	 * --------------------------------------------------------------------
 	 */
 	/**
 	 * Creates a default, game-specific configuration for the current game.
-	 * 
+	 *
 	 * IMPORTANT: The default configuration must be a legal configuration!
-	 * 
+	 *
 	 * @return an instance of the GameConfig class that defines a default
 	 *         configuration for this game. (The default may be subsequently
 	 *         modified by the user if this is allowed.)
@@ -112,12 +101,12 @@ View.OnClickListener {
 
 	/**
 	 * createLocalGame
-	 * 
+	 *
 	 * Creates a new game that runs on the server tablet. For example, if
 	 * you were creating tic-tac-toe, you would implement this method to return
 	 * an instance of your TTTLocalGame class which, in turn, would be a
 	 * subclass of {@link LocalGame}.
-	 * 
+	 *
 	 * @return a new, game-specific instance of a sub-class of the LocalGame
 	 *         class.
 	 */
@@ -126,7 +115,7 @@ View.OnClickListener {
 	/**
 	 * Creates a "proxy" game that acts as an intermediary between a local
 	 * player and a game that is somewhere else on the net.
-	 * 
+	 *
 	 * @param hostName
 	 *            the name of the machine where the game resides. (e.g.,
 	 *            "upibmg.egr.up.edu")
@@ -144,7 +133,7 @@ View.OnClickListener {
 	 */
 	/**
 	 * onCreate
-	 * 
+	 *
 	 * "main" for the game framework
 	 */
 	@Override
@@ -152,11 +141,10 @@ View.OnClickListener {
 		super.onCreate(savedInstanceState);
 
 		// Initialize the layout
-		setContentView(R.layout.tester);
+		setContentView(R.layout.game_config_main);
 
 		// create the default configuration for this game
 		this.config = createDefaultConfig();
-
 
 		// if there is a saved configuration, modify the default configuration accordingly
 		if (!this.config.restoreSavedConfig(saveFileName(), this)) {
@@ -164,16 +152,11 @@ View.OnClickListener {
 					this);
 		}
 
-
-
-
-		
 		if (this.config.isUserModifiable()) { // normal run: user has chance to modify configuration
 
 			// initialize and show the GUI that allows the user to specify the game's
 			// configuration
-			//remember to uncomment
-			//initStarterGui();
+			initStarterGui();
 
 			// hide the soft keyboard, so the that user does not need to dismiss it (which
 			// he would often want to do)
@@ -182,12 +165,6 @@ View.OnClickListener {
 			// allow buttons to interact
 			justStarted = false;
 		}
-
-		runTestButton = (Button)findViewById(R.id.runTestButton);
-		runTestButton.setOnClickListener(this);
-		editText = (EditText)findViewById(R.id.editText);
-
-		/*
 		else { // special run (during debugging?): use the given configuration, unmodified
 			String msg = launchGame(this.config);
 			if (msg != null) {
@@ -196,145 +173,16 @@ View.OnClickListener {
 			}
 		}
 
-		//-------------------------------------------------------------------------------
-		//set up runTestButton
-		Button runTestButton = (Button)findViewById(R.id.runTestButton);
-		//connect runTestButton to listener
-		runTestButton.setOnClickListener(this);
-		editText = (EditText)findViewById(R.id.editText);
-
-		*/
 	}// onCreate
-
-
-
-	//Click listener for the main button, this will allow us to run the test once the button is clicked
-	public void onClick(View button) {
-
-
-		if( button.getId() == runTestButton.getId()) {
-
-
-			//creates a first instance, using the normal contructor for SJState
-			firstInstance = new SJState();
-
-			//creates the second instance as a deep copy of the first instance, changes in the first
-			//instance should NOT affect the first instance, this is also in the perspective of player 1
-			secondInstance = new SJState(firstInstance,0);
-
-			//clears the editText text
-			editText.setText("");
-			//editText.setText(editText.getText()+firstInstance.toString());
-
-			//editText.setText("--INITIAL FIRST INSTANCE--\n" + firstInstance.toString());
-
-			//The player who is chosen to play first selects their lowest card in this case the Three of Clubs
-			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),12));
-
-			//After selecting the card, the player plays his selected card (Three of Clubs)
-			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
-
-			//Now it is the next player's card, they select their highest or first card
-			editText.setText(editText.getText()+firstInstance.selectCard(firstInstance.getTurnNum(),0));
-
-			//The player plays his selected card
-			editText.setText(editText.getText()+firstInstance.playCard(firstInstance.getTurnNum()));
-
-			//The other three players pass, bringing it back to the player who played last
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-
-			//Because this player was the last to play and everyone skipped he is in control, therefore he cannot skip
-			//The pass action is called anyways to show what will happen if you try passing while in control
-			editText.setText(editText.getText()+firstInstance.passAction(firstInstance.getTurnNum()));
-
-
-			//The result of the first instance it printed onto the text view, they are displayed in the form
-			//(RankChar,SuitChar-PowerLevel) Where power level is their ranking in the game, 51 being the highest
-			editText.setText(editText.getText()+"--RESULT FIRST INSTANCE--\n" + firstInstance.toString());
-
-
-			//A third instance it created using the normal constructor
-			thirdInstance = new SJState();
-
-			//The Fourth instance is created as a deep copy of the third instance in the perspect of
-			//player 1
-			fourthInstance = new SJState(thirdInstance, 0);
-
-			//print the second instances, this is in the perspective of player 1
-			editText.setText(editText.getText()+"--SECOND INSTANCE (Should be Same as Fourth)--\n");
-			editText.setText(editText.getText()+secondInstance.toString());
-
-			//prints the fourth instance, this should be equal exactly to the second instance, because
-			//the shuffling method had been removed
-			editText.setText(editText.getText()+"--FOURTH INSTANCE (Should be Same as Second)--\n");
-			editText.setText(editText.getText()+fourthInstance.toString());
-
-		}
-
-		/*
-		Log.i("onClick", "just clicked");
-
-		// if the GUI many not have been fully initialized, ignore
-		if (justStarted) {
-			return;
-		}
-
-		// Add Player Button
-		if (button.getId() == R.id.addPlayerButton) {
-			addPlayer();
-			this.playerTable.invalidate(); // show the user the change
-		}
-
-		// Delete Player Button
-		else if (button.getId() == R.id.delPlayerButton) {
-			// Search the existing players to find out which delete button got
-			// clicked
-			for (int i = 0; i < this.tableRows.size(); i++) {
-				TableRow row = tableRows.get(i);
-
-				View v = row.findViewById(R.id.delPlayerButton);
-				if (v == button) {
-					// found it! remove from the layout and the list
-					removePlayer(row);
-				}
-			}
-
-		}// else if (delete button)
-
-		//Save Config Button
-		else if (button.getId() == R.id.saveConfigButton) {
-			GameConfig configTemp = scrapeData();
-			if (configTemp.saveConfig(saveFileName(), this)) {
-				MessageBox.popUpMessage("Game configuration saved.", this);
-			}
-			else {
-				MessageBox.popUpMessage("Unable to save game configuration.", this);
-			}
-		}
-
-		//Start Game Button
-		else if (button.getId() == R.id.playGameButton) {
-			String msg = startGame();
-			if (msg != null) {
-				// we have an error message
-				MessageBox.popUpMessage(msg, this);
-			}
-
-		}*/
-
-	}// onClick
-
 
 	/**
 	 * Returns the name of the configuration save-file.
-	 * 
+	 *
 	 * @return
 	 * 		the name of the configuration file for this application to use
 	 */
 	private String saveFileName() {
-		return "savedConfig"+getPortNumber()+".dat";		
+		return "savedConfig"+getPortNumber()+".dat";
 	}//saveFileName
 
 	/**
@@ -351,7 +199,7 @@ View.OnClickListener {
 
 					// hide the keyboard
 					InputMethodManager inputMethodManager = (InputMethodManager)
-							getSystemService(Context.INPUT_METHOD_SERVICE); 
+							getSystemService(Context.INPUT_METHOD_SERVICE);
 					inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
 							InputMethodManager.RESULT_UNCHANGED_SHOWN);
 				}
@@ -369,7 +217,7 @@ View.OnClickListener {
 //			t.join();
 //		} catch (InterruptedException e) {
 //		}
-		
+
 	}//hideSoftKeyboard
 
 	/**
@@ -399,11 +247,11 @@ View.OnClickListener {
 
 	/**
 	 * Creates the game and players, and starts the game.
-	 * 
+	 *
 	 * @param config
 	 *            is the configuration for this game
 	 * @return
-	 * 			null if the launch was successful; otherwise a message telling 
+	 * 			null if the launch was successful; otherwise a message telling
 	 * 			why game could not be launched
 	 */
 	private final String launchGame(GameConfig config) {
@@ -502,7 +350,7 @@ View.OnClickListener {
 		remoteTabSpec.setIndicator(remoteTabString());
 		tabHost.addTab(localTabSpec);
 		tabHost.addTab(remoteTabSpec);
-		
+
 		// make sure the current tab is the right one
 		tabHost.setCurrentTab(config.isLocal() ? 0 : 1);
 
@@ -512,13 +360,13 @@ View.OnClickListener {
 	 * initialize the rows in the player table
 	 */
 	protected void initTableRows() {
-		
+
 		// save away the information about whether we're on the local tab;
 		// set things temporarily ab being true so that the rows end up in
 		// the first tab
 		boolean savedIsLocal = config.isLocal();
 		config.setLocal(true);
-		
+
 		// put a row in the table for each player in the config
 		this.playerTable = (TableLayout) findViewById(R.id.configTableLayout);
 		int numPlayers = config.getNumPlayers();
@@ -548,9 +396,9 @@ View.OnClickListener {
 			// set up our spinner so that when its last element ("Network Player") is selected,
 			// the corresponding EditText (the player name) is disabled.
 			typeSpinner.setOnItemSelectedListener(new SpinnerListListener(playerName, availTypes.length-1));
-			
+
 		}// for
-		
+
 		// restore the 'isLocal' property of the configuration object
 		config.setLocal(savedIsLocal);
 
@@ -579,7 +427,7 @@ View.OnClickListener {
 
 	/**
 	 * places the data from this.config into the GUI.
-	 * 
+	 *
 	 */
 	protected void initStarterGui() {
 		// do nothing without a game config
@@ -622,11 +470,63 @@ View.OnClickListener {
 
 	/**
 	 * this method is called whenever the user clicks on a button.
-	 * 
+	 *
 	 * <p>
 	 * NOTE: With the current layout it could either be a Button or ImageButton.
 	 */
+	public void onClick(View button) {
 
+		Log.i("onClick", "just clicked");
+
+		// if the GUI many not have been fully initialized, ignore
+		if (justStarted) {
+			return;
+		}
+
+		// Add Player Button
+		if (button.getId() == R.id.addPlayerButton) {
+			addPlayer();
+			this.playerTable.invalidate(); // show the user the change
+		}
+
+		// Delete Player Button
+		else if (button.getId() == R.id.delPlayerButton) {
+			// Search the existing players to find out which delete button got
+			// clicked
+			for (int i = 0; i < this.tableRows.size(); i++) {
+				TableRow row = tableRows.get(i);
+
+				View v = row.findViewById(R.id.delPlayerButton);
+				if (v == button) {
+					// found it! remove from the layout and the list
+					removePlayer(row);
+				}
+			}
+
+		}// else if (delete button)
+
+		//Save Config Button
+		else if (button.getId() == R.id.saveConfigButton) {
+			GameConfig configTemp = scrapeData();
+			if (configTemp.saveConfig(saveFileName(), this)) {
+				MessageBox.popUpMessage("Game configuration saved.", this);
+			}
+			else {
+				MessageBox.popUpMessage("Unable to save game configuration.", this);
+			}
+		}
+
+		//Start Game Button
+		else if (button.getId() == R.id.playGameButton) {
+			String msg = startGame();
+			if (msg != null) {
+				// we have an error message
+				MessageBox.popUpMessage(msg, this);
+			}
+
+		}
+
+	}// onClick
 
 	private String startGame() {
 		GameConfig finalConfig = scrapeData();
@@ -635,9 +535,9 @@ View.OnClickListener {
 
 	/**
 	 * removePlayer
-	 * 
+	 *
 	 * removes the player in the table associated with a given TableRow object
-	 * 
+	 *
 	 * <p>
 	 * NOTE: this method will refuse to delete a row if the total would drop
 	 * below the minimum allowed by the game configuration.
@@ -657,10 +557,10 @@ View.OnClickListener {
 
 	/**
 	 * addPlayer
-	 * 
+	 *
 	 * adds a new, blank row to the player table and initializes instance
 	 * variables and listeners appropriately
-	 * 
+	 *
 	 * @return a reference to the TableRow object that was created or null on
 	 *         failure
 	 */
@@ -718,12 +618,12 @@ View.OnClickListener {
 
 	/**
 	 * scrapeData
-	 * 
+	 *
 	 * retrieves all the data from the GUI and creates a new GameConfig object
 	 * with it
 	 */
 	public GameConfig scrapeData() {
-		
+
 		// First make a copy of the original config without the players
 		GameConfig result = config.copyWithoutPlayers();
 
@@ -783,13 +683,13 @@ View.OnClickListener {
 					getResources().getString(R.string.dialog_continue_label);
 			MessageBox.popUpChoice(quitQuestion, posLabel, negLabel,
 					new OnClickListener(){
-				public void onClick(DialogInterface di, int val) {
-					// if the user says that he wants to quit, exit the
-					// application
-					System.exit(0);
-				}},
-				null,
-				this);
+						public void onClick(DialogInterface di, int val) {
+							// if the user says that he wants to quit, exit the
+							// application
+							System.exit(0);
+						}},
+					null,
+					this);
 			// return 'true' because we have handled this event
 			return true;
 		}
@@ -802,7 +702,7 @@ View.OnClickListener {
 
 	/**
 	 * Gets the port number for this configuration
-	 * 
+	 *
 	 * @return the configuration's port number
 	 */
 	private int getPortNumber() {
@@ -811,17 +711,17 @@ View.OnClickListener {
 
 	/**
 	 * marks the game as being over
-	 * 
+	 *
 	 * @param b
 	 * 			tells whether the game is over
 	 */
 	public void setGameOver(boolean b) {
 		gameIsOver = b;
 	}// setGameOver
-	
+
 	/**
 	 *  the label for the local tab header
-	 *  
+	 *
 	 * @return
 	 * 		the label for the local tab header
 	 */
@@ -831,10 +731,10 @@ View.OnClickListener {
 
 	/**
 	 *  the label for the remote tab header
-	 *  
+	 *
 	 * @return
 	 * 		the label for the remote tab header
-	 */	
+	 */
 	private String remoteTabString() {
 		return this.getResources().getString(R.string.remote_tab);
 	}// remoteTabString
@@ -845,16 +745,16 @@ View.OnClickListener {
 	 * if the user has selected "Network player".
 	 */
 	private static class SpinnerListListener implements OnItemSelectedListener {
-		
+
 		// the textView to disable
 		private TextView correspondingTextField;
-		
+
 		// the position in the spinner of the "Network Player" selection
 		private int disableIndex;
-		
+
 		/**
 		 * constructor
-		 * 
+		 *
 		 * @param txt
 		 * 			the TextView object
 		 * @param idxNum
@@ -862,12 +762,12 @@ View.OnClickListener {
 		 */
 		public SpinnerListListener(TextView txt, int idxNum) {
 			correspondingTextField = txt;
-			disableIndex = idxNum;			
+			disableIndex = idxNum;
 		}//constructor
-		
+
 		/**
 		 * callback method when an item is selected
-		 * 
+		 *
 		 * @param parent
 		 *		the AdapterView where the selection happened
 		 * @param view
@@ -878,27 +778,27 @@ View.OnClickListener {
 		 *		the row id of the item that is selected
 		 */
 		public void onItemSelected(AdapterView<?> parent, View view, int position,
-				long id) {
+								   long id) {
 			// enable the corresponding TextView depending on whether the "disabling"
 			// position was selected
 			correspondingTextField.setEnabled(position != disableIndex);
 		}// onItemSelected
-		
+
 		/**
 		 * callback method when nothing is selected
-		 * 
+		 *
 		 * @param parent
 		 *		the AdapterView where the selection happened
 		 */
 		public void onNothingSelected(AdapterView<?> parent) {
 			// do nothing
 		}// onNothingSelected
-		
+
 	}// class SpinnerListListener
-	
+
 	/**
 	 * finishes the activity
-	 * 
+	 *
 	 * @param v
 	 * 		the object that cause the callback
 	 */
