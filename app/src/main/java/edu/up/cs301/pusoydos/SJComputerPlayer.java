@@ -1,11 +1,15 @@
 package edu.up.cs301.pusoydos;
 
 import android.util.Log;
+
+import java.util.ArrayList;
+
 import edu.up.cs301.card.Card;
 import edu.up.cs301.card.Rank;
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.infoMsg.TimerInfo;
+import edu.up.cs301.game.util.PossibleHands;
 
 /**
  * This is a computer player that slaps at an average rate given
@@ -91,6 +95,12 @@ public class SJComputerPlayer extends GameComputerPlayer
     	// access the state's middle deck
     	Deck middleDeck = savedState.getDeck(4);
 
+		if( middleDeck != null) {
+			Card topCard = middleDeck.getCards().get(0);
+		}
+
+		game.sendAction(new PDPassAction(this));
+
 		//WHERE COMPUTER THINKS
 		/*
     	// look at the top card
@@ -118,4 +128,10 @@ public class SJComputerPlayer extends GameComputerPlayer
 
     	*/
     }
+
+	public ArrayList<PossibleHands> getPossibleHands (){
+		return null;
+	}
+
+
 }

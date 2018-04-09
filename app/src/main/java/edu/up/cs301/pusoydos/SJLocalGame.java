@@ -158,7 +158,7 @@ public class SJLocalGame extends LocalGame {
 		if (thisPlayerIdx < 0) { // illegal player
 			return false;
 		}
-
+/*
 		if (sjma.isSlap()) {
 			// if we have a slap 
 			if (state.getDeck(2).size() == 0) {
@@ -173,8 +173,7 @@ public class SJLocalGame extends LocalGame {
 				// a non-Jack was slapped: give all cards to non-slapping player
 				giveMiddleCardsToPlayer(1-thisPlayerIdx);
 			}
-		}
-		else if (sjma.isPlay()) { // we have a "play" action
+		} else if (sjma.isPlay()) { // we have a "play" action
 			if (thisPlayerIdx != state.toPlay()) {
 				// attempt to play when it's the other player's turn
 				return false;
@@ -188,6 +187,16 @@ public class SJLocalGame extends LocalGame {
 					state.setToPlay(1-thisPlayerIdx);
 				}
 			}
+		} */
+		if( sjma.isSelect()){
+			PDSelectAction selectAction = (PDSelectAction)sjma;
+
+			if( state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).isSelected()){
+				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
+			} else {
+				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
+			}
+
 		}
 		else { // some unexpected action
 			return false;

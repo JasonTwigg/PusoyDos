@@ -20,6 +20,7 @@ public abstract class SJMoveAction extends GameAction {
 	
 	private static final long serialVersionUID = -3107100271012188849L;
 
+
     /**
      * Constructor for SJMoveAction
      *
@@ -29,13 +30,14 @@ public abstract class SJMoveAction extends GameAction {
     {
         // invoke superclass constructor to set source
         super(player);
+
     }
     
     /**
      * @return
      * 		whether the move was a slap
      */
-    public boolean isSlap() {
+    public boolean isSelect() {
     	return false;
     }
     
@@ -44,7 +46,17 @@ public abstract class SJMoveAction extends GameAction {
      * 		whether the move was a "play"
      */
     public boolean isPlay() {
-    	return false;
+        return false;
     }
+
+    public boolean isPass() {
+        return false;
+    }
+
+    public boolean isSlap(){
+        return false;
+    }
+
+
 
 }
