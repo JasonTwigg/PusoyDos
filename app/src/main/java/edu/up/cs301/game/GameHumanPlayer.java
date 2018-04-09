@@ -354,5 +354,7 @@ public abstract class GameHumanPlayer implements GamePlayer, Tickable {
 		// by default, do nothing
 	}
 
+
+
 }// class GameHumanPlayer
 

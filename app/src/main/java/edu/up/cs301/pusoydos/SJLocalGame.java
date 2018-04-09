@@ -119,19 +119,19 @@ public class SJLocalGame extends LocalGame {
 	
 	/**
 	 * whether a player is allowed to move
-	 * 
+	 *
 	 * @param playerIdx
 	 * 		the player-number of the player in question
 	 */
 	protected boolean canMove(int playerIdx) {
-		if (playerIdx < 0 || playerIdx > 1) {
+		if (playerIdx < 0 || playerIdx > 3) {
 			// if our player-number is out of range, return false
 			return false;
 		}
 		else {
 			// player can move if it's their turn, or if the middle deck is non-empty
 			// so they can slap
-			return state.getDeck(2).size() > 0 || state.toPlay() == playerIdx;
+			return true;
 		}
 	}
 
@@ -205,13 +205,24 @@ public class SJLocalGame extends LocalGame {
 				return false;
 
 			} else {
-				state.passAction(thisPlayerIdx);
-				state.changeTurn();
 
-				Log.i("I PASSED" + thisPlayerIdx, "YAY");
+
+				Log.i(state.passAction(thisPlayerIdx), "YAY");
 			}
-		}
-		else { // some unexpected action
+		} else if( sjma.isPlay() ){
+			if (thisPlayerIdx != state.toPlay()) {
+				// attempt to play when it's the other player's turn
+				Log.i("I TRied to player" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				return false;
+
+			} else {
+				state.playCard(thisPlayerIdx);
+
+				Log.i("I PLAYED" + thisPlayerIdx, "YAY");
+			}
+
+
+		} else { // some unexpected action
 			return false;
 		}
 

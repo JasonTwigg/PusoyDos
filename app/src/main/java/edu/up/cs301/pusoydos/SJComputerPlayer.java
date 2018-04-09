@@ -64,7 +64,9 @@ public class SJComputerPlayer extends GameComputerPlayer
     @Override
     protected void timerTicked() {
     	// we had seen a Jack, now we have waited the requisite time to slap
-    	
+
+
+
     	// look at the top card now. If it's still a Jack, slap it
     	Card topCard = savedState.getDeck(2).peekAtTopCard();
     	if (topCard != null && topCard.getRank() == Rank.JACK) {
