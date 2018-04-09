@@ -197,6 +197,19 @@ public class SJLocalGame extends LocalGame {
 				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
 			}
 
+		} else if( sjma.isPass() ){
+
+			if (thisPlayerIdx != state.toPlay()) {
+				// attempt to play when it's the other player's turn
+				Log.i("I TRied to pass" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				return false;
+
+			} else {
+				state.passAction(thisPlayerIdx);
+				state.changeTurn();
+
+				Log.i("I PASSED" + thisPlayerIdx, "YAY");
+			}
 		}
 		else { // some unexpected action
 			return false;

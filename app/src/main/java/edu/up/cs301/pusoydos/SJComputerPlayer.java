@@ -94,12 +94,21 @@ public class SJComputerPlayer extends GameComputerPlayer
     	
     	// access the state's middle deck
     	Deck middleDeck = savedState.getDeck(4);
+		Deck myDeck = savedState.getDeck(this.playerNum);
 
 		if( middleDeck != null) {
 			Card topCard = middleDeck.getCards().get(0);
 		}
 
+
 		game.sendAction(new PDPassAction(this));
+
+		if( savedState.getModeType() == 0 ){
+			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-1));
+			game.sendAction(new SJPlayAction(this));
+		} else {
+			game.sendAction(new PDPassAction(this));
+		}
 
 		//WHERE COMPUTER THINKS
 		/*

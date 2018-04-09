@@ -629,6 +629,10 @@ public class SJState extends GameState {
 		this.cardsSelected = cardsSelected;
 	}
 
+	public int getModeType(){
+		return modeType;
+	}
+
 
 
 }

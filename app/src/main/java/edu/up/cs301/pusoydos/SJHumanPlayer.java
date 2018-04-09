@@ -315,6 +315,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
 		g.drawText("Pusoy Dos", 50, 150, whitePaint);
 
+		g.drawText(""+state.toPlay(), 100, 250, whitePaint);
+
 
 
         whitePaint.setTextSize(35);
