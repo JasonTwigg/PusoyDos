@@ -3,6 +3,8 @@ package edu.up.cs301.pusoydos;
 import android.util.Log;
 import java.util.ArrayList;
 import edu.up.cs301.card.Card;
+import edu.up.cs301.card.Rank;
+import edu.up.cs301.card.Suit;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
@@ -44,7 +46,7 @@ public class SJState extends GameState {
 	private Deck[] piles;
 	//The size of each of the piles
 	private int[] pileSizes;
-	//whose turn is it to turn a card?
+	//whose turn is it to play a card?
 	private int turnNum;
 	//Integers assigned to each player to represent their perspective of the game
 	private int perspective;
@@ -90,6 +92,7 @@ public class SJState extends GameState {
 		piles[2] = new Deck(); // create empty deck
 		piles[3] = new Deck(); // create empty deck
 		piles[4] = new Deck(); // create empty deck
+		//piles[4].add52();
 		piles[0].add52(); // give all cards to player whose turn it is, in order
 		piles[0].shuffle(); // shuffle the cards
 
@@ -105,6 +108,9 @@ public class SJState extends GameState {
 		piles[1].sort();
 		piles[2].sort();
 		piles[3].sort();
+
+
+
 
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
 		//and makes the first turn theirs
@@ -129,6 +135,7 @@ public class SJState extends GameState {
 		piles = new Deck[5];
 		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
+		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in SJState
 		perspective = playerNum;
 		playerLastPlayed = orig.playerLastPlayed;
@@ -368,14 +375,6 @@ public class SJState extends GameState {
 
 
 
-
-
-
-
-
-
-
-
     /**
      * Determines whether or not the move is legal.
      *
@@ -432,7 +431,7 @@ public class SJState extends GameState {
 	 		    current user is greater than the power of the current (top) card of the center pile,
 		        set modeType to 1
 			    */
-			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
+			} else if (firstCardPower > piles[4].getCards().get(piles[4].size()-1).getPower()) {
 				//Log.i(firstCardPower + "", piles[4].getCards().get(0).getPower() + "");
 				modeType = 1;
 				return true;
@@ -627,6 +626,10 @@ public class SJState extends GameState {
 
 	public void setCardsSelected(boolean[] cardsSelected) {
 		this.cardsSelected = cardsSelected;
+	}
+
+	public int getModeType(){
+		return modeType;
 	}
 
 

@@ -3,30 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\twigg20\StudioProjects\PusoyDos\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\twigg20\StudioProjects\PusoyDos\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\twigg20\StudioProjects\PusoyDos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e036d2466ece63ba6b05aad1c3fb135e286cfe18\classes.dex" />
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8068fd2f7d4c75321687f1ea8fd17649622842b3/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\twigg20\StudioProjects\PusoyDos\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="d918922ac997c84cc46f2d7228c06a7d5df715b3">
-        <dex dex="C:\Users\twigg20\StudioProjects\PusoyDos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_ac893e4e77f1bafd86d746ace468e0910a08fdd0\classes.dex" />
+        sha1="2e711dbd8c1a9ede63d123f8fa502dc15e625c42">
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f98ce1d1df9d6ab45a92c8c38ed7723d169e4332/classes.dex" />
     </item>
 
 </items>

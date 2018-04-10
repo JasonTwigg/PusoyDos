@@ -44,6 +44,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private final static float LEFT_BORDER_PERCENT = 4; // width of left border
 	private final static float RIGHT_BORDER_PERCENT = 20; // width of right border
 	private final static float VERTICAL_BORDER_PERCENT = 4; // width of top/bottom borders
+
 	
 	// our game state
 	protected SJState state;
@@ -58,6 +59,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private int backgroundColor;
 
 	private RectF[] cardPositions;
+	private RectF passButton;
+	private RectF playButton;
 
 	private int cardWidth,cardGap, cardHeight, width, height;
 	private float deltaX;
@@ -315,6 +318,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
 		g.drawText("Pusoy Dos", 50, 150, whitePaint);
 
+		g.drawText(""+state.toPlay(), 100, 250, whitePaint);
+
 
 
         whitePaint.setTextSize(35);
@@ -338,20 +343,17 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 		drawRightPlayer(g, otherPlayer, whitePaint);
 
-		if( (state.getDeck(4) != null) && (state.getDeck(4).size()>0)){
-			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(0));
+		if( (state.getDeck(4).getCards().size() != 0)){
+			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-1));
 		}
 		else{
 			RectF emptyCenter = (middlePileTopCardLocation());
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
+			//flash(Color.BLUE,1);
 		}
 
-
-		this.drawButton(g, "PASS", 600, 750, 800, 850);
-		this.drawButton(g, "PLAY", 1200, 750, 1400, 850);
-
-
-
+		drawPassButton(g);
+		drawPlayButton(g);
 
 	}
 
@@ -395,16 +397,49 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
 	}
 
-	public void drawButton( Canvas g, String title, float left, float top, float right, float bottom) {
-		Paint redPaint = new Paint();
-		redPaint.setColor(Color.RED);
-		Paint blackPaint = new Paint();
-		blackPaint.setColor(Color.BLACK);
-		blackPaint.setTextSize(80);
-		g.drawRect(left, top, right, bottom, redPaint);
-		g.drawText(title, 0, title.length(), left+5, top+70, blackPaint);
+	public void drawPassButton(Canvas g) {
+
+		Paint RedPaint = new Paint();
+		RedPaint.setColor(Color.RED);
+
+		Paint WhitePaint = new Paint();
+		WhitePaint.setColor(Color.WHITE);
+		WhitePaint.setTextSize(75);
+		WhitePaint.setFakeBoldText(true);
+
+		//to set Pass Button
+		int rectLeftP = (int) (width*.35);
+		int rectRightP = rectLeftP +250;
+		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectBottomP = rectTopP+130;
+
+		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
+		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
+		g.drawText("PASS",rectLeftP+10, rectRightP-30, WhitePaint);
 	}
-	
+
+	public void drawPlayButton(Canvas g) {
+
+		Paint RedPaint = new Paint();
+		RedPaint.setColor(Color.RED);
+
+		Paint WhitePaint = new Paint();
+		WhitePaint.setColor(Color.WHITE);
+		WhitePaint.setTextSize(75);
+		WhitePaint.setFakeBoldText(true);
+
+		//to set Pass Button
+		int rectLeftP = (int) (width*.55);
+		int rectRightP = rectLeftP +250;
+		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectBottomP = rectTopP+130;
+
+		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
+		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
+		g.drawText("PLAY",rectLeftP+10, rectTopP+95, WhitePaint);
+	}
+
+
 	/**
 	 * @return
 	 * 		the rectangle that represents the location on the drawing
@@ -521,20 +556,22 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int find = -1;
 		Deck myDeck = state.getDeck(playerNum);
 		for( int i = 0; i < myDeck.size(); i++){
-			if(cardPositions[i].contains(x,y)){
-				find = i;
+			if( cardPositions[i] != null ) {
+				if (cardPositions[i].contains(x, y)) {
+					find = i;
+				}
 			}
 		}
 
 		if( find != -1 ){
 			//game.sendAction(new SJSlapAction(this));
 			game.sendAction(new PDSelectAction(this, find));
-			/*
-			if( myDeck.getCards().get(find).isSelected()) {
-				myDeck.getCards().get(find).setSelected(false);
-			} else {
-				myDeck.getCards().get(find).setSelected(true);
-			}*/
+		} else if( passButton.contains(x,y)){
+			surface.flash(Color.GREEN, 50);
+			game.sendAction(new PDPassAction(this));
+		} else if( playButton.contains(x,y)){
+			surface.flash(Color.YELLOW, 50);
+			game.sendAction(new SJPlayAction(this));
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second

@@ -145,8 +145,10 @@ public abstract class LocalGame implements Game, Tickable {
 	 * calls the 'notifyStateChanged' method for each player.
 	 */
 	protected final void sendAllUpdatedState() {
+		int count = 0;
 		for (GamePlayer p : players) {
 			sendUpdatedStateTo(p);
+			count++;
 		}
 	}
 	
