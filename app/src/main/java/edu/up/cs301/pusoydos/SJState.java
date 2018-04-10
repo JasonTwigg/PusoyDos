@@ -3,6 +3,8 @@ package edu.up.cs301.pusoydos;
 import android.util.Log;
 import java.util.ArrayList;
 import edu.up.cs301.card.Card;
+import edu.up.cs301.card.Rank;
+import edu.up.cs301.card.Suit;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
@@ -90,8 +92,9 @@ public class SJState extends GameState {
 		piles[2] = new Deck(); // create empty deck
 		piles[3] = new Deck(); // create empty deck
 		piles[4] = new Deck(); // create empty deck
+		//piles[4].add52();
 		piles[0].add52(); // give all cards to player whose turn it is, in order
-		piles[0].shuffle(); // shuffle the cards
+		//piles[0].shuffle(); // shuffle the cards
 
 		// deal the cards to opponents, until to piles have ~same size
 		while (piles[0].size() >= 14) {
@@ -107,6 +110,7 @@ public class SJState extends GameState {
 		piles[3].sort();
 
 		turnNum = 0;
+		piles[0].add(new Card(Rank.THREE, Suit.Club));
 
 /*
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
@@ -132,6 +136,7 @@ public class SJState extends GameState {
 		piles = new Deck[5];
 		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
+		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in SJState
 		perspective = playerNum;
 		playerLastPlayed = orig.playerLastPlayed;

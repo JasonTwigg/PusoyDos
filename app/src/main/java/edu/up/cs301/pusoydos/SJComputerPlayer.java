@@ -86,6 +86,15 @@ public class SJComputerPlayer extends GameComputerPlayer
     @Override
     protected void receiveInfo(GameInfo info) {
 
+		// update our state variable
+		savedState = (SJState)info;
+
+		if( playerNum == savedState.toPlay() ){
+			game.sendAction(new PDPassAction(this));
+		} else {
+			return;
+		}
+
 		if( 1==1 ){
 			return;
 		}
@@ -96,8 +105,7 @@ public class SJComputerPlayer extends GameComputerPlayer
     		return;
     	}
     	
-    	// update our state variable
-    	savedState = (SJState)info;
+
     	
     	// access the state's middle deck
     	Deck middleDeck = savedState.getDeck(4);

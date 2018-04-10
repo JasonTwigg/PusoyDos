@@ -343,12 +343,13 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 		drawRightPlayer(g, otherPlayer, whitePaint);
 
-		if( (state.getDeck(4) != null) && (state.getDeck(4).size()>0)){
-			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(0));
+		if( (state.getDeck(4).getCards().size() != 0)){
+			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-1));
 		}
 		else{
 			RectF emptyCenter = (middlePileTopCardLocation());
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
+			//flash(Color.BLUE,1);
 		}
 
 		passButton = new RectF(600, 750, 800, 850);
