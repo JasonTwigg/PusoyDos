@@ -1,218 +1,38 @@
 [
     {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_remote_tab.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_remote_tab.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_no_gui.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_no_gui.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/sj_human_player.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/sj_human_player.xml"
     },
     {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_player_list_row.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_player_list_row.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/tester.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/tester.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_config_main.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_config_main.xml"
     },
     {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_local_tab.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_local_tab.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/counter_human_player.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/counter_human_player.xml"
     },
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "C:\\Users\\twigg20\\StudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tester.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout\\tester.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sj_human_player.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\sj_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout/game_config_tabhost.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout/game_config_tabhost.xml"
     }
 ]

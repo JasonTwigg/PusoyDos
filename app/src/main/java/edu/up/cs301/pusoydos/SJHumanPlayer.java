@@ -352,13 +352,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			//flash(Color.BLUE,1);
 		}
 
-		passButton = new RectF(600, 750, 800, 850);
-		playButton = new RectF(1200,750, 1400, 850);
-		g.drawRect(passButton,paint);
-		g.drawRect(playButton,paint);
-
-
-
+		drawPassButton(g);
+		drawPlayButton(g);
 
 	}
 
@@ -402,16 +397,49 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
 	}
 
-	public void drawButton( Canvas g, String title, float left, float top, float right, float bottom) {
-		Paint redPaint = new Paint();
-		redPaint.setColor(Color.RED);
-		Paint blackPaint = new Paint();
-		blackPaint.setColor(Color.BLACK);
-		blackPaint.setTextSize(80);
-		g.drawRect(left, top, right, bottom, redPaint);
-		g.drawText(title, 0, title.length(), left+5, top+70, blackPaint);
+	public void drawPassButton(Canvas g) {
+
+		Paint RedPaint = new Paint();
+		RedPaint.setColor(Color.RED);
+
+		Paint WhitePaint = new Paint();
+		WhitePaint.setColor(Color.WHITE);
+		WhitePaint.setTextSize(75);
+		WhitePaint.setFakeBoldText(true);
+
+		//to set Pass Button
+		int rectLeftP = (int) (width*.35);
+		int rectRightP = rectLeftP +250;
+		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectBottomP = rectTopP+130;
+
+		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
+		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
+		g.drawText("PASS",rectLeftP+10, rectRightP-30, WhitePaint);
 	}
-	
+
+	public void drawPlayButton(Canvas g) {
+
+		Paint RedPaint = new Paint();
+		RedPaint.setColor(Color.RED);
+
+		Paint WhitePaint = new Paint();
+		WhitePaint.setColor(Color.WHITE);
+		WhitePaint.setTextSize(75);
+		WhitePaint.setFakeBoldText(true);
+
+		//to set Pass Button
+		int rectLeftP = (int) (width*.55);
+		int rectRightP = rectLeftP +250;
+		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectBottomP = rectTopP+130;
+
+		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
+		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
+		g.drawText("PLAY",rectLeftP+10, rectTopP+95, WhitePaint);
+	}
+
+
 	/**
 	 * @return
 	 * 		the rectangle that represents the location on the drawing

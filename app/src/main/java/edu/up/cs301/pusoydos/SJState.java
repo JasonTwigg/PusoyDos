@@ -376,14 +376,6 @@ public class SJState extends GameState {
 
 
 
-
-
-
-
-
-
-
-
     /**
      * Determines whether or not the move is legal.
      *
