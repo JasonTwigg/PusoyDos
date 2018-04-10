@@ -89,6 +89,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 			size = myDeck.getCards().size();
 		}
 
+		sleep(750);
 		if( playerNum == savedState.toPlay() ){
 
 

@@ -51,6 +51,7 @@ public class SJLocalGame extends LocalGame {
 			return null;
 		}
 
+
     	if (state.getDeck(2).size() > 0) {
     		// there are cards in the middle pile
     		if (state.getDeck(0).size() == 0 &&

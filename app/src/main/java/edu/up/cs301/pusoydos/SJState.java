@@ -94,7 +94,7 @@ public class SJState extends GameState {
 		piles[4] = new Deck(); // create empty deck
 		//piles[4].add52();
 		piles[0].add52(); // give all cards to player whose turn it is, in order
-		//piles[0].shuffle(); // shuffle the cards
+		piles[0].shuffle(); // shuffle the cards
 
 		// deal the cards to opponents, until to piles have ~same size
 		while (piles[0].size() >= 14) {
@@ -109,10 +109,9 @@ public class SJState extends GameState {
 		piles[2].sort();
 		piles[3].sort();
 
-		turnNum = 0;
-		piles[0].add(new Card(Rank.THREE, Suit.Club));
 
-/*
+
+
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
 		//and makes the first turn theirs
 		for (int i = 0; i < 4; i++) {
@@ -120,7 +119,7 @@ public class SJState extends GameState {
 				turnNum = i;
 			}
 		}
-*/
+
 		playerLastPlayed = turnNum;
 	}
 
