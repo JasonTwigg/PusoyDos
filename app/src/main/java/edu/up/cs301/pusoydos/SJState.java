@@ -44,7 +44,7 @@ public class SJState extends GameState {
 	private Deck[] piles;
 	//The size of each of the piles
 	private int[] pileSizes;
-	//whose turn is it to turn a card?
+	//whose turn is it to play a card?
 	private int turnNum;
 	//Integers assigned to each player to represent their perspective of the game
 	private int perspective;
@@ -106,6 +106,9 @@ public class SJState extends GameState {
 		piles[2].sort();
 		piles[3].sort();
 
+		turnNum = 0;
+
+/*
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
 		//and makes the first turn theirs
 		for (int i = 0; i < 4; i++) {
@@ -113,7 +116,7 @@ public class SJState extends GameState {
 				turnNum = i;
 			}
 		}
-
+*/
 		playerLastPlayed = turnNum;
 	}
 

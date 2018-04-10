@@ -44,6 +44,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private final static float LEFT_BORDER_PERCENT = 4; // width of left border
 	private final static float RIGHT_BORDER_PERCENT = 20; // width of right border
 	private final static float VERTICAL_BORDER_PERCENT = 4; // width of top/bottom borders
+
 	
 	// our game state
 	protected SJState state;
@@ -58,6 +59,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private int backgroundColor;
 
 	private RectF[] cardPositions;
+	private RectF passButton;
+	private RectF playButton;
 
 	private int cardWidth,cardGap, cardHeight, width, height;
 	private float deltaX;
@@ -348,9 +351,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
 		}
 
-
-		this.drawButton(g, "PASS", 600, 750, 800, 850);
-		this.drawButton(g, "PLAY", 1200, 750, 1400, 850);
+		passButton = new RectF(600, 750, 800, 850);
+		playButton = new RectF(1200,750, 1400, 850);
+		g.drawRect(passButton,paint);
+		g.drawRect(playButton,paint);
 
 
 
@@ -531,12 +535,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		if( find != -1 ){
 			//game.sendAction(new SJSlapAction(this));
 			game.sendAction(new PDSelectAction(this, find));
-			/*
-			if( myDeck.getCards().get(find).isSelected()) {
-				myDeck.getCards().get(find).setSelected(false);
-			} else {
-				myDeck.getCards().get(find).setSelected(true);
-			}*/
+		} else if( passButton.contains(x,y)){
+			surface.flash(Color.GREEN, 50);
+			game.sendAction(new PDPassAction(this));
+		} else if( playButton.contains(x,y)){
+			surface.flash(Color.YELLOW, 50);
+			game.sendAction(new SJPlayAction(this));
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second

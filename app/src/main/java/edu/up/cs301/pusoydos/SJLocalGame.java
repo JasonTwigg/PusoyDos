@@ -46,7 +46,11 @@ public class SJLocalGame extends LocalGame {
      */
     @Override
     protected String checkIfGameOver() {
-    	
+
+		if( 1==1 ){
+			return null;
+		}
+
     	if (state.getDeck(2).size() > 0) {
     		// there are cards in the middle pile
     		if (state.getDeck(0).size() == 0 &&
@@ -192,9 +196,11 @@ public class SJLocalGame extends LocalGame {
 			PDSelectAction selectAction = (PDSelectAction)sjma;
 
 			if( state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).isSelected()){
-				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
+				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
 			} else {
-				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
+				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
 			}
 
 		} else if( sjma.isPass() ){
@@ -216,9 +222,8 @@ public class SJLocalGame extends LocalGame {
 				return false;
 
 			} else {
-				state.playCard(thisPlayerIdx);
+				Log.i(state.playCard(thisPlayerIdx),"");
 
-				Log.i("I PLAYED" + thisPlayerIdx, "YAY");
 			}
 
 

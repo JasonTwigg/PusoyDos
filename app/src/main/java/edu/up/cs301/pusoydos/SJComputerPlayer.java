@@ -85,7 +85,12 @@ public class SJComputerPlayer extends GameComputerPlayer
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-    	
+
+		if( 1==1 ){
+			return;
+		}
+
+
     	// if we don't have a game-state, ignore
     	if (!(info instanceof SJState)) {
     		return;
@@ -103,10 +108,10 @@ public class SJComputerPlayer extends GameComputerPlayer
 		}
 
 
-		game.sendAction(new PDPassAction(this));
+		//game.sendAction(new PDPassAction(this));
 
 		if( savedState.getModeType() == 0 ){
-			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-1));
+			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-2));
 			game.sendAction(new SJPlayAction(this));
 		} else {
 			game.sendAction(new PDPassAction(this));
