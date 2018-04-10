@@ -202,6 +202,7 @@ public class SJLocalGame extends LocalGame {
 				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
 				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
 			}
+			return false;
 
 		} else if( sjma.isPass() ){
 

@@ -528,8 +528,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int find = -1;
 		Deck myDeck = state.getDeck(playerNum);
 		for( int i = 0; i < myDeck.size(); i++){
-			if(cardPositions[i].contains(x,y)){
-				find = i;
+			if( cardPositions[i] != null ) {
+				if (cardPositions[i].contains(x, y)) {
+					find = i;
+				}
 			}
 		}
 

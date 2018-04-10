@@ -440,7 +440,7 @@ public class SJState extends GameState {
 	 		    current user is greater than the power of the current (top) card of the center pile,
 		        set modeType to 1
 			    */
-			} else if (firstCardPower > piles[4].getCards().get(0).getPower()) {
+			} else if (firstCardPower > piles[4].getCards().get(piles[4].size()-1).getPower()) {
 				//Log.i(firstCardPower + "", piles[4].getCards().get(0).getPower() + "");
 				modeType = 1;
 				return true;
