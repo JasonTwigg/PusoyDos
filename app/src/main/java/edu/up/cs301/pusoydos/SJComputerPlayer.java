@@ -1,11 +1,16 @@
 package edu.up.cs301.pusoydos;
 
 import android.util.Log;
+
+import java.util.ArrayList;
+
 import edu.up.cs301.card.Card;
 import edu.up.cs301.card.Rank;
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
+import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.TimerInfo;
+import edu.up.cs301.game.util.PossibleHands;
 
 /**
  * This is a computer player that slaps at an average rate given
@@ -27,6 +32,8 @@ public class SJComputerPlayer extends GameComputerPlayer
 	
 	// the most recent state of the game
 	private SJState savedState;
+	private int size;
+	private int waitTime = 750;
 	
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
@@ -53,25 +60,7 @@ public class SJComputerPlayer extends GameComputerPlayer
         minReactionTimeInMillis = 500*avgReactionTime;
     }
 
-	/**
-	 * Invoked whenever the player's timer has ticked. It is expected
-	 * that this will be overridden in many players.
-	 */
-    @Override
-    protected void timerTicked() {
-    	// we had seen a Jack, now we have waited the requisite time to slap
-    	
-    	// look at the top card now. If it's still a Jack, slap it
-    	Card topCard = savedState.getDeck(2).peekAtTopCard();
-    	if (topCard != null && topCard.getRank() == Rank.JACK) {
-    		// the Jack is still there, so submit our move to the game object
-    		game.sendAction(new SJSlapAction(this));
-    	}
-    	
-    	// stop the timer, since we don't want another timer-tick until it
-    	// again is explicitly started
-    	getTimer().stop();
-    }
+
 
     /**
      * callback method, called when we receive a message, typicallly from
@@ -79,17 +68,91 @@ public class SJComputerPlayer extends GameComputerPlayer
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-    	
+
+
+		// update our state variable
+		if( info instanceof  SJState ){
+			savedState = (SJState)info;
+
+		} else {
+			IllegalMoveInfo moveInfo = (IllegalMoveInfo)info;
+			Log.i("ERROR","");
+			return;
+		}
+
+
+		Deck myDeck = savedState.getDeck(playerNum);
+		Deck middleDeck = savedState.getDeck(4);
+
+
+
+		synchronized (myDeck) {
+			size = myDeck.getCards().size();
+		}
+
+
+		if(savedState.getModeType() == 0) {
+			sleep(waitTime*2);
+		}
+		else{
+			sleep(waitTime);
+		}
+		if( playerNum == savedState.toPlay() ){
+
+
+			if( savedState.getModeType() == 0 ){
+				game.sendAction(new PDSelectAction(this,size-1));
+				game.sendAction(new SJPlayAction(this));
+				return;
+			}
+			else if (savedState.getModeType() == 1) {
+				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
+					game.sendAction(new PDSelectAction(this, 0));
+					game.sendAction(new SJPlayAction(this));
+				} else {
+					game.sendAction(new PDPassAction(this));
+				}
+
+				if( 1==1){
+					return;
+				}
+			}
+			else {
+				game.sendAction((new PDPassAction(this)));
+				return;
+			}
+
+
+		} else {
+			return;
+		}
+
+		if( 1==1 ){
+			return;
+		}
+
+
     	// if we don't have a game-state, ignore
     	if (!(info instanceof SJState)) {
     		return;
     	}
     	
-    	// update our state variable
-    	savedState = (SJState)info;
-    	
     	// access the state's middle deck
-    	Deck middleDeck = savedState.getDeck(4);
+
+
+		if( middleDeck != null) {
+			Card topCard = middleDeck.getCards().get(0);
+		}
+
+
+		//game.sendAction(new PDPassAction(this));
+
+		if( savedState.getModeType() == 0 ){
+			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-2));
+			game.sendAction(new SJPlayAction(this));
+		} else {
+			game.sendAction(new PDPassAction(this));
+		}
 
 		//WHERE COMPUTER THINKS
 		/*
@@ -118,4 +181,10 @@ public class SJComputerPlayer extends GameComputerPlayer
 
     	*/
     }
+
+	public ArrayList<PossibleHands> getPossibleHands (){
+		return null;
+	}
+
+
 }

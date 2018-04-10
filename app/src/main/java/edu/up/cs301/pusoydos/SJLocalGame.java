@@ -46,7 +46,12 @@ public class SJLocalGame extends LocalGame {
      */
     @Override
     protected String checkIfGameOver() {
-    	
+
+		if( 1==1 ){
+			return null;
+		}
+
+
     	if (state.getDeck(2).size() > 0) {
     		// there are cards in the middle pile
     		if (state.getDeck(0).size() == 0 &&
@@ -119,19 +124,19 @@ public class SJLocalGame extends LocalGame {
 	
 	/**
 	 * whether a player is allowed to move
-	 * 
+	 *
 	 * @param playerIdx
 	 * 		the player-number of the player in question
 	 */
 	protected boolean canMove(int playerIdx) {
-		if (playerIdx < 0 || playerIdx > 1) {
+		if (playerIdx < 0 || playerIdx > 3) {
 			// if our player-number is out of range, return false
 			return false;
 		}
 		else {
 			// player can move if it's their turn, or if the middle deck is non-empty
 			// so they can slap
-			return state.getDeck(2).size() > 0 || state.toPlay() == playerIdx;
+			return true;
 		}
 	}
 
@@ -192,13 +197,39 @@ public class SJLocalGame extends LocalGame {
 			PDSelectAction selectAction = (PDSelectAction)sjma;
 
 			if( state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).isSelected()){
-				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
+				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
 			} else {
-				state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
+				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
+			}
+			return false;
+
+		} else if( sjma.isPass() ){
+
+			if (thisPlayerIdx != state.toPlay()) {
+				// attempt to play when it's the other player's turn
+				Log.i("I tried to pass" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				return false;
+
+			} else {
+
+
+				Log.i(state.passAction(thisPlayerIdx), "YAY");
+			}
+		} else if( sjma.isPlay() ){
+			if (thisPlayerIdx != state.toPlay()) {
+				// attempt to play when it's the other player's turn
+				Log.i("I TRied to player" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				return false;
+
+			} else {
+				Log.i(state.playCard(thisPlayerIdx),"");
+
 			}
 
-		}
-		else { // some unexpected action
+
+		} else { // some unexpected action
 			return false;
 		}
 

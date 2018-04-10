@@ -24,7 +24,7 @@ import android.graphics.Color;
  */
 public class SJMainActivity extends GameMainActivity {
 	
-	public static final int PORT_NUMBER = 4752;
+	public static final int PORT_NUMBER = 47520;
 
 	/** a pusoydos game for four players. The default is human vs. computer */
 	@Override
@@ -43,31 +43,17 @@ public class SJMainActivity extends GameMainActivity {
 				return new SJHumanPlayer(name, Color.YELLOW);
 			}
 		});
-		playerTypes.add(new GamePlayerType("computer player (normal)") {
+		playerTypes.add(new GamePlayerType("computer player (dumb)") {
 			public GamePlayer createPlayer(String name) {
 				return new SJComputerPlayer(name);
 			}
 		});
-		playerTypes.add(new GamePlayerType("computer player (fast)") {
+		playerTypes.add(new GamePlayerType("computer player (smart)") {
 			public GamePlayer createPlayer(String name) {
 				return new SJComputerPlayer(name, 0.3);
 			}
 		});
-		playerTypes.add(new GamePlayerType("computer player (slow)") {
-			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayer(name, 1.0);
-			}
-		});
-		playerTypes.add(new GamePlayerType("computer player (very fast)") {
-			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayer(name, 0.15);
-			}
-		});
-		playerTypes.add(new GamePlayerType("computer player (very slow)") {
-			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayer(name, 3.5);
-			}
-		});
+
 
 		// Create a game configuration class for PusoyJack
 		GameConfig defaultConfig = new GameConfig(playerTypes, 4, 4, "PusoyDos", PORT_NUMBER);

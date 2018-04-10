@@ -1,26 +1,14 @@
 [
     {
-        "merged": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
     },
     {
-        "merged": "/Users/development/Desktop/PusoyDos/pusoydos/app/build/intermediates/res/merged/debug/layout-land/counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/pusoydos/app/src/main/res/layout-land/counter_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout-land/counter_human_player.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/app/src/main/res/layout-land/counter_human_player.xml"
     },
     {
-        "merged": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
-        "merged": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\TeamProject\\pusoydos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
-        "merged": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
-        "merged": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/development/Desktop/PusoyDos/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
+        "merged": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
+        "source": "/Users/coleholbrook/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
     }
 ]

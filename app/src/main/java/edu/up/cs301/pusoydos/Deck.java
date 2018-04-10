@@ -15,7 +15,7 @@ import edu.up.cs301.card.Card;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  *
  */
 public class Deck implements Serializable {
@@ -23,14 +23,10 @@ public class Deck implements Serializable {
 	// to satisfy Serializable interface
 	private static final long serialVersionUID = 3216223171210121485L;
 
-
-
 	// the cards in our deck; the last card in the ArrayList is the top card
 	// in the deck
 	private ArrayList<Card> cards;
 
-
-	
 	/**
 	 * constructor, creating an empty deck
 	 */
@@ -139,7 +135,6 @@ public class Deck implements Serializable {
 						maxIdx = j;
 
 					}
-
 				}
 
 				//after all of the cards have been gone through, add the max card to end of the list
@@ -154,10 +149,7 @@ public class Deck implements Serializable {
 			//returns the now sorted deck at the end
 			return this;
 		}
-
-
 	}
-
 
 
 
