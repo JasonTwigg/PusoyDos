@@ -333,14 +333,14 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		WhitePaint.setFakeBoldText(true);
 
 		//to set position of Pass Button
-		int rectLeftP = (int) (width*.35);
+		int rectLeftP = (int) (width*.075);
 		int rectRightP = rectLeftP +250;
-		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
 		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
 		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
-		g.drawText("PASS",rectLeftP+10, rectRightP-30, WhitePaint);
+		g.drawText("PASS",rectLeftP+10, rectTopP+95, WhitePaint);
 	}
 
 	public void drawPlayButton(Canvas g) {
@@ -354,9 +354,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		WhitePaint.setFakeBoldText(true);
 
 		//to set position of Play Button
-		int rectLeftP = (int) (width*.55);
+		int rectLeftP = (int) (width*.075);
 		int rectRightP = rectLeftP +250;
-		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
 		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);

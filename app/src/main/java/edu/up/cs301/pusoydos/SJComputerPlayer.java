@@ -33,6 +33,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 	// the most recent state of the game
 	private SJState savedState;
 	private int size;
+	private int waitTime = 750;
 	
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
@@ -89,7 +90,13 @@ public class SJComputerPlayer extends GameComputerPlayer
 			size = myDeck.getCards().size();
 		}
 
-		sleep(750);
+
+		if(savedState.getModeType() == 0) {
+			sleep(waitTime*2);
+		}
+		else{
+			sleep(waitTime);
+		}
 		if( playerNum == savedState.toPlay() ){
 
 
