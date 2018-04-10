@@ -207,7 +207,7 @@ public class SJLocalGame extends LocalGame {
 
 			if (thisPlayerIdx != state.toPlay()) {
 				// attempt to play when it's the other player's turn
-				Log.i("I TRied to pass" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				Log.i("I tried to pass" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
 				return false;
 
 			} else {
