@@ -325,6 +325,7 @@ public class SJState extends GameState {
 	 *
 	 */
 	public String toString() {
+
 		String gameInfo = "";
 		gameInfo = "Player " + (turnNum + 1) + "'s turn.\n";
 		if (perspective != 4) {
@@ -341,6 +342,7 @@ public class SJState extends GameState {
 					+ "Middle Pile has " + piles[4].toString() + "\n";
 		}
 		return gameInfo;
+
 	}
 
 	/**

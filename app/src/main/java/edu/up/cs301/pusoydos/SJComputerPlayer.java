@@ -97,7 +97,8 @@ public class SJComputerPlayer extends GameComputerPlayer
 				game.sendAction(new PDSelectAction(this,size-1));
 				game.sendAction(new SJPlayAction(this));
 				return;
-			} else {
+			}
+			else if (savedState.getModeType() == 1) {
 				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
 					game.sendAction(new PDSelectAction(this, 0));
 					game.sendAction(new SJPlayAction(this));
@@ -108,22 +109,10 @@ public class SJComputerPlayer extends GameComputerPlayer
 				if( 1==1){
 					return;
 				}
-				/*
-
-				if(middleDeck.getCards().size() == 0 ){
-					game.sendAction(new PDSelectAction(this,myDeck.size()-1));
-					game.sendAction(new SJPlayAction(this));
-					return;
-				}
-				for( int i = myDeck.getCards().size()-1; i>=0; i++){
-					if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
-
-						game.sendAction(new PDSelectAction(this,i-1));
-						game.sendAction(new SJPlayAction(this));
-						return;
-					}
-				}
-				*/
+			}
+			else {
+				game.sendAction((new PDPassAction(this)));
+				return;
 			}
 
 
@@ -140,8 +129,6 @@ public class SJComputerPlayer extends GameComputerPlayer
     	if (!(info instanceof SJState)) {
     		return;
     	}
-    	
-
     	
     	// access the state's middle deck
 

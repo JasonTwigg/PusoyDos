@@ -22,7 +22,7 @@ import android.view.View.OnTouchListener;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  * 
  * 
  */
@@ -268,6 +268,6 @@ public class AnimationSurface extends SurfaceView implements OnTouchListener {
 			this.animator.onTouch(event);
 		}
 		return true;
-	};// class AnimationThread
+	}// class AnimationThread
 
 }// class AnimationSurface
