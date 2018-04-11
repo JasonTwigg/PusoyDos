@@ -306,7 +306,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
     /**
      * drawMiddlePile method: This method draws the middle pile with the
      * most recent cards on top. It shows a maximum of five cards for
-     * the sake of space.
+     * the sake of space. (Also draws the pass and play buttons.)
      *
      * @param g
      * 		the canvas on which we are to draw
@@ -314,29 +314,33 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
      *      the deck is the pile of cards in the center
      */
 	public void drawMiddlePile( Canvas g, Deck deck ){
+
+		//if there are cards in the middle pile, carry out the following actions
 		if( (state.getDeck(4).getCards().size() != 0)){
 
-			deltaX = (float) (cardWidth*.2);
-			//deltaY = (float) (cardWidth*.1);
-			//deltaX = (float) (width*(.4/deck.size()));
-			deltaY = (float) (width*(.4/deck.size()));
-			int size = state.getDeck(4).getCards().size();
+			deltaX = (float) (cardWidth*.2); //to "layer" cards in middle
+			int size = state.getDeck(4).getCards().size(); //current size of the middle pile
 
-			int bottom = 0;
-			int maxSize = 5;
+			int bottom = 0; //to keep track of the bottom card shown in middle
+			int maxSize = 5; //to limit the amount of cards in the middle pile
 
+			//set the bottom when the cards in the middle exceeds 5
 			if( size >= maxSize ){
 				bottom = size - maxSize;
 			}
 
+			// -loops through the cards in the middle pile
+			// -shifts them appropriately so the rank and suit of each card can be seen
+			// -draws each card (overlapping) with the last played card on top
 			for( int i=size-bottom; i>0; i--) {
 
-				//int midShift= (int) (i*10);
-				//int midShift = (int)(width*(.1/i));
+				//set location for the top card
 				RectF topRect = middlePileTopCardLocation();
-				float left = topRect.left + i*deltaX;
-				float top = topRect.top;
 
+				//shift each card over (on the x-axis) to create "overlapping" effect
+				float left = topRect.left + i*deltaX;
+				//set the top corn value of each card in middle pile
+				float top = topRect.top;
 
 				// draw a card-back (hence null) into the appropriate rectangle
 				drawCard(g,
@@ -345,10 +349,10 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			}
 
 		}
+		//if there are no cards in the middle pile draw the back of a card to the center
 		else{
 			RectF emptyCenter = (middlePileTopCardLocation());
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
-			//flash(Color.BLUE,1);
 		}
 		//Draws the Pass and Play Buttons
 		drawPassButton(g);
