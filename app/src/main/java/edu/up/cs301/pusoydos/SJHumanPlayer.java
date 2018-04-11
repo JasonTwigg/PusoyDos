@@ -243,15 +243,13 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				rectRight+=cardGap;
 			}
 		}
-		//White Paint for text on the screen
+
+		//to draw the title and current player text to screen
+		drawMainText(g);
+
+		//Paint for player name labels
 		Paint whitePaint = new Paint();
 		whitePaint.setColor(Color.WHITE);
-		whitePaint.setTextSize(150);
-		whitePaint.setFakeBoldText(true);
-		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
-		//Draws the title and whose turn it is
-		g.drawText("Pusoy Dos", 50, 150, whitePaint);
-		g.drawText(""+state.toPlay(), 100, 250, whitePaint);
 
 		//Sets the size for the Player labels
         whitePaint.setTextSize(35);
@@ -274,11 +272,44 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 	}
 
+	/**
+	 * helper draw method: draws the title "Pusoy Dos" and the current player label to screen
+	 *
+	 * @param g
+	 * 		the canvas on which we are to draw
+	 */
+	public void drawMainText( Canvas g ) {
+
+		//Paint for text on the screen (title and player's turn)
+		Paint psPaint = new Paint();
+		psPaint.setColor(Color.argb(80, 255, 255, 255));
+		psPaint.setTextSize(150);
+		//to set text to bolded and italic style
+		psPaint.setFakeBoldText(true);
+		psPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+		//Draws the title and whose turn it is
+		int titleX = (int)(width*.35);
+		int titleY = (int)(height*.75);
+		g.drawText("Pusoy Dos", titleX, titleY, psPaint);
+
+		//to get the current players name (as entered in start up screen)
+		String playerName = this.allPlayerNames[state.toPlay()];
+
+		//sets x and y location of player's turn text
+		int turnLableX = (int) (width*.03);
+		int turnLableY = (int) (height*.09);
+		//sets the size
+		psPaint.setTextSize(80);
+		g.drawText("It is "+playerName+"'s turn!", turnLableX, turnLableY, psPaint);
+	}
+
 	public void drawMiddlePile( Canvas g, Deck deck ){
 		if( (state.getDeck(4).getCards().size() != 0)){
 
 			deltaX = (float) (cardWidth*.2);
-			deltaY = (float) (cardWidth*.1);
+			//deltaY = (float) (cardWidth*.1);
+			//deltaX = (float) (width*(.4/deck.size()));
+			deltaY = (float) (width*(.4/deck.size()));
 			int size = state.getDeck(4).getCards().size();
 
 			int bottom = 0;
@@ -291,10 +322,11 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			for( int i=size-bottom; i>0; i--) {
 
 				//int midShift= (int) (i*10);
-				int midShift = (int)(width*(.4/deck.size()));
+				//int midShift = (int)(width*(.1/i));
 				RectF topRect = middlePileTopCardLocation();
-				float left = topRect.left + i*deltaX-midShift;
-				float top = topRect.top + i*deltaY-midShift;
+				float left = topRect.left + i*deltaX;
+				float top = topRect.top;
+
 
 				// draw a card-back (hence null) into the appropriate rectangle
 				drawCard(g,
