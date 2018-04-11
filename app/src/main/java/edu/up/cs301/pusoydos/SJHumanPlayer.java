@@ -63,7 +63,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private RectF playButton;
 
 	private int cardWidth, cardGap, cardHeight, width, height;
-	private float deltaX;
+	private float deltaX, deltaY;
 
 	private int otherPlayerCounter;
 
