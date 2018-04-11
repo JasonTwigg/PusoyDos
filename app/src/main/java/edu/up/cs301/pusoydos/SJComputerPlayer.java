@@ -13,8 +13,9 @@ import edu.up.cs301.game.infoMsg.TimerInfo;
 import edu.up.cs301.game.util.PossibleHands;
 
 /**
- * This is a computer player that slaps at an average rate given
- * by the constructor parameter.
+ * This is a computer player that plays very poorly. It plays
+ * the highest card it has, unless in control, in which case
+ * it plays the worst card.
  * 
  * @author Steven R. Vegdahl
  *
@@ -23,7 +24,7 @@ import edu.up.cs301.game.util.PossibleHands;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013 
+ * @version April 2018
  */
 public class SJComputerPlayer extends GameComputerPlayer
 {
@@ -33,6 +34,8 @@ public class SJComputerPlayer extends GameComputerPlayer
 	// the most recent state of the game
 	private SJState savedState;
 	private int size;
+	//Constant for the time each computer takes to go
+	private int waitTime = 750;
 	
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
@@ -62,7 +65,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 
 
     /**
-     * callback method, called when we receive a message, typicallly from
+     * callback method, called when we receive a message, typically from
      * the game
      */
     @Override
@@ -79,17 +82,20 @@ public class SJComputerPlayer extends GameComputerPlayer
 			return;
 		}
 
-
 		Deck myDeck = savedState.getDeck(playerNum);
 		Deck middleDeck = savedState.getDeck(4);
-
-
 
 		synchronized (myDeck) {
 			size = myDeck.getCards().size();
 		}
 
-		sleep(750);
+
+		if(savedState.getModeType() == 0) {
+			sleep(waitTime*2);
+		}
+		else{
+			sleep(waitTime);
+		}
 		if( playerNum == savedState.toPlay() ){
 
 
@@ -97,7 +103,8 @@ public class SJComputerPlayer extends GameComputerPlayer
 				game.sendAction(new PDSelectAction(this,size-1));
 				game.sendAction(new SJPlayAction(this));
 				return;
-			} else {
+			}
+			else if (savedState.getModeType() == 1) {
 				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
 					game.sendAction(new PDSelectAction(this, 0));
 					game.sendAction(new SJPlayAction(this));
@@ -108,22 +115,10 @@ public class SJComputerPlayer extends GameComputerPlayer
 				if( 1==1){
 					return;
 				}
-				/*
-
-				if(middleDeck.getCards().size() == 0 ){
-					game.sendAction(new PDSelectAction(this,myDeck.size()-1));
-					game.sendAction(new SJPlayAction(this));
-					return;
-				}
-				for( int i = myDeck.getCards().size()-1; i>=0; i++){
-					if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
-
-						game.sendAction(new PDSelectAction(this,i-1));
-						game.sendAction(new SJPlayAction(this));
-						return;
-					}
-				}
-				*/
+			}
+			else {
+				game.sendAction((new PDPassAction(this)));
+				return;
 			}
 
 
@@ -131,61 +126,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 			return;
 		}
 
-		if( 1==1 ){
-			return;
-		}
 
-
-    	// if we don't have a game-state, ignore
-    	if (!(info instanceof SJState)) {
-    		return;
-    	}
-    	
-
-    	
-    	// access the state's middle deck
-
-
-		if( middleDeck != null) {
-			Card topCard = middleDeck.getCards().get(0);
-		}
-
-
-		//game.sendAction(new PDPassAction(this));
-
-		if( savedState.getModeType() == 0 ){
-			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-2));
-			game.sendAction(new SJPlayAction(this));
-		} else {
-			game.sendAction(new PDPassAction(this));
-		}
-
-		//WHERE COMPUTER THINKS
-		/*
-    	// look at the top card
-    	Card topCard = middleDeck.peekAtTopCard();
-    	
-    	// if it's a Jack, slap it; otherwise, if it's our turn to
-    	// play, play a card
-    	if (topCard != null && topCard.getRank() == Rank.JACK) {
-    		// we have a Jack to slap: set up a timer, depending on reaction time.
-    		// The slap will occur when the timer "ticks". Our reaction time will be
-    		// between the minimum reaction time and 3 times the minimum reaction time
-        	int time = (int)(minReactionTimeInMillis*(1+2*Math.random()));
-    		this.getTimer().setInterval(time);
-    		this.getTimer().start();
-    	}
-    	else if (savedState.toPlay() == this.playerNum) {
-    		// not a Jack but it's my turn to play a card
-    		
-    		// delay for up to two seconds; then play
-        	sleep((int)(2000*Math.random()));
-        	
-        	// submit our move to the game object
-        	game.sendAction(new SJPlayAction(this));
-    	}
-
-    	*/
     }
 
 	public ArrayList<PossibleHands> getPossibleHands (){

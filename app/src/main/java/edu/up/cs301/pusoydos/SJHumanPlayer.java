@@ -21,10 +21,8 @@ import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 
 /**
- * A GUI that allows a human to play Slapjack. Moves are made by clicking
+ * A GUI that allows a human to play PusoyDos. Moves are made by clicking
  * regions on a surface. Presently, it is laid out for landscape orientation.
- * If the device is held in portrait mode, the cards will be very long and
- * skinny.
  * 
  * @author Steven R. Vegdahl
  *
@@ -33,7 +31,7 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  */
 public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
@@ -44,27 +42,30 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private final static float LEFT_BORDER_PERCENT = 4; // width of left border
 	private final static float RIGHT_BORDER_PERCENT = 20; // width of right border
 	private final static float VERTICAL_BORDER_PERCENT = 4; // width of top/bottom borders
-
 	
 	// our game state
 	protected SJState state;
 
+
+
 	// our activity
 	private Activity myActivity;
 
-	// the amination surface
+	// the animation surface
 	private AnimationSurface surface;
 	
 	// the background color
 	private int backgroundColor;
 
+	//Makes clickable buttons and cards
 	private RectF[] cardPositions;
 	private RectF passButton;
 	private RectF playButton;
 
-	private int cardWidth,cardGap, cardHeight, width, height;
-	private float deltaX, deltaY;
-	private int limit;
+	private int cardWidth, cardGap, cardHeight, width, height;
+	private float deltaX;
+
+	private int otherPlayerCounter;
 
 
 	/**
@@ -104,6 +105,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			this.state = (SJState)info;
 			Log.i("human player", "receiving");
 		}
+
+
 	}
 
 	/**
@@ -146,7 +149,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 	/**
 	 * @return
-	 * 		the amimation interval, in milliseconds
+	 * 		the animation interval, in milliseconds
 	 */
 	public int interval() {
 		// 1/20 of a second
@@ -188,82 +191,16 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	 */
 	public void tick(Canvas g) {
 
-
 		//tick for player;
-
 		// ignore if we have not yet received the game state
 		if (state == null) return;
-
-
-
 
 		// get the height and width of the animation surface
 		height = surface.getHeight();
 		width = surface.getWidth();
 
-
-
-
-
-
-		/*// draw the middle card-pile
-		Card c = state.getDeck(2).peekAtTopCard(); // top card in pile
-		if (c != null) {
-			// if middle card is not empty, draw a set of N card-backs
-			// behind the middle card, so that the user can see the size of
-			// the pile
-			RectF midTopLocation = middlePileTopCardLocation();
-			drawCardBacks(g, midTopLocation,
-					0.0025f*width, -0.01f*height, state.getDeck(2).size());
-			// draw the top card, face-up
-			drawCard(g, midTopLocation, c);
-		}
-		*/
-
-		/*
-		// draw the opponent's cards, face down
-		RectF oppTopLocation = opponentTopCardLocation(); // drawing size/location
-		drawCardBacks(g, oppTopLocation,
-				0.0025f*width, -0.01f*height, state.getDeck(1-this.playerNum).size());
-
-		// draw my cards, face down
-		RectF thisTopLocation = thisPlayerTopCardLocation(); // drawing size/location
-		drawCardBacks(g, thisTopLocation,
-				0.0025f*width, -0.01f*height, state.getDeck(this.playerNum).size());
-		
-		// draw a red bar to denote which player is to play (flip) a card
-		RectF currentPlayerRect =
-				state.toPlay() == this.playerNum ? thisTopLocation : oppTopLocation;
-		RectF turnIndicator =
-				new RectF(currentPlayerRect.left,
-						currentPlayerRect.bottom,
-						currentPlayerRect.right,
-					height);
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
-		g.drawRect(turnIndicator, paint);
-		*/
-
-
-		Paint paint = new Paint();
-		paint.setColor(Color.RED);
-
-
-
-
-
-
-
-		/*
-		double percentLeft = .25;
-		double percentTop = .8;
-		double percentWidth = 0.05;
-		double percentHeight = .1;
-		int rectLeft = (int)(width*(percentLeft));
-		int rectRight = (int)(width*(percentLeft-percentWidth));
-		int rectTop = (int)(height*percentTop);
-		int rectBottom = (int)(height*(percentTop+percentHeight));
-		*/
 
 		Deck deck = state.getDeck(playerNum);
 
@@ -281,7 +218,9 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectBottom = rectTop + cardHeight;
 
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
+
 			Card c = state.getDeck(playerNum).getCards().get(i);
+
 			if (c != null) {
 				// if middle card is not empty, draw a set of N card-backs
 				// behind the middle card, so that the user can see the size of
@@ -289,7 +228,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				RectF midTopLocation = middlePileTopCardLocation();
 
 				// draw the top card, face-up
-
 				if(deck.getCards().get(i).isSelected()){
 					rectTop = rectTopSelected;
 					rectBottom = rectTop + cardHeight;
@@ -298,51 +236,36 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 					rectBottom = rectTop + cardHeight;
 				}
 
-
 				cardPositions[i] = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 
 				drawCard(g, cardPositions[i], c);
 				rectLeft+=cardGap;
 				rectRight+=cardGap;
-
-				//rectLeft = (int)(width*(percentLeft*(i+1)));
-				//rectRight = (int)(width*(percentLeft-percentWidth*(i+1)));
-
 			}
-
 		}
-
+		//White Paint for text on the screen
 		Paint whitePaint = new Paint();
 		whitePaint.setColor(Color.WHITE);
 		whitePaint.setTextSize(150);
 		whitePaint.setFakeBoldText(true);
 		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+		//Draws the title and whose turn it is
 		g.drawText("Pusoy Dos", 50, 150, whitePaint);
-
 		g.drawText(""+state.toPlay(), 100, 250, whitePaint);
 
-
-
+		//Sets the size for the Player labels
         whitePaint.setTextSize(35);
 
 		deltaX = (float) (cardWidth*.1);
 
 		//to draw card backs for other players
-		int otherPlayer = 0;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawLeftPlayer(g, otherPlayer, whitePaint);
-		otherPlayer++;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawTopPlayer(g, otherPlayer, whitePaint);
-		otherPlayer++;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawRightPlayer(g, otherPlayer, whitePaint);
+		otherPlayerCounter = 0;
+
+		drawPlayer(g,(int)(width*.1),(int)((height*.5)-cardHeight),whitePaint);
+
+		drawPlayer(g,(int)((width*.5)-cardWidth),(int)(height*.1),whitePaint);
+
+		drawPlayer(g,(int) (width*.75),(int)((height*.5)-cardHeight),whitePaint);
 
 		drawMiddlePile(g, deck);
 
@@ -385,90 +308,111 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
 			//flash(Color.BLUE,1);
 		}
+		//Draws the Pass and Play Buttons
+		drawPassButton(g);
+		drawPlayButton(g);
 	}
 
-	public void drawLeftPlayer( Canvas g, int playerNum, Paint textPaint ) {
+	public void drawPlayer( Canvas g, int rectLeft, int rectTop, Paint textPaint){
 
-		//to set LEFT PLAYER card back
-		int rectLeftL = (int)(width*.1);
-		int rectRightL = rectLeftL+cardWidth;
-		int rectTopL = (int)((height*.5)-cardHeight);
-		int rectBottomL = rectTopL+cardHeight;
 
-		RectF cardBackL = new RectF(rectLeftL, rectTopL, rectRightL, rectBottomL);
-		drawCardBacks(g, cardBackL, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftL+(cardWidth*.2)), (float) (rectBottomL+(cardHeight*.2)), textPaint);
 
-	}
 
-	public void drawTopPlayer( Canvas g, int playerNum, Paint textPaint ) {
+		otherPlayerCounter++;
+		if( otherPlayerCounter == playerNum ) {
+			otherPlayerCounter++;
+		}
 
-		//to set TOP PLAYER card back
-		int rectLeftT = (int)((width*.5)-cardWidth);
-		int rectRightT = rectLeftT+cardWidth;
-		int rectTopT = (int)(height*.1);
-		int rectBottomT = rectTopT+cardHeight;
 
-		RectF cardBackT = new RectF(rectLeftT, rectTopT, rectRightT, rectBottomT);
-		drawCardBacks(g, cardBackT, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftT+(cardWidth*.2)), (float) (rectBottomT+(cardHeight*.2)), textPaint);
-	}
+		//to set the PLAYER's card back
+		String playerName = this.allPlayerNames[otherPlayerCounter];
+		int rectRight = rectLeft+cardWidth;
+		int rectBottom = rectTop+cardHeight;
 
-	public void drawRightPlayer( Canvas g, int playerNum, Paint textPaint ) {
 
-		//to set RIGHT PLAYER card back
-		int rectLeftR = (int) (width*.75);
-		int rectRightR = rectLeftR+cardWidth;
-		int rectTopR = (int)((height*.5)-cardHeight);
-		int rectBottomR = rectTopR+cardHeight;
 
-		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
-		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
+		textPaint.setColor(Color.MAGENTA);
+		textPaint.setTextSize(50);
+		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
+				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
+
+		g.drawRoundRect(outLine,10f,10f,textPaint);
+
+
+
+
+		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
+		textPaint.setFakeBoldText(false);
+		textPaint.setUnderlineText(false);
+		textPaint.setTextSize(30);
+		textPaint.setColor(Color.WHITE);
+		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[otherPlayerCounter]);
+		g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+		if( state.toPlay() == otherPlayerCounter ){
+			textPaint.setColor(Color.YELLOW);
+			textPaint.setFakeBoldText(true);
+			textPaint.setUnderlineText(true);
+		}
+		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
+
 	}
 
 	public void drawPassButton(Canvas g) {
-
+		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
-
+		//Outline of the button
+		Paint outline = new Paint();
+		outline.setStyle(Paint.Style.STROKE);
+		outline.setColor(Color.BLACK);
+		outline.setStrokeWidth(6);
+		//Paint for the Text "PASS"
 		Paint WhitePaint = new Paint();
 		WhitePaint.setColor(Color.WHITE);
 		WhitePaint.setTextSize(75);
 		WhitePaint.setFakeBoldText(true);
+		WhitePaint.setTypeface(Typeface.create("Arial",Typeface.ITALIC));
 
-		//to set Pass Button
-		int rectLeftP = (int) (width*.35);
+		//to set position of Pass Button
+		int rectLeftP = (int) (width*.075);
 		int rectRightP = rectLeftP +250;
-		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
 		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
-		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
-		g.drawText("PASS",rectLeftP+10, rectRightP-30, WhitePaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
+		g.drawText("PASS",rectLeftP+30, rectTopP+95, WhitePaint);
 	}
 
 	public void drawPlayButton(Canvas g) {
-
+		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
-
+		//Outline of the button
+		Paint outline = new Paint();
+		outline.setStyle(Paint.Style.STROKE);
+		outline.setColor(Color.BLACK);
+		outline.setStrokeWidth(6);
+		//Paint for the text "PLAY"
 		Paint WhitePaint = new Paint();
 		WhitePaint.setColor(Color.WHITE);
 		WhitePaint.setTextSize(75);
 		WhitePaint.setFakeBoldText(true);
+		WhitePaint.setTypeface(Typeface.create("Arial",Typeface.ITALIC));
 
-		//to set Pass Button
-		int rectLeftP = (int) (width*.55);
+		//to set position of Play Button
+		int rectLeftP = (int) (width*.85);
 		int rectRightP = rectLeftP +250;
-		int rectTopP = (int)((height*.5)+cardHeight);
+		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
 		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
-		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
-		g.drawText("PLAY",rectLeftP+10, rectTopP+95, WhitePaint);
-	}
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
+		g.drawText("PLAY",rectLeftP+25, rectTopP+95, WhitePaint);
 
+	}
 
 	/**
 	 * @return
@@ -486,8 +430,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				(LEFT_BORDER_PERCENT+CARD_WIDTH_PERCENT)*width/100f,
 				(100-VERTICAL_BORDER_PERCENT)*height/100f);
 	}
-
-
 
 	/**
 	 * @return
@@ -566,23 +508,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		// get the location of the touch on the surface
 		int x = (int) event.getX();
 		int y = (int) event.getY();
-		
-		// determine whether the touch occurred on the top-card of either
-		// the player's pile or the middle pile
-		/*
-		RectF myTopCardLoc = thisPlayerTopCardLocation();
-		RectF middleTopCardLoc = middlePileTopCardLocation();
-		if (myTopCardLoc.contains(x, y)) {
-			// it's on my pile: we're playing a card: send action to
-			// the game
-			game.sendAction(new SJPlayAction(this));
-		}
-		else if (middleTopCardLoc.contains(x, y)) {
-			// it's on the middlel pile: we're slapping a card: send
-			// action to the game
-			game.sendAction(new SJSlapAction(this));
-		}
-		*/
+
 		int find = -1;
 		Deck myDeck = state.getDeck(playerNum);
 		for( int i = 0; i < myDeck.size(); i++){
@@ -596,6 +522,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		if( find != -1 ){
 			//game.sendAction(new SJSlapAction(this));
 			game.sendAction(new PDSelectAction(this, find));
+
 		} else if( passButton.contains(x,y)){
 			surface.flash(Color.GREEN, 50);
 			game.sendAction(new PDPassAction(this));

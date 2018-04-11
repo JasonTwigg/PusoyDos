@@ -47,10 +47,18 @@ public class SJLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
 
+
+
+
+		for( int i = 0; i<4; i++){
+			if( state.getDeck(i).size() == 0 ){
+				return this.playerNames[i] + " Has Won!";
+			}
+		}
+
 		if( 1==1 ){
 			return null;
 		}
-
 
     	if (state.getDeck(2).size() > 0) {
     		// there are cards in the middle pile
