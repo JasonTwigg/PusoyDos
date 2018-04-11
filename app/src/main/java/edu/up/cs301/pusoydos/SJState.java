@@ -634,6 +634,8 @@ public class SJState extends GameState {
 		return modeType;
 	}
 
+	public int getPlayerLastPlayed() { return playerLastPlayed; }
+
 
 
 }

@@ -389,9 +389,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
         //Draws the outline around the decks
 		textPaint.setColor(Color.MAGENTA);
 		textPaint.setTextSize(50);
-		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
-				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
-		g.drawRoundRect(outLine,10f,10f,textPaint);
+
+		if( state.getPlayerLastPlayed() == otherPlayerCounter ) {
+			RectF outLine = new RectF((int) (rectLeft - cardWidth * .1), (int) (rectTop - cardHeight * .1),
+					(int) (rectRight + cardWidth * (.2 + state.getPileSizes()[otherPlayerCounter]) * .1), (int) (rectBottom + cardHeight * (.1)));
+			g.drawRoundRect(outLine, 10f, 10f, textPaint);
+		}
 
         //Draws the card backs
 		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
