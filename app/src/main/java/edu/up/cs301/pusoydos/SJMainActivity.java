@@ -20,7 +20,7 @@ import android.graphics.Color;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  */
 public class SJMainActivity extends GameMainActivity {
 	

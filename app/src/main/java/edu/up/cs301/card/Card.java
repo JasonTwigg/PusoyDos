@@ -29,7 +29,7 @@ import android.graphics.RectF;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version December 2016
+ * @version April 2018
  */
 public class Card implements Serializable {
 
