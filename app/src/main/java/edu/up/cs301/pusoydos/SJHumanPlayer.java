@@ -46,6 +46,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	// our game state
 	protected SJState state;
 
+
+
 	// our activity
 	private Activity myActivity;
 
@@ -62,6 +64,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 	private int cardWidth, cardGap, cardHeight, width, height;
 	private float deltaX;
+
+	private int otherPlayerCounter;
 
 
 	/**
@@ -101,6 +105,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			this.state = (SJState)info;
 			Log.i("human player", "receiving");
 		}
+
+
 	}
 
 	/**
@@ -253,21 +259,13 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		deltaX = (float) (cardWidth*.1);
 
 		//to draw card backs for other players
-		int otherPlayer = 0;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawLeftPlayer(g, otherPlayer, whitePaint);
-		otherPlayer++;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawTopPlayer(g, otherPlayer, whitePaint);
-		otherPlayer++;
-		if( otherPlayer == playerNum ) {
-			otherPlayer++;
-		}
-		drawRightPlayer(g, otherPlayer, whitePaint);
+		otherPlayerCounter = 0;
+
+		drawPlayer(g,(int)(width*.1),(int)((height*.5)-cardHeight),whitePaint);
+
+		drawPlayer(g,(int)((width*.5)-cardWidth),(int)(height*.1),whitePaint);
+
+		drawPlayer(g,(int) (width*.75),(int)((height*.5)-cardHeight),whitePaint);
 
 		if( (state.getDeck(4).getCards().size() != 0)){
 			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-1));
@@ -282,44 +280,36 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		drawPlayButton(g);
 	}
 
-	public void drawLeftPlayer( Canvas g, int playerNum, Paint textPaint ) {
+	public void drawPlayer( Canvas g, int rectLeft, int rectTop, Paint textPaint){
 
-		//to set LEFT PLAYER card back
-		int rectLeftL = (int)(width*.1);
-		int rectRightL = rectLeftL+cardWidth;
-		int rectTopL = (int)((height*.5)-cardHeight);
-		int rectBottomL = rectTopL+cardHeight;
 
-		RectF cardBackL = new RectF(rectLeftL, rectTopL, rectRightL, rectBottomL);
-		drawCardBacks(g, cardBackL, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftL+(cardWidth*.2)), (float) (rectBottomL+(cardHeight*.2)), textPaint);
 
-	}
 
-	public void drawTopPlayer( Canvas g, int playerNum, Paint textPaint ) {
+		otherPlayerCounter++;
+		if( otherPlayerCounter == playerNum ) {
+			otherPlayerCounter++;
+		}
 
-		//to set TOP PLAYER card back
-		int rectLeftT = (int)((width*.5)-cardWidth);
-		int rectRightT = rectLeftT+cardWidth;
-		int rectTopT = (int)(height*.1);
-		int rectBottomT = rectTopT+cardHeight;
+		//to set the PLAYER's card back
+		String playerName = this.allPlayerNames[otherPlayerCounter];
+		int rectRight = rectLeft+cardWidth;
+		int rectBottom = rectTop+cardHeight;
 
-		RectF cardBackT = new RectF(rectLeftT, rectTopT, rectRightT, rectBottomT);
-		drawCardBacks(g, cardBackT, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftT+(cardWidth*.2)), (float) (rectBottomT+(cardHeight*.2)), textPaint);
-	}
+		textPaint.setColor(Color.MAGENTA);
+		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
+				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
 
-	public void drawRightPlayer( Canvas g, int playerNum, Paint textPaint ) {
+		g.drawRoundRect(outLine,10f,10f,textPaint);
 
-		//to set RIGHT PLAYER card back
-		int rectLeftR = (int) (width*.75);
-		int rectRightR = rectLeftR+cardWidth;
-		int rectTopR = (int)((height*.5)-cardHeight);
-		int rectBottomR = rectTopR+cardHeight;
 
-		RectF cardBackR = new RectF(rectLeftR, rectTopR, rectRightR, rectBottomR);
-		drawCardBacks(g, cardBackR, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeftR+(cardWidth*.2)), (float) (rectBottomR+(cardHeight*.2)), textPaint);
+
+
+		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
+
+		textPaint.setColor(Color.WHITE);
+		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[playerNum]);
+		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeft+(cardWidth*.2)), (float) (rectBottom+(cardHeight*.2)), textPaint);
+		g.drawText(playerName, (float) (rectLeft+(cardWidth*.2)), (float) (rectTop-(cardHeight*.2)), textPaint);
 	}
 
 	public void drawPassButton(Canvas g) {
