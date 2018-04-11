@@ -151,8 +151,15 @@ public class Deck implements Serializable {
 		}
 	}
 
-
-
+	/**
+	 *  moveSelectedCard method: Moves the cards from
+	 *  one pile (deck) to another
+	 *
+	 * @param targetDeck
+	 * 		Which deck the cards will be moved to
+	 * @param position
+	 * 		The position of the cards
+	 */
 	public void moveSelectedCard(Deck targetDeck, int position) {
 
 		// will hold the card
@@ -328,6 +335,13 @@ public class Deck implements Serializable {
 		return rtnVal;
 	}
 
+	/**
+	 *  Returns which cards are in the player's
+	 *  hand. (or middle pile)
+	 *
+	 * @return
+	 * 		the card in the player's hand
+	 */
 	public ArrayList<Card> getCards() {
 		return cards;
 	}

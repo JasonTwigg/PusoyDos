@@ -17,7 +17,7 @@ import edu.up.cs301.game.infoMsg.GameState;
  */
 
 /**
- * Contains the state of a Slapjack game.  Sent by the game when
+ * Contains the state of a PusoyDos game.  Sent by the game when
  * a player wants to enquire about the state of the game.  (E.g., to display
  * it, or to help figure out its next move.)
  *
@@ -26,7 +26,7 @@ import edu.up.cs301.game.infoMsg.GameState;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  */
 public class SJState extends GameState {
     private static final long serialVersionUID = -8269749892027578792L;
@@ -633,6 +633,8 @@ public class SJState extends GameState {
 	public int getModeType(){
 		return modeType;
 	}
+
+	public int getPlayerLastPlayed() { return playerLastPlayed; }
 
 
 

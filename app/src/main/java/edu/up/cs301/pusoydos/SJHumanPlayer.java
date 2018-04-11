@@ -46,8 +46,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	// our game state
 	protected SJState state;
 
-
-
 	// our activity
 	private Activity myActivity;
 
@@ -62,11 +60,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private RectF passButton;
 	private RectF playButton;
 
+	//Card dimensions
 	private int cardWidth, cardGap, cardHeight, width, height;
-	private float deltaX;
+	private float deltaX, deltaY;
 
+    //Counter to see which player needs to be drawn
 	private int otherPlayerCounter;
-
 
 	/**
 	 * constructor
@@ -92,7 +91,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		Log.i("SJComputerPlayer", "receiving updated state ("+info.getClass()+")");
 		if (info instanceof IllegalMoveInfo || info instanceof NotYourTurnInfo) {
 			// if we had an out-of-turn or illegal move, flash the screen
-			surface.flash(Color.RED, 50);
+			//surface.flash(Color.RED, 50);
 		}
 		else if (!(info instanceof SJState)) {
 			// otherwise, if it's not a game-state message, ignore
@@ -217,6 +216,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopSelected = (int)(height*.75);
 		int rectBottom = rectTop + cardHeight;
 
+		//Draws each card in the decks
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
 
 			Card c = state.getDeck(playerNum).getCards().get(i);
@@ -243,15 +243,13 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 				rectRight+=cardGap;
 			}
 		}
-		//White Paint for text on the screen
+
+		//to draw the title and current player text to screen
+		drawMainText(g);
+
+		//Paint for player name labels
 		Paint whitePaint = new Paint();
 		whitePaint.setColor(Color.WHITE);
-		whitePaint.setTextSize(150);
-		whitePaint.setFakeBoldText(true);
-		whitePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
-		//Draws the title and whose turn it is
-		g.drawText("Pusoy Dos", 50, 150, whitePaint);
-		g.drawText(""+state.toPlay(), 100, 250, whitePaint);
 
 		//Sets the size for the Player labels
         whitePaint.setTextSize(35);
@@ -267,63 +265,176 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 		drawPlayer(g,(int) (width*.75),(int)((height*.5)-cardHeight),whitePaint);
 
+		drawMiddlePile(g, deck);
+
+		drawPassButton(g);
+		drawPlayButton(g);
+
+	}
+
+	/**
+	 * helper draw method: draws the title "Pusoy Dos" and the current player label to screen
+	 *
+	 * @param g
+	 * 		the canvas on which we are to draw
+	 */
+	public void drawMainText( Canvas g ) {
+
+		//Paint for text on the screen (title and player's turn)
+		Paint psPaint = new Paint();
+		psPaint.setColor(Color.argb(80, 255, 255, 255));
+		psPaint.setTextSize(150);
+		//to set text to bolded and italic style
+		psPaint.setFakeBoldText(true);
+		psPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+		//Draws the title and whose turn it is
+		int titleX = (int)(width*.35);
+		int titleY = (int)(height*.75);
+		g.drawText("Pusoy Dos", titleX, titleY, psPaint);
+
+		//to get the current players name (as entered in start up screen)
+		String playerName = this.allPlayerNames[state.toPlay()];
+
+		//sets x and y location of player's turn text
+		int turnLableX = (int) (width*.03);
+		int turnLableY = (int) (height*.09);
+		//sets the size
+		psPaint.setTextSize(80);
+		g.drawText("It is "+playerName+"'s turn!", turnLableX, turnLableY, psPaint);
+	}
+
+    /**
+     * drawMiddlePile method: This method draws the middle pile with the
+     * most recent cards on top. It shows a maximum of five cards for
+     * the sake of space. (Also draws the pass and play buttons.)
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     * @param deck
+     *      the deck is the pile of cards in the center
+     */
+	public void drawMiddlePile( Canvas g, Deck deck ){
+
+		//if there are cards in the middle pile, carry out the following actions
 		if( (state.getDeck(4).getCards().size() != 0)){
-			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-1));
+
+			deltaX = (float) (cardWidth*.2); //to "layer" cards in middle
+			int size = state.getDeck(4).getCards().size(); //current size of the middle pile
+
+			int bottom = 0; //to keep track of the bottom card shown in middle
+			int maxSize = 5; //to limit the amount of cards in the middle pile
+
+			//set the bottom when the cards in the middle exceeds 5
+			if( size >= maxSize ){
+				bottom = size - maxSize;
+			}
+
+			// -loops through the cards in the middle pile
+			// -shifts them appropriately so the rank and suit of each card can be seen
+			// -draws each card (overlapping) with the last played card on top
+			for( int i=size-bottom; i>0; i--) {
+
+				//set location for the top card
+				RectF topRect = middlePileTopCardLocation();
+
+				//shift each card over (on the x-axis) to create "overlapping" effect
+				float left = topRect.left + i*deltaX;
+				//set the top corn value of each card in middle pile
+				float top = topRect.top;
+
+				// draw a card-back (hence null) into the appropriate rectangle
+				drawCard(g,
+						new RectF(left, top, left + topRect.width(), top + topRect.height()),
+						state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-i));
+			}
+
 		}
+		//if there are no cards in the middle pile draw the back of a card to the center
 		else{
 			RectF emptyCenter = (middlePileTopCardLocation());
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
-			//flash(Color.BLUE,1);
 		}
 		//Draws the Pass and Play Buttons
 		drawPassButton(g);
 		drawPlayButton(g);
 	}
 
+    /**
+     * drawPlayer method: This method draws the player's hand, back of
+     * the card facing up. It also displays how many cards are left in
+     * the user's hand.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     * @param rectLeft
+     *      the left x coordinate to be used
+     * @param rectTop
+     *      the top y coordinate to be used
+     * @param textPaint
+     *      the textPaint to be used to draw the Player name
+     */
 	public void drawPlayer( Canvas g, int rectLeft, int rectTop, Paint textPaint){
 
-
-
-
+        //Moves on to the next player's deck to draw
 		otherPlayerCounter++;
 		if( otherPlayerCounter == playerNum ) {
 			otherPlayerCounter++;
 		}
-
 
 		//to set the PLAYER's card back
 		String playerName = this.allPlayerNames[otherPlayerCounter];
 		int rectRight = rectLeft+cardWidth;
 		int rectBottom = rectTop+cardHeight;
 
-
-
+        //Draws the outline around the decks
 		textPaint.setColor(Color.MAGENTA);
 		textPaint.setTextSize(50);
-		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
-				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
 
-		g.drawRoundRect(outLine,10f,10f,textPaint);
+		if( state.getPlayerLastPlayed() == otherPlayerCounter ) {
+			RectF outLine = new RectF((int) (rectLeft - cardWidth * .1), (int) (rectTop - cardHeight * .1),
+					(int) (rectRight + cardWidth * (.2 + state.getPileSizes()[otherPlayerCounter]) * .1), (int) (rectBottom + cardHeight * (.1)));
+			g.drawRoundRect(outLine, 10f, 10f, textPaint);
+		}
 
-
-
-
+        //Draws the card backs
 		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 		textPaint.setFakeBoldText(false);
 		textPaint.setUnderlineText(false);
 		textPaint.setTextSize(30);
 		textPaint.setColor(Color.WHITE);
 		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[otherPlayerCounter]);
-		g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+		//Shows the amount of cards left in each player's hand
+        g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+
+        //Changes depending on if it is their turn
 		if( state.toPlay() == otherPlayerCounter ){
 			textPaint.setColor(Color.YELLOW);
 			textPaint.setFakeBoldText(true);
 			textPaint.setUnderlineText(true);
 		}
-		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
 
+		//Draws the player name near their deck
+		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
 	}
 
+	/**
+	 External Citation
+	 Date: March 3, 2018
+	 Problem: Wanted a rectangle with rounded edges
+	 Resource:
+	 https://developer.android.com/reference/android/graphics/
+	 	drawable/shapes/RoundRectShape.html
+	 Solution: This code told us how to draw a roundRect, which we use for both
+	 of the buttons (Pass and Play)
+	 */
+
+    /**
+     * drawPassButton method: This method draws the pass button on the
+     * bottom left corner of the play area.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     */
 	public void drawPassButton(Canvas g) {
 		//Paint for the button
 		Paint RedPaint = new Paint();
@@ -346,13 +457,22 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
+        //Draws the button
 		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
 		g.drawText("PASS",rectLeftP+30, rectTopP+95, WhitePaint);
 	}
 
+    /**
+     * drawPlayButton method: This method draws the play button on the
+     * bottom right corner of the play area.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     */
 	public void drawPlayButton(Canvas g) {
+
 		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
@@ -374,6 +494,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
+        //Draws the button
 		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version December 2016
+ * @version April 2018
  */
 public enum Suit implements Serializable {
 	

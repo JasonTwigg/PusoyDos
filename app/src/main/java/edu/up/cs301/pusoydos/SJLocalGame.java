@@ -10,7 +10,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.config.GameConfig;
 
 /**
- * The LocalGame class for a slapjack game.  Defines and enforces
+ * The LocalGame class for a PusoyDos game.  Defines and enforces
  * the game rules; handles interactions between players.
  * 
  * @author Steven R. Vegdahl
@@ -20,7 +20,7 @@ import edu.up.cs301.game.config.GameConfig;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  */
 
 public class SJLocalGame extends LocalGame {
@@ -49,45 +49,18 @@ public class SJLocalGame extends LocalGame {
 
 
 
-
+		// loops through all four players and if one of them has no more cards left
+		// end the game and print that that player has won!
 		for( int i = 0; i<4; i++){
 			if( state.getDeck(i).size() == 0 ){
 				return this.playerNames[i] + " Has Won!";
 			}
 		}
 
-		if( 1==1 ){
-			return null;
-		}
+		//else return null, stating that the game is not over
+		return null;
 
-    	if (state.getDeck(2).size() > 0) {
-    		// there are cards in the middle pile
-    		if (state.getDeck(0).size() == 0 &&
-    				state.getDeck(1).size() == 0 &&
-    				state.getDeck(2).peekAtTopCard().getRank() != Rank.JACK) {
-    			// All the cards have ended up in the middle pile, and the top card
-    			// is not a Jack. This situation is a draw, since the only move a player
-    			// would would be to slap the top card, causing his opponent to win.
-    			return "game is a draw";
-    		}
-    		else {
-    			// there are either cards in at least two piles, or all cards are in the
-    			// middle pile with a Jack on top; return null, as the game is not over
-    			return null;
-    		}
-    	}
-    	else if (state.getDeck(0).size() <= 0) {
-    		// player 1 has all the cards
-    		return this.playerNames[1]+" is the winner";
-    	}
-    	else if (state.getDeck(1).size() <= 0) {
-    		// player 0 has all the cards
-    		return this.playerNames[0]+" is the winner";
-    	}
-    	else {
-    		// each player has some cards: no winner yet
-    		return null;
-    	}
+
     }
 
     /**
@@ -159,7 +132,7 @@ public class SJLocalGame extends LocalGame {
 	@Override
 	protected boolean makeMove(GameAction action) {
 		
-		// check that we have slap-jack action; if so cast it
+		// check that we have action; if so cast it
 		if (!(action instanceof SJMoveAction)) {
 			return false;
 		} 
@@ -168,70 +141,45 @@ public class SJLocalGame extends LocalGame {
 		// get the index of the player making the move; return false
 		int thisPlayerIdx = getPlayerIdx(sjma.getPlayer());
 		
-		if (thisPlayerIdx < 0) { // illegal player
+		if (thisPlayerIdx < 0 || thisPlayerIdx > 3) { // illegal player
 			return false;
 		}
-/*
-		if (sjma.isSlap()) {
-			// if we have a slap 
-			if (state.getDeck(2).size() == 0) {
-				// empty deck: return false, as move is illegal
-				return false;
-			}
-			else if (state.getDeck(2).peekAtTopCard().getRank() == Rank.JACK){
-				// a Jack was slapped: give all cards to slapping player
-				giveMiddleCardsToPlayer(thisPlayerIdx);
-			}
-			else {
-				// a non-Jack was slapped: give all cards to non-slapping player
-				giveMiddleCardsToPlayer(1-thisPlayerIdx);
-			}
-		} else if (sjma.isPlay()) { // we have a "play" action
-			if (thisPlayerIdx != state.toPlay()) {
-				// attempt to play when it's the other player's turn
-				return false;
-			}
-			else {
-				// it's the correct player's turn: move the top card from the
-				// player's deck to the top of the middle deck
-				state.getDeck(thisPlayerIdx).moveTopCardTo(state.getDeck(2));
-				// if the opponent has any cards, make it the opponent's move
-				if (state.getDeck(1-thisPlayerIdx).size() > 0) {
-					state.setToPlay(1-thisPlayerIdx);
-				}
-			}
-		} */
-		if( sjma.isSelect()){
-			PDSelectAction selectAction = (PDSelectAction)sjma;
 
-			if( state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).isSelected()){
-				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
-				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(false);
-			} else {
-				Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
-				//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
-			}
+		//check if the move action is a select action
+		//if so, cast the action to a select action and call the select card method
+		if( sjma.isSelect()){
+
+			PDSelectAction selectAction = (PDSelectAction)sjma;
+			Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+
+			//we return false instead of true because, this action is always called in conjunction
+			//with another action and if we return true, it will send the updated state for the computer,
+			//making it move again, causing a out of bounds error, because the card was already played
 			return false;
 
+
+			//check if the move action is a pass action
 		} else if( sjma.isPass() ){
 
 			if (thisPlayerIdx != state.toPlay()) {
-				// attempt to play when it's the other player's turn
-				Log.i("I tried to pass" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
+				// attempt to pass when it's the other players turn
+
 				return false;
 
 			} else {
 
-
-				Log.i(state.passAction(thisPlayerIdx), "YAY");
+				//calls the pass actoin
+				Log.i(state.passAction(thisPlayerIdx),"");
 			}
+
+			//check if the move action is a play action
 		} else if( sjma.isPlay() ){
 			if (thisPlayerIdx != state.toPlay()) {
 				// attempt to play when it's the other player's turn
-				Log.i("I TRied to player" + "Player Num : " + thisPlayerIdx + " ToPlay: " + state.toPlay(),"not yay");
 				return false;
 
 			} else {
+				//play their cards, if they are unable to play the log will print out why
 				Log.i(state.playCard(thisPlayerIdx),"");
 
 			}
@@ -245,21 +193,5 @@ public class SJLocalGame extends LocalGame {
 		return true;
 	}
 	
-	/**
-	 * helper method that gives all the cards in the middle deck to
-	 * a given player; also shuffles the target deck
-	 * 
-	 * @param idx
-	 * 		the index of the player to whom the cards should be given
-	 */
-	private void giveMiddleCardsToPlayer(int idx) {
-		// illegal player: ignore
-		if (idx < 0 || idx > 1) return;
-		
-		// move all cards from the middle deck to the target deck
-		state.getDeck(2).moveAllCardsTo(state.getDeck(idx));
-		
-		// shuffle the target deck
-		state.getDeck(idx).shuffle();
-	}
+
 }
