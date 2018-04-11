@@ -316,11 +316,17 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
+		//Outline of the button
+		Paint outline = new Paint();
+		outline.setStyle(Paint.Style.STROKE);
+		outline.setColor(Color.BLACK);
+		outline.setStrokeWidth(6);
 		//Paint for the Text "PASS"
 		Paint WhitePaint = new Paint();
 		WhitePaint.setColor(Color.WHITE);
 		WhitePaint.setTextSize(75);
 		WhitePaint.setFakeBoldText(true);
+		WhitePaint.setTypeface(Typeface.create("Arial",Typeface.ITALIC));
 
 		//to set position of Pass Button
 		int rectLeftP = (int) (width*.075);
@@ -329,29 +335,38 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectBottomP = rectTopP+130;
 
 		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
-		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
-		g.drawText("PASS",rectLeftP+10, rectTopP+95, WhitePaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
+		g.drawText("PASS",rectLeftP+30, rectTopP+95, WhitePaint);
 	}
 
 	public void drawPlayButton(Canvas g) {
 		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
+		//Outline of the button
+		Paint outline = new Paint();
+		outline.setStyle(Paint.Style.STROKE);
+		outline.setColor(Color.BLACK);
+		outline.setStrokeWidth(6);
 		//Paint for the text "PLAY"
 		Paint WhitePaint = new Paint();
 		WhitePaint.setColor(Color.WHITE);
 		WhitePaint.setTextSize(75);
 		WhitePaint.setFakeBoldText(true);
+		WhitePaint.setTypeface(Typeface.create("Arial",Typeface.ITALIC));
 
 		//to set position of Play Button
-		int rectLeftP = (int) (width*.075);
+		int rectLeftP = (int) (width*.85);
 		int rectRightP = rectLeftP +250;
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
 		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
-		g.drawRect(rectLeftP, rectTopP, rectRightP, rectBottomP, RedPaint);
-		g.drawText("PLAY",rectLeftP+10, rectTopP+95, WhitePaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
+		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
+		g.drawText("PLAY",rectLeftP+25, rectTopP+95, WhitePaint);
+
 	}
 
 	/**
