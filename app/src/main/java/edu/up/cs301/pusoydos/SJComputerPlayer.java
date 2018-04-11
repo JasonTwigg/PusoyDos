@@ -96,6 +96,18 @@ public class SJComputerPlayer extends GameComputerPlayer
 			sleep(waitTime);
 		}
 
+		/**
+		 External Citation
+		 Date: March 3, 2018
+		 Problem: We couldn't remember exactly how sleeping worked with
+		 a thread
+		 Resource:
+		 https://developer.android.com/reference/java/lang/Thread.html
+		 Solution: This information helped us get a better grasp
+		 on threads and how to use sleep
+		 */
+
+
 		//Computer plays if it is their turn
 		if( playerNum == savedState.toPlay() ){
 

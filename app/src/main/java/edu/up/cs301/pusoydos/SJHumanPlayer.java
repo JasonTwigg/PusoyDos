@@ -378,6 +378,17 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
 	}
 
+	/**
+	 External Citation
+	 Date: March 3, 2018
+	 Problem: Wanted a rectangle with rounded edges
+	 Resource:
+	 https://developer.android.com/reference/android/graphics/
+	 	drawable/shapes/RoundRectShape.html
+	 Solution: This code told us how to draw a roundRect, which we use for both
+	 of the buttons (Pass and Play)
+	 */
+
     /**
      * drawPassButton method: This method draws the pass button on the
      * bottom left corner of the play area.
