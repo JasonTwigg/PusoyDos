@@ -92,7 +92,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		Log.i("SJComputerPlayer", "receiving updated state ("+info.getClass()+")");
 		if (info instanceof IllegalMoveInfo || info instanceof NotYourTurnInfo) {
 			// if we had an out-of-turn or illegal move, flash the screen
-			surface.flash(Color.RED, 50);
+			//surface.flash(Color.RED, 50);
 		}
 		else if (!(info instanceof SJState)) {
 			// otherwise, if it's not a game-state message, ignore
@@ -353,6 +353,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	}
 
 	public void drawPlayButton(Canvas g) {
+
 		//Paint for the button
 		Paint RedPaint = new Paint();
 		RedPaint.setColor(Color.RED);
