@@ -63,7 +63,8 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private RectF playButton;
 
 	private int cardWidth,cardGap, cardHeight, width, height;
-	private float deltaX;
+	private float deltaX, deltaY;
+	private int limit;
 
 
 	/**
@@ -343,18 +344,47 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 		drawRightPlayer(g, otherPlayer, whitePaint);
 
+		drawMiddlePile(g, deck);
+
+		drawPassButton(g);
+		drawPlayButton(g);
+
+	}
+
+	public void drawMiddlePile( Canvas g, Deck deck ){
 		if( (state.getDeck(4).getCards().size() != 0)){
-			drawCard(g, middlePileTopCardLocation(), state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-1));
+
+			deltaX = (float) (cardWidth*.2);
+			deltaY = (float) (cardWidth*.1);
+			int size = state.getDeck(4).getCards().size();
+
+			int bottom = 0;
+			int maxSize = 5;
+
+			if( size >= maxSize ){
+				bottom = size - maxSize;
+			}
+
+			for( int i=size-bottom; i>0; i--) {
+
+				//int midShift= (int) (i*10);
+				int midShift = (int)(width*(.4/deck.size()));
+				RectF topRect = middlePileTopCardLocation();
+				float left = topRect.left + i*deltaX-midShift;
+				float top = topRect.top + i*deltaY-midShift;
+
+				// draw a card-back (hence null) into the appropriate rectangle
+				drawCard(g,
+						new RectF(left, top, left + topRect.width(), top + topRect.height()),
+						state.getDeck(4).getCards().get(state.getDeck(4).getCards().size()-i));
+			}
+
 		}
 		else{
 			RectF emptyCenter = (middlePileTopCardLocation());
 			drawCardBacks(g, emptyCenter, 0, 0, 1);
 			//flash(Color.BLUE,1);
 		}
-
-		drawPassButton(g);
-		drawPlayButton(g);
-
 	}
 
 	public void drawLeftPlayer( Canvas g, int playerNum, Paint textPaint ) {

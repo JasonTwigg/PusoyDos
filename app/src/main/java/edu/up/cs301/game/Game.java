@@ -68,7 +68,7 @@ Step 7: Android Manifest (XML file that is a part of the project; describes ever
 
  */
 
-public interface Game {
+public interface  Game {
 	
 	/**
 	 * starts the game
