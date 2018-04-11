@@ -13,8 +13,9 @@ import edu.up.cs301.game.infoMsg.TimerInfo;
 import edu.up.cs301.game.util.PossibleHands;
 
 /**
- * This is a computer player that slaps at an average rate given
- * by the constructor parameter.
+ * This is a computer player that plays very poorly. It plays
+ * the highest card it has, unless in control, in which case
+ * it plays the worst card.
  * 
  * @author Steven R. Vegdahl
  *
@@ -23,7 +24,7 @@ import edu.up.cs301.game.util.PossibleHands;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013 
+ * @version April 2018
  */
 public class SJComputerPlayer extends GameComputerPlayer
 {
@@ -33,6 +34,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 	// the most recent state of the game
 	private SJState savedState;
 	private int size;
+	//Constant for the time each computer takes to go
 	private int waitTime = 750;
 	
     /**
@@ -63,7 +65,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 
 
     /**
-     * callback method, called when we receive a message, typicallly from
+     * callback method, called when we receive a message, typically from
      * the game
      */
     @Override
@@ -80,11 +82,8 @@ public class SJComputerPlayer extends GameComputerPlayer
 			return;
 		}
 
-
 		Deck myDeck = savedState.getDeck(playerNum);
 		Deck middleDeck = savedState.getDeck(4);
-
-
 
 		synchronized (myDeck) {
 			size = myDeck.getCards().size();

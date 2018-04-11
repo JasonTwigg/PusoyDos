@@ -477,6 +477,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		if( find != -1 ){
 			//game.sendAction(new SJSlapAction(this));
 			game.sendAction(new PDSelectAction(this, find));
+
 		} else if( passButton.contains(x,y)){
 			surface.flash(Color.GREEN, 50);
 			game.sendAction(new PDPassAction(this));
