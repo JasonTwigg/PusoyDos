@@ -127,59 +127,7 @@ public class SJComputerPlayer extends GameComputerPlayer
 			return;
 		}
 
-		if( 1==1 ){
-			return;
-		}
 
-
-    	// if we don't have a game-state, ignore
-    	if (!(info instanceof SJState)) {
-    		return;
-    	}
-    	
-    	// access the state's middle deck
-
-
-		if( middleDeck != null) {
-			Card topCard = middleDeck.getCards().get(0);
-		}
-
-
-		//game.sendAction(new PDPassAction(this));
-
-		if( savedState.getModeType() == 0 ){
-			game.sendAction(new PDSelectAction(this,myDeck.getCards().size()-2));
-			game.sendAction(new SJPlayAction(this));
-		} else {
-			game.sendAction(new PDPassAction(this));
-		}
-
-		//WHERE COMPUTER THINKS
-		/*
-    	// look at the top card
-    	Card topCard = middleDeck.peekAtTopCard();
-    	
-    	// if it's a Jack, slap it; otherwise, if it's our turn to
-    	// play, play a card
-    	if (topCard != null && topCard.getRank() == Rank.JACK) {
-    		// we have a Jack to slap: set up a timer, depending on reaction time.
-    		// The slap will occur when the timer "ticks". Our reaction time will be
-    		// between the minimum reaction time and 3 times the minimum reaction time
-        	int time = (int)(minReactionTimeInMillis*(1+2*Math.random()));
-    		this.getTimer().setInterval(time);
-    		this.getTimer().start();
-    	}
-    	else if (savedState.toPlay() == this.playerNum) {
-    		// not a Jack but it's my turn to play a card
-    		
-    		// delay for up to two seconds; then play
-        	sleep((int)(2000*Math.random()));
-        	
-        	// submit our move to the game object
-        	game.sendAction(new SJPlayAction(this));
-    	}
-
-    	*/
     }
 
 	public ArrayList<PossibleHands> getPossibleHands (){

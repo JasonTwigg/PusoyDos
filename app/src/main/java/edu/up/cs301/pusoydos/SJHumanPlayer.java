@@ -290,12 +290,16 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			otherPlayerCounter++;
 		}
 
+
 		//to set the PLAYER's card back
 		String playerName = this.allPlayerNames[otherPlayerCounter];
 		int rectRight = rectLeft+cardWidth;
 		int rectBottom = rectTop+cardHeight;
 
+
+
 		textPaint.setColor(Color.MAGENTA);
+		textPaint.setTextSize(50);
 		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
 				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
 
@@ -305,11 +309,19 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 
 		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
-
+		textPaint.setFakeBoldText(false);
+		textPaint.setUnderlineText(false);
+		textPaint.setTextSize(30);
 		textPaint.setColor(Color.WHITE);
-		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[playerNum]);
-		g.drawText("Cards left: "+state.getPileSizes()[playerNum], (float) (rectLeft+(cardWidth*.2)), (float) (rectBottom+(cardHeight*.2)), textPaint);
-		g.drawText(playerName, (float) (rectLeft+(cardWidth*.2)), (float) (rectTop-(cardHeight*.2)), textPaint);
+		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[otherPlayerCounter]);
+		g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+		if( state.toPlay() == otherPlayerCounter ){
+			textPaint.setColor(Color.YELLOW);
+			textPaint.setFakeBoldText(true);
+			textPaint.setUnderlineText(true);
+		}
+		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
+
 	}
 
 	public void drawPassButton(Canvas g) {
