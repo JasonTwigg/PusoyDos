@@ -33,7 +33,7 @@ public class PDSelectAction extends SJMoveAction {
     }
 
     /**
-     * @return the index
+     * @return the index of the card
      */
     public int getIndex(){
         return index;

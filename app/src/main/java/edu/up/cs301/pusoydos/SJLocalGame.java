@@ -52,7 +52,7 @@ public class SJLocalGame extends LocalGame {
 
 		for( int i = 0; i<4; i++){
 			if( state.getDeck(i).size() == 0 ){
-				return "Player " + i + " Has Won!";
+				return this.playerNames[i] + " Has Won!";
 			}
 		}
 
