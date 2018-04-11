@@ -62,15 +62,12 @@ public class SJComputerPlayer extends GameComputerPlayer
         minReactionTimeInMillis = 500*avgReactionTime;
     }
 
-
-
     /**
      * callback method, called when we receive a message, typically from
      * the game
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-
 
 		// update our state variable
 		if( info instanceof  SJState ){
@@ -89,26 +86,32 @@ public class SJComputerPlayer extends GameComputerPlayer
 			size = myDeck.getCards().size();
 		}
 
-
+		//Has the player wait to make their move
+		//and it takes twice as long if they are
+		//in control (to slow things down)
 		if(savedState.getModeType() == 0) {
 			sleep(waitTime*2);
 		}
 		else{
 			sleep(waitTime);
 		}
+
+		//Computer plays if it is their turn
 		if( playerNum == savedState.toPlay() ){
 
-
+			//If they are in control, they play their worst card
 			if( savedState.getModeType() == 0 ){
 				game.sendAction(new PDSelectAction(this,size-1));
 				game.sendAction(new SJPlayAction(this));
 				return;
 			}
 			else if (savedState.getModeType() == 1) {
+				//If they are not in control they play their best card
 				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
 					game.sendAction(new PDSelectAction(this, 0));
 					game.sendAction(new SJPlayAction(this));
 				} else {
+					//If they cannot play, they pass
 					game.sendAction(new PDPassAction(this));
 				}
 
@@ -117,21 +120,25 @@ public class SJComputerPlayer extends GameComputerPlayer
 				}
 			}
 			else {
+				//Passes if the game mode is not singles
 				game.sendAction((new PDPassAction(this)));
 				return;
 			}
-
-
 		} else {
+			//If it is not their turn
 			return;
 		}
 
 
     }
 
+	/**
+	 * getPossibleHands method, we will be implementing this method in the future,
+	 * it will be used for the computer player to help decide which hand it
+	 * should choose to play.
+	 */
 	public ArrayList<PossibleHands> getPossibleHands (){
 		return null;
 	}
-
 
 }

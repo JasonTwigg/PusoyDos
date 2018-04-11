@@ -10,7 +10,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.config.GameConfig;
 
 /**
- * The LocalGame class for a slapjack game.  Defines and enforces
+ * The LocalGame class for a PusoyDos game.  Defines and enforces
  * the game rules; handles interactions between players.
  * 
  * @author Steven R. Vegdahl
@@ -20,7 +20,7 @@ import edu.up.cs301.game.config.GameConfig;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version July 2013
+ * @version April 2018
  */
 
 public class SJLocalGame extends LocalGame {

@@ -4,7 +4,7 @@ import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
- * A game-move object that a tic-tac-toe player sends to the game to make
+ * A game-move object that a PusoyDos player sends to the game to make
  * a move.
  * 
  * @author Steven R. Vegdahl
@@ -14,7 +14,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * @author Tawny Motoyama
  * @author Josh Azicate
  *
- * @version 2 July 2001
+ * @version April 2018
  */
 public abstract class SJMoveAction extends GameAction {
 	

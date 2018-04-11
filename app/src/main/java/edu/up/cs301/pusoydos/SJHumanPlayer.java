@@ -46,8 +46,6 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	// our game state
 	protected SJState state;
 
-
-
 	// our activity
 	private Activity myActivity;
 
@@ -62,11 +60,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private RectF passButton;
 	private RectF playButton;
 
+	//Card dimensions
 	private int cardWidth, cardGap, cardHeight, width, height;
 	private float deltaX, deltaY;
 
+    //Counter to see which player needs to be drawn
 	private int otherPlayerCounter;
-
 
 	/**
 	 * constructor
@@ -217,6 +216,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopSelected = (int)(height*.75);
 		int rectBottom = rectTop + cardHeight;
 
+		//Draws each card in the decks
 		for( int i = 0; i < state.getDeck(playerNum).getCards().size(); i++) {
 
 			Card c = state.getDeck(playerNum).getCards().get(i);
@@ -274,6 +274,16 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 
 	}
 
+    /**
+     * drawMiddlePile method: This method draws the middle pile with the
+     * most recent cards on top. It shows a maximum of five cards for
+     * the sake of space.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     * @param deck
+     *      the deck is the pile of cards in the center
+     */
 	public void drawMiddlePile( Canvas g, Deck deck ){
 		if( (state.getDeck(4).getCards().size() != 0)){
 
@@ -313,50 +323,68 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		drawPlayButton(g);
 	}
 
+    /**
+     * drawPlayer method: This method draws the player's hand, back of
+     * the card facing up. It also displays how many cards are left in
+     * the user's hand.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     * @param rectLeft
+     *      the left x coordinate to be used
+     * @param rectTop
+     *      the top y coordinate to be used
+     * @param textPaint
+     *      the textPaint to be used to draw the Player name
+     */
 	public void drawPlayer( Canvas g, int rectLeft, int rectTop, Paint textPaint){
 
-
-
-
+        //Moves on to the next player's deck to draw
 		otherPlayerCounter++;
 		if( otherPlayerCounter == playerNum ) {
 			otherPlayerCounter++;
 		}
-
 
 		//to set the PLAYER's card back
 		String playerName = this.allPlayerNames[otherPlayerCounter];
 		int rectRight = rectLeft+cardWidth;
 		int rectBottom = rectTop+cardHeight;
 
-
-
+        //Draws the outline around the decks
 		textPaint.setColor(Color.MAGENTA);
 		textPaint.setTextSize(50);
 		RectF outLine = new RectF((int)(rectLeft - cardWidth*.1),(int)(rectTop-cardHeight*.1),
 				(int)(rectRight+cardWidth*(.2+state.getPileSizes()[otherPlayerCounter])*.1),(int)(rectBottom+cardHeight*(.1)));
-
 		g.drawRoundRect(outLine,10f,10f,textPaint);
 
-
-
-
+        //Draws the card backs
 		RectF cardBack = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 		textPaint.setFakeBoldText(false);
 		textPaint.setUnderlineText(false);
 		textPaint.setTextSize(30);
 		textPaint.setColor(Color.WHITE);
 		drawCardBacks(g, cardBack, deltaX, 0.0f, state.getPileSizes()[otherPlayerCounter]);
-		g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+		//Shows the amount of cards left in each player's hand
+        g.drawText("Cards left: "+state.getPileSizes()[otherPlayerCounter], (float) (rectLeft+(cardWidth*.3)), (float) (rectBottom+(cardHeight*.3)), textPaint);
+
+        //Changes depending on if it is their turn
 		if( state.toPlay() == otherPlayerCounter ){
 			textPaint.setColor(Color.YELLOW);
 			textPaint.setFakeBoldText(true);
 			textPaint.setUnderlineText(true);
 		}
-		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
 
+		//Draws the player name near their deck
+		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
 	}
 
+    /**
+     * drawPassButton method: This method draws the pass button on the
+     * bottom left corner of the play area.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     */
 	public void drawPassButton(Canvas g) {
 		//Paint for the button
 		Paint RedPaint = new Paint();
@@ -379,12 +407,20 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
+        //Draws the button
 		passButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
 		g.drawText("PASS",rectLeftP+30, rectTopP+95, WhitePaint);
 	}
 
+    /**
+     * drawPlayButton method: This method draws the play button on the
+     * bottom right corner of the play area.
+     *
+     * @param g
+     * 		the canvas on which we are to draw
+     */
 	public void drawPlayButton(Canvas g) {
 		//Paint for the button
 		Paint RedPaint = new Paint();
@@ -407,6 +443,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
 
+        //Draws the button
 		playButton = new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, RedPaint);
 		g.drawRoundRect(new RectF(rectLeftP, rectTopP, rectRightP, rectBottomP), 10,10, outline);
