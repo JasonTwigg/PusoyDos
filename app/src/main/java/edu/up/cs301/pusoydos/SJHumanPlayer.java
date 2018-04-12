@@ -301,6 +301,18 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		//sets the size
 		psPaint.setTextSize(80);
 		g.drawText("It is "+playerName+"'s turn!", turnLableX, turnLableY, psPaint);
+
+		/**
+		 External Citation
+		 Date: April 1, 2018
+		 Problem: Wanted text (from drawText) to be bold and italic style
+		 Resource:
+		 https://stackoverflow.com/questions/17878770/how-do-draw-italic-text-on-android-canvas
+		 Solution: Used two lines of code to create the desired effect for the text.
+		 */
+
+
+
 	}
 
     /**
