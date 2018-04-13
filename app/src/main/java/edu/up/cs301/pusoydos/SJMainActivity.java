@@ -50,7 +50,7 @@ public class SJMainActivity extends GameMainActivity {
 		});
 		playerTypes.add(new GamePlayerType("computer player (smart)") {
 			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayer(name, 0.3);
+				return new SJComputerPlayerSmart(name);
 			}
 		});
 
