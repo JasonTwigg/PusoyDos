@@ -16,7 +16,6 @@ import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.infoMsg.GameInfo;
-import edu.up.cs301.game.infoMsg.GameState;
 import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 
@@ -33,7 +32,7 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  *
  * @version April 2018
  */
-public class SJHumanPlayer extends GameHumanPlayer implements Animator {
+public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
 	// sizes and locations of card decks and cards, expressed as percentages
 	// of the screen height and width
@@ -44,7 +43,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	private final static float VERTICAL_BORDER_PERCENT = 4; // width of top/bottom borders
 	
 	// our game state
-	protected SJState state;
+	protected PDState state;
 
 	// our activity
 	private Activity myActivity;
@@ -75,7 +74,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	 * @param bkColor
 	 * 		the background color
 	 */
-	public SJHumanPlayer(String name, int bkColor) {
+	public PDHumanPlayer(String name, int bkColor) {
 		super(name);
 		backgroundColor = bkColor;
 	}
@@ -88,12 +87,12 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 	 */
 	@Override
 	public void receiveInfo(GameInfo info) {
-		Log.i("SJComputerPlayer", "receiving updated state ("+info.getClass()+")");
+		Log.i("PDComputerPlayer", "receiving updated state ("+info.getClass()+")");
 		if (info instanceof IllegalMoveInfo || info instanceof NotYourTurnInfo) {
 			// if we had an out-of-turn or illegal move, flash the screen
 			//surface.flash(Color.RED, 50);
 		}
-		else if (!(info instanceof SJState)) {
+		else if (!(info instanceof PDState)) {
 			// otherwise, if it's not a game-state message, ignore
 			return;
 		}
@@ -101,7 +100,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			// it's a game-state object: update the state. Since we have an animation
 			// going, there is no need to explicitly display anything. That will happen
 			// at the next animation-tick, which should occur within 1/20 of a second
-			this.state = (SJState)info;
+			this.state = (PDState)info;
 			Log.i("human player", "receiving");
 		}
 
@@ -628,7 +627,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 			game.sendAction(new PDPassAction(this));
 		} else if( playButton.contains(x,y)){
 			surface.flash(Color.YELLOW, 50);
-			game.sendAction(new SJPlayAction(this));
+			game.sendAction(new PDPlayAction(this));
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second

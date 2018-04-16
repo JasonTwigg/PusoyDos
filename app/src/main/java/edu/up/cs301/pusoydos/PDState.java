@@ -1,11 +1,10 @@
 package edu.up.cs301.pusoydos;
 
-import android.util.Log;
 import java.util.ArrayList;
 import edu.up.cs301.card.Card;
+import edu.up.cs301.game.infoMsg.GameState;
 import edu.up.cs301.card.Rank;
 import edu.up.cs301.card.Suit;
-import edu.up.cs301.game.infoMsg.GameState;
 
 /**
  External Citation
@@ -28,7 +27,7 @@ import edu.up.cs301.game.infoMsg.GameState;
  *
  * @version April 2018
  */
-public class SJState extends GameState {
+public class PDState extends GameState {
     private static final long serialVersionUID = -8269749892027578792L;
 
     ///////////////////////////////////////////////////
@@ -71,10 +70,10 @@ public class SJState extends GameState {
 
 
 	/**
-	 * Constructor for objects of class SJState. Initializes for the beginning of the
+	 * Constructor for objects of class PDState. Initializes for the beginning of the
 	 * game, with a random player as the first to turn card
 	 */
-	public SJState() {
+	public PDState() {
 		//Perspective of four is the master copy perspective
 		perspective = 4;
 		//This means that it is the first turn
@@ -136,11 +135,11 @@ public class SJState extends GameState {
 	}
 
 	/**
-	 * Copy constructor for objects of class SJState. Makes a copy of the given state
+	 * Copy constructor for objects of class PDState. Makes a copy of the given state
 	 *
 	 * @param orig the state to be copied
 	 */
-	public SJState(SJState orig, int playerNum) {
+	public PDState(PDState orig, int playerNum) {
 		// set index of player whose turn it is
 		turnNum = orig.turnNum;
 		// create new deck array, making a deep copy of the deck
@@ -148,7 +147,7 @@ public class SJState extends GameState {
 		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
 		piles[4] = new Deck( orig.piles[4]);
-		//Creates deep copy of each of the data values stored in SJState
+		//Creates deep copy of each of the data values stored in PDState
 		perspective = playerNum;
 		playerLastPlayed = orig.playerLastPlayed;
 		modeType = orig.modeType;
@@ -469,7 +468,7 @@ public class SJState extends GameState {
 			if (piles[4].getCards().size() == 0) {
 				modeType = 2;
 				return true;
-			} else if (firstCardPower > piles[4].getCards().get(1).getPower()) {
+			} else if (firstCardPower > piles[4].getCards().get(piles[4].size()-2).getPower()) {
 				modeType = 2;
 				return true;
 			} else {
@@ -512,7 +511,7 @@ public class SJState extends GameState {
 				tempCard = Cards.get(i-1);
 				nextCard = Cards.get(i);
 				//Check for a straight
-				if (tempCard.getPower() % 4 != nextCard.getPower() % 4 + 1) {
+				if (tempCard.getPower() / 4 != nextCard.getPower() / 4 + 1) {
 
 					isStraight = false;
 

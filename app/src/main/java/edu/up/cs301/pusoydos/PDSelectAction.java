@@ -13,7 +13,7 @@ import edu.up.cs301.game.GamePlayer;
  *
  * @version April 2018
  */
-public class PDSelectAction extends SJMoveAction {
+public class PDSelectAction extends PDMoveAction {
 
     private static final long serialVersionUID = 3250638793499599047L;
 

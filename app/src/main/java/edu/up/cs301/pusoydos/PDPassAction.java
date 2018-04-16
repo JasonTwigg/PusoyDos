@@ -13,12 +13,12 @@ import edu.up.cs301.game.GamePlayer;
  *
  * @version April 2018
  */
-public class PDPassAction extends SJMoveAction {
+public class PDPassAction extends PDMoveAction {
 
     private static final long serialVersionUID = 3250638793499599047L;
 
     /**
-     * Constructor for SJMoveAction
+     * Constructor for PDMoveAction
      *
      * @param player the player making the move
      */
