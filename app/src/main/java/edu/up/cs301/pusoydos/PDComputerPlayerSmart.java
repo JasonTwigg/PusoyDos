@@ -182,14 +182,18 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         */
 
 
-        //checking for doubles in hand
-        findDoubles();
+        //checking for flushes
+        findFlushes();
 
         //checking for triples for a full house
         findTriples();
 
-        //checking for flushes
-        findFlushes();
+        //checking for doubles in hand
+        findDoubles();
+
+
+
+
 
 
 
