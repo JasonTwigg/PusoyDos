@@ -191,6 +191,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //checking for doubles in hand
         findDoubles();
 
+        //checking for four of a kinds
+        findFourofAKinds();
+
         if( playability.contains(fullHouse) && playability.contains(doubles)){
 
             for( int i=myDeck.size()-1; i>1; i--){
@@ -403,6 +406,25 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.set(clubCount.get(3), flushC);
             playability.set(clubCount.get(4), flushC);
         }
+    }
+
+    public void findFourofAKinds(){
+        for(int i = myDeck.size()-1; i > 4; i--){
+            if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
+                    myDeck.getCards().get(i-1).getRank() == myDeck.getCards().get(i-2).getRank() &&
+                    myDeck.getCards().get(i-2).getRank() == myDeck.getCards().get(i-3).getRank()){
+                playability.set(i, fourOfAKind);
+                playability.set(i-1, fourOfAKind);
+                playability.set(i-2, fourOfAKind);
+                playability.set(i-3, fourOfAKind);
+
+            }
+        }
+        /*for(int i = myDeck.size()-1; i > 1; i--){
+            if(playability.get(i) == singles){
+                playability.set(i, fourOfAKind);
+            }
+        }*/
     }
 
 }
