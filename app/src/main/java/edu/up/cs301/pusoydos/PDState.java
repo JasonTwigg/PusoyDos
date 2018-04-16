@@ -104,11 +104,19 @@ public class PDState extends GameState {
 			piles[0].moveTopCardTo(piles[3]);
 		}
 
-		piles[1].add(new Card(Rank.FIVE,Suit.Heart));
-		piles[1].add(new Card(Rank.FIVE,Suit.Spade));
-		piles[1].add(new Card(Rank.FIVE,Suit.Diamond));
+		piles[0].add(new Card(Rank.FIVE,Suit.Heart));
+		piles[0].add(new Card(Rank.FIVE,Suit.Spade));
+		piles[0].add(new Card(Rank.FIVE,Suit.Diamond));
+		piles[0].add(new Card(Rank.FOUR,Suit.Spade));
+		piles[0].add(new Card(Rank.FOUR,Suit.Diamond));
+		piles[0].add(new Card(Rank.TWO,Suit.Diamond));
 
 
+		piles[1].add(new Card(Rank.SIX,Suit.Heart));
+		piles[1].add(new Card(Rank.SIX,Suit.Spade));
+		piles[1].add(new Card(Rank.SIX,Suit.Diamond));
+		piles[1].add(new Card(Rank.SEVEN,Suit.Spade));
+		piles[1].add(new Card(Rank.SEVEN,Suit.Diamond));
 
 
 

@@ -3,12 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/development/Desktop/PusoyDos/pusoydos/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="999c78c5ce25cdb7ed62eb0053e537987738d9c0">
-        <dex dex="/Users/development/Desktop/PusoyDos/pusoydos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_22dae41f986017ae16be214b6bb9967f66674fec/classes.dex" />
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c9cb4d52abc80ba262fe0eaafabe542507777275/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ee6fce1a1552d936503d84685ca8d68a7c7f29dc">
+        <dex dex="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_98cde945230ce805e342520534daad654c37c903/classes.dex" />
     </item>
 
 </items>
