@@ -410,4 +410,17 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
     }
 
+    public void findFourofAKinds(){
+        for(int i = myDeck.size()-1; i > 4; i--){
+            if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
+                    myDeck.getCards().get(i-1).getRank() == myDeck.getCards().get(i-2).getRank() &&
+                    myDeck.getCards().get(i-2).getRank() == myDeck.getCards().get(i-3).getRank()){
+                playability.set(i, fourOfAKind);
+                playability.set(i-1, fourOfAKind);
+                playability.set(i-2, fourOfAKind);
+                playability.set(i-3, fourOfAKind);
+            }
+        }
+    }
+
 }

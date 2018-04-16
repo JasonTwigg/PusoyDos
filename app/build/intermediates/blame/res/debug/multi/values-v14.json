@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/app/src/main/res/values-v14/styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 77,
+                        "endOffset": 90
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +48,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +59,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -48,7 +72,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -59,7 +83,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -72,7 +96,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -83,7 +107,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -96,7 +120,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -107,7 +131,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -120,7 +144,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -131,7 +155,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -144,7 +168,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -155,7 +179,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -168,7 +192,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -179,7 +203,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -192,7 +216,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -203,7 +227,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -216,7 +240,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -227,7 +251,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -240,7 +264,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -251,7 +275,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -264,7 +288,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -275,7 +299,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "/Users/development/Desktop/PusoyDos/pusoydos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\coleholbrook\\AndroidStudioProjects\\PusoyDos\\D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
