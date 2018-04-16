@@ -399,7 +399,7 @@ public class SJHumanPlayer extends GameHumanPlayer implements Animator {
 		int rectBottom = rectTop+cardHeight;
 
         //Draws the outline around the decks
-		textPaint.setColor(Color.MAGENTA);
+		textPaint.setColor(Color.argb(80, 255, 255, 255));
 		textPaint.setTextSize(50);
 
 		if( state.getPlayerLastPlayed() == otherPlayerCounter ) {

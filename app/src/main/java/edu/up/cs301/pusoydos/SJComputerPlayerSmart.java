@@ -37,7 +37,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     private int size;
     //Constant for the time each computer takes to go
     private int waitTime = 750;
-    private ArrayList<Integer> playability = new ArrayList<Integer>();
+    private ArrayList<Integer> playability;
 
     //playability values
     private int singles = 0;
@@ -45,6 +45,8 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     private int straight = 2;
     private int flush = 3;
     private int fullHouse = 4;
+
+    private Deck myDeck;
 
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
@@ -57,6 +59,8 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
         // invoke general constructor to create player whose average reaction
         // time is half a second.
         this(name, 0.5);
+
+
     }
 
     /*
@@ -66,9 +70,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
         // invoke superclass constructor
         super(name);
 
-        // set the minimim reaction time, which is half the average reaction
-        // time, converted to milliseconds (0.5 * 1000 = 500)
-        minReactionTimeInMillis = 500*avgReactionTime;
+
     }
     /**
      * callback method, called when we receive a message, typically from
@@ -87,21 +89,23 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
             return;
         }
 
-        Deck myDeck = savedState.getDeck(playerNum);
+        myDeck = savedState.getDeck(playerNum);
         Deck middleDeck = savedState.getDeck(4);
 
         synchronized (myDeck) {
             size = myDeck.getCards().size();
         }
 
+
+        playability = new ArrayList<Integer>();
         //to set all playability values to singles
-        for( int i=0; i<myDeck.size()-1; i++) {
-            playability.set( i, singles);
+        for( int i=0; i<myDeck.size(); i++) {
+            playability.add( i, singles);
         }
 
 
         //checking for doubles in hand
-        for( int i=myDeck.size(); i>2; i--) {
+        for( int i=myDeck.size()-1; i>2; i--) {
             if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
                 playability.set( i, doubles);
                 playability.set( i-1, doubles );
@@ -115,15 +119,10 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
 
 
 
+
         //Has the player wait to make their move
         //and it takes twice as long if they are
         //in control (to slow things down)
-        if(savedState.getModeType() == 0) {
-            sleep(waitTime*2);
-        }
-        else{
-            sleep(waitTime);
-        }
 
         /**
          External Citation
@@ -159,6 +158,17 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                 if( 1==1){
                     return;
                 }
+            } else if (savedState.getModeType() == 2 ){
+                for( int i = 0; i < playability.size(); i++ ){
+                    if(playability.get(i) == 1 ){
+                        game.sendAction(new PDSelectAction(this, i));
+                        game.sendAction(new PDSelectAction(this, i+1));
+                        game.sendAction(new SJPlayAction(this));
+                        return;
+                    }
+                }
+                game.sendAction(new PDPassAction(this));
+                return;
             }
             else {
                 //Passes if the game mode is not singles

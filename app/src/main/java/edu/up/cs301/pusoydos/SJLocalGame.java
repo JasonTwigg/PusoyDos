@@ -9,6 +9,16 @@ import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.config.GameConfig;
 
+
+/**
+ External Citation
+ Date: March 11, 2018
+ Problem: We were not sure how to
+ Resource: Nuxoll and Vegdahl
+ Solution: We debugged the slap jack game and figured out how actions were called in the game framework
+ This showed us how to add our own action classes and listen for them
+ */
+
 /**
  * The LocalGame class for a PusoyDos game.  Defines and enforces
  * the game rules; handles interactions between players.

@@ -61,7 +61,8 @@ public class SJState extends GameState {
 	// 2 - doubles
 	// 3 - hands - straight
 	// 4 - hands - flush
-	// 5 - hands - four of a kind
+	// 5 - hands - full house
+	// 6 - hands - four of a kind
 	private int modeType;
 
 	///////////////////////////////////////////////////
@@ -103,6 +104,16 @@ public class SJState extends GameState {
 			piles[0].moveTopCardTo(piles[2]);
 			piles[0].moveTopCardTo(piles[3]);
 		}
+
+		piles[0].add(new Card(Rank.TWO,Suit.Diamond));
+		piles[0].add(new Card(Rank.THREE,Suit.Heart));
+		piles[0].add(new Card(Rank.THREE,Suit.Spade));
+		piles[1].add(new Card(Rank.FIVE,Suit.Spade));
+		piles[1].add(new Card(Rank.FIVE,Suit.Heart));
+
+
+
+
 		//Sorts each player's hand from high card to low
 		piles[0].sort();
 		piles[1].sort();
@@ -112,10 +123,11 @@ public class SJState extends GameState {
 
 
 
+
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
 		//and makes the first turn theirs
 		for (int i = 0; i < 4; i++) {
-			if (piles[i].getCards().get(12).getPower() == 0) {
+			if (piles[i].getCards().get(piles[i].getCards().size()-1).getPower() == 0) {
 				turnNum = i;
 			}
 		}
@@ -469,14 +481,35 @@ public class SJState extends GameState {
 
 			boolean isFlush = true;
 			boolean isStraight = true;
-			boolean is4ofKind = true;
-			boolean secondChance4 = false;
+			boolean is4ofKind = (
+					(Cards.get(0).getRank() == Cards.get(1).getRank() &&
+					Cards.get(1).getRank() == Cards.get(2).getRank() &&
+					Cards.get(2).getRank() == Cards.get(3).getRank() &&
+					Cards.get(3).getRank() != Cards.get(4).getRank()) ||
+					(Cards.get(0).getRank() != Cards.get(1).getRank() &&
+					Cards.get(1).getRank() == Cards.get(2).getRank() &&
+					Cards.get(2).getRank() == Cards.get(3).getRank() &&
+					Cards.get(3).getRank() == Cards.get(4).getRank())
+			);
 
-			Card tempCard = Cards.get(0);
-			Card nextCard;
+			boolean isFullHouse = (
+					(Cards.get(0).getRank() == Cards.get(1).getRank() &&
+							Cards.get(1).getRank() == Cards.get(2).getRank() &&
+							Cards.get(2).getRank() != Cards.get(3).getRank() &&
+							Cards.get(3).getRank() == Cards.get(4).getRank()) ||
+							(Cards.get(0).getRank() == Cards.get(1).getRank() &&
+							Cards.get(1).getRank() != Cards.get(2).getRank() &&
+							Cards.get(2).getRank() == Cards.get(3).getRank() &&
+							Cards.get(3).getRank() == Cards.get(4).getRank())
+			);
+
+
+			Card tempCard;
+			Card nextCard = Cards.get(0);
 
 			for (int i = 1; i < 5; i++) {
 
+				tempCard = Cards.get(i-1);
 				nextCard = Cards.get(i);
 				//Check for a straight
 				if (tempCard.getPower() % 4 != nextCard.getPower() % 4 + 1) {
@@ -488,21 +521,6 @@ public class SJState extends GameState {
 				if (tempCard.getSuit() != nextCard.getSuit()) {
 					isFlush = false;
 				}
-
-				if (tempCard.getRank() != nextCard.getRank()) {
-
-					if (secondChance4) {
-
-						secondChance4 = false;
-
-					} else {
-
-						is4ofKind = false;
-
-					}
-				}
-
-				tempCard = Cards.get(i);
 
 			}
 
@@ -524,6 +542,7 @@ public class SJState extends GameState {
                     If the modeType does not match, but the player is in control,
                     the play is legal (return true)
                      */
+					modeType = 3;
 					return true;
 				}
 				//Otherwise return false (not legal)
@@ -543,19 +562,57 @@ public class SJState extends GameState {
 				 control, the move is legal, return true.
 				 */
 				} else if (modeType == 0) {
+					modeType = 4;
 					return true;
 				}
 				//Otherwise, return false
 				return false;
-			} else if (is4ofKind) {
+			} else if (isFullHouse) {
 			    /*
 				If a straight or flush is currently in play, the play is legal (return true)
+                because a fullhouse is higher than all straights or flushes
+                */
+
+			if (modeType == 3 || modeType == 4 || modeType == 5) {
+				return true;
+			} else if (modeType == 6) {
+					/*
+				    If a fullhouse is currently in play, and the power of the 4 cards that are
+				    matching (without regard to the random fifth of the players choice) in your hand
+				    is greater than the power of the 4 cards that are currently played in the center
+				    pile, the move is legal (return true).
+				    */
+				int firstHandCardPower = Cards.get(0).getPower();
+				int lastHandCardPower = Cards.get(4).getPower();
+
+				int firstDeckCardPower = piles[4].getCards().get(4).getPower();
+				int lastDeckCardPower = piles[4].getCards().get(4).getPower();
+
+
+				if ((firstHandCardPower > firstDeckCardPower && firstHandCardPower > lastDeckCardPower) ||
+						lastHandCardPower > firstDeckCardPower && lastHandCardPower > lastDeckCardPower) {
+					modeType = 6;
+					return true;
+				}
+			} else if ( modeType == 0 ){
+
+				modeType = 6;
+				return true;
+
+			}
+
+			return false;
+
+
+		} else if (is4ofKind) {
+			    /*
+				If a straight or flush or a full house is currently in play, the play is legal (return true)
                 because a 4-of-a-kind is higher than all straights or flushes
                 */
 
-				if (modeType == 3 || modeType == 4) {
+				if (modeType == 3 || modeType == 4 || modeType == 5) {
 					return true;
-				} else if (modeType == 5) {
+				} else if (modeType == 6) {
 					/*
 				    If a 4-of-a-kind is currently in play, and the power of the 4 cards that are
 				    matching (without regard to the random fifth of the players choice) in your hand
@@ -563,17 +620,14 @@ public class SJState extends GameState {
 				    pile, the move is legal (return true).
 				    */
 					if (Cards.get(2).getPower() > piles[4].getCards().get(2).getPower()) {
-						modeType = 5;
-						return true;
-					} else if (modeType == 0) {
-						/*
-						If none of the two cases above, but the player is in control, then the play is
-						legal, return true.
-						 */
+						modeType = 6;
 						return true;
 					}
+				} else if ( modeType == 0 ){
 
-					return false;
+					modeType = 6;
+					return true;
+
 				}
 
 				return false;
