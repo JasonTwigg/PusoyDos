@@ -191,6 +191,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //checking for doubles in hand
         findDoubles();
 
+        //checking for four of a kinds
+        findFourofAKinds();
+
         if( playability.contains(fullHouse) && playability.contains(doubles)){
 
             for( int i=myDeck.size()-1; i>1; i--){
