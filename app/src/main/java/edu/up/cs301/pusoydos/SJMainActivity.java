@@ -34,13 +34,13 @@ public class SJMainActivity extends GameMainActivity {
 		ArrayList<GamePlayerType> playerTypes = new ArrayList<GamePlayerType>();
 
 		final int purpleBackground = Color.rgb(127, 55, 155);
-		playerTypes.add(new GamePlayerType("human player (green)") {
+		playerTypes.add(new GamePlayerType("human player (purple )") {
 			public GamePlayer createPlayer(String name) {
 				return new SJHumanPlayer(name, purpleBackground);
 			}});
-		playerTypes.add(new GamePlayerType("human player (yellow)") {
+		playerTypes.add(new GamePlayerType("human player (black)") {
 			public GamePlayer createPlayer(String name) {
-				return new SJHumanPlayer(name, Color.YELLOW);
+				return new SJHumanPlayer(name, Color.BLACK);
 			}
 		});
 		playerTypes.add(new GamePlayerType("computer player (dumb)") {
