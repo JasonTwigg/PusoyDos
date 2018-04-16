@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.up.cs301.card.Card;
 import edu.up.cs301.card.Rank;
+import edu.up.cs301.card.Suit;
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
@@ -45,11 +46,15 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     private int singles = 1;
     private int doubles = 2;
     private int straight = 3;
-    private int flush = 4;
+    private int flushC = 40;
+    private int flushS = 41;
+    private int flushH = 42;
+    private int flushD = 43;
     private int fullHouse = 5;
     private int fourOfAKind = 6;
 
     private Deck myDeck;
+    private int diamond, heart, spade, club;
 
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
@@ -182,6 +187,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
 
         //checking for doubles in hand
+        findDoubles();
         for( int i=myDeck.size()-1; i>2; i--) {
             if( playability.get(i) == 1 ) {
                 if (myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i - 1).getRank()) {
@@ -196,7 +202,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
+        //checking for triples for a full house
+        findTriples();
 
+        //checking for flushes
+        findFlushes();
 
 
 
@@ -235,10 +245,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     //If they cannot play, they pass
                     game.sendAction(new PDPassAction(this));
                 }
-
-                if( 1==1){
-                    return;
-                }
             }
             else if (savedState.getModeType() == 2 ){
                 for( int i = 0; i < playability.size(); i++ ){
@@ -252,7 +258,37 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if (savedState.getModeType() == 5 ){
+            else if( savedState.getModeType() == 4 || savedState.getModeType() == 3 ) {
+
+                int searchingFor = -1;
+                boolean found = true;
+                if( playability.contains(flushC)){
+                    searchingFor = flushC;
+                } else if( playability.contains(flushS)){
+                    searchingFor = flushS;
+                } else if( playability.contains(flushH)){
+                    searchingFor = flushH;
+                } else if( playability.contains(flushD)){
+                    searchingFor = flushD;
+                } else {
+                    found = false;
+                }
+
+                if( found ) {
+                    for (int i = 0; i < playability.size(); i++) {
+
+                        if (playability.get(i) == searchingFor ) {
+                            game.sendAction(new PDSelectAction(this, i));
+                        }
+                    }
+                    game.sendAction(new PDPlayAction(this));
+                    return;
+                }
+                game.sendAction(new PDPassAction(this));
+                return;
+            }
+            else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
+                    savedState.getModeType() == 3){
                 for( int i = 0; i < playability.size(); i++ ){
                     if(playability.get(i) == fullHouse ){
                         game.sendAction(new PDSelectAction(this, i));
@@ -285,6 +321,100 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public ArrayList<PossibleHands> getPossibleHands (){
         return null;
+    }
+
+    /**
+     * Checks for any doubles in hand (of remaining cards that have not been assigned to a
+     * better hand).
+     */
+    public void findDoubles() {
+
+        for( int i=myDeck.size()-1; i>2; i--) {
+            if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
+                playability.set( i, doubles);
+                playability.set( i-1, doubles );
+            }
+            if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()
+                    && myDeck.getCards().get(i-2)!=null ) {
+                playability.set(i, doubles);
+                playability.set(i-2, singles);
+            }
+        }
+    }
+
+    /**
+     * Checks for any triples in hand (of remaining cards that have not been assigned to a
+     * better hand).
+     */
+    public void findTriples() {
+        for( int i=myDeck.size()-1; i>3; i--) {
+
+            if( playability.get(i) == 0 ){
+                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
+                        && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
+                    playability.set( i, fullHouse);
+                    playability.set( i-1, fullHouse );
+                    playability.set( i-2, fullHouse );
+                }
+            }
+        }
+    }
+
+    /**
+     * Checks for any flushes in hand (of remaining cards that have not been assigned to a
+     * better hand).
+     */
+    public void findFlushes() {
+        ArrayList<Integer> heartCount = new ArrayList<Integer>();
+        ArrayList<Integer> diamondCount = new ArrayList<Integer>();
+        ArrayList<Integer> spadeCount = new ArrayList<Integer>();
+        ArrayList<Integer> clubCount = new ArrayList<Integer>();
+
+        for( int i=myDeck.size()-1; i>0; i-- ){
+            if( playability.get(i) == 1 ){
+                if( myDeck.getCards().get(i).getSuit() == Suit.Diamond) {
+                    diamondCount.add(i);
+                }
+                else if( myDeck.getCards().get(i).getSuit() == Suit.Heart) {
+                    heartCount.add(i);
+                }
+                else if( myDeck.getCards().get(i).getSuit() == Suit.Spade) {
+                    spadeCount.add(i);
+                }
+                else if( myDeck.getCards().get(i).getSuit() == Suit.Club) {
+                    clubCount.add(i);
+                }
+            }
+        }
+
+        if( diamondCount.size() >= 5 ) {
+            playability.set(diamondCount.get(0), flushD);
+            playability.set(diamondCount.get(1), flushD);
+            playability.set(diamondCount.get(2), flushD);
+            playability.set(diamondCount.get(3), flushD);
+            playability.set(diamondCount.get(4), flushD);
+        }
+        else if( heartCount.size() >= 5 ){
+            playability.set(heartCount.get(0), flushH);
+            playability.set(heartCount.get(1), flushH);
+            playability.set(heartCount.get(2), flushH);
+            playability.set(heartCount.get(3), flushH);
+            playability.set(heartCount.get(4), flushH);
+        }
+        else if( spadeCount.size() >= 5 ){
+            playability.set(spadeCount.get(0), flushS);
+            playability.set(spadeCount.get(1), flushS);
+            playability.set(spadeCount.get(2), flushS);
+            playability.set(spadeCount.get(3), flushS);
+            playability.set(spadeCount.get(4), flushS);
+        }
+        else if( clubCount.size() >= 5 ){
+            playability.set(clubCount.get(0), flushC);
+            playability.set(clubCount.get(1), flushC);
+            playability.set(clubCount.get(2), flushC);
+            playability.set(clubCount.get(3), flushC);
+            playability.set(clubCount.get(4), flushC);
+        }
     }
 
 }
