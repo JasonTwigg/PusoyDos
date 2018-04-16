@@ -3,7 +3,7 @@ package edu.up.cs301.pusoydos;
 import edu.up.cs301.game.GamePlayer;
 
 /**
- * A SJPlayAction is an action that represents playing a card on the "up"
+ * A PDPlayAction is an action that represents playing a card on the "up"
  * pile.
  * 
  * @author Jason Twigg
@@ -13,7 +13,7 @@ import edu.up.cs301.game.GamePlayer;
  *
  * @version 31 July 2002
  */
-public class SJPlayAction extends SJMoveAction
+public class PDPlayAction extends PDMoveAction
 {
 	private static final long serialVersionUID = 3250639793499599047L;
 
@@ -22,7 +22,7 @@ public class SJPlayAction extends SJMoveAction
      * 
      * @param player  the player making the move
      */
-    public SJPlayAction(GamePlayer player)
+    public PDPlayAction(GamePlayer player)
     {
         // initialize the source with the superclass constructor
         super(player);

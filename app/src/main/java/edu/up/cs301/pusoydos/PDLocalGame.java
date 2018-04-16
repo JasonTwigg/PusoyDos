@@ -1,13 +1,12 @@
 package edu.up.cs301.pusoydos;
 
 import android.util.Log;
-import edu.up.cs301.card.Rank;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
-import edu.up.cs301.game.config.GameConfig;
 
 
 /**
@@ -33,18 +32,18 @@ import edu.up.cs301.game.config.GameConfig;
  * @version April 2018
  */
 
-public class SJLocalGame extends LocalGame {
+public class PDLocalGame extends LocalGame {
 
     // the game's state
-    SJState state;
+    PDState state;
 
     /**
-     * Constructor for the SJLocalGame.
+     * Constructor for the PDLocalGame.
      */
-    public SJLocalGame() {
-        Log.i("SJLocalGame", "creating game");
+    public PDLocalGame() {
+        Log.i("PDLocalGame", "creating game");
         // create the state for the beginning of the game
-        state = new SJState();
+        state = new PDState();
     }
 
 
@@ -106,7 +105,7 @@ public class SJLocalGame extends LocalGame {
 
 		// make a copy of the state; null out all cards except for the
 		// top card in the middle deck
-		SJState stateForPlayer = new SJState(state,pNum); // copy of state
+		PDState stateForPlayer = new PDState(state,pNum); // copy of state
 		//stateForPlayer.nullAllButTopOf2(); // put nulls except for visible card
 		
 		// send the modified copy of the state to the player
@@ -143,10 +142,10 @@ public class SJLocalGame extends LocalGame {
 	protected boolean makeMove(GameAction action) {
 		
 		// check that we have action; if so cast it
-		if (!(action instanceof SJMoveAction)) {
+		if (!(action instanceof PDMoveAction)) {
 			return false;
 		} 
-		SJMoveAction sjma = (SJMoveAction) action;
+		PDMoveAction sjma = (PDMoveAction) action;
 		
 		// get the index of the player making the move; return false
 		int thisPlayerIdx = getPlayerIdx(sjma.getPlayer());
