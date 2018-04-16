@@ -27,6 +27,8 @@ import edu.up.cs301.game.util.PossibleHands;
  *
  * @version April 2018
  */
+
+//a
 public class PDComputerPlayerSmart extends GameComputerPlayer
 {
     // the minimum reaction time for this player, in milliseconds
