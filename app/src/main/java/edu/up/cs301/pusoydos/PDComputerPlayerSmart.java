@@ -191,11 +191,16 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //checking for doubles in hand
         findDoubles();
 
+        if( playability.contains(fullHouse) && playability.contains(doubles)){
 
-
-
-
-
+            for( int i=0; i<myDeck.size()-1; i++){
+                if( playability.get(i) == doubles && playability.get(i+1)!=null){
+                    playability.set(i, fullHouse);
+                    playability.set(i+1, fullHouse);
+                    break;
+                }
+            }
+        }
 
 
         //Has the player wait to make their move
@@ -318,7 +323,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
         for( int i=myDeck.size()-1; i>1; i--) {
 
-            if( playability.get(i)==1 && playability.get(i-1)==1 ){
+            if( playability.get(i)==singles && playability.get(i-1)==singles ){
                 if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
                     playability.set( i, doubles);
                     playability.set( i-1, doubles );
@@ -336,7 +341,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         for( int i=myDeck.size()-1; i>3; i--) {
 
             if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
-                if( playability.get(i) == 0 ){
+                if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
                         playability.set( i, fullHouse);
@@ -359,7 +364,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         ArrayList<Integer> clubCount = new ArrayList<Integer>();
 
         for( int i=myDeck.size()-1; i>0; i-- ){
-            if( playability.get(i) == 1 ){
+            if( playability.get(i) == singles ){
                 if( myDeck.getCards().get(i).getSuit() == Suit.Diamond) {
                     diamondCount.add(i);
                 }
