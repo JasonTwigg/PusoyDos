@@ -335,17 +335,15 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public void findTriples() {
 
-        for( int i=myDeck.size()-1; i>3; i--) {
+        for( int i=myDeck.size()-1; i>2; i--) {
 
             if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
-                if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
-                        playability.set( i, fullHouse);
-                        playability.set( i-1, fullHouse );
-                        playability.set( i-2, fullHouse );
+                        playability.set(i, fullHouse);
+                        playability.set(i - 1, fullHouse);
+                        playability.set(i - 2, fullHouse);
                     }
-                }
             }
         }
     }
