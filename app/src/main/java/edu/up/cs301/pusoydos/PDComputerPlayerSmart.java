@@ -421,6 +421,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 playability.set(i-3, fourOfAKind);
             }
         }
+        for(int i = myDeck.size()-1; i > 1; i--){
+            if(playability.get(i) == singles){
+                playability.set(i, fourOfAKind);
+            }
+        }
     }
 
 }
