@@ -60,12 +60,12 @@
         "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/drawable-hdpi/card_6h.png"
     },
     {
-        "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/drawable-hdpi/card_9c.png",
-        "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/drawable-hdpi/card_9c.png"
-    },
-    {
         "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/drawable-hdpi/suit_h.png",
         "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/drawable-hdpi/suit_h.png"
+    },
+    {
+        "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/drawable-hdpi/card_9c.png",
+        "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/drawable-hdpi/card_9c.png"
     },
     {
         "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/drawable-hdpi/card_kd.png",

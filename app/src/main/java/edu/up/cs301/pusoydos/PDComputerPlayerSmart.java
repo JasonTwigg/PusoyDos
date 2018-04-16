@@ -277,7 +277,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                             game.sendAction(new PDSelectAction(this, i));
                         }
                     }
-                    game.sendAction(new SJPlayAction(this));
+                    game.sendAction(new PDPlayAction(this));
                     return;
                 }
                 game.sendAction(new PDPassAction(this));
