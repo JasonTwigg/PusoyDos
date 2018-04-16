@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Jason on 3/22/2018.
  */
-public class SJLocalGameTest {
+public class PDLocalGameTest {
     @Test
     public void checkIfGameOver() throws Exception {
 

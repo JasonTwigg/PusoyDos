@@ -27,13 +27,13 @@ import edu.up.cs301.game.util.PossibleHands;
  *
  * @version April 2018
  */
-public class SJComputerPlayerSmart extends GameComputerPlayer
+public class PDComputerPlayerSmart extends GameComputerPlayer
 {
     // the minimum reaction time for this player, in milliseconds
     private double minReactionTimeInMillis;
 
     // the most recent state of the game
-    private SJState savedState;
+    private PDState savedState;
     private int size;
     //Constant for the time each computer takes to go
     private int waitTime = 750;
@@ -56,7 +56,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
      * @param name
      * 		the player's name
      */
-    public SJComputerPlayerSmart(String name) {
+    public PDComputerPlayerSmart(String name) {
         // invoke general constructor to create player whose average reaction
         // time is half a second.
         this(name, 0.5);
@@ -67,7 +67,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     /*
      * Constructor for the SJComputerPlayer class
      */
-    public SJComputerPlayerSmart(String name, double avgReactionTime) {
+    public PDComputerPlayerSmart(String name, double avgReactionTime) {
         // invoke superclass constructor
         super(name);
 
@@ -81,8 +81,8 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     protected void receiveInfo(GameInfo info) {
 
         // update our state variable
-        if( info instanceof  SJState ){
-            savedState = (SJState)info;
+        if( info instanceof  PDState ){
+            savedState = (PDState)info;
 
         } else {
             IllegalMoveInfo moveInfo = (IllegalMoveInfo)info;
@@ -193,14 +193,14 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){
                 game.sendAction(new PDSelectAction(this,size-1));
-                game.sendAction(new SJPlayAction(this));
+                game.sendAction(new PDPlayAction(this));
                 return;
             }
             else if (savedState.getModeType() == 1) {
                 //If they are not in control they play their best card
                 if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
                     game.sendAction(new PDSelectAction(this, 0));
-                    game.sendAction(new SJPlayAction(this));
+                    game.sendAction(new PDPlayAction(this));
                 } else {
                     //If they cannot play, they pass
                     game.sendAction(new PDPassAction(this));
@@ -215,7 +215,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                     if(playability.get(i) == doubles ){
                         game.sendAction(new PDSelectAction(this, i));
                         game.sendAction(new PDSelectAction(this, i+1));
-                        game.sendAction(new SJPlayAction(this));
+                        game.sendAction(new PDPlayAction(this));
                         return;
                     }
                 }
@@ -228,7 +228,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                         game.sendAction(new PDSelectAction(this, i));
                         game.sendAction(new PDSelectAction(this, i+1));
                         game.sendAction(new PDSelectAction(this, i+2));
-                        game.sendAction(new SJPlayAction(this));
+                        game.sendAction(new PDPlayAction(this));
                         return;
                     }
                 }
