@@ -150,6 +150,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                             playability.set(count.get(3), straight);
                             playability.set(count.get(4), straight);
 
+                            break;
 
                         }
 
@@ -165,6 +166,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
 
                         break;
+
                     }
 
 
@@ -184,13 +186,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
-
+        //checking for triples for a full house
+        findTriples();
 
         //checking for flushes
         findFlushes();
 
-        //checking for triples for a full house
-        findTriples();
 
         //checking for doubles in hand
         findDoubles();
@@ -340,7 +341,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         for( int i=myDeck.size()-1; i>3; i--) {
 
             if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
-                if( playability.get(i) == 0 ){
+                if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
                         playability.set( i, fullHouse);
