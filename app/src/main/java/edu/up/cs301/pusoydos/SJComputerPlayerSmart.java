@@ -40,11 +40,12 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     private ArrayList<Integer> playability;
 
     //playability values
-    private int singles = 0;
-    private int doubles = 1;
-    private int straight = 2;
-    private int flush = 3;
-    private int fullHouse = 4;
+    private int singles = 1;
+    private int doubles = 2;
+    private int straight = 3;
+    private int flush = 4;
+    private int fullHouse = 5;
+    private int fourOfAKind = 6;
 
     private Deck myDeck;
 
@@ -117,6 +118,19 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
+        //checking for triples for a full house
+        for( int i=myDeck.size()-1; i>3; i--) {
+
+            if( playability.get(i) == 0 ){
+                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
+                        && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
+                    playability.set( i, fullHouse);
+                    playability.set( i-1, fullHouse );
+                    playability.set( i-2, fullHouse );
+                }
+            }
+        }
+
 
 
 
@@ -158,11 +172,25 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                 if( 1==1){
                     return;
                 }
-            } else if (savedState.getModeType() == 2 ){
+            }
+            else if (savedState.getModeType() == 2 ){
                 for( int i = 0; i < playability.size(); i++ ){
-                    if(playability.get(i) == 1 ){
+                    if(playability.get(i) == doubles ){
                         game.sendAction(new PDSelectAction(this, i));
                         game.sendAction(new PDSelectAction(this, i+1));
+                        game.sendAction(new SJPlayAction(this));
+                        return;
+                    }
+                }
+                game.sendAction(new PDPassAction(this));
+                return;
+            }
+            else if (savedState.getModeType() == 5 ){
+                for( int i = 0; i < playability.size(); i++ ){
+                    if(playability.get(i) == fullHouse ){
+                        game.sendAction(new PDSelectAction(this, i));
+                        game.sendAction(new PDSelectAction(this, i+1));
+                        game.sendAction(new PDSelectAction(this, i+2));
                         game.sendAction(new SJPlayAction(this));
                         return;
                     }
