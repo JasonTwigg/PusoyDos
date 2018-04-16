@@ -104,20 +104,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
             playability.add( i, singles);
         }
 
-
-        //checking for doubles in hand
-        for( int i=myDeck.size()-1; i>2; i--) {
-            if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
-                playability.set( i, doubles);
-                playability.set( i-1, doubles );
-            }
-            if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()
-                    && myDeck.getCards().get(i-2)!=null ) {
-                playability.set(i, doubles);
-                playability.set(i-2, singles);
-            }
-        }
-
+        /*
         //checking for triples for a full house
         for( int i=myDeck.size()-1; i>3; i--) {
 
@@ -130,6 +117,56 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                 }
             }
         }
+        */
+        /*
+        int count = 0;
+        int countIdx = 0;
+        //checking for straight
+        for( int i=myDeck.size()-1; i>0; i--) {
+
+            if( playability.get(i) == 0 ){
+                count = 0;
+                countIdx = i;
+                while( countIdx > 0 ){
+
+                    if( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1){
+
+                    } else if ( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1) {
+
+                    }
+
+
+                }
+
+
+
+
+                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
+                        && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
+                    playability.set(i, fullHouse);
+                    playability.set(i - 1, fullHouse);
+                    playability.set(i - 2, fullHouse);
+                }
+            }
+        }
+             */
+
+        //checking for doubles in hand
+        for( int i=myDeck.size()-1; i>2; i--) {
+            if( playability.get(i) == 1 ) {
+                if (myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i - 1).getRank()) {
+                    playability.set(i, doubles);
+                    playability.set(i - 1, doubles);
+                }
+                if (myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i - 2).getRank()
+                        && myDeck.getCards().get(i - 2) != null) {
+                    playability.set(i, doubles);
+                    playability.set(i - 2, singles);
+                }
+            }
+        }
+
+
 
 
 

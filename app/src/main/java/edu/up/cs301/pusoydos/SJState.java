@@ -469,7 +469,7 @@ public class SJState extends GameState {
 			if (piles[4].getCards().size() == 0) {
 				modeType = 2;
 				return true;
-			} else if (firstCardPower > piles[4].getCards().get(1).getPower()) {
+			} else if (firstCardPower > piles[4].getCards().get(piles[4].size()-2).getPower()) {
 				modeType = 2;
 				return true;
 			} else {
@@ -512,7 +512,7 @@ public class SJState extends GameState {
 				tempCard = Cards.get(i-1);
 				nextCard = Cards.get(i);
 				//Check for a straight
-				if (tempCard.getPower() % 4 != nextCard.getPower() % 4 + 1) {
+				if (tempCard.getPower() / 4 != nextCard.getPower() / 4 + 1) {
 
 					isStraight = false;
 
