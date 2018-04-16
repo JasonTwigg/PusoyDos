@@ -111,7 +111,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.add( i, singles);
         }
 
-
+        /*
         //checking for triples for a full house
         for( int i=myDeck.size()-1; i>3; i--) {
 
@@ -132,30 +132,25 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         for( int i=myDeck.size()-1; i>0; i--) {
 
             if( playability.get(i) == 0 ){
-                count = new ArrayList<Integer>();
+                count = 0;
                 countIdx = i;
-                count.add(countIdx);
                 while( countIdx > 0 ){
 
                     if( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1){
 
 
+                        count++;
 
+                        if( count == 4){
 
-                        if( count.size() == 5){
+                            playability.set(i, );
+                            playability.set(i - 1, fullHouse);
+                            playability.set(i - 2, fullHouse);
+                            playability.set(i - 3, fullHouse);
+                            playability.set(i - 4, fullHouse);
 
-                            playability.set(count.get(0),straight );
-                            playability.set(count.get(1), straight);
-                            playability.set(count.get(2), straight);
-                            playability.set(count.get(3), straight);
-                            playability.set(count.get(4), straight);
-
-                            break;
 
                         }
-
-                        countIdx++;
-                        count.add(countIdx);
 
 
                     } else if ( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1) {
@@ -166,7 +161,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
 
                         break;
-
                     }
 
 
@@ -185,23 +179,24 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 }
             }
         }
+        */
 
-        //checking for triples for a full house
-        findTriples();
 
         //checking for flushes
         findFlushes();
 
+        //checking for triples for a full house
+        findTriples();
 
         //checking for doubles in hand
         findDoubles();
 
         if( playability.contains(fullHouse) && playability.contains(doubles)){
 
-            for( int i=0; i<myDeck.size()-1; i++){
-                if( playability.get(i) == doubles && playability.get(i+1)!=null){
+            for( int i=myDeck.size()-1; i>1; i--){
+                if( playability.get(i) == doubles && playability.get(i-1)!=null){
                     playability.set(i, fullHouse);
-                    playability.set(i+1, fullHouse);
+                    playability.set(i-1, fullHouse);
                     break;
                 }
             }
