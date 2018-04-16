@@ -320,17 +320,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public void findDoubles() {
 
-        for( int i=myDeck.size()-1; i>2; i--) {
+        for( int i=myDeck.size()-1; i>1; i--) {
 
-            if( playability.get(i)==1){
+            if( playability.get(i)==1 && playability.get(i-1)==1 ){
                 if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
                     playability.set( i, doubles);
                     playability.set( i-1, doubles );
-                }
-                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()
-                        && myDeck.getCards().get(i-2)!=null ) {
-                    playability.set(i, doubles);
-                    playability.set(i-2, singles);
                 }
             }
         }
@@ -343,7 +338,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     public void findTriples() {
 
         for( int i=myDeck.size()-1; i>3; i--) {
-            if(playability.get(i)==1){
+
+            if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
                 if( playability.get(i) == 0 ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
