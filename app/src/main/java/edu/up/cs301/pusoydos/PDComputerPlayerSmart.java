@@ -205,6 +205,15 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
+        if( playability.contains(fourOfAKind) && playability.contains(singles)){
+            for( int i=myDeck.size()-1; i>1; i--){
+                if( playability.get(i) == singles ){
+                    playability.set(i, fourOfAKind);
+                    break;
+                }
+            }
+        }
+
 
         //Has the player wait to make their move
         //and it takes twice as long if they are
@@ -287,6 +296,17 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 for (int i = playability.size()-1; i>=0; i--) {
 
                     if (playability.get(i) == fullHouse ) {
+                        game.sendAction(new PDSelectAction(this, i));
+                    }
+                }
+                game.sendAction(new PDPlayAction(this));
+                return;
+            }
+            else if (savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
+                    savedState.getModeType() == 4 || savedState.getModeType() == 3){
+                for (int i = playability.size()-1; i>=0; i--) {
+
+                    if (playability.get(i) == fourOfAKind ) {
                         game.sendAction(new PDSelectAction(this, i));
                     }
                 }
