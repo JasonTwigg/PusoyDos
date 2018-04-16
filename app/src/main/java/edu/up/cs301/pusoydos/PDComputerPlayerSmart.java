@@ -117,9 +117,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 }
             }
         }
-        */
-        /*
-        int count = 0;
+
+
+        ArrayList<Integer> count = new ArrayList<Integer>();
         int countIdx = 0;
         //checking for straight
         for( int i=myDeck.size()-1; i>0; i--) {
@@ -131,9 +131,32 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
                     if( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1){
 
+
+                        count++;
+
+                        if( count == 4){
+
+                            playability.set(i, );
+                            playability.set(i - 1, fullHouse);
+                            playability.set(i - 2, fullHouse);
+                            playability.set(i - 3, fullHouse);
+                            playability.set(i - 4, fullHouse);
+
+
+                        }
+
+
                     } else if ( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1) {
 
+
+                    } else {
+
+
+
+                        break;
                     }
+
+
 
 
                 }
@@ -149,7 +172,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 }
             }
         }
-             */
+        */
+
 
         //checking for doubles in hand
         for( int i=myDeck.size()-1; i>2; i--) {
