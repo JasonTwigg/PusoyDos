@@ -281,16 +281,13 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
             else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
                     savedState.getModeType() == 3){
-                for( int i = 0; i < playability.size(); i++ ){
-                    if(playability.get(i) == fullHouse ){
+                for (int i = playability.size()-1; i>=0; i--) {
+
+                    if (playability.get(i) == fullHouse ) {
                         game.sendAction(new PDSelectAction(this, i));
-                        game.sendAction(new PDSelectAction(this, i+1));
-                        game.sendAction(new PDSelectAction(this, i+2));
-                        game.sendAction(new PDPlayAction(this));
-                        return;
                     }
                 }
-                game.sendAction(new PDPassAction(this));
+                game.sendAction(new PDPlayAction(this));
                 return;
             }
             else {
