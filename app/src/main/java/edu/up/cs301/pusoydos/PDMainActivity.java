@@ -22,7 +22,7 @@ import android.graphics.Color;
  *
  * @version April 2018
  */
-public class SJMainActivity extends GameMainActivity {
+public class PDMainActivity extends GameMainActivity {
 	
 	public static final int PORT_NUMBER = 47520;
 
@@ -36,21 +36,21 @@ public class SJMainActivity extends GameMainActivity {
 		final int purpleBackground = Color.rgb(127, 55, 155);
 		playerTypes.add(new GamePlayerType("human player (purple )") {
 			public GamePlayer createPlayer(String name) {
-				return new SJHumanPlayer(name, purpleBackground);
+				return new PDHumanPlayer(name, purpleBackground);
 			}});
 		playerTypes.add(new GamePlayerType("human player (black)") {
 			public GamePlayer createPlayer(String name) {
-				return new SJHumanPlayer(name, Color.BLACK);
+				return new PDHumanPlayer(name, Color.BLACK);
 			}
 		});
 		playerTypes.add(new GamePlayerType("computer player (dumb)") {
 			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayer(name);
+				return new PDComputerPlayer(name);
 			}
 		});
 		playerTypes.add(new GamePlayerType("computer player (smart)") {
 			public GamePlayer createPlayer(String name) {
-				return new SJComputerPlayerSmart(name);
+				return new PDComputerPlayerSmart(name);
 			}
 		});
 
@@ -73,6 +73,6 @@ public class SJMainActivity extends GameMainActivity {
 
 	@Override
 	public LocalGame createLocalGame() {
-		return new SJLocalGame();
+		return new PDLocalGame();
 	}
 }
