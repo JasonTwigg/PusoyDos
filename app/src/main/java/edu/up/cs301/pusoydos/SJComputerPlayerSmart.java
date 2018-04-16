@@ -104,7 +104,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
             playability.add( i, singles);
         }
 
-        /*
+
         //checking for triples for a full house
         for( int i=myDeck.size()-1; i>3; i--) {
 
@@ -125,25 +125,29 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
         for( int i=myDeck.size()-1; i>0; i--) {
 
             if( playability.get(i) == 0 ){
-                count = 0;
+                count = new ArrayList<Integer>();
                 countIdx = i;
+                count.add(countIdx);
                 while( countIdx > 0 ){
 
                     if( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1){
 
 
-                        count++;
 
-                        if( count == 4){
 
-                            playability.set(i, );
-                            playability.set(i - 1, fullHouse);
-                            playability.set(i - 2, fullHouse);
-                            playability.set(i - 3, fullHouse);
-                            playability.set(i - 4, fullHouse);
+                        if( count.size() == 5){
+
+                            playability.set(count.get(0),straight );
+                            playability.set(count.get(1), straight);
+                            playability.set(count.get(2), straight);
+                            playability.set(count.get(3), straight);
+                            playability.set(count.get(4), straight);
 
 
                         }
+
+                        countIdx++;
+                        count.add(countIdx);
 
 
                     } else if ( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1) {
@@ -172,7 +176,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                 }
             }
         }
-        */
+
 
 
         //checking for doubles in hand
