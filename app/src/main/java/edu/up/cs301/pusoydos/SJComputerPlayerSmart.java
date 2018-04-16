@@ -45,6 +45,7 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
     private int straight = 2;
     private int flush = 3;
     private int fullHouse = 4;
+    private int fourOfaKind = 5;
 
     private Deck myDeck;
 
@@ -114,6 +115,18 @@ public class SJComputerPlayerSmart extends GameComputerPlayer
                     && myDeck.getCards().get(i-2)!=null ) {
                 playability.set(i, doubles);
                 playability.set(i-2, singles);
+            }
+        }
+
+        //checking for four of a kind
+        for(int i = myDeck.size()-1; i > 2; i--){
+            if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
+                    myDeck.getCards().get(i-1).getRank() == myDeck.getCards().get(i-2).getRank() &&
+                    myDeck.getCards().get(i-2).getRank() == myDeck.getCards().get(i-3).getRank()){
+                playability.set(i, fourOfaKind);
+                playability.set(i-1, fourOfaKind);
+                playability.set(i-2, fourOfaKind);
+                playability.set(i-3, fourOfaKind);
             }
         }
 
