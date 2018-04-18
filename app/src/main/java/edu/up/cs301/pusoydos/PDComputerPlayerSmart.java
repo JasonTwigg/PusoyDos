@@ -111,79 +111,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.add( i, singles);
         }
 
-        /*
-        //checking for triples for a full house
-        for( int i=myDeck.size()-1; i>3; i--) {
-
-            if( playability.get(i) == 0 ){
-                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
-                        && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
-                    playability.set( i, fullHouse);
-                    playability.set( i-1, fullHouse );
-                    playability.set( i-2, fullHouse );
-                }
-            }
-        }
-
-
-        ArrayList<Integer> count = new ArrayList<Integer>();
-        int countIdx = 0;
-        //checking for straight
-        for( int i=myDeck.size()-1; i>0; i--) {
-
-            if( playability.get(i) == 0 ){
-                count = 0;
-                countIdx = i;
-                while( countIdx > 0 ){
-
-                    if( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1){
-
-
-                        count++;
-
-                        if( count == 4){
-
-                            playability.set(i, );
-                            playability.set(i - 1, fullHouse);
-                            playability.set(i - 2, fullHouse);
-                            playability.set(i - 3, fullHouse);
-                            playability.set(i - 4, fullHouse);
-
-
-                        }
-
-
-                    } else if ( myDeck.getCards().get(i).getPower()/4 == myDeck.getCards().get(i-1).getPower()/4 + 1) {
-
-
-                    } else {
-
-
-
-                        break;
-                    }
-
-
-
-
-                }
-
-
-
-
-                if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
-                        && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
-                    playability.set(i, fullHouse);
-                    playability.set(i - 1, fullHouse);
-                    playability.set(i - 2, fullHouse);
-                }
-            }
-        }
-        */
-
 
         //checking for flushes
-        findFlushes();
+        //findFlushes();
 
         //checking for triples for a full house
         findTriples();
@@ -192,7 +122,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         findDoubles();
 
         //checking for four of a kinds
-        findFourofAKinds();
+        //findFourofAKinds();
 
         if( playability.contains(fullHouse) && playability.contains(doubles)){
 
@@ -361,12 +291,14 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         for( int i=myDeck.size()-1; i>2; i--) {
 
             if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
+                if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
                         playability.set(i, fullHouse);
                         playability.set(i - 1, fullHouse);
                         playability.set(i - 2, fullHouse);
                     }
+                }
             }
         }
     }
@@ -445,6 +377,53 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 playability.set(i, fourOfAKind);
             }
         }*/
+    }
+
+    public void findStraight(){
+
+        ArrayList<Integer> count = new ArrayList<Integer>();
+        int countIdx = 0;
+        //checking for straight
+        for( int i=myDeck.size()-1; i>0; i--) {
+
+            if( playability.get(i) == 1 ){
+                count = new ArrayList<Integer>();
+                countIdx = i;
+                count.add(countIdx);
+                boolean run = true;
+                for( int j = i; j>1; j--) {
+
+                    if (myDeck.getCards().get(j).getPower() / 4 == myDeck.getCards().get(j - 1).getPower() / 4 + 1) {
+                        //BI
+                        if (count.size() == 5) {
+
+                            playability.set(count.get(0), straight);
+                            playability.set(count.get(1), straight);
+                            playability.set(count.get(2), straight);
+                            playability.set(count.get(3), straight);
+                            playability.set(count.get(4), straight);
+
+                            break;
+
+                        }
+                        count.add(j);
+
+
+                    } else if (myDeck.getCards().get(j).getPower() / 4 == myDeck.getCards().get(j).getPower() / 4) {
+
+
+                    } else {
+
+
+                        break;
+
+                    }
+
+
+                }
+
+            }
+        }
     }
 
 }

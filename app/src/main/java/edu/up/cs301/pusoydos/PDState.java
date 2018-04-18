@@ -104,20 +104,6 @@ public class PDState extends GameState {
 			piles[0].moveTopCardTo(piles[3]);
 		}
 
-		piles[0].add(new Card(Rank.FIVE,Suit.Heart));
-		piles[0].add(new Card(Rank.FIVE,Suit.Spade));
-		piles[0].add(new Card(Rank.FIVE,Suit.Diamond));
-		piles[0].add(new Card(Rank.FOUR,Suit.Spade));
-		piles[0].add(new Card(Rank.FOUR,Suit.Diamond));
-		piles[0].add(new Card(Rank.TWO,Suit.Diamond));
-
-
-		piles[1].add(new Card(Rank.SIX,Suit.Heart));
-		piles[1].add(new Card(Rank.SIX,Suit.Spade));
-		piles[1].add(new Card(Rank.SIX,Suit.Diamond));
-		piles[1].add(new Card(Rank.SEVEN,Suit.Spade));
-		piles[1].add(new Card(Rank.SEVEN,Suit.Diamond));
-
 
 
 		//Sorts each player's hand from high card to low
@@ -581,7 +567,7 @@ public class PDState extends GameState {
 
 			if (modeType == 3 || modeType == 4 || modeType == 5) {
 				return true;
-			} else if (modeType == 6) {
+			} else if (modeType == 5) {
 					/*
 				    If a fullhouse is currently in play, and the power of the 4 cards that are
 				    matching (without regard to the random fifth of the players choice) in your hand
@@ -597,12 +583,12 @@ public class PDState extends GameState {
 
 				if ((firstHandCardPower > firstDeckCardPower && firstHandCardPower > lastDeckCardPower) ||
 						lastHandCardPower > firstDeckCardPower && lastHandCardPower > lastDeckCardPower) {
-					modeType = 6;
+					modeType = 5;
 					return true;
 				}
 			} else if ( modeType == 0 ){
 
-				modeType = 6;
+				modeType = 5;
 				return true;
 
 			}
