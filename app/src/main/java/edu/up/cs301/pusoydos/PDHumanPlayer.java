@@ -197,10 +197,23 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		height = surface.getHeight();
 		width = surface.getWidth();
 
+		Log.i("Mode Type",state.getModeType()+"");
+
+		Log.i("Get Turn #",state.toPlay() + "");
+
+		Log.i("My Player",playerNum+"");
+
+
+
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 
-		Deck deck = state.getDeck(playerNum);
+		Deck deck = null;
+		if( state.getDeck(playerNum) != null ) {
+			deck = state.getDeck(playerNum);
+		} else {
+			return;
+		}
 
 		cardPositions = new RectF[deck.size()];
 
@@ -387,7 +400,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 	public void drawPlayer( Canvas g, int rectLeft, int rectTop, Paint textPaint){
 
         //Moves on to the next player's deck to draw
-		otherPlayerCounter++;
+
 		if( otherPlayerCounter == playerNum ) {
 			otherPlayerCounter++;
 		}
@@ -426,6 +439,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
 		//Draws the player name near their deck
 		g.drawText(playerName, (float) (rectLeft+(cardWidth*.1)), (float) (rectTop-(cardHeight*.2)), textPaint);
+
+		otherPlayerCounter++;
 	}
 
 	/**

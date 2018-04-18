@@ -24,7 +24,7 @@ import android.graphics.Color;
  */
 public class PDMainActivity extends GameMainActivity {
 	
-	public static final int PORT_NUMBER = 47520;
+	public static final int PORT_NUMBER = 4752;
 
 	/** a pusoydos game for four players. The default is human vs. computer */
 	@Override
@@ -65,7 +65,7 @@ public class PDMainActivity extends GameMainActivity {
 		defaultConfig.addPlayer("Computer", 2);
 		
 		// Set the initial information for the remote player
-		defaultConfig.setRemoteData("Guest", "", 1);
+		defaultConfig.setRemoteData("Guest", "2sko4q", 1);
 		
 		//done!
 		return defaultConfig;

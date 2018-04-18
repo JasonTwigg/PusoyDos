@@ -1,5 +1,6 @@
 package edu.up.cs301.pusoydos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import edu.up.cs301.card.Card;
 import edu.up.cs301.game.infoMsg.GameState;
@@ -27,7 +28,7 @@ import edu.up.cs301.card.Suit;
  *
  * @version April 2018
  */
-public class PDState extends GameState {
+public class PDState extends GameState implements Serializable{
     private static final long serialVersionUID = -8269749892027578792L;
 
     ///////////////////////////////////////////////////
@@ -142,6 +143,7 @@ public class PDState extends GameState {
 		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in PDState
 		perspective = playerNum;
+
 		playerLastPlayed = orig.playerLastPlayed;
 		modeType = orig.modeType;
 		isFirst = orig.isFirst;
