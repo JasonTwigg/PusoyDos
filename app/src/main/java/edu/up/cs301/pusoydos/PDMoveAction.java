@@ -18,7 +18,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  */
 public abstract class PDMoveAction extends GameAction {
 	
-	private static final long serialVersionUID = -3107100271012188849L;
+	private static final long serialVersionUID = -31071002710188849L;
 
 
     /**

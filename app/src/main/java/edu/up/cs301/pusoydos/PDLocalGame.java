@@ -160,6 +160,7 @@ public class PDLocalGame extends LocalGame {
 
 			PDSelectAction selectAction = (PDSelectAction)sjma;
 			Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
+			//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
 
 			//we return false instead of true because, this action is always called in conjunction
 			//with another action and if we return true, it will send the updated state for the computer,

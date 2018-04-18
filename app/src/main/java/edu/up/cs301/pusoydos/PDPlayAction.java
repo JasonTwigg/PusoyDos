@@ -15,7 +15,7 @@ import edu.up.cs301.game.GamePlayer;
  */
 public class PDPlayAction extends PDMoveAction
 {
-	private static final long serialVersionUID = 3250639793499599047L;
+	private static final long serialVersionUID = 3250439793499599047L;
 
 	/**
      * Constructor for the SJPlayMoveAction class.
