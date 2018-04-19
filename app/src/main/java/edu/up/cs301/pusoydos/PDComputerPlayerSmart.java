@@ -160,6 +160,17 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
          on threads and how to use sleep
          */
 
+        //Has the player wait to make their move
+        //and it takes twice as long if they are
+        //in control (to slow things down)
+        if(savedState.getModeType() == 0) {
+            sleep(waitTime*2);
+        }
+        else{
+            sleep(waitTime);
+        }
+
+
 
         //Computer plays if it is their turn
         if( playerNum == savedState.toPlay() ){
