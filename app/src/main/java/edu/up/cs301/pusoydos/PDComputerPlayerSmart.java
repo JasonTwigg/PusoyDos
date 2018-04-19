@@ -163,12 +163,14 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //Has the player wait to make their move
         //and it takes twice as long if they are
         //in control (to slow things down)
+        /*
         if(savedState.getModeType() == 0) {
             sleep(waitTime*2);
         }
         else{
             sleep(waitTime);
         }
+        */
 
 
 
@@ -250,13 +252,15 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
             else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
                     savedState.getModeType() == 3){
+                //Boolean to determine if the full house is legal
                 boolean canPlayFullHouse = true;
                 int count = 0;
                 for (int i = playability.size()-1; i>=0; i--) {
 
                     if( count == 2 ) {
+                        //Checks the power of the triple
                         if( myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(2).getPower()){
-
+                            canPlayFullHouse = true;
                         } else {
                             canPlayFullHouse = false;
                         }
@@ -274,6 +278,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 if( canPlayFullHouse ) {
                     game.sendAction(new PDPlayAction(this));
                 }
+                else{
+                    game.sendAction(new PDPassAction(this));
+                }
+                game.sendAction(new PDPassAction(this));
                 return;
             }
             else if (savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
