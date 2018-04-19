@@ -220,7 +220,7 @@ public class PDState extends GameState implements Serializable{
 		//Makes sure it is actually the players turn
 		if (playerNum == turnNum) {
 			//Makes sure there is a card being selected
-			if (piles[playerNum].getCards().get(pos) != null) {
+			if (pos < piles[playerNum].getCards().size() && piles[playerNum].getCards().get(pos) != null) {
 
 				//Set a card equal to that being chosen
 				Card c = piles[playerNum].getCards().get(pos);
