@@ -184,13 +184,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     hasSelected = true;
                 }
             }
-            if( !hasSelected ) {
-                if (savedState.getModeType() == 0) {
-                    sleep(waitTime * 2);
-                } else {
-                    sleep(waitTime);
-                }
-            }
 
 
             //If they are in control, they play their worst card
