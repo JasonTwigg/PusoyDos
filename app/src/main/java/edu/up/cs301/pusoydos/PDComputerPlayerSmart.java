@@ -97,6 +97,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             return;
         }
 
+        if( savedState.toPlay() != playerNum ){
+            return;
+        }
+
         myDeck = savedState.getDeck(playerNum);
         Deck middleDeck = savedState.getDeck(4);
 
@@ -163,16 +167,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //Has the player wait to make their move
         //and it takes twice as long if they are
         //in control (to slow things down)
-        /*
-        boolean hasSelected = false;
-        for( Card c : C
-        if(savedState.getModeType() == 0) {
-            sleep(waitTime*2);
-        }
-        else{
-            sleep(waitTime);
-        }
-        */
+
+
+
 
 
 
@@ -180,6 +177,21 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
         //Computer plays if it is their turn
         if( playerNum == savedState.toPlay() ){
+
+            boolean hasSelected = false;
+            for( Card c : myDeck.getCards() ){
+                if( c.isSelected() ){
+                    hasSelected = true;
+                }
+            }
+            if( !hasSelected ) {
+                if (savedState.getModeType() == 0) {
+                    sleep(waitTime * 2);
+                } else {
+                    sleep(waitTime);
+                }
+            }
+
 
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){

@@ -197,11 +197,6 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		height = surface.getHeight();
 		width = surface.getWidth();
 
-		//Log.i("Mode Type",state.getModeType()+"");
-
-		//Log.i("Get Turn #",state.toPlay() + "");
-
-		//Log.i("My Player",playerNum+"");
 
 
 
