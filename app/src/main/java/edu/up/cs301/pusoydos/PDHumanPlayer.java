@@ -269,7 +269,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		deltaX = (float) (cardWidth*.1);
 
 		//to draw card backs for other players
-		otherPlayerCounter = 0;
+		otherPlayerCounter = playerNum + 1;
 
 		drawPlayer(g,(int)(width*.1),(int)((height*.5)-cardHeight),whitePaint);
 
@@ -401,8 +401,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
         //Moves on to the next player's deck to draw
 
-		if( otherPlayerCounter == playerNum ) {
-			otherPlayerCounter++;
+		if( otherPlayerCounter == 4 ) {
+			otherPlayerCounter = 0;
 		}
 
 		//to set the PLAYER's card back
