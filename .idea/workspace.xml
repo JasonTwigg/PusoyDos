@@ -9,7 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d264df2-a4d0-4b56-9494-589892c30a5b" name="Default" comment="Made it so the Drawing of the players are drawn relative to your player number">
+    <list default="true" id="6d264df2-a4d0-4b56-9494-589892c30a5b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -20,7 +20,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/up/cs301/game/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/up/cs301/game/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
@@ -44,7 +43,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDState.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java" />
     </list>
     <ignored path="PusoyDos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -147,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PDComputerPlayerSmart.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PDComputerPlayerSmart.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6890">
-              <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+            <state relative-caret-position="1074">
+              <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -167,7 +166,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PDState.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PDState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
@@ -1934,9 +1933,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/SJComputerPlayerSmart.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/Deck.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDHumanPlayer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDLocalGame.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDState.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java" />
       </list>
     </option>
   </component>
@@ -2701,7 +2700,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524113786549</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed so game rules can tell what full house beats the other">
+      <created>1524115416174</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1524115416174</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2753,7 +2759,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="middle pile (second try)" />
     <MESSAGE value="GUI text adjustment" />
     <MESSAGE value="GUI text adjustment (second try)" />
     <MESSAGE value="GUI text adjustment (third try)" />
@@ -2778,7 +2783,8 @@
     <MESSAGE value="select boolean issue fixed" />
     <MESSAGE value="Smart Player plays their worst possible card when the mode is in singles" />
     <MESSAGE value="Made it so the Drawing of the players are drawn relative to your player number" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made it so the Drawing of the players are drawn relative to your player number" />
+    <MESSAGE value="Fixed so game rules can tell what full house beats the other" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed so game rules can tell what full house beats the other" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3086,14 +3092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6890">
-          <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDLocalGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -3106,6 +3104,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="590" column="67" selection-start-line="590" selection-start-column="67" selection-end-line="590" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1074">
+          <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -250,13 +250,30 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
             else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
                     savedState.getModeType() == 3){
+                boolean canPlayFullHouse = true;
+                int count = 0;
                 for (int i = playability.size()-1; i>=0; i--) {
+
+                    if( count == 2 ) {
+                        if( myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(2).getPower()){
+
+                        } else {
+                            canPlayFullHouse = false;
+                        }
+                    }
+
 
                     if (playability.get(i) == fullHouse ) {
                         game.sendAction(new PDSelectAction(this, i));
                     }
+
+                    count++;
+
+
                 }
-                game.sendAction(new PDPlayAction(this));
+                if( canPlayFullHouse ) {
+                    game.sendAction(new PDPlayAction(this));
+                }
                 return;
             }
             else if (savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
