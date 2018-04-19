@@ -171,14 +171,23 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 return;
             }
             else if (savedState.getModeType() == 1) {
-                //If they are not in control they play their best card
-                if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
-                    game.sendAction(new PDSelectAction(this, 0));
-                    game.sendAction(new PDPlayAction(this));
-                } else {
-                    //If they cannot play, they pass
-                    game.sendAction(new PDPassAction(this));
+
+                //Int to hold the position of their worst card
+                int worstCard;
+                //If they are not in control they play their worst possible card
+                for(worstCard = myDeck.getCards().size()-1; worstCard >= 0; worstCard--) {
+                    //Checks to see if their worst card can be player, if
+                    //not then it moves to their next highest card
+                    if (myDeck.getCards().get(worstCard).getPower() > middleDeck.getCards().get(middleDeck.getCards().size() - 1).getPower()) {
+
+                        game.sendAction(new PDSelectAction(this, worstCard));
+                        game.sendAction(new PDPlayAction(this));
+
+                    }
+
                 }
+                //If they cannot play they pass
+                game.sendAction(new PDPassAction(this));
             }
             else if (savedState.getModeType() == 2 ){
                 for( int i = 0; i < playability.size(); i++ ){

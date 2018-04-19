@@ -1,4 +1,4 @@
-#Wed Apr 18 19:13:39 PDT 2018
-base.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2
+#Wed Apr 18 19:52:27 PDT 2018
+base.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2
 renamed.0=classes.dex
-file.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex
+file.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex
