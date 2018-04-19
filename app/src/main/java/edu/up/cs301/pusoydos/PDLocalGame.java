@@ -165,7 +165,7 @@ public class PDLocalGame extends LocalGame {
 			//we return false instead of true because, this action is always called in conjunction
 			//with another action and if we return true, it will send the updated state for the computer,
 			//making it move again, causing a out of bounds error, because the card was already played
-			return false;
+			return true;
 
 
 			//check if the move action is a pass action
