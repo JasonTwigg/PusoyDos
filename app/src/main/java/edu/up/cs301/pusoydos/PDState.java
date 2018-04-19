@@ -572,35 +572,34 @@ public class PDState extends GameState implements Serializable{
                 because a fullhouse is higher than all straights or flushes
                 */
 
-			if (modeType == 3 || modeType == 4 || modeType == 5) {
-				return true;
-			} else if (modeType == 5) {
-					/*
-				    If a fullhouse is currently in play, and the power of the 4 cards that are
-				    matching (without regard to the random fifth of the players choice) in your hand
-				    is greater than the power of the 4 cards that are currently played in the center
-				    pile, the move is legal (return true).
-				    */
-				int firstHandCardPower = Cards.get(0).getPower();
-				int lastHandCardPower = Cards.get(4).getPower();
+				if (modeType == 3 || modeType == 4) {
+					return true;
+				} else if (modeType == 5) {
+						/*
+						If a fullhouse is currently in play, and the power of the 4 cards that are
+						matching (without regard to the random fifth of the players choice) in your hand
+						is greater than the power of the 4 cards that are currently played in the center
+						pile, the move is legal (return true).
+						*/
+					int middleHandCardPower = Cards.get(2).getPower();
+					int lastHandCardPower = Cards.get(4).getPower();
 
-				int firstDeckCardPower = piles[4].getCards().get(4).getPower();
-				int lastDeckCardPower = piles[4].getCards().get(4).getPower();
+					int middleDeckCardPower = piles[4].getCards().get(2).getPower();
+					int lastDeckCardPower = piles[4].getCards().get(4).getPower();
 
 
-				if ((firstHandCardPower > firstDeckCardPower && firstHandCardPower > lastDeckCardPower) ||
-						lastHandCardPower > firstDeckCardPower && lastHandCardPower > lastDeckCardPower) {
+					if ( middleHandCardPower > middleDeckCardPower ) {
+						modeType = 5;
+						return true;
+					}
+				} else if ( modeType == 0 ){
+
 					modeType = 5;
 					return true;
+
 				}
-			} else if ( modeType == 0 ){
 
-				modeType = 5;
-				return true;
-
-			}
-
-			return false;
+				return false;
 
 
 		} else if (is4ofKind) {
