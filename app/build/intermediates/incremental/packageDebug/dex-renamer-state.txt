@@ -1,0 +1,7 @@
+#Wed Apr 18 19:13:39 PDT 2018
+base.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_98cde945230ce805e342520534daad654c37c903
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c9cb4d52abc80ba262fe0eaafabe542507777275/classes.dex
+base.1=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c9cb4d52abc80ba262fe0eaafabe542507777275
+file.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_98cde945230ce805e342520534daad654c37c903/classes.dex

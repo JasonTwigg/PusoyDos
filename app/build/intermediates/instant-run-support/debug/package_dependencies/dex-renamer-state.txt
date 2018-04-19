@@ -1,0 +1,4 @@
+#Wed Apr 18 19:13:39 PDT 2018
+base.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_83dc581c2cca268cb6290d82e176a64d4ce15687
+renamed.0=classes.dex
+file.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_83dc581c2cca268cb6290d82e176a64d4ce15687/classes.dex

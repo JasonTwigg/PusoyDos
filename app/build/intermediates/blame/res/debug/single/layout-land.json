@@ -1,10 +1,6 @@
 [
     {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
-        "merged": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
+        "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/res/merged/debug/layout-land/counter_human_player.xml",
+        "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/layout-land/counter_human_player.xml"
     }
 ]
