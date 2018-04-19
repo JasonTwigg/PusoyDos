@@ -166,6 +166,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){
+
                 game.sendAction(new PDSelectAction(this,size-1));
                 game.sendAction(new PDPlayAction(this));
                 return;
@@ -194,7 +195,13 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     if(playability.get(i) == doubles ){
                         game.sendAction(new PDSelectAction(this, i));
                         game.sendAction(new PDSelectAction(this, i+1));
-                        game.sendAction(new PDPlayAction(this));
+                        if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
+                            game.sendAction(new PDPlayAction(this));
+                        }
+                        else{
+                            game.sendAction(new PDPassAction(this));
+                        }
+                        //game.sendAction(new PDPlayAction(this));
                         return;
                     }
                 }
