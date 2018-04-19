@@ -286,6 +286,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
             else if (savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
                     savedState.getModeType() == 4 || savedState.getModeType() == 3){
+
+
+                //game.sendAction(new PDPassAction(this));
+
                 for (int i = playability.size()-1; i>=0; i--) {
 
                     if (playability.get(i) == fourOfAKind ) {
@@ -293,6 +297,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     }
                 }
                 game.sendAction(new PDPlayAction(this));
+
                 return;
             }
             else {
