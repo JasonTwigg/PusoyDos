@@ -10,23 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d264df2-a4d0-4b56-9494-589892c30a5b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/edu/up/cs301/pusoydos/PDComputerPlayerSmart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
     </list>
     <ignored path="PusoyDos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,20 +67,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Card.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/card/Card.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2130">
-              <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PDComputerPlayerSmart.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PDComputerPlayerSmart.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="-270">
               <caret line="201" column="68" selection-start-line="201" selection-start-column="68" selection-end-line="201" selection-end-column="68" />
               <folding />
             </state>
@@ -2408,7 +2382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524113046523</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Smart Player plays their worst possible card when the mode is in singles, and no loop on the doubles">
+      <created>1524113419710</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1524113419710</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2456,7 +2437,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="middle pile" />
     <MESSAGE value="middle pile (second try)" />
     <MESSAGE value="GUI text adjustment" />
     <MESSAGE value="GUI text adjustment (second try)" />
@@ -2481,7 +2461,8 @@
     <MESSAGE value="play four of a kind" />
     <MESSAGE value="select boolean issue fixed" />
     <MESSAGE value="Smart Player plays their worst possible card when the mode is in singles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Smart Player plays their worst possible card when the mode is in singles" />
+    <MESSAGE value="Smart Player plays their worst possible card when the mode is in singles, and no loop on the doubles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Smart Player plays their worst possible card when the mode is in singles, and no loop on the doubles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2790,14 +2771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="201" column="68" selection-start-line="201" selection-start-column="68" selection-end-line="201" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -2812,6 +2785,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2130">
           <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/pusoydos/PDComputerPlayerSmart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="201" column="68" selection-start-line="201" selection-start-column="68" selection-end-line="201" selection-end-column="68" />
           <folding />
         </state>
       </provider>
