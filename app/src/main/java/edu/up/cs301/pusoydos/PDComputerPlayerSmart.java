@@ -164,6 +164,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //and it takes twice as long if they are
         //in control (to slow things down)
         /*
+        boolean hasSelected = false;
+        for( Card c : C
         if(savedState.getModeType() == 0) {
             sleep(waitTime*2);
         }
@@ -171,6 +173,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             sleep(waitTime);
         }
         */
+
+
 
 
 
@@ -284,8 +288,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if (savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
-                    savedState.getModeType() == 4 || savedState.getModeType() == 3){
+            else if ((savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
+                    savedState.getModeType() == 4 || savedState.getModeType() == 3)
+                    && playability.contains(fourOfAKind) ){
+
+
 
 
                 //game.sendAction(new PDPassAction(this));

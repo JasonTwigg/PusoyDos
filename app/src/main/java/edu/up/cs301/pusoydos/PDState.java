@@ -106,17 +106,6 @@ public class PDState extends GameState implements Serializable{
 		}
 
 
-		piles[0].getCards().add(new Card(Rank.TWO,Suit.Diamond));
-		piles[0].getCards().add(new Card(Rank.NINE,Suit.Diamond));
-		piles[0].getCards().add(new Card(Rank.NINE,Suit.Heart));
-		piles[0].getCards().add(new Card(Rank.NINE,Suit.Spade));
-		piles[0].getCards().add(new Card(Rank.NINE,Suit.Club));
-
-		piles[1].getCards().add(new Card(Rank.TWO,Suit.Diamond));
-		piles[1].getCards().add(new Card(Rank.TEN,Suit.Diamond));
-		piles[1].getCards().add(new Card(Rank.TEN,Suit.Heart));
-		piles[1].getCards().add(new Card(Rank.TEN,Suit.Spade));
-		piles[1].getCards().add(new Card(Rank.TEN,Suit.Club));
 
 
 		//Sorts each player's hand from high card to low
