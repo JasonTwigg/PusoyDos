@@ -88,18 +88,18 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     protected void receiveInfo(GameInfo info) {
 
         // update our state variable
-        if( info instanceof  PDState ){
-            savedState = (PDState)info;
+        if (info instanceof PDState) {
+            savedState = (PDState) info;
 
         } else {
-            IllegalMoveInfo moveInfo = (IllegalMoveInfo)info;
-            Log.i("ERROR","");
+            IllegalMoveInfo moveInfo = (IllegalMoveInfo) info;
+            Log.i("ERROR", "");
             return;
         }
 
-        if( savedState.toPlay() != playerNum ){
-            return;
-        }
+         //if( savedState.toPlay() != playerNum ){
+         //    return;
+        //}
 
         myDeck = savedState.getDeck(playerNum);
         Deck middleDeck = savedState.getDeck(4);
@@ -111,8 +111,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
         playability = new ArrayList<Integer>();
         //to set all playability values to singles
-        for( int i=0; i<myDeck.size(); i++) {
-            playability.add( i, singles);
+        for (int i = 0; i < myDeck.size(); i++) {
+            playability.add(i, singles);
         }
 
 
@@ -128,20 +128,20 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //checking for four of a kinds
         //findFourofAKinds();
 
-        if( playability.contains(fullHouse) && playability.contains(doubles)){
+        if (playability.contains(fullHouse) && playability.contains(doubles)) {
 
-            for( int i=myDeck.size()-1; i>1; i--){
-                if( playability.get(i) == doubles && playability.get(i-1)!=null){
+            for (int i = myDeck.size() - 1; i > 1; i--) {
+                if (playability.get(i) == doubles && playability.get(i - 1) != null) {
                     playability.set(i, fullHouse);
-                    playability.set(i-1, fullHouse);
+                    playability.set(i - 1, fullHouse);
                     break;
                 }
             }
         }
 
-        if( playability.contains(fourOfAKind) && playability.contains(singles)){
-            for( int i=myDeck.size()-1; i>1; i--){
-                if( playability.get(i) == singles ){
+        if (playability.contains(fourOfAKind) && playability.contains(singles)) {
+            for (int i = myDeck.size() - 1; i > 1; i--) {
+                if (playability.get(i) == singles) {
                     playability.set(i, fourOfAKind);
                     break;
                 }
@@ -169,21 +169,22 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //in control (to slow things down)
 
 
-
-
-
-
-
-
         //Computer plays if it is their turn
-        if( playerNum == savedState.toPlay() ){
+        if (playerNum == savedState.toPlay()) {
 
             boolean hasSelected = false;
-            for( Card c : myDeck.getCards() ){
-                if( c.isSelected() ){
+            for (Card c : myDeck.getCards()) {
+                if (c.isSelected()) {
                     hasSelected = true;
                 }
             }
+            //if( !hasSelected ) {
+            //    if (savedState.getModeType() == 0) {
+            //        sleep(waitTime * 2);
+            //    } else {
+            //        sleep(waitTime);
+            //    }
+            //}
 
 
             //If they are in control, they play their worst card
@@ -337,7 +338,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     /**
      * Checks for any doubles in hand (of remaining cards that have not been assigned to a
      * better hand).
-     */
+     */                                                             /*************************
+                                                                     * && myDeck.getCards().get(i).getRank() != Rank.TWO
+                                                                     * Put this in later so that it doesn't wast the two's
+                                                                     * in a double (and uses them only as singles
+                                                                      ***********************/
     public void findDoubles() {
 
         for( int i=myDeck.size()-1; i>1; i--) {

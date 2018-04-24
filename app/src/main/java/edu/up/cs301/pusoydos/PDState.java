@@ -107,7 +107,6 @@ public class PDState extends GameState implements Serializable{
 
 
 
-
 		//Sorts each player's hand from high card to low
 		piles[0].sort();
 		piles[1].sort();

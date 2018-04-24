@@ -11,6 +11,15 @@
         <dex dex="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c8cf49f30808f439d05521235bceac3cbee55b61/classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="/Users/coleholbrook/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0_8c22ffb1ba5c267add4f8ca280da66d953e852cf.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
