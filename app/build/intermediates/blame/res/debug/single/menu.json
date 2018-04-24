@@ -1,10 +1,6 @@
 [
     {
-        "merged": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\menu\\game_main.xml"
-    },
-    {
-        "merged": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\menu\\game_main.xml"
+        "merged": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/res/merged/debug/menu/game_main.xml",
+        "source": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/src/main/res/menu/game_main.xml"
     }
 ]

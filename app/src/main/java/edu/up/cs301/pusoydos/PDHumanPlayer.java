@@ -308,6 +308,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		//sets the size
 		psPaint.setTextSize(80);
 		g.drawText("It is "+playerName+"'s turn!", turnLableX, turnLableY, psPaint);
+		String mode = createModeString();
+		g.drawText("Current Mode: "+mode, turnLableX, turnLableY+100, psPaint);
 
 		/**
 		 External Citation
@@ -319,6 +321,38 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		 */
 
 
+
+	}
+
+	public String createModeString(){
+		int currMode = state.getModeType();
+		String modeLabel;
+
+		if( currMode==0 ){
+			return "";
+		}
+		else if( currMode==1 ){
+			modeLabel = "SINGLES";
+		}
+		else if( currMode==2 ){
+			modeLabel = "DOUBLES";
+		}
+		else if( currMode==3 ){
+			modeLabel = "STRAIGHT";
+		}
+		else if( currMode==4 ){
+			modeLabel = "FLUSH";
+		}
+		else if( currMode==5 ){
+			modeLabel = "FULL HOUSE";
+		}
+		else if( currMode==6 ){
+			modeLabel = "FOUR OF A KIND";
+		}
+		else{
+			return "";
+		}
+		return modeLabel;
 
 	}
 
