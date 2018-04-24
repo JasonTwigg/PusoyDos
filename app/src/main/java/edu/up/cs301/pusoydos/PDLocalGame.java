@@ -142,23 +142,55 @@ public class PDLocalGame extends LocalGame {
 	protected boolean makeMove(GameAction action) {
 		
 		// check that we have action; if so cast it
-		if (!(action instanceof PDMoveAction)) {
-			return false;
-		} 
-		PDMoveAction sjma = (PDMoveAction) action;
-		
-		// get the index of the player making the move; return false
-		int thisPlayerIdx = getPlayerIdx(sjma.getPlayer());
-		
-		if (thisPlayerIdx < 0 || thisPlayerIdx > 3) { // illegal player
+		if (!(action instanceof PDMoveAction) && !(action instanceof PDSelectAction)) {
 			return false;
 		}
 
-		//check if the move action is a select action
-		//if so, cast the action to a select action and call the select card method
-		if( sjma.isSelect()){
+		if( action instanceof  PDMoveAction ) {
+			PDMoveAction sjma = (PDMoveAction) action;
+			int thisPlayerIdx = getPlayerIdx(sjma.getPlayer());
 
-			PDSelectAction selectAction = (PDSelectAction)sjma;
+			if (thisPlayerIdx < 0 || thisPlayerIdx > 3) { // illegal player
+				return false;
+			}
+			if( sjma.isPass() ){
+
+				if (thisPlayerIdx != state.toPlay()) {
+					// attempt to pass when it's the other players turn
+
+					return false;
+
+				} else {
+
+					//calls the pass actoin
+					Log.i(state.passAction(thisPlayerIdx),"");
+				}
+
+				//check if the move action is a play action
+			} else if( sjma.isPlay() ){
+				if (thisPlayerIdx != state.toPlay()) {
+					// attempt to play when it's the other player's turn
+					return false;
+
+				} else {
+					//play their cards, if they are unable to play the log will print out why
+					Log.i(state.playCard(thisPlayerIdx),"");
+
+				}
+
+
+			} else { // some unexpected action
+				return false;
+			}
+		} else if( action instanceof PDSelectAction ){
+			PDSelectAction pdsa = (PDSelectAction) action;
+
+			int thisPlayerIdx = getPlayerIdx(pdsa.getPlayer());
+
+			if (thisPlayerIdx < 0 || thisPlayerIdx > 3) { // illegal player
+				return false;
+			}
+			PDSelectAction selectAction = (PDSelectAction)action;
 			Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
 			//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
 
@@ -166,38 +198,13 @@ public class PDLocalGame extends LocalGame {
 			//with another action and if we return true, it will send the updated state for the computer,
 			//making it move again, causing a out of bounds error, because the card was already played
 			return true;
-
-
-			//check if the move action is a pass action
-		} else if( sjma.isPass() ){
-
-			if (thisPlayerIdx != state.toPlay()) {
-				// attempt to pass when it's the other players turn
-
-				return false;
-
-			} else {
-
-				//calls the pass actoin
-				Log.i(state.passAction(thisPlayerIdx),"");
-			}
-
-			//check if the move action is a play action
-		} else if( sjma.isPlay() ){
-			if (thisPlayerIdx != state.toPlay()) {
-				// attempt to play when it's the other player's turn
-				return false;
-
-			} else {
-				//play their cards, if they are unable to play the log will print out why
-				Log.i(state.playCard(thisPlayerIdx),"");
-
-			}
-
-
-		} else { // some unexpected action
-			return false;
 		}
+		
+		// get the index of the player making the move; return false
+
+
+		//check if the move action is a select action
+		//if so, cast the action to a select action and call the select card method
 
 		// return true, because the move was successful if we get her
 		return true;
