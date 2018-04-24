@@ -142,11 +142,11 @@ public class PDState extends GameState implements Serializable{
 		// create new deck array, making a deep copy of the deck
 		piles = new Deck[5];
 		//Deep Copy of each of the player's decks
-		//piles[playerNum] = new Deck(orig.piles[playerNum]);
-		piles[0] = new Deck( orig.piles[0]);
-		piles[1] = new Deck( orig.piles[1]);
-		piles[2] = new Deck( orig.piles[2]);
-		piles[3] = new Deck( orig.piles[3]);
+		piles[playerNum] = new Deck(orig.piles[playerNum]);
+		//piles[0] = new Deck( orig.piles[0]);
+		//piles[1] = new Deck( orig.piles[1]);
+		//piles[2] = new Deck( orig.piles[2]);
+		//piles[3] = new Deck( orig.piles[3]);
 
 		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in PDState

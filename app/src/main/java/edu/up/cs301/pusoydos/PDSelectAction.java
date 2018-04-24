@@ -1,6 +1,7 @@
 package edu.up.cs301.pusoydos;
 
 import edu.up.cs301.game.GamePlayer;
+import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
  * A PDSelectAction is an action that represents a player selecting a card
@@ -13,7 +14,7 @@ import edu.up.cs301.game.GamePlayer;
  *
  * @version April 2018
  */
-public class PDSelectAction extends PDMoveAction {
+public class PDSelectAction extends GameAction {
 
     private static final long serialVersionUID = 325054673499599047L;
 
