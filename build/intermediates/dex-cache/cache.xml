@@ -3,30 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_7b6f90d56886994d15f7d448ce418d1ca9febacd/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/coleholbrook/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0_8c22ffb1ba5c267add4f8ca280da66d953e852cf.jar" />
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c8cf49f30808f439d05521235bceac3cbee55b61/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="80ef856435e0d72a113df63de0b45f9a9d0f3b2b">
-        <dex dex="/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_da8379b9b257e3730c69b65fe8d5d76ea4239003/classes.dex" />
+        sha1="877d1362a550f1309769e0307b0022ed66cb6809">
+        <dex dex="/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_70cadb650bbed8ee94f91dd24e974faf4a0549b7/classes.dex" />
     </item>
 
 </items>

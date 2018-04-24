@@ -1,14 +1,6 @@
 [
     {
-        "merged": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
         "merged": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/res/merged/debug/layout-land/counter_human_player.xml",
         "source": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/src/main/res/layout-land/counter_human_player.xml"
-    },
-    {
-        "merged": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
     }
 ]

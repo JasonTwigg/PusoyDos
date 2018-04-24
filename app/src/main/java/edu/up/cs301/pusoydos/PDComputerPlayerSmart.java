@@ -194,26 +194,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPlayAction(this));
                 return;
             }
-            else if (savedState.getModeType() == 1) {
+            else if (savedState.getModeType() == singles) {
 
-                //Int to hold the position of their worst card
-                int worstCard;
-                //If they are not in control they play their worst possible card
-                for(worstCard = myDeck.getCards().size()-1; worstCard >= 0; worstCard--) {
-                    //Checks to see if their worst card can be player, if
-                    //not then it moves to their next highest card
-                    if (myDeck.getCards().get(worstCard).getPower() > middleDeck.getCards().get(middleDeck.getCards().size() - 1).getPower()) {
+                SmartPlaySingles(myDeck, middleDeck);
 
-                        game.sendAction(new PDSelectAction(this, worstCard));
-                        game.sendAction(new PDPlayAction(this));
-
-                    }
-
-                }
-                //If they cannot play they pass
-                game.sendAction(new PDPassAction(this));
             }
-            else if (savedState.getModeType() == 2 ){
+            else if (savedState.getModeType() == doubles ){
                 for( int i = 0; i < playability.size(); i++ ){
                     if(playability.get(i) == doubles ){
                         game.sendAction(new PDSelectAction(this, i));
@@ -231,7 +217,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if( savedState.getModeType() == 4 || savedState.getModeType() == 3 ) {
+            else if( savedState.getModeType() == 4 || savedState.getModeType() == straight ) {
 
                 int searchingFor = -1;
                 boolean found = true;
@@ -261,7 +247,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 return;
             }
             else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
-                    savedState.getModeType() == 3){
+                    savedState.getModeType() == straight){
                 //Boolean to determine if the full house is legal
                 boolean canPlayFullHouse = true;
                 int count = 0;
@@ -295,7 +281,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 return;
             }
             else if ((savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
-                    savedState.getModeType() == 4 || savedState.getModeType() == 3)
+                    savedState.getModeType() == 4 || savedState.getModeType() == straight)
                     && playability.contains(fourOfAKind) ){
 
 
@@ -499,5 +485,28 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
     }
+
+    public void SmartPlaySingles(Deck initDeck, Deck initMiddleDeck) {
+        //Int to hold the position of their worst card
+        int worstCard;
+        myDeck = initDeck;
+        Deck middleDeck = initMiddleDeck;
+        //If they are not in control they play their worst possible card
+        for(worstCard = myDeck.getCards().size()-1; worstCard >= 0; worstCard--) {
+            //Checks to see if their worst card can be player, if
+            //not then it moves to their next highest card
+            if (myDeck.getCards().get(worstCard).getPower() > middleDeck.getCards().get(middleDeck.getCards().size() - 1).getPower()) {
+
+                game.sendAction(new PDSelectAction(this, worstCard));
+                game.sendAction(new PDPlayAction(this));
+
+            }
+
+        }
+        //If they cannot play they pass
+        game.sendAction(new PDPassAction(this));
+
+    }
+
 
 }

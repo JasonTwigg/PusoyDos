@@ -1,4 +1,4 @@
-#Mon Apr 23 17:52:39 PDT 2018
-base.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_83dc581c2cca268cb6290d82e176a64d4ce15687
+#Mon Apr 23 18:44:08 PDT 2018
+base.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_8c22ffb1ba5c267add4f8ca280da66d953e852cf
 renamed.0=classes.dex
-file.0=/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos3/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_83dc581c2cca268cb6290d82e176a64d4ce15687/classes.dex
+file.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_8c22ffb1ba5c267add4f8ca280da66d953e852cf/classes.dex
