@@ -172,20 +172,10 @@ public class PDLocalGame extends LocalGame {
 					return false;
 
 				} else {
+
 					//play their cards, if they are unable to play the log will print out why
 					Log.i(state.playCard(thisPlayerIdx, pdpa.getSelections() ), "");
-
-					/*
-					if( pdpa.getPlayer() instanceof PDHumanPlayer) {
-						Log.i(state.playCard(thisPlayerIdx,((PDHumanPlayer)pdpa.getPlayer()).getSelections() ), "");
-					} else if ( pdpa.getPlayer() instanceof PDComputerPlayer ){
-						Log.i(state.playCard(thisPlayerIdx,((PDComputerPlayer)pdpa.getPlayer()).getSelections() ), "");
-					} else if( pdpa.getPlayer() instanceof PDComputerPlayerSmart) {
-						Log.i(state.playCard(thisPlayerIdx,((PDComputerPlayerSmart)pdpa.getPlayer()).getSelections() ), "");
-					} else if( pdpa.getPlayer() instanceof ProxyPlayer ){
-						//Log.i(state.playCard(thisPlayerIdx,((ProxyPlayer)pdpa.getPlayer()). ), "");
-						Log.i("IAM A PROXY PLAYER","");
-					}*/
+					return true;
 
 				}
 
