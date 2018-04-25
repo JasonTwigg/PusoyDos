@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 87
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/color.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 126
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/color.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/color.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/color.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 252
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 306
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 348
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 403
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 454
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 504
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/dimen.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 554
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 600
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 650
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 722
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 773
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 850
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 890
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 939
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 990
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -372,7 +372,7 @@
                     "endOffset": 1035
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -391,7 +391,7 @@
                     "endOffset": 1087
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -410,7 +410,7 @@
                     "endOffset": 1139
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -429,7 +429,7 @@
                     "endOffset": 1190
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -448,7 +448,7 @@
                     "endOffset": 1246
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -467,7 +467,7 @@
                     "endOffset": 1316
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -486,7 +486,7 @@
                     "endOffset": 1406
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -505,7 +505,7 @@
                     "endOffset": 1468
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -524,7 +524,7 @@
                     "endOffset": 1523
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 89,
@@ -543,7 +543,7 @@
                     "endOffset": 1598
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -562,7 +562,7 @@
                     "endOffset": 1656
                 },
                 "from": {
-                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\styles.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -575,7 +575,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -586,7 +586,582 @@
                     "endOffset": 87
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 36,
+                        "endOffset": 87
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 92,
+                    "endColumn": 38,
+                    "endOffset": 126
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 167,
+                        "endColumn": 38,
+                        "endOffset": 201
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 131,
+                    "endColumn": 36,
+                    "endOffset": 163
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 92,
+                        "endColumn": 36,
+                        "endOffset": 124
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 168,
+                    "endColumn": 37,
+                    "endOffset": 201
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 129,
+                        "endColumn": 37,
+                        "endOffset": 162
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 206,
+                    "endColumn": 50,
+                    "endOffset": 252
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 307,
+                        "endColumn": 50,
+                        "endOffset": 353
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 257,
+                    "endColumn": 53,
+                    "endOffset": 306
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 53,
+                        "endOffset": 104
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 311,
+                    "endColumn": 41,
+                    "endOffset": 348
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 164,
+                        "endColumn": 41,
+                        "endOffset": 201
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 353,
+                    "endColumn": 54,
+                    "endOffset": 403
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 109,
+                        "endColumn": 54,
+                        "endOffset": 159
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 408,
+                    "endColumn": 50,
+                    "endOffset": 454
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 256,
+                        "endColumn": 50,
+                        "endOffset": 302
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 459,
+                    "endColumn": 49,
+                    "endOffset": 504
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 206,
+                        "endColumn": 49,
+                        "endOffset": 251
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 509,
+                    "endColumn": 49,
+                    "endOffset": 554
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 472,
+                        "endColumn": 49,
+                        "endOffset": 517
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 559,
+                    "endColumn": 45,
+                    "endOffset": 600
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 45,
+                        "endOffset": 58
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 605,
+                    "endColumn": 49,
+                    "endOffset": 650
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 259,
+                        "endColumn": 49,
+                        "endOffset": 304
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 655,
+                    "endColumn": 71,
+                    "endOffset": 722
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 811,
+                        "endColumn": 71,
+                        "endOffset": 878
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 727,
+                    "endColumn": 50,
+                    "endOffset": 773
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 883,
+                        "endColumn": 50,
+                        "endOffset": 929
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 778,
+                    "endColumn": 76,
+                    "endOffset": 850
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 934,
+                        "endColumn": 76,
+                        "endOffset": 1006
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 855,
+                    "endColumn": 39,
+                    "endOffset": 890
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 626,
+                        "endColumn": 39,
+                        "endOffset": 661
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 895,
+                    "endColumn": 48,
+                    "endOffset": 939
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1011,
+                        "endColumn": 48,
+                        "endOffset": 1055
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 944,
+                    "endColumn": 50,
+                    "endOffset": 990
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 63,
+                        "endColumn": 50,
+                        "endOffset": 109
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 995,
+                    "endColumn": 44,
+                    "endOffset": 1035
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 309,
+                        "endColumn": 44,
+                        "endOffset": 349
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1040,
+                    "endColumn": 51,
+                    "endOffset": 1087
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 522,
+                        "endColumn": 51,
+                        "endOffset": 569
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1092,
+                    "endColumn": 51,
+                    "endOffset": 1139
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 574,
+                        "endColumn": 51,
+                        "endOffset": 621
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1144,
+                    "endColumn": 50,
+                    "endOffset": 1190
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1060,
+                        "endColumn": 50,
+                        "endOffset": 1106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1195,
+                    "endColumn": 55,
+                    "endOffset": 1246
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 416,
+                        "endColumn": 55,
+                        "endOffset": 467
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1251,
+                    "endColumn": 69,
+                    "endOffset": 1316
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 189,
+                        "endColumn": 69,
+                        "endOffset": 254
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1321,
+                    "endColumn": 89,
+                    "endOffset": 1406
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 666,
+                        "endColumn": 89,
+                        "endOffset": 751
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1411,
+                    "endColumn": 61,
+                    "endOffset": 1468
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 354,
+                        "endColumn": 61,
+                        "endOffset": 411
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1473,
+                    "endColumn": 54,
+                    "endOffset": 1523
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 89,
+                        "startOffset": 751,
+                        "endColumn": 139,
+                        "endOffset": 801
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1528,
+                    "endColumn": 74,
+                    "endOffset": 1598
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 114,
+                        "endColumn": 74,
+                        "endOffset": 184
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 1603,
+                    "endColumn": 57,
+                    "endOffset": 1656
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 58,
+                        "endOffset": 71
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 36,
+                    "endOffset": 87
+                },
+                "from": {
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -605,7 +1180,7 @@
                     "endOffset": 126
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -624,7 +1199,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -643,7 +1218,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -662,7 +1237,7 @@
                     "endOffset": 252
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -681,7 +1256,7 @@
                     "endOffset": 306
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -700,7 +1275,7 @@
                     "endOffset": 348
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -719,7 +1294,7 @@
                     "endOffset": 403
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -738,7 +1313,7 @@
                     "endOffset": 454
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -757,7 +1332,7 @@
                     "endOffset": 504
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -776,7 +1351,7 @@
                     "endOffset": 554
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -795,7 +1370,7 @@
                     "endOffset": 600
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -814,7 +1389,7 @@
                     "endOffset": 650
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -833,7 +1408,7 @@
                     "endOffset": 722
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -852,7 +1427,7 @@
                     "endOffset": 773
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -871,7 +1446,7 @@
                     "endOffset": 850
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -890,7 +1465,7 @@
                     "endOffset": 890
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -909,7 +1484,7 @@
                     "endOffset": 939
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -928,7 +1503,7 @@
                     "endOffset": 990
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -947,7 +1522,7 @@
                     "endOffset": 1035
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -966,7 +1541,7 @@
                     "endOffset": 1087
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -985,7 +1560,7 @@
                     "endOffset": 1139
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -1004,7 +1579,7 @@
                     "endOffset": 1190
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -1023,7 +1598,7 @@
                     "endOffset": 1246
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1042,7 +1617,7 @@
                     "endOffset": 1316
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1061,7 +1636,7 @@
                     "endOffset": 1406
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -1080,7 +1655,7 @@
                     "endOffset": 1468
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -1099,7 +1674,7 @@
                     "endOffset": 1523
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 89,
@@ -1118,7 +1693,7 @@
                     "endOffset": 1598
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1137,7 +1712,7 @@
                     "endOffset": 1656
                 },
                 "from": {
-                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\styles.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1150,7 +1725,7 @@
         ]
     },
     {
-        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -1161,7 +1736,7 @@
                     "endOffset": 87
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1180,7 +1755,7 @@
                     "endOffset": 126
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1199,7 +1774,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -1218,7 +1793,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1237,7 +1812,7 @@
                     "endOffset": 252
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -1256,7 +1831,7 @@
                     "endOffset": 306
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1275,7 +1850,7 @@
                     "endOffset": 348
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1294,7 +1869,7 @@
                     "endOffset": 403
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -1313,7 +1888,7 @@
                     "endOffset": 454
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -1332,7 +1907,7 @@
                     "endOffset": 504
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1351,7 +1926,7 @@
                     "endOffset": 554
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -1370,7 +1945,7 @@
                     "endOffset": 600
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1389,7 +1964,7 @@
                     "endOffset": 650
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -1408,7 +1983,7 @@
                     "endOffset": 722
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -1427,7 +2002,7 @@
                     "endOffset": 773
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -1446,7 +2021,7 @@
                     "endOffset": 850
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -1465,7 +2040,7 @@
                     "endOffset": 890
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -1484,7 +2059,7 @@
                     "endOffset": 939
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -1503,7 +2078,7 @@
                     "endOffset": 990
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -1522,7 +2097,7 @@
                     "endOffset": 1035
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -1541,7 +2116,7 @@
                     "endOffset": 1087
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -1560,7 +2135,7 @@
                     "endOffset": 1139
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -1579,7 +2154,7 @@
                     "endOffset": 1190
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -1598,7 +2173,7 @@
                     "endOffset": 1246
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1617,7 +2192,7 @@
                     "endOffset": 1316
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1636,7 +2211,7 @@
                     "endOffset": 1406
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -1655,7 +2230,7 @@
                     "endOffset": 1468
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -1674,7 +2249,7 @@
                     "endOffset": 1523
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 89,
@@ -1693,7 +2268,7 @@
                     "endOffset": 1598
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1712,7 +2287,7 @@
                     "endOffset": 1656
                 },
                 "from": {
-                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\styles.xml",
+                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
