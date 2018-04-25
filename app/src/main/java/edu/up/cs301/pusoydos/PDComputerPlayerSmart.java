@@ -56,6 +56,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     private Deck myDeck;
     private int diamond, heart, spade, club;
 
+    private boolean[] selections;
+
     /**
      * Constructor for the SJComputerPlayer class; creates an "average"
      * player.
@@ -104,6 +106,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             size = myDeck.getCards().size();
         }
 
+        int size = savedState.getDeck(playerNum).getCards().size();
+        selections = new boolean[size];
+        for(int i = 0; i < size; i++){
+            selections[i] = false;
+        }
+
 
         playability = new ArrayList<Integer>();
         //to set all playability values to singles
@@ -116,6 +124,18 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         findFlushes();
         findStraight();
         findDoubles();
+
+
+        //Has the player wait to make their move
+        //and it takes twice as long if they are
+        //in control (to slow things down)
+        if(savedState.getModeType() == 0) {
+            sleep(waitTime*2);
+        }
+        else{
+            sleep(waitTime);
+        }
+
 
 
 
@@ -156,18 +176,13 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //Computer plays if it is their turn
         if (playerNum == savedState.toPlay()) {
 
-            boolean hasSelected = false;
-            for (Card c : myDeck.getCards()) {
-                if (c.isSelected()) {
-                    hasSelected = true;
-                }
-            }
 
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){
 
-                game.sendAction(new PDSelectAction(this,size-1));
-                game.sendAction(new PDPlayAction(this));
+                //game.sendAction(new PDSelectAction(this,size-1));
+                selections[size-1] = !selections[size-1];
+                game.sendAction(new PDPlayAction(this,selections));
                 return;
             }
             else if (savedState.getModeType() == singles) {
@@ -178,10 +193,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             else if (savedState.getModeType() == doubles ){
                 for( int i = 0; i < playability.size(); i++ ){
                     if(playability.get(i) == doubles ){
-                        game.sendAction(new PDSelectAction(this, i));
-                        game.sendAction(new PDSelectAction(this, i+1));
+                        //game.sendAction(new PDSelectAction(this, i));
+                        selections[i] = !selections[i];
+                        //game.sendAction(new PDSelectAction(this, i+1));
+                        selections[i+1] = !selections[i+1];
                         if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
-                            game.sendAction(new PDPlayAction(this));
+                            game.sendAction(new PDPlayAction(this,selections));
                         }
                         else{
                             game.sendAction(new PDPassAction(this));
@@ -212,10 +229,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     for (int i = 0; i < playability.size(); i++) {
 
                         if (playability.get(i) == searchingFor ) {
-                            game.sendAction(new PDSelectAction(this, i));
+                            //game.sendAction(new PDSelectAction(this, i));
+                            selections[i] = !selections[i];
                         }
                     }
-                    game.sendAction(new PDPlayAction(this));
+                    game.sendAction(new PDPlayAction(this,selections));
                     return;
                 }
                 game.sendAction(new PDPassAction(this));
@@ -239,14 +257,15 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     }
 
                     if (playability.get(i) == fullHouse ) {
-                        game.sendAction(new PDSelectAction(this, i));
+                        //game.sendAction(new PDSelectAction(this, i));
+                        selections[i] = !selections[i];
                     }
 
                     count++;
 
                 }
                 if( canPlayFullHouse ) {
-                    game.sendAction(new PDPlayAction(this));
+                    game.sendAction(new PDPlayAction(this,selections));
                 }
                 else{
                     game.sendAction(new PDPassAction(this));
@@ -261,10 +280,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 for (int i = playability.size()-1; i>=0; i--) {
 
                     if (playability.get(i) == fourOfAKind ) {
-                        game.sendAction(new PDSelectAction(this, i));
+                        //game.sendAction(new PDSelectAction(this, i));
                     }
                 }
-                game.sendAction(new PDPlayAction(this));
+                game.sendAction(new PDPlayAction(this,selections));
 
                 return;
             }
@@ -458,8 +477,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             //not then it moves to their next highest card
             if (myDeck.getCards().get(worstCard).getPower() > middleDeck.getCards().get(middleDeck.getCards().size() - 1).getPower()) {
 
-                game.sendAction(new PDSelectAction(this, worstCard));
-                game.sendAction(new PDPlayAction(this));
+                //game.sendAction(new PDSelectAction(this, worstCard));
+                selections[worstCard] = !selections[worstCard];
+                game.sendAction(new PDPlayAction(this,selections));
 
             }
 
@@ -467,6 +487,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //If they cannot play they pass
         game.sendAction(new PDPassAction(this));
 
+    }
+
+    public boolean[] getSelections(){
+        return selections;
     }
 
 

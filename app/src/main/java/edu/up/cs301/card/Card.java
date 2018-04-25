@@ -42,7 +42,7 @@ public class Card implements Serializable {
 
 	private int power;
 
-	private boolean selected;
+	//private boolean selected;
 
 	/**
 	 * Constructor for class card
@@ -54,7 +54,7 @@ public class Card implements Serializable {
 		rank = r;
 		suit = s;
 		power = powerCalc();
-		selected = false;
+		//selected = false;
 
 	}
 
@@ -67,7 +67,7 @@ public class Card implements Serializable {
 		rank = orig.rank;
 		suit = orig.suit;
 		power = powerCalc();
-		selected = orig.isSelected();
+		//selected = orig.isSelected();
 	}
 
     /**
@@ -293,13 +293,7 @@ public class Card implements Serializable {
     	},
     };
 
-	public void setSelected( boolean sel){
-		selected = sel;
-	}
 
-	public boolean isSelected(){
-		return selected;
-	}
     
     // the array of card images
     private static Bitmap[][] cardImages = null;

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+        "outputFile": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/src/main/res/values-v14/styles.xml",
+                    "file": "D:\\Users\\TawnyMotoyama\\AndroidStudioProjects\\PusoyDos\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "outputFile": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+        "outputFile": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -35,13 +35,37 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "/Users/TawnyMotoyama/AndroidStudioProjects/PusoyDos/app/src/main/res/values-v14/styles.xml",
+                    "file": "D:\\Users\\coleholbrook\\AndroidStudioProjects\\RealPusoy\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 17,
                         "endColumn": 77,
                         "endOffset": 90
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "D:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 19,
+                        "endColumn": 77,
+                        "endOffset": 92
                     }
                 }
             }

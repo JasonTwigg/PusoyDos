@@ -33,6 +33,8 @@ public class PDComputerPlayer extends GameComputerPlayer
 	private int size;
 	//Constant for the time each computer takes to go
 	private int waitTime = 750;
+
+	private boolean[] selections;
 	
     /**
      * Constructor for the PDComputerPlayer class; creates an "average"
@@ -83,6 +85,12 @@ public class PDComputerPlayer extends GameComputerPlayer
 			size = myDeck.getCards().size();
 		}
 
+		int size = savedState.getDeck(playerNum).getCards().size();
+		selections = new boolean[size];
+		for(int i = 0; i < size; i++){
+			selections[i] = false;
+		}
+
 		//Has the player wait to make their move
 		//and it takes twice as long if they are
 		//in control (to slow things down)
@@ -109,15 +117,17 @@ public class PDComputerPlayer extends GameComputerPlayer
 
 			//If they are in control, they play their worst card
 			if( savedState.getModeType() == 0 ){
-				game.sendAction(new PDSelectAction(this,size-1));
-				game.sendAction(new PDPlayAction(this));
+				//game.sendAction(new PDSelectAction(this,size-1));
+				selections[size-1] = !selections[size-1];
+				game.sendAction(new PDPlayAction(this,selections));
 				return;
 			}
 			else if (savedState.getModeType() == 1) {
 				//If they are not in control they play their best card
 				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
-					game.sendAction(new PDSelectAction(this, 0));
-					game.sendAction(new PDPlayAction(this));
+					//game.sendAction(new PDSelectAction(this, 0));
+					selections[size-1] = !selections[0];
+					game.sendAction(new PDPlayAction(this,selections));
 				} else {
 					//If they cannot play, they pass
 					game.sendAction(new PDPassAction(this));
@@ -139,4 +149,8 @@ public class PDComputerPlayer extends GameComputerPlayer
 
 
     }
+
+	public boolean[] getSelections(){
+		return selections;
+	}
 }

@@ -1,7 +1,4 @@
-#Tue Apr 24 20:42:05 PDT 2018
-base.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c8cf49f30808f439d05521235bceac3cbee55b61
-renamed.1=classes2.dex
+#Tue Apr 24 21:45:57 PDT 2018
+base.0=D\:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.1=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_70cadb650bbed8ee94f91dd24e974faf4a0549b7/classes.dex
-base.1=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_70cadb650bbed8ee94f91dd24e974faf4a0549b7
-file.0=/Users/coleholbrook/AndroidStudioProjects/RealPusoy/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c8cf49f30808f439d05521235bceac3cbee55b61/classes.dex
+file.0=D\:\\Users\\Jason\\Desktop\\Spring2018\\Object\\pusoydos2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

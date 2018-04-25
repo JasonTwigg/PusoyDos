@@ -136,10 +136,10 @@ public class PDState extends GameState implements Serializable{
 		piles = new Deck[5];
 		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
-		//piles[0] = new Deck( orig.piles[0]);
-		//piles[1] = new Deck( orig.piles[1]);
-		//piles[2] = new Deck( orig.piles[2]);
-		//piles[3] = new Deck( orig.piles[3]);
+		piles[0] = new Deck( orig.piles[0]);
+		piles[1] = new Deck( orig.piles[1]);
+		piles[2] = new Deck( orig.piles[2]);
+		piles[3] = new Deck( orig.piles[3]);
 
 		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in PDState
@@ -202,45 +202,13 @@ public class PDState extends GameState implements Serializable{
 
 
 	/**
-	 * Allows the player to select which cards they would like to play
-	 * by changing the boolean value of isSelected()
-	 *
-	 * @param playerNum the index of the player whose move it now is
-	 * @param pos the position of the card being selected
-	 */
-	public String selectCard(int playerNum, int pos) {
-		//Makes sure it is actually the players turn
-		if (playerNum == turnNum) {
-			//Makes sure there is a card being selected
-			if (pos < piles[playerNum].getCards().size() && piles[playerNum].getCards().get(pos) != null) {
-
-				//Set a card equal to that being chosen
-				Card c = piles[playerNum].getCards().get(pos);
-				c.getRank();
-
-				if (c.isSelected()) { //If the card is selected the card is then deselected
-					c.setSelected(false);
-					return "Card " + c.toString() + " was deselected! \n";
-				} else { //If the card is not selected it is now selected
-					c.setSelected(true);
-					return "Card " + c.toString() + " was selected by Player " + (playerNum + 1) + ".\n";
-				}
-
-			}
-
-		}
-		//Error message for naughty players who try and select a card when it is not their turn.
-		return "It is not your turn " + playerNum + ". Please stop trying to select a card.\n";
-	}
-
-	/**
 	 * Allows the player to play the cards that they currently have selected IF they are
 	 * allowed within the rules
 	 *
 	 * @param playerNum the index of the player whose move it now is
 	 *
 	 */
-	public String playCard(int playerNum) {
+	public String playCard(int playerNum, boolean[] selections) {
 		//Make two array lists, one of cards and the other of
 		//integers. The one of cards is the selected cards of the player
 		//and the one of integers is the index/location of those cards.
@@ -251,8 +219,9 @@ public class PDState extends GameState implements Serializable{
 		for (int i = 0; i < piles[playerNum].getCards().size(); i++) {
 
 			Card c = piles[playerNum].getCards().get(i);
+			Boolean selection = selections[i];
 			//Adds to the arrays if the card is selected
-			if (c.isSelected() == true) {
+			if (selection) {
 
 				selectedCards.add(c);
 				selectedPos.add(i);
@@ -636,6 +605,8 @@ public class PDState extends GameState implements Serializable{
 		}
 
 	}
+
+
 
 
 	public Deck[] getPiles() {

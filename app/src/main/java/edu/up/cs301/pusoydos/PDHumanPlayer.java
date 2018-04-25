@@ -66,6 +66,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
     //Counter to see which player needs to be drawn
 	private int otherPlayerCounter;
 
+	private boolean[] selections;
+
 	/**
 	 * constructor
 	 * 
@@ -77,6 +79,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 	public PDHumanPlayer(String name, int bkColor) {
 		super(name);
 		backgroundColor = bkColor;
+		selections = null;
 	}
 
 	/**
@@ -102,6 +105,12 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 			// at the next animation-tick, which should occur within 1/20 of a second
 			this.state = (PDState)info;
 			Log.i("human player", "receiving");
+		}
+
+		int size = state.getDeck(playerNum).getCards().size();
+		selections = new boolean[size];
+		for(int i = 0; i < size; i++){
+			selections[i] = false;
 		}
 
 
@@ -235,7 +244,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 				RectF midTopLocation = middlePileTopCardLocation();
 
 				// draw the top card, face-up
-				if(deck.getCards().get(i).isSelected()){
+				//if(deck.getCards().get(i).isSelected()){
+				if( selections[i]){
 					rectTop = rectTopSelected;
 					rectBottom = rectTop + cardHeight;
 				} else {
@@ -665,14 +675,15 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		if( find != -1 ){
 			//game.sendAction(new SJSlapAction(this));
 			surface.flash(Color.MAGENTA,50);
-			game.sendAction(new PDSelectAction(this, find));
+			//game.sendAction(new PDSelectAction(this, find));
+			selections[find] = !selections[find];
 
 		} else if( passButton.contains(x,y)){
 			surface.flash(Color.GREEN, 50);
 			game.sendAction(new PDPassAction(this));
 		} else if( playButton.contains(x,y)){
 			surface.flash(Color.YELLOW, 50);
-			game.sendAction(new PDPlayAction(this));
+			game.sendAction(new PDPlayAction(this,selections));
 		}
 		else {
 			// illegal touch-location: flash for 1/20 second
@@ -742,5 +753,9 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		
 		// create/return the new rectangle
 		return new RectF(left, top, right, bottom);
+	}
+
+	public boolean[] getSelections(){
+		return selections;
 	}
 }

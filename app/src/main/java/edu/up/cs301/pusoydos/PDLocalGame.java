@@ -6,6 +6,7 @@ import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
+import edu.up.cs301.game.ProxyPlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
 
 
@@ -141,10 +142,7 @@ public class PDLocalGame extends LocalGame {
 	@Override
 	protected boolean makeMove(GameAction action) {
 		
-		// check that we have action; if so cast it
-		if (!(action instanceof PDMoveAction) && !(action instanceof PDSelectAction)) {
-			return false;
-		}
+
 
 		if( action instanceof  PDMoveAction ) {
 			PDMoveAction sjma = (PDMoveAction) action;
@@ -168,13 +166,26 @@ public class PDLocalGame extends LocalGame {
 
 				//check if the move action is a play action
 			} else if( sjma.isPlay() ){
+				PDPlayAction pdpa = (PDPlayAction)action;
 				if (thisPlayerIdx != state.toPlay()) {
 					// attempt to play when it's the other player's turn
 					return false;
 
 				} else {
 					//play their cards, if they are unable to play the log will print out why
-					Log.i(state.playCard(thisPlayerIdx),"");
+					Log.i(state.playCard(thisPlayerIdx, pdpa.getSelections() ), "");
+
+					/*
+					if( pdpa.getPlayer() instanceof PDHumanPlayer) {
+						Log.i(state.playCard(thisPlayerIdx,((PDHumanPlayer)pdpa.getPlayer()).getSelections() ), "");
+					} else if ( pdpa.getPlayer() instanceof PDComputerPlayer ){
+						Log.i(state.playCard(thisPlayerIdx,((PDComputerPlayer)pdpa.getPlayer()).getSelections() ), "");
+					} else if( pdpa.getPlayer() instanceof PDComputerPlayerSmart) {
+						Log.i(state.playCard(thisPlayerIdx,((PDComputerPlayerSmart)pdpa.getPlayer()).getSelections() ), "");
+					} else if( pdpa.getPlayer() instanceof ProxyPlayer ){
+						//Log.i(state.playCard(thisPlayerIdx,((ProxyPlayer)pdpa.getPlayer()). ), "");
+						Log.i("IAM A PROXY PLAYER","");
+					}*/
 
 				}
 
@@ -182,22 +193,6 @@ public class PDLocalGame extends LocalGame {
 			} else { // some unexpected action
 				return false;
 			}
-		} else if( action instanceof PDSelectAction ){
-			PDSelectAction pdsa = (PDSelectAction) action;
-
-			int thisPlayerIdx = getPlayerIdx(pdsa.getPlayer());
-
-			if (thisPlayerIdx < 0 || thisPlayerIdx > 3) { // illegal player
-				return false;
-			}
-			PDSelectAction selectAction = (PDSelectAction)action;
-			Log.i(state.selectCard(thisPlayerIdx,selectAction.getIndex()),"");
-			//state.getDeck(thisPlayerIdx).getCards().get(selectAction.getIndex()).setSelected(true);
-
-			//we return false instead of true because, this action is always called in conjunction
-			//with another action and if we return true, it will send the updated state for the computer,
-			//making it move again, causing a out of bounds error, because the card was already played
-			return true;
 		}
 		
 		// get the index of the player making the move; return false

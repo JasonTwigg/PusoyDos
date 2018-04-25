@@ -17,15 +17,20 @@ public class PDPlayAction extends PDMoveAction
 {
 	private static final long serialVersionUID = 3250439793499599047L;
 
+    boolean[] selections;
+
 	/**
      * Constructor for the SJPlayMoveAction class.
      * 
      * @param player  the player making the move
      */
-    public PDPlayAction(GamePlayer player)
+    public PDPlayAction(GamePlayer player, boolean[] selections)
     {
         // initialize the source with the superclass constructor
         super(player);
+
+        this.selections = selections;
+
     }
 
     /**
@@ -35,5 +40,10 @@ public class PDPlayAction extends PDMoveAction
     public boolean isPlay() {
         return true;
     }
+
+    public boolean[] getSelections() {
+        return selections;
+    }
+
     
 }
