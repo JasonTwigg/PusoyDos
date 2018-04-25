@@ -97,10 +97,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             return;
         }
 
-         //if( savedState.toPlay() != playerNum ){
-         //    return;
-        //}
-
         myDeck = savedState.getDeck(playerNum);
         Deck middleDeck = savedState.getDeck(4);
 
@@ -115,23 +111,18 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.add(i, singles);
         }
 
-
-        //checking for flushes
-        //findFlushes();
-
-        //checking for triples for a full house
+        findFourofAKinds();
         findTriples();
-
-        //checking for doubles in hand
+        findFlushes();
+        findStraight();
         findDoubles();
 
-        //checking for four of a kinds
-        //findFourofAKinds();
+
 
         if (playability.contains(fullHouse) && playability.contains(doubles)) {
 
             for (int i = myDeck.size() - 1; i > 1; i--) {
-                if (playability.get(i) == doubles && playability.get(i - 1) != null) {
+                if (playability.get(i) == doubles && playability.get(i - 1) != null) { //used to be != NULL?
                     playability.set(i, fullHouse);
                     playability.set(i - 1, fullHouse);
                     break;
@@ -149,10 +140,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
 
 
-        //Has the player wait to make their move
-        //and it takes twice as long if they are
-        //in control (to slow things down)
-
         /**
          External Citation
          Date: March 3, 2018
@@ -164,9 +151,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
          on threads and how to use sleep
          */
 
-        //Has the player wait to make their move
-        //and it takes twice as long if they are
-        //in control (to slow things down)
 
 
         //Computer plays if it is their turn
@@ -178,14 +162,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     hasSelected = true;
                 }
             }
-            //if( !hasSelected ) {
-            //    if (savedState.getModeType() == 0) {
-            //        sleep(waitTime * 2);
-            //    } else {
-            //        sleep(waitTime);
-            //    }
-            //}
-
 
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){
@@ -210,7 +186,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                         else{
                             game.sendAction(new PDPassAction(this));
                         }
-                        //game.sendAction(new PDPlayAction(this));
                         return;
                     }
                 }
@@ -246,8 +221,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if (savedState.getModeType() == 5  || savedState.getModeType() == 4 ||
+            else if (savedState.getModeType() == fullHouse  || savedState.getModeType() == 4 ||
                     savedState.getModeType() == straight){
+
                 //Boolean to determine if the full house is legal
                 boolean canPlayFullHouse = true;
                 int count = 0;
@@ -262,13 +238,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                         }
                     }
 
-
                     if (playability.get(i) == fullHouse ) {
                         game.sendAction(new PDSelectAction(this, i));
                     }
 
                     count++;
-
 
                 }
                 if( canPlayFullHouse ) {
@@ -280,14 +254,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if ((savedState.getModeType()==6 ||savedState.getModeType() == 5  ||
+            else if ((savedState.getModeType()==6 ||savedState.getModeType() == fullHouse  ||
                     savedState.getModeType() == 4 || savedState.getModeType() == straight)
                     && playability.contains(fourOfAKind) ){
-
-
-
-
-                //game.sendAction(new PDPassAction(this));
 
                 for (int i = playability.size()-1; i>=0; i--) {
 
@@ -324,11 +293,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     /**
      * Checks for any doubles in hand (of remaining cards that have not been assigned to a
      * better hand).
-     */                                                             /*************************
-                                                                     * && myDeck.getCards().get(i).getRank() != Rank.TWO
-                                                                     * Put this in later so that it doesn't wast the two's
-                                                                     * in a double (and uses them only as singles
-                                                                      ***********************/
+     */
     public void findDoubles() {
 
         for( int i=myDeck.size()-1; i>1; i--) {
@@ -349,8 +314,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     public void findTriples() {
 
         for( int i=myDeck.size()-1; i>2; i--) {
-
+            //Checks if the card is the same as the two that follow
             if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
+                //Makes sure the card hasn't been labeled yet
                 if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
@@ -474,14 +440,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
                     } else {
 
-
                         break;
-
                     }
-
-
                 }
-
             }
         }
     }

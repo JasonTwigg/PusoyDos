@@ -113,13 +113,6 @@ public class PDState extends GameState implements Serializable{
 		piles[2].sort();
 		piles[3].sort();
 
-
-
-
-
-
-
-
 		//This for loop checks to see who has the 3 of Clubs (power of 0)
 		//and makes the first turn theirs
 		for (int i = 0; i < 4; i++) {

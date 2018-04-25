@@ -104,7 +104,6 @@ public class PDComputerPlayer extends GameComputerPlayer
 		 on threads and how to use sleep
 		 */
 
-
 		//Computer plays if it is their turn
 		if( playerNum == savedState.toPlay() ){
 
@@ -140,14 +139,4 @@ public class PDComputerPlayer extends GameComputerPlayer
 
 
     }
-
-	/**
-	 * getPossibleHands method, we will be implementing this method in the future,
-	 * it will be used for the computer player to help decide which hand it
-	 * should choose to play.
-	 */
-	public ArrayList<PossibleHands> getPossibleHands (){
-		return null;
-	}
-
 }
