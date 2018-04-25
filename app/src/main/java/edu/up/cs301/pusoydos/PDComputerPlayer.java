@@ -126,7 +126,7 @@ public class PDComputerPlayer extends GameComputerPlayer
 				//If they are not in control they play their best card
 				if( myDeck.getCards().get(0).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()) {
 					//game.sendAction(new PDSelectAction(this, 0));
-					selections[size-1] = !selections[0];
+					selections[0] = !selections[0];
 					game.sendAction(new PDPlayAction(this,selections));
 				} else {
 					//If they cannot play, they pass
