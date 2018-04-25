@@ -206,9 +206,6 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		height = surface.getHeight();
 		width = surface.getWidth();
 
-
-
-
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 
@@ -290,7 +287,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 	}
 
 	/**
-	 * helper draw method: draws the title "Pusoy Dos" and the current player label to screen
+	 * helper draw method: draws the title "Pusoy Dos," current player label to screen, and the
+	 * 		current mode label
 	 *
 	 * @param g
 	 * 		the canvas on which we are to draw
@@ -315,11 +313,19 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		//sets x and y location of player's turn text
 		int turnLableX = (int) (width*.03);
 		int turnLableY = (int) (height*.09);
-		//sets the size
-		psPaint.setTextSize(80);
+
+		//sets x location for the mode label
+		int modeLabelX = turnLableX+(int)(width*.65);
+
+		//draws the turn label text onto the upper left corner of screen
+		psPaint.setTextSize(80); //sets turn label text size
 		g.drawText("It is "+playerName+"'s turn!", turnLableX, turnLableY, psPaint);
+
+		//draws the mode label text onto the upper right corner of screen
+		psPaint.setTextSize(60); //sets the mode label size (smaller)
 		String mode = createModeString();
-		g.drawText("Current Mode: "+mode, turnLableX, turnLableY+100, psPaint);
+		g.drawText("Current Mode: ", modeLabelX, turnLableY, psPaint);
+		g.drawText(mode, modeLabelX+150, turnLableY+100, psPaint);
 
 		/**
 		 External Citation
@@ -334,12 +340,19 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
 	}
 
+
+	/**
+	 * helper GUI method: to create the mode string to be drawn onto the screen
+	 *
+	 * @return String
+	 * 		the current mode of the game
+	 */
 	public String createModeString(){
 		int currMode = state.getModeType();
 		String modeLabel;
 
 		if( currMode==0 ){
-			return "";
+			modeLabel = "CONTROL";
 		}
 		else if( currMode==1 ){
 			modeLabel = "SINGLES";
