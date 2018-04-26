@@ -12,79 +12,69 @@ import static org.junit.Assert.*;
  * Created by Jason on 3/22/2018.
  */
 public class PDStateTest {
+
     @Test
     public void getDeck() throws Exception {
-
-        //creates a instance of PDState, this will start a new game
-        PDState pdState = new PDState();
-
-        //gets the player index of whose turn it is
-        int num = pdState.toPlay();
-
-
-        //checks that the player who starts has the three of clubs, this will be his 12th
-        //card because they are sorted best to worst, and the three of clubs has power 0
-        assertTrue(pdState.getDeck(num).size() == 13 );
-
-        //setsup the boolean array for what cards are selected for the player and selects
-        //index 12
-        boolean[] selected = new boolean[13];
-        for( int i = 0; i < 13; i++ ){
-            if( i == 12 ){
-                selected[i] = true;
-            } else {
-                selected[i] = false;
-            }
-        }
-
-        //checks that the player who starts has the three of clubs, this will be his 12th
-        //card because they are sorted best to worst, and the three of clubs has power 0
-        assertTrue(pdState.getDeck(num).size() == 13 );
 
     }
 
     @Test
     public void toPlay() throws Exception {
 
-        //creates a instance of PDState, this will start a new game
-        PDState pdState = new PDState();
+        PDState PDState = new PDState();
 
-        //gets the player index of whose turn it is
-        int num = pdState.toPlay();
+        int num = PDState.toPlay();
+        assertTrue(PDState.getDeck(num).getCards().get(12).getPower() == 0);
 
-        //checks that the player who starts has the three of clubs, this will be his 12th
-        //card because they are sorted best to worst, and the three of clubs has power 0
-        assertTrue(pdState.getDeck(num).getCards().get(12).getPower() == 0);
+    }
 
+    @Test
+    public void setToPlay() throws Exception {
+
+    }
+
+    @Test
+    public void nullAllButTopOf2() throws Exception {
+
+    }
+
+    @Test
+    public void selectCard() throws Exception {
+
+        //PDState PDState = new PDState();
+        //int num = PDState.toPlay();
+
+        //PDState.selectCard(num,0);
+        //assertTrue(PDState.getDeck(num).getCards().get(0).isSelected());
 
 
     }
 
-
-
-
     @Test
     public void playCard() throws Exception {
 
+        //New Game State
         PDState PDState = new PDState();
-
+        //The current players turn number
         int num = PDState.getTurnNum();
+        //The number of cards in their hand
         int size = PDState.getDeck(num).size();
-        //boolean[] selected = new boolean[];
-        //for( int i = 0; i < )
 
 
-        //PDState.getDeck(num).getCards().get(12).setSelected(true);
-/*
-        assertTrue(PDState.playCard(num).equalsIgnoreCase("Player " + (num + 1) + " just played their " +
-                new Card(Rank.THREE, Suit.Club) + " to the center pile.\n"));
-*/
+        //This player selects their second best card
+        boolean selected[] = new boolean[size];
+        //Selects the second best card in the hand
+        selected[1] = true;
+        //Player tries to play a card besides the 3 of Clubs for the first play
+        PDState.playCard(num, selected);
+        //They should not have been able to play a card
+        assertFalse(PDState.getDeck(num).size() == size-1);
+        //It should still be this persons turn
+        assertTrue(PDState.getTurnNum() == num);
+
         int num2 = PDState.getTurnNum();
 
-        assertNotEquals(num,num2);
-
-
-
+        //assertNotEquals(num,num2);
 
     }
 
@@ -93,8 +83,6 @@ public class PDStateTest {
 
         PDState PDState = new PDState();
         assertTrue(PDState.passAction(PDState.toPlay()).equalsIgnoreCase("You have Control Player " + (PDState.toPlay()+1) + ". You cannot Pass!\n"));
-
-
 
     }
 
@@ -105,7 +93,6 @@ public class PDStateTest {
         PDState.setTurnNum(3);
         PDState.changeTurn();
         assertTrue(PDState.getTurnNum() == 0);
-
 
     }
 
@@ -153,6 +140,9 @@ public class PDStateTest {
 
     @Test
     public void getTurnNum() throws Exception {
+        PDState PDState = new PDState();
+
+
 
     }
 
