@@ -15,39 +15,53 @@ public class PDStateTest {
     @Test
     public void getDeck() throws Exception {
 
+        //creates a instance of PDState, this will start a new game
+        PDState pdState = new PDState();
+
+        //gets the player index of whose turn it is
+        int num = pdState.toPlay();
+
+
+        //checks that the player who starts has the three of clubs, this will be his 12th
+        //card because they are sorted best to worst, and the three of clubs has power 0
+        assertTrue(pdState.getDeck(num).size() == 13 );
+
+        //setsup the boolean array for what cards are selected for the player and selects
+        //index 12
+        boolean[] selected = new boolean[13];
+        for( int i = 0; i < 13; i++ ){
+            if( i == 12 ){
+                selected[i] = true;
+            } else {
+                selected[i] = false;
+            }
+        }
+
+        //checks that the player who starts has the three of clubs, this will be his 12th
+        //card because they are sorted best to worst, and the three of clubs has power 0
+        assertTrue(pdState.getDeck(num).size() == 13 );
+
     }
 
     @Test
     public void toPlay() throws Exception {
 
-        PDState PDState = new PDState();
+        //creates a instance of PDState, this will start a new game
+        PDState pdState = new PDState();
 
-        int num = PDState.toPlay();
-        assertTrue(PDState.getDeck(num).getCards().get(12).getPower() == 0);
+        //gets the player index of whose turn it is
+        int num = pdState.toPlay();
 
-    }
+        //checks that the player who starts has the three of clubs, this will be his 12th
+        //card because they are sorted best to worst, and the three of clubs has power 0
+        assertTrue(pdState.getDeck(num).getCards().get(12).getPower() == 0);
 
-    @Test
-    public void setToPlay() throws Exception {
 
-    }
-
-    @Test
-    public void nullAllButTopOf2() throws Exception {
 
     }
 
-    @Test
-    public void selectCard() throws Exception {
-
-        //PDState PDState = new PDState();
-        //int num = PDState.toPlay();
-
-        //PDState.selectCard(num,0);
-        //assertTrue(PDState.getDeck(num).getCards().get(0).isSelected());
 
 
-    }
 
     @Test
     public void playCard() throws Exception {
@@ -55,6 +69,10 @@ public class PDStateTest {
         PDState PDState = new PDState();
 
         int num = PDState.getTurnNum();
+        int size = PDState.getDeck(num).size();
+        //boolean[] selected = new boolean[];
+        //for( int i = 0; i < )
+
 
         //PDState.getDeck(num).getCards().get(12).setSelected(true);
 /*

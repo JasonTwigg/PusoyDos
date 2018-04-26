@@ -107,7 +107,8 @@ public class PDState extends GameState implements Serializable{
 
 
 
-		//Sorts each player's hand from high card to low
+		//Sorts each player's hand from high card to low using the
+		//power values made in the card class
 		piles[0].sort();
 		piles[1].sort();
 		piles[2].sort();
@@ -130,16 +131,20 @@ public class PDState extends GameState implements Serializable{
 	 * @param orig the state to be copied
 	 */
 	public PDState(PDState orig, int playerNum) {
+
 		// set index of player whose turn it is
 		turnNum = orig.turnNum;
+
 		// create new deck array, making a deep copy of the deck
 		piles = new Deck[5];
+
 		//Deep Copy of each of the player's decks
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
-		piles[0] = new Deck( orig.piles[0]);
-		piles[1] = new Deck( orig.piles[1]);
-		piles[2] = new Deck( orig.piles[2]);
-		piles[3] = new Deck( orig.piles[3]);
+
+		//piles[0] = new Deck( orig.piles[0]);
+		//piles[1] = new Deck( orig.piles[1]);
+		//piles[2] = new Deck( orig.piles[2]);
+		//piles[3] = new Deck( orig.piles[3]);
 
 		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in PDState

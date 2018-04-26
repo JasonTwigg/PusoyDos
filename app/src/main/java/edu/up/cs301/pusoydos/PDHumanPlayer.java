@@ -686,16 +686,16 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		}
 
 		if( find != -1 ){
-			//game.sendAction(new SJSlapAction(this));
-			surface.flash(Color.MAGENTA,50);
-			//game.sendAction(new PDSelectAction(this, find));
+			//toggles the boolean in the select array with the same index as the cards.
 			selections[find] = !selections[find];
 
 		} else if( passButton.contains(x,y)){
-			surface.flash(Color.GREEN, 50);
+
+			//if the player presses the pass button
 			game.sendAction(new PDPassAction(this));
 		} else if( playButton.contains(x,y)){
-			surface.flash(Color.YELLOW, 50);
+
+			//if the player presses the play button
 			game.sendAction(new PDPlayAction(this,selections));
 		}
 		else {
