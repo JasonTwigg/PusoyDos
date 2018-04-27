@@ -302,9 +302,22 @@ public class PDStateTest {
 
     @Test
     public void getTurnNum() throws Exception {
-        PDState PDState = new PDState();
+        //New Game State
+        PDState pdState = new PDState();
+        //The current players turn number
+        int num = pdState.getTurnNum();
+        //The number of cards in their hand
+        int size = pdState.getDeck(num).size();
 
+        //This player selects their worst card
+        boolean selected[] = new boolean[size];
+        selected[size-1] = true;
+        //The player plays their worst card
+        pdState.playCard(num, selected);
 
+        //This test should pass as they should have selected their 3 of clubs
+        //Since the person with the 3 of clubs goes first
+        assertTrue(pdState.getTurnNum() != num);
 
     }
 

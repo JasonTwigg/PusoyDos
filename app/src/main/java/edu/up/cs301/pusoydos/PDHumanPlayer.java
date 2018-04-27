@@ -579,7 +579,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		WhitePaint.setTypeface(Typeface.create("Arial",Typeface.ITALIC));
 
 		//to set position of Play Button
-		int rectLeftP = (int) (width*.85);
+		int rectLeftP = (int) (width*.80);
 		int rectRightP = rectLeftP +250;
 		int rectTopP = (int)((height*.8));
 		int rectBottomP = rectTopP+130;
