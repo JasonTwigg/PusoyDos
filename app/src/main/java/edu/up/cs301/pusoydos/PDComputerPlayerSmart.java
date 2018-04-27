@@ -250,23 +250,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
             }
             else if (savedState.getModeType() == doubles ){
-                for( int i = 0; i < playability.size(); i++ ){
-                    if(playability.get(i) == doubles ){
-                        //game.sendAction(new PDSelectAction(this, i));
-                        selections[i] = !selections[i];
-                        //game.sendAction(new PDSelectAction(this, i+1));
-                        selections[i+1] = !selections[i+1];
-                        if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
-                            game.sendAction(new PDPlayAction(this,selections));
-                        }
-                        else{
-                            game.sendAction(new PDPassAction(this));
-                        }
-                        return;
-                    }
-                }
-                game.sendAction(new PDPassAction(this));
-                return;
+
+                SmartPlayDoubles(myDeck, middleDeck);
+
             }
             else if( savedState.getModeType() == 4 || savedState.getModeType() == straight ) {
 
@@ -326,7 +312,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                         //game.sendAction(new PDSelectAction(this, i));
                         selections[i] = !selections[i];
                     }
-
                     count++;
 
                 }
@@ -339,7 +324,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                 game.sendAction(new PDPassAction(this));
                 return;
             }
-            else if ((savedState.getModeType()==6 ||savedState.getModeType() == fullHouse  ||
+            else if ((savedState.getModeType()== fourOfAKind ||savedState.getModeType() == fullHouse  ||
                     savedState.getModeType() == 4 || savedState.getModeType() == straight)
                     && playability.contains(fourOfAKind) ){
 
@@ -350,7 +335,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     }
                 }
                 game.sendAction(new PDPlayAction(this,selections));
-
                 return;
             }
             else {
@@ -457,6 +441,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
          * - CLUB FLUSH : flushC
          */
         if( diamondCount.size() >= 5 ) {
+            //Sets the playability values to Flush
             playability.set(diamondCount.get(0), flushD);
             playability.set(diamondCount.get(1), flushD);
             playability.set(diamondCount.get(2), flushD);
@@ -464,6 +449,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.set(diamondCount.get(4), flushD);
         }
         else if( heartCount.size() >= 5 ){
+            //sets the playability values to flush
             playability.set(heartCount.get(0), flushH);
             playability.set(heartCount.get(1), flushH);
             playability.set(heartCount.get(2), flushH);
@@ -471,6 +457,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.set(heartCount.get(4), flushH);
         }
         else if( spadeCount.size() >= 5 ){
+            //sets the playability values to flush
             playability.set(spadeCount.get(0), flushS);
             playability.set(spadeCount.get(1), flushS);
             playability.set(spadeCount.get(2), flushS);
@@ -478,6 +465,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             playability.set(spadeCount.get(4), flushS);
         }
         else if( clubCount.size() >= 5 ){
+            //sets the playability values to flush
             playability.set(clubCount.get(0), flushC);
             playability.set(clubCount.get(1), flushC);
             playability.set(clubCount.get(2), flushC);
@@ -493,9 +481,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public void findFourofAKinds(){
         for(int i = myDeck.size()-1; i > 4; i--){
+            //Makes sure that each of the cards has the same rank
             if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
                     myDeck.getCards().get(i-1).getRank() == myDeck.getCards().get(i-2).getRank() &&
                     myDeck.getCards().get(i-2).getRank() == myDeck.getCards().get(i-3).getRank()){
+
+                //Sets all of their values in the playability array
                 playability.set(i, fourOfAKind);
                 playability.set(i-1, fourOfAKind);
                 playability.set(i-2, fourOfAKind);
@@ -577,6 +568,36 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
         //If they cannot play they pass
         game.sendAction(new PDPassAction(this));
+
+    }
+
+    /**
+     *
+     * @param initDeck
+     * @param initMiddleDeck
+     */
+    public void SmartPlayDoubles(Deck initDeck, Deck initMiddleDeck) {
+        //Int to hold the position of their worst card
+        myDeck = initDeck;
+        Deck middleDeck = initMiddleDeck;
+
+        for( int i = 0; i < playability.size(); i++ ){
+            if(playability.get(i) == doubles ){
+                //game.sendAction(new PDSelectAction(this, i));
+                selections[i] = !selections[i];
+                //game.sendAction(new PDSelectAction(this, i+1));
+                selections[i+1] = !selections[i+1];
+                if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
+                    game.sendAction(new PDPlayAction(this,selections));
+                }
+                else{
+                    game.sendAction(new PDPassAction(this));
+                }
+                return;
+            }
+        }
+        game.sendAction(new PDPassAction(this));
+        return;
 
     }
 
