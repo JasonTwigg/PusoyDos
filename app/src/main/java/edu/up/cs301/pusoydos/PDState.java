@@ -8,6 +8,21 @@ import edu.up.cs301.card.Rank;
 import edu.up.cs301.card.Suit;
 
 /**
+ *	FEATURES OF PUSOY DOS
+ *	- Top left s
+ *	-
+ *	-
+ *	-
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+/**
  External Citation
  Date: March 3, 2018
  Problem: We weren't sure how to start on the game interface
