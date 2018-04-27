@@ -2,6 +2,8 @@ package edu.up.cs301.pusoydos;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import edu.up.cs301.card.Card;
 import edu.up.cs301.card.Rank;
 import edu.up.cs301.card.Suit;
@@ -172,23 +174,110 @@ public class PDStateTest {
     @Test
     public void canPlay() throws Exception {
 
-       /* PDState PDState = new PDState();
+        //---------------------------------CASE 1---------------------------------------
+        //checks to make sure the lowest card (3 of clubs) is the first card played
 
-        int num = PDState.toPlay();
+        //new instances of game state to start new game
+        PDState PdState = new PDState();
 
-        PDState.selectCard(num,12);
-        PDState.playCard(num);
+        //gets turn number of first player (player with 3 of clubs)
+        int num = PdState.toPlay();
 
-        PDState.changeTurn();
-        num = PDState.toPlay();
-        PDState.selectCard(num,0);
-        PDState.playCard(num);
+        //setsup the boolean array for what cards are selected for the player and selects
+        //index 12 (3 of clubs)
+        boolean[] selected = new boolean[13];
+        for( int i = 0; i < 13; i++ ){
+            if( i == 12 ){
+                selected[i] = true;
+            } else {
+                selected[i] = false;
+            }
+        }
 
-        PDState.changeTurn();
-        num = PDState.toPlay();
-        PDState.selectCard(num,11);
-        assertFalse(PDState.canPlay(PDState.getDeck(num).getCards()));
-*/
+        //creates a new array list of cards to pass into the canPlay method
+        ArrayList<Card> selectedCards = new ArrayList<Card>();
+        //loops through the selected boolean array and puts selected cards into the new array list
+        for( int i=0; i<13; i++ ){
+            if( selected[i] == true ){
+                selectedCards.add(PdState.getDeck(num).getCards().get(i));
+            }
+        }
+        //checks to make sure the 3 of clubs is played in the first play of the game
+        assertTrue(PdState.canPlay(selectedCards));
+
+
+
+
+        //--------------------------------CASE 2 & 3----------------------------------------
+
+        //new instance of game state to start new game
+        PDState PdState2 = new PDState();
+        //gets turn number of first player (player with 3 of clubs)
+        int num2 = PdState2.toPlay();
+
+        PdState2.getDeck(num2).getCards().add(new Card( Rank.THREE, Suit.Diamond));
+
+        //sets up the boolean array for what cards are selected for the player and selects
+        //index 12 (3 of clubs)
+        boolean[] selected2 = new boolean[14];
+        for( int i = 0; i < 14; i++ ){
+            if( i == 12 || i == 13 ){
+                selected2[i] = true;
+            } else {
+                selected2[i] = false;
+            }
+        }
+
+        //have first player play a double (3 of clubs and 3 of diamonds)
+        PdState2.playCard(num2, selected2);
+
+        //creates new array list of cards to pass into the canPlay method
+        ArrayList<Card> selectedCards2 = new ArrayList<Card>();
+        selectedCards2.add(new Card(Rank.FIVE, Suit.Heart));
+        selectedCards2.add(new Card(Rank.FIVE, Suit.Diamond));
+
+        //checks to make sure the mode type is 2 when doubles are in play
+        assertTrue(PdState2.getModeType() == 2);
+        //checks to make sure a higher double can be played after a lower double
+        assertTrue(PdState2.canPlay(selectedCards2));
+
+
+
+        //--------------------------------CASE 4-------------------------------------------------
+        //new instance of game state to start new game
+        PDState PdState3 = new PDState();
+        //gets turn number of first player (player with 3 of clubs)
+        int num3 = PdState3.toPlay();
+
+        PdState3.getDeck(num3).getCards().add(new Card( Rank.THREE, Suit.Diamond));
+
+        //sets up the boolean array for what cards are selected for the player and selects
+        //index 12 (3 of clubs)
+        boolean[] selected3 = new boolean[14];
+        for( int i = 0; i < 14; i++ ){
+            if( i == 12 || i == 13 ){
+                selected3[i] = true;
+            } else {
+                selected3[i] = false;
+            }
+        }
+
+        //have first player play a double (3 of clubs and 3 of diamonds)
+        PdState3.playCard(num3, selected3);
+
+        //creates new array list of cards to pass into the canPlay method
+        ArrayList<Card> selectedCards3 = new ArrayList<Card>();
+        selectedCards3.add(new Card(Rank.FIVE, Suit.Heart));
+        selectedCards3.add(new Card(Rank.FIVE, Suit.Diamond));
+
+        //force change mode type to STRAIGHT
+        PdState3.setModeType(3);
+
+        //checks to make sure the double cannot be played in straight mode
+        assertFalse(PdState3.canPlay(selectedCards3));
+
+
+
     }
 
     @Test

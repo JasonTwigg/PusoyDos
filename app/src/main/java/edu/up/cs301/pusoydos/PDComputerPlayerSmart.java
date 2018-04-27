@@ -125,13 +125,24 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
-
+        //creates a new array list of integers to keep track of existing hands (i.e. doubles,
+        // straight, full houses) in the smart AI's hand
         playability = new ArrayList<Integer>();
+
         //to set all playability values to singles
         for (int i = 0; i < myDeck.size(); i++) {
             playability.add(i, singles);
         }
 
+        /**
+         * Checks for hands in smart AI's hand (in this order), changing the playability array to
+         * accurately reflect existing hands with each check
+         * 1. check for 4 of a kinds
+         * 2. check for triples
+         * 3. check for flushes
+         * 4. check for straights
+         * 5. check for doubles
+         */
         findFourofAKinds();
         findTriples();
         findFlushes();
@@ -148,8 +159,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         else{
             sleep(waitTime);
         }
-
-
 
 
         if (playability.contains(fullHouse) && playability.contains(doubles)) {

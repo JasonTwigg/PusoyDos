@@ -664,6 +664,8 @@ public class PDState extends GameState implements Serializable{
 		return modeType;
 	}
 
+	public void setModeType(int modeType) { this.modeType = modeType; }
+
 	public int getPlayerLastPlayed() { return playerLastPlayed; }
 
 
