@@ -22,8 +22,7 @@ public class PDStateTest {
         int num = pdState.toPlay();
 
 
-        //checks that the player who starts has the three of clubs, this will be his 12th
-        //card because they are sorted best to worst, and the three of clubs has power 0
+        //checks that the player has three cards prior to playing their card
         assertTrue(pdState.getDeck(num).size() == 13 );
 
         //setsup the boolean array for what cards are selected for the player and selects
@@ -37,9 +36,11 @@ public class PDStateTest {
             }
         }
 
-        //checks that the player who starts has the three of clubs, this will be his 12th
-        //card because they are sorted best to worst, and the three of clubs has power 0
-        assertTrue(pdState.getDeck(num).size() == 13 );
+        //the player plays their three of clubs
+        pdState.playCard(num,selected);
+
+        //checks to make sure the the deck now has 12 cards
+        assertTrue(pdState.getDeck(num).size() == 12 );
 
     }
 
@@ -51,10 +52,11 @@ public class PDStateTest {
 
         //gets the player index of whose turn it is
         int num = pdState.toPlay();
+        int size = pdState.getDeck(num).getCards().size();
 
         //checks that the player who starts has the three of clubs, this will be his 12th
         //card because they are sorted best to worst, and the three of clubs has power 0
-        assertTrue(pdState.getDeck(num).getCards().get(12).getPower() == 0);
+        assertTrue(pdState.getDeck(num).getCards().get(size-1).getPower() == 0);
 
 
 
@@ -101,11 +103,20 @@ public class PDStateTest {
     @Test
     public void changeTurn() throws Exception {
 
-        PDState PDState = new PDState();
-        PDState.setTurnNum(3);
-        PDState.changeTurn();
-        assertTrue(PDState.getTurnNum() == 0);
 
+        //goes through every turn change possibility and makes sure the turns are changing
+        //correctly
+        PDState pdState = new PDState();
+        pdState.setTurnNum(0);
+        assertTrue(pdState.getTurnNum() == 0);
+        pdState.changeTurn();
+        assertTrue(pdState.getTurnNum() == 1);
+        pdState.changeTurn();
+        assertTrue(pdState.getTurnNum() == 2);
+        pdState.changeTurn();
+        assertTrue(pdState.getTurnNum() == 3);
+        pdState.changeTurn();
+        assertTrue(pdState.getTurnNum() == 0);
 
     }
 

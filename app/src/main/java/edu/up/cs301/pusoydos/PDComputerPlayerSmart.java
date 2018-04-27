@@ -43,6 +43,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     private ArrayList<Integer> playability;
 
     //playability values
+    /*
+    *   Playability values are values that the computer uses to distinguish what the cards can
+    *   make certain types of hands, this makes it so the player can distinguish doubles and poker
+    *   hands from singles and can save them for later play. Each type of hand has its own value
+    *
+    */
     private int singles = 1;
     private int doubles = 2;
     private int straight = 3;
@@ -53,9 +59,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     private int fullHouse = 5;
     private int fourOfAKind = 6;
 
+    //the computers deck
     private Deck myDeck;
-    private int diamond, heart, spade, club;
 
+    //An array of selections, this keeps track of what the player selects, all of the values
+    //will start at false and any cards selected will be true
     private boolean[] selections;
 
     /**
@@ -93,23 +101,28 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         if (info instanceof PDState) {
             savedState = (PDState) info;
 
+        // if the state is an illegal move, then return
         } else {
             IllegalMoveInfo moveInfo = (IllegalMoveInfo) info;
-            Log.i("ERROR", "");
+
             return;
         }
 
+        //sets their deck to the deck from the new state
+        //also gets the middle deck, for seeing what has been played
         myDeck = savedState.getDeck(playerNum);
         Deck middleDeck = savedState.getDeck(4);
 
-        synchronized (myDeck) {
-            size = myDeck.getCards().size();
-        }
+        //gets the size of our deck
+        size = myDeck.getCards().size();
 
-        int size = savedState.getDeck(playerNum).getCards().size();
+        //set the selections array to a size that matches the player's cards
         selections = new boolean[size];
-        for(int i = 0; i < size; i++){
-            selections[i] = false;
+        //loops through every value of selections and sets it to false
+        synchronized ( selections ) {
+            for (int i = 0; i < size; i++) {
+                selections[i] = false;
+            }
         }
 
 

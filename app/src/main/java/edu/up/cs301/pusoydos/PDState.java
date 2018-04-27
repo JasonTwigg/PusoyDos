@@ -129,6 +129,7 @@ public class PDState extends GameState implements Serializable{
 	 * Copy constructor for objects of class PDState. Makes a copy of the given state
 	 *
 	 * @param orig the state to be copied
+	 * @param playerNum the payer number
 	 */
 	public PDState(PDState orig, int playerNum) {
 
@@ -150,6 +151,7 @@ public class PDState extends GameState implements Serializable{
 		//Creates deep copy of each of the data values stored in PDState
 		perspective = playerNum;
 
+		//copy all of the values that are ints and
 		playerLastPlayed = orig.playerLastPlayed;
 		modeType = orig.modeType;
 		isFirst = orig.isFirst;
@@ -184,7 +186,7 @@ public class PDState extends GameState implements Serializable{
 	/**
 	 * Tells which player's turn it is.
 	 *
-	 * @return the index (0 or 1) of the player whose turn it is.
+	 * @return the index (0,1,2,3) of the player whose turn it is.
 	 */
 	public int toPlay() {
 		return turnNum;
@@ -211,9 +213,11 @@ public class PDState extends GameState implements Serializable{
 	 * allowed within the rules
 	 *
 	 * @param playerNum the index of the player whose move it now is
+	 * @param selections a boolean array of what cards are selected
 	 *
 	 */
 	public String playCard(int playerNum, boolean[] selections) {
+
 		//Make two array lists, one of cards and the other of
 		//integers. The one of cards is the selected cards of the player
 		//and the one of integers is the index/location of those cards.
@@ -361,11 +365,13 @@ public class PDState extends GameState implements Serializable{
     /**
      * Determines whether or not the move is legal.
      *
-     * @param Cards relevant cards to current play
+     * @param Cards the selected cards that the player has asked to play
      * @return true if move is legal or false if it is illegal.
      */
 	public boolean canPlay(ArrayList<Card> Cards) {
 
+		//first gets the size of the cards that are selected to play
+		//if it is zero return false right away, also get the
 		int size = Cards.size();
 		if( size == 0 ){
 			return false;

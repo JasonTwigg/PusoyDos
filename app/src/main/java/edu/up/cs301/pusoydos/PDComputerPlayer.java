@@ -9,6 +9,8 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.util.PossibleHands;
 
+
+
 /**
  * This is a computer player that plays very poorly. It plays
  * the highest card it has, unless in control, in which case
@@ -31,9 +33,12 @@ public class PDComputerPlayer extends GameComputerPlayer
 	// the most recent state of the game
 	private PDState savedState;
 	private int size;
+
 	//Constant for the time each computer takes to go
 	private int waitTime = 750;
 
+	//An array of selections, this keeps track of what the player selects, all of the values
+	//will start at false and any cards selected will be true
 	private boolean[] selections;
 	
     /**
@@ -55,7 +60,7 @@ public class PDComputerPlayer extends GameComputerPlayer
     public PDComputerPlayer(String name, double avgReactionTime) {
         // invoke superclass constructor
         super(name);
-        
+
         // set the minimim reaction time, which is half the average reaction
         // time, converted to milliseconds (0.5 * 1000 = 500)
         minReactionTimeInMillis = 500*avgReactionTime;
@@ -85,10 +90,13 @@ public class PDComputerPlayer extends GameComputerPlayer
 			size = myDeck.getCards().size();
 		}
 
-		int size = savedState.getDeck(playerNum).getCards().size();
+		//set the selections array to a size that matches the player's cards
 		selections = new boolean[size];
-		for(int i = 0; i < size; i++){
-			selections[i] = false;
+		//loops through every value of selections and sets it to false
+		synchronized ( selections ) {
+			for (int i = 0; i < size; i++) {
+				selections[i] = false;
+			}
 		}
 
 		//Has the player wait to make their move

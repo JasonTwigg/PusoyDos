@@ -20,6 +20,18 @@ import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 
 /**
+ External Citation
+ Date: April 20th, 2018
+ Problem: There was a large issue with the select action, where it would crashes and slow response
+ times
+ Resource:
+ Matthew (Computer Science Tutor)
+ Solution: He advised us to take away the select action completely and have selections handled only
+ by the player and have nothing to do with the state. This fixed a lot of our bugs.
+ */
+
+
+/**
  * A GUI that allows a human to play PusoyDos. Moves are made by clicking
  * regions on a surface. Presently, it is laid out for landscape orientation.
  * 
@@ -66,6 +78,8 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
     //Counter to see which player needs to be drawn
 	private int otherPlayerCounter;
 
+	//An array of selections, this keeps track of what the player selects, all of the values
+	//will start at false and any cards selected will be true
 	private boolean[] selections;
 
 	/**
@@ -107,10 +121,15 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 			Log.i("human player", "receiving");
 		}
 
+		//creates a new int for the size of the player's cards
 		int size = state.getDeck(playerNum).getCards().size();
+		//set the selections array to a size that matches the player's cards
 		selections = new boolean[size];
-		for(int i = 0; i < size; i++){
-			selections[i] = false;
+		//loops through every value of selections and sets it to false
+		synchronized ( selections ) {
+			for (int i = 0; i < size; i++) {
+				selections[i] = false;
+			}
 		}
 
 
@@ -677,17 +696,21 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
 		int find = -1;
 		Deck myDeck = state.getDeck(playerNum);
-		for( int i = 0; i < myDeck.size(); i++){
-			if( cardPositions[i] != null ) {
-				if (cardPositions[i].contains(x, y)) {
-					find = i;
+		synchronized (cardPositions ) {
+			for (int i = 0; i < myDeck.size(); i++) {
+				if (cardPositions[i] != null) {
+					if (cardPositions[i].contains(x, y)) {
+						find = i;
+					}
 				}
 			}
 		}
 
 		if( find != -1 ){
 			//toggles the boolean in the select array with the same index as the cards.
-			selections[find] = !selections[find];
+			synchronized (selections) {
+				selections[find] = !selections[find];
+			}
 
 		} else if( passButton.contains(x,y)){
 
