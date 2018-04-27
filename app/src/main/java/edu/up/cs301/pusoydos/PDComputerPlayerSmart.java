@@ -239,18 +239,19 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             //If they are in control, they play their worst card
             if( savedState.getModeType() == 0 ){
 
-                //game.sendAction(new PDSelectAction(this,size-1));
                 selections[size-1] = !selections[size-1];
                 game.sendAction(new PDPlayAction(this,selections));
                 return;
             }
             else if (savedState.getModeType() == singles) {
 
+                //if the gamemode is in singles, call the smart play singles method
                 SmartPlaySingles(myDeck, middleDeck);
 
             }
             else if (savedState.getModeType() == doubles ){
 
+                //if the gamemode is in double, call the method that handles the doubles
                 SmartPlayDoubles(myDeck, middleDeck);
 
             }
@@ -403,7 +404,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public void findFlushes() {
 
+
         //creates separate array lists of cards to "sort" through the players hand by suit
+        //this will keep track of every type of suit and will count how many suits at the end
         ArrayList<Integer> heartCount = new ArrayList<Integer>();
         ArrayList<Integer> diamondCount = new ArrayList<Integer>();
         ArrayList<Integer> spadeCount = new ArrayList<Integer>();
@@ -480,6 +483,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      * checks to see if their is a four of a kind in the player's hand
      */
     public void findFourofAKinds(){
+        //loops through all of the cards, from highest to lowest
         for(int i = myDeck.size()-1; i > 4; i--){
             //Makes sure that each of the cards has the same rank
             if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
@@ -503,20 +507,34 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      */
     public void findStraight(){
 
+        //creates an arraylist of integers called count and creates an integer for holding
+        //the index
         ArrayList<Integer> count = new ArrayList<Integer>();
         int countIdx = 0;
-        //checking for straight
+
+        //loops through all the cards from top to bottom
         for( int i=myDeck.size()-1; i>0; i--) {
 
+            //only changes cards that are singles, the ones that have been changes already
+            //have priority over the straight
             if( playability.get(i) == singles ){
+
+                //resets count for every time it checks a new card in the first loop,
+                //sets the index to the starting card that it is checkig
                 count = new ArrayList<Integer>();
                 countIdx = i;
                 count.add(countIdx);
-                boolean run = true;
+
+                //loops through the cards after the one it is starting with
                 for( int j = i; j>1; j--) {
 
+                    //checks to see if the card is the one rank below the card before, if that is the
+                    //case and the count is not 5 already, add that to the count array, keeping track if
+                    //the straight can be continued
                     if (myDeck.getCards().get(j).getPower() / 4 == myDeck.getCards().get(j - 1).getPower() / 4 + 1) {
-                        //BI
+
+                        //if the count if 5 the straight has already been found and will be set and the loop will
+                        //break
                         if (count.size() == 5) {
 
                             playability.set(count.get(0), straight);
@@ -528,12 +546,16 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                             break;
 
                         }
+
+                        //add the card to the arraylist if it can be used in the straight
                         count.add(j);
 
-
+                    //if the card is the same rank, that means there is still the possibility of a straight
+                    //therefore, instead of breaking the search, we just continue and ignore that card
                     } else if (myDeck.getCards().get(j).getPower() / 4 == myDeck.getCards().get(j).getPower() / 4) {
 
-
+                    //if the next card is not the same rank as the one next to it nor one rank less
+                    //break the search, because the straight cannot be made anymore
                     } else {
 
                         break;
@@ -559,7 +581,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             //not then it moves to their next highest card
             if (myDeck.getCards().get(worstCard).getPower() > middleDeck.getCards().get(middleDeck.getCards().size() - 1).getPower()) {
 
-                //game.sendAction(new PDSelectAction(this, worstCard));
                 selections[worstCard] = !selections[worstCard];
                 game.sendAction(new PDPlayAction(this,selections));
 
@@ -577,16 +598,21 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      * @param initMiddleDeck
      */
     public void SmartPlayDoubles(Deck initDeck, Deck initMiddleDeck) {
-        //Int to hold the position of their worst card
+        //saves the data for the deck and middle deck
         myDeck = initDeck;
         Deck middleDeck = initMiddleDeck;
 
+        //loops through the array that tells all of the playabilities of every card
         for( int i = 0; i < playability.size(); i++ ){
+            //if one of the cards can be played as a double
             if(playability.get(i) == doubles ){
-                //game.sendAction(new PDSelectAction(this, i));
+
+                //select that card, aswell as its partner code
                 selections[i] = !selections[i];
-                //game.sendAction(new PDSelectAction(this, i+1));
                 selections[i+1] = !selections[i+1];
+
+                //check if the selected cards have a higher power than the ones in the middle,
+                //if they are higher, play the pair, else pass
                 if(myDeck.getCards().get(i).getPower() > middleDeck.getCards().get(middleDeck.getCards().size()-1).getPower()){
                     game.sendAction(new PDPlayAction(this,selections));
                 }
