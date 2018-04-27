@@ -75,6 +75,7 @@ public class PDStateTest {
 
     }
 
+
     @Test
     public void playCard() throws Exception {
 
@@ -127,15 +128,77 @@ public class PDStateTest {
     public void passAction() throws Exception {
 
         //New Game State
-        PDState PDState = new PDState();
+        PDState pdState = new PDState();
         //The current players turn number
-        int num = PDState.getTurnNum();
+        int num = pdState.getTurnNum();
         //The number of cards in their hand
 
         //Player tries to pass for their first move (of the game)
-        PDState.passAction(num);
+        pdState.passAction(num);
         //They should not have been able to pass on the start
-        assertTrue(PDState.getTurnNum() == num);
+        assertTrue(pdState.getTurnNum() == num);
+
+        //setsup the boolean array for what cards are selected for the player and selects
+        //index 12 (3 of clubs)
+        boolean[] selected = new boolean[13];
+        for( int i = 0; i < 13; i++ ){
+            if( i == 12 ){
+                selected[i] = true;
+            } else {
+                selected[i] = false;
+            }
+        }
+
+        //the player plays their three of clubs
+        pdState.playCard(num,selected);
+
+        //make sure it is not the playersturn anymore
+        assertTrue(pdState.getTurnNum() != num);
+
+        //update the number to be whose turn it is
+        num = pdState.getTurnNum();
+
+        //Player tries to pass
+        pdState.passAction(num);
+
+        //They should be able to pass, making it not their turn
+        assertTrue(pdState.getTurnNum() != num);
+
+        //update the number to be whose turn it is
+        num = pdState.getTurnNum();
+
+        //Player tries to pass
+        pdState.passAction(num);
+
+        //They should be able to pass, making it not their turn
+        assertTrue(pdState.getTurnNum() != num);
+
+        //update the number to be whose turn it is
+        num = pdState.getTurnNum();
+
+        //Player tries to pass
+        pdState.passAction(num);
+
+        //They should be able to pass, making it not their turn
+        assertTrue(pdState.getTurnNum() != num);
+
+
+
+        //update the number to be whose turn it is
+        num = pdState.getTurnNum();
+
+        //Player tries to pass
+        pdState.passAction(num);
+
+        //They shouldn't be able to pass because they have control now
+        // and therefore are required to play
+        assertTrue(pdState.getTurnNum() == num);
+
+
+
+
+
+
 
     }
 
@@ -171,7 +234,7 @@ public class PDStateTest {
         //gets turn number of first player (player with 3 of clubs)
         int num = PdState.toPlay();
 
-        //setsup the boolean array for what cards are selected for the player and selects
+        //sets up the boolean array for what cards are selected for the player and selects
         //index 12 (3 of clubs)
         boolean[] selected = new boolean[13];
         for( int i = 0; i < 13; i++ ){

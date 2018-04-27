@@ -62,14 +62,14 @@ public class PDState extends GameState implements Serializable{
     // ************** instance variables ************
     ///////////////////////////////////////////////////
 
-	// the three piles of cards:
+	// the five piles of cards:
 	//  - 0: pile for player 0
 	//  - 1: pile for player 1
 	//  - 2: pile for player 2
 	//  - 3: pile for player 3
-	//  - 4: pile that knows all of the player's cards
-	// Note that when players receive the state, all but the top card in all piles
-	// are passed as null.
+	//  - 4: pile that holds the middle cards
+	// Note that when players receive the state, they only recieve their cards
+	// and the amount of
 	private Deck[] piles;
 	//The size of each of the piles
 	private int[] pileSizes;
@@ -83,6 +83,7 @@ public class PDState extends GameState implements Serializable{
 	private int playerLastPlayed;
 	//A boolean value to determine if it the first play of the game
 	private boolean isFirst;
+
 	// 0 - open hand/control
 	// 1 - singles
 	// 2 - doubles
