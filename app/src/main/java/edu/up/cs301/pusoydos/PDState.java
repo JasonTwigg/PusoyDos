@@ -10,6 +10,8 @@ import edu.up.cs301.card.Suit;
 /**
  *	FEATURES OF PUSOY DOS
  *  GUI:
+ *  - Can be played in both portrait and landscape mode
+ *  - Can be played on both Nexus 9 and Pixel C
  *	- Top left of screen shows the players turn
  *	- Top right shows what mode the game is in EX. Control, singles, doubles, hands
  *	- The middle deck shows the last five cards played, also shows them in the order they were played
@@ -18,14 +20,14 @@ import edu.up.cs301.card.Suit;
  *  - You hand is displayed at the bottom, the cards get pack closer together the more cards you have
  *	- Pass and play buttons are at the bottom left and right respectively
  *  - The screen flashes red when an invalid move was made
- *  - Can be played in both portrait and landscape mode
+
  *  Computer (Easy)
  *  - Checks the mode type and plays their worst card when they are in control
  *  - If the mode type is singles then play their best card
  *  - Otherwise if it is doubles or hands, the easy player passes
  *  Computer (Hard)
  *
- *
+ *	Network Player
  *
  *
  *
@@ -164,14 +166,19 @@ public class PDState extends GameState implements Serializable{
 		// create new deck array, making a deep copy of the deck
 		piles = new Deck[5];
 
-		//Deep Copy of each of the player's decks
+		//Deep Copy of each of the player's decks this only sends the player their specific copy
 		piles[playerNum] = new Deck(orig.piles[playerNum]);
 
-		//piles[0] = new Deck( orig.piles[0]);
-		//piles[1] = new Deck( orig.piles[1]);
-		//piles[2] = new Deck( orig.piles[2]);
-		//piles[3] = new Deck( orig.piles[3]);
+		//this means if the player is allowed to see all of the other player's cards, this is for
+		//debugging purposes only
+		if( playerNum == 4 ) {
+			piles[0] = new Deck( orig.piles[0]);
+			piles[1] = new Deck( orig.piles[1]);
+			piles[2] = new Deck( orig.piles[2]);
+			piles[3] = new Deck( orig.piles[3]);
+		}
 
+		//copies over the middle cards
 		piles[4] = new Deck( orig.piles[4]);
 		//Creates deep copy of each of the data values stored in PDState
 		perspective = playerNum;

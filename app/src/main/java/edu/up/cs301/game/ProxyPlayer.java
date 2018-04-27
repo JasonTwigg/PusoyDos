@@ -29,15 +29,19 @@ public class ProxyPlayer implements GamePlayer {
     // has been established
     private boolean isReady;
 
+
+
     /**
      * ProxyPlayer constructor.
      * 
      * @param portNum
      * 		the port number through which we connect to our client
      */
-    public ProxyPlayer(int portNum) {
+    public ProxyPlayer(int portNum ) {
     	
     	Log.i("ProxyPlayer", "creating Proxy Player");
+
+
         
         // set instance variables to their initial values
         game = null; // the game
@@ -139,5 +143,7 @@ public class ProxyPlayer implements GamePlayer {
     public boolean supportsGui() {
     	return false;
     }
+
+
 }
 
