@@ -18,6 +18,7 @@ import edu.up.cs301.game.util.PossibleHands;
  *	FEATURES OF SMART COMPUTER PLAYER
  *	- Searches through its cards and finds any existing hands (doubles, straights, flushes,
  *      full houses, and four-of-a-kind)
+ *  -Evaluates which hand should be played on any given turn
  *  - Evaluates last card(s) played by previous player, and recognizes the current game mode
  *	- When singles are being played, the smart AI will play its lowest card that beats the last
  *      card played
@@ -104,7 +105,10 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
 
     }
+
     /**
+     * RecieveInfo
+     *
      * callback method, called when we receive a message, typically from
      * the game
      */
@@ -173,6 +177,9 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         else{
             sleep(waitTime);
         }
+
+        //----------------------------Assign which cards are playable---------------------------------------
+
 
 
         //If a triple AND a double is found in the hand, change the doubles playability value to
@@ -360,15 +367,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     }
 
     /**
-     * getPossibleHands method, we will be implementing this method in the future,
-     * it will be used for the computer player to help decide which hand it
-     * should choose to play.
-     */
-    public ArrayList<PossibleHands> getPossibleHands (){
-        return null;
-    }
-
-    /**
+     * findDoubles
+     *
      * Checks for any doubles in hand (of remaining cards that have not been assigned to a
      * better hand).
      */
@@ -378,6 +378,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
             if( playability.get(i)==singles && playability.get(i-1)==singles ){
                 if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() ) {
+                    //Assign the doubles
                     playability.set( i, doubles);
                     playability.set( i-1, doubles );
                 }
@@ -386,6 +387,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     }
 
     /**
+     * findTriples
+     *
      * Checks for any triples in hand (of remaining cards that have not been assigned to a
      * better hand).
      */
@@ -393,11 +396,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
         for( int i=myDeck.size()-1; i>2; i--) {
             //Checks if the card is the same as the two that follow
-            if(playability.get(i)==1 && playability.get(i-1) == 1 && playability.get(i-2) == 1){
+            if(playability.get(i)==singles && playability.get(i-1) == singles && playability.get(i-2) == singles){
                 //Makes sure the card hasn't been labeled yet
                 if( playability.get(i) == singles ){
                     if( myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank()
                             && myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-2).getRank()) {
+                        //assigns the triples it finds to the Full House hand type
                         playability.set(i, fullHouse);
                         playability.set(i - 1, fullHouse);
                         playability.set(i - 2, fullHouse);
@@ -408,6 +412,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
     }
 
     /**
+     * findFlushes
+     *
      * Checks for any flushes in hand (of remaining cards that have not been assigned to a
      * better hand).
      */
@@ -480,6 +486,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
     }
 
+    /**
+     * findFourofAKinds()
+     *
+     * checks to see if their is a four of a kind in the player's hand
+     */
     public void findFourofAKinds(){
         for(int i = myDeck.size()-1; i > 4; i--){
             if(myDeck.getCards().get(i).getRank() == myDeck.getCards().get(i-1).getRank() &&
@@ -494,6 +505,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
     }
 
+    /**
+     * findStraight()
+     *
+     * checks to see if their is a Straight in the player's hand
+     */
     public void findStraight(){
 
         ArrayList<Integer> count = new ArrayList<Integer>();
@@ -501,7 +517,7 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         //checking for straight
         for( int i=myDeck.size()-1; i>0; i--) {
 
-            if( playability.get(i) == 1 ){
+            if( playability.get(i) == singles ){
                 count = new ArrayList<Integer>();
                 countIdx = i;
                 count.add(countIdx);
@@ -564,6 +580,12 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
     }
 
+    /**
+     * getSelections()
+     *
+     * @return
+     *     returns the array of selected cards
+     */
     public boolean[] getSelections(){
         return selections;
     }

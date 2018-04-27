@@ -17,7 +17,10 @@ import android.util.Log;
  * @version July 2013
  */
 public class ProxyPlayer implements GamePlayer {
-    
+
+
+
+
     // the game object
     private Game game;
     

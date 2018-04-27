@@ -76,18 +76,6 @@ public class PDStateTest {
     }
 
     @Test
-    public void selectCard() throws Exception {
-
-        //PDState PDState = new PDState();
-        //int num = PDState.toPlay();
-
-        //PDState.selectCard(num,0);
-        //assertTrue(PDState.getDeck(num).getCards().get(0).isSelected());
-
-
-    }
-
-    @Test
     public void playCard() throws Exception {
 
         //New Game State

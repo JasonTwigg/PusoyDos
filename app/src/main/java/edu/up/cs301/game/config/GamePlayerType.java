@@ -64,7 +64,7 @@ public abstract class GamePlayerType implements Cloneable /*, Serializable*/ {
 		return typeName;
 	}
 	
-//	public abstract GamePlayer createPlayer(Game game, int playerNum);
+	//public abstract GamePlayer createPlayer(Game game, int playerNum);
 	public abstract GamePlayer createPlayer(String name);
 
 }// class GamePlayerType
