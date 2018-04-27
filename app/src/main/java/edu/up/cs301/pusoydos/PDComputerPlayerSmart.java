@@ -18,7 +18,7 @@ import edu.up.cs301.game.util.PossibleHands;
  *	FEATURES OF SMART COMPUTER PLAYER
  *	- Searches through its cards and finds any existing hands (doubles, straights, flushes,
  *      full houses, and four-of-a-kind)
- *  -Evaluates which hand should be played on any given turn
+ *  - Evaluates which hand should be played on any given turn
  *  - Evaluates last card(s) played by previous player, and recognizes the current game mode
  *	- When singles are being played, the smart AI will play its lowest card that beats the last
  *      card played
