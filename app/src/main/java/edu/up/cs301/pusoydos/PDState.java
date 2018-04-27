@@ -9,11 +9,21 @@ import edu.up.cs301.card.Suit;
 
 /**
  *	FEATURES OF PUSOY DOS
- *	- Top left s
- *	-
- *	-
- *	-
- *
+ *  GUI:
+ *	- Top left of screen shows the players turn
+ *	- Top right shows what mode the game is in EX. Control, singles, doubles, hands
+ *	- The middle deck shows the last five cards played, also shows them in the order they were played
+ *	- Highlights the player in control, this makes it easy to remember who last played
+ *  - The piles for other players shows the amount of cards each has and draws them with varying depth
+ *  - You hand is displayed at the bottom, the cards get pack closer together the more cards you have
+ *	- Pass and play buttons are at the bottom left and right respectively
+ *  - The screen flashes red when an invalid move was made
+ *  - Can be played in both portrait and landscape mode
+ *  Computer (Easy)
+ *  - Checks the mode type and plays their worst card when they are in control
+ *  - If the mode type is singles then play their best card
+ *  - Otherwise if it is doubles or hands, the easy player passes
+ *  Computer (Hard)
  *
  *
  *
