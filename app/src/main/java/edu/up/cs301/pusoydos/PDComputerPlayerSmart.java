@@ -15,9 +15,23 @@ import edu.up.cs301.game.infoMsg.TimerInfo;
 import edu.up.cs301.game.util.PossibleHands;
 
 /**
- * This is a computer player that plays very poorly. It plays
- * the highest card it has, unless in control, in which case
- * it plays the worst card.
+ *	FEATURES OF SMART COMPUTER PLAYER
+ *	- Searches through its cards and finds any existing hands (doubles, straights, flushes,
+ *      full houses, and four-of-a-kind)
+ *  - Evaluates last card(s) played by previous player, and recognizes the current game mode
+ *	- When singles are being played, the smart AI will play its lowest card that beats the last
+ *      card played
+ *	- When the game is in a hand mode, the smart AI will play its lowest hand that could beat the
+ *      current hand
+ *	- Passes if it cannot beat the current card(s)
+ *
+ */
+
+/**
+ * This is a smart computer player that plays much more strategically than the regular computer
+ * player. When in singles, this AI will "save" its highest cards by playing the lowest playable
+ * card. This AI is also capable of playing hands. The AI searches through its cards for hands,
+ * which are saved and played when the mode type matches.
  *
  * @author Steven R. Vegdahl
  *
@@ -161,18 +175,34 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
 
 
+        //If a triple AND a double is found in the hand, change the doubles playability value to
+        //full house instead of doubles
         if (playability.contains(fullHouse) && playability.contains(doubles)) {
-
+            //loops through the playability array, finds the lowest double, and changes its
+            //playability value to full house
             for (int i = myDeck.size() - 1; i > 1; i--) {
-                if (playability.get(i) == doubles && playability.get(i - 1) != null) { //used to be != NULL?
+                if (playability.get(i) == doubles && playability.get(i - 1) != null) {
                     playability.set(i, fullHouse);
                     playability.set(i - 1, fullHouse);
                     break;
                 }
             }
         }
+        //If there is only a triple in the hand (and no double to pair to make a full house),
+        //change the triple back into singles
+        else {
+            //loops through playability array and sets the triple values back to singles
+            for (int i = myDeck.size() - 1; i > 0; i--) {
+                if (playability.get(i) == fullHouse) {
+                    playability.set(i, singles);
+                }
+            }
+        }
 
+        //If a 4-of-a-kind AND a single is found in the hand, change the lowest single's
+        //playability value to 4-of-a-kind
         if (playability.contains(fourOfAKind) && playability.contains(singles)) {
+            //loops through playability array and change the lowest single to 4-of-a-kind
             for (int i = myDeck.size() - 1; i > 1; i--) {
                 if (playability.get(i) == singles) {
                     playability.set(i, fourOfAKind);
@@ -233,6 +263,8 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
             else if( savedState.getModeType() == 4 || savedState.getModeType() == straight ) {
 
+                //If the playability array contains any type of flush, set the searchingFor
+                //value to the value corresponding to the type of flush
                 int searchingFor = -1;
                 boolean found = true;
                 if( playability.contains(flushC)){
@@ -247,17 +279,22 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
                     found = false;
                 }
 
+                //If a flush exists in the hand, do the following
                 if( found ) {
+                    //loops through the playability array, and selects the cards that are a part
+                    //of the flush
                     for (int i = 0; i < playability.size(); i++) {
 
+                        //if the playability value of the current card matches that of a set flush,
+                        //set the selection value at that index to true
                         if (playability.get(i) == searchingFor ) {
-                            //game.sendAction(new PDSelectAction(this, i));
                             selections[i] = !selections[i];
                         }
                     }
-                    game.sendAction(new PDPlayAction(this,selections));
+                    game.sendAction(new PDPlayAction(this,selections)); //play the flush
                     return;
                 }
+                //if no flush is found, pass
                 game.sendAction(new PDPassAction(this));
                 return;
             }
@@ -375,13 +412,19 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
      * better hand).
      */
     public void findFlushes() {
+
+        //creates separate array lists of cards to "sort" through the players hand by suit
         ArrayList<Integer> heartCount = new ArrayList<Integer>();
         ArrayList<Integer> diamondCount = new ArrayList<Integer>();
         ArrayList<Integer> spadeCount = new ArrayList<Integer>();
         ArrayList<Integer> clubCount = new ArrayList<Integer>();
 
+        //loops through player's hand
         for( int i=myDeck.size()-1; i>0; i-- ){
+            //if the current card is not a part of a higher hand, do the following
             if( playability.get(i) == singles ){
+                //add the current card to its corresponding suit array list based on its suit
+                //(i.e. a diamond card gets added into the diamonCount array list)
                 if( myDeck.getCards().get(i).getSuit() == Suit.Diamond) {
                     diamondCount.add(i);
                 }
@@ -397,6 +440,16 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
             }
         }
 
+        /**
+         * If any of the separate suit array lists have at least 5 cards in them, that means there
+         * is a flush in the players hand.
+         * If this is true, set the playability value of the lowest 5 cards of the same suit to
+         * its designated flush value:
+         * - DIAMOND FLUSH : flushD
+         * - HEART FLUSH : flushH
+         * - SPADE FLUSH : flushS
+         * - CLUB FLUSH : flushC
+         */
         if( diamondCount.size() >= 5 ) {
             playability.set(diamondCount.get(0), flushD);
             playability.set(diamondCount.get(1), flushD);
@@ -439,11 +492,6 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
 
             }
         }
-        /*for(int i = myDeck.size()-1; i > 1; i--){
-            if(playability.get(i) == singles){
-                playability.set(i, fourOfAKind);
-            }
-        }*/
     }
 
     public void findStraight(){
@@ -488,6 +536,11 @@ public class PDComputerPlayerSmart extends GameComputerPlayer
         }
     }
 
+    /**
+     *
+     * @param initDeck
+     * @param initMiddleDeck
+     */
     public void SmartPlaySingles(Deck initDeck, Deck initMiddleDeck) {
         //Int to hold the position of their worst card
         int worstCard;
