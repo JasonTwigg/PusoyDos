@@ -41,6 +41,10 @@ public class PDPlayAction extends PDMoveAction
         return true;
     }
 
+    /**
+     * @return
+     * 		the boolean array of selections
+     */
     public boolean[] getSelections() {
         return selections;
     }

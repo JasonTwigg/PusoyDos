@@ -7,6 +7,11 @@ import edu.up.cs301.game.GamePlayer;
  *
  * @author Steven R. Vegdahl
  *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  *
  * @version July 2013
  */

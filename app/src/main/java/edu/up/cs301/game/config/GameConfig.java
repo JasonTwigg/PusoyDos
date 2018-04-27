@@ -27,6 +27,12 @@ import edu.up.cs301.game.ProxyPlayer;
  * 
  * @author Andrew Nuxoll
  * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2013
  * @see GameMainActivity
  */

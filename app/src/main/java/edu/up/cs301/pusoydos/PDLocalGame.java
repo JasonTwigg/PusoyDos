@@ -57,8 +57,6 @@ public class PDLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
 
-
-
 		// loops through all four players and if one of them has no more cards left
 		// end the game and print that that player has won!
 		for( int i = 0; i<4; i++){
@@ -69,7 +67,6 @@ public class PDLocalGame extends LocalGame {
 
 		//else return null, stating that the game is not over
 		return null;
-
 
     }
 
@@ -141,8 +138,6 @@ public class PDLocalGame extends LocalGame {
 	 */
 	@Override
 	protected boolean makeMove(GameAction action) {
-		
-
 
 		if( action instanceof  PDMoveAction ) {
 			PDMoveAction sjma = (PDMoveAction) action;
@@ -179,21 +174,13 @@ public class PDLocalGame extends LocalGame {
 
 				}
 
-
 			} else { // some unexpected action
 				return false;
 			}
 		}
-		
-		// get the index of the player making the move; return false
-
-
-		//check if the move action is a select action
-		//if so, cast the action to a select action and call the select card method
 
 		// return true, because the move was successful if we get her
 		return true;
 	}
-	
 
 }

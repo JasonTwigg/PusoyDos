@@ -10,6 +10,13 @@ import edu.up.cs301.game.GamePlayer;
  * "easy AI player" and "hard AI player".
  * 
  * @author Andrew Nuxoll
+ *
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
  * @version July 2012
  * @see GameConfig
  */

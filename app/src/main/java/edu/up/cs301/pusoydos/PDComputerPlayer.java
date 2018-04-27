@@ -33,7 +33,7 @@ public class PDComputerPlayer extends GameComputerPlayer
 	private int size;
 	//Constant for the time each computer takes to go
 	private int waitTime = 750;
-
+	//A boolean array to hold the selected card
 	private boolean[] selections;
 	
     /**
@@ -51,6 +51,11 @@ public class PDComputerPlayer extends GameComputerPlayer
     
     /*
      * Constructor for the PDComputerPlayer class
+     *
+     * @param name
+     *        the player's name
+     * @param avgReactionTime
+     *        the average reaction time
      */
     public PDComputerPlayer(String name, double avgReactionTime) {
         // invoke superclass constructor
@@ -133,9 +138,8 @@ public class PDComputerPlayer extends GameComputerPlayer
 					game.sendAction(new PDPassAction(this));
 				}
 
-				if( 1==1){
-					return;
-				}
+				return;
+
 			}
 			else {
 				//Passes if the game mode is not singles
@@ -150,7 +154,10 @@ public class PDComputerPlayer extends GameComputerPlayer
 
     }
 
-	public boolean[] getSelections(){
-		return selections;
-	}
+	/*
+    * getSelections
+    *
+    *  Returns the boolean array of selected cards
+    */
+	public boolean[] getSelections(){ return selections; }
 }

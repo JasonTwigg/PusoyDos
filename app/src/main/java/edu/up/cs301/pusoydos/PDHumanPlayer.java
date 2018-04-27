@@ -676,8 +676,10 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		int y = (int) event.getY();
 
 		int find = -1;
+		//Gets the deck of the current player
 		Deck myDeck = state.getDeck(playerNum);
 		for( int i = 0; i < myDeck.size(); i++){
+			//Makes sure the position is not null
 			if( cardPositions[i] != null ) {
 				if (cardPositions[i].contains(x, y)) {
 					find = i;
@@ -768,6 +770,11 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		return new RectF(left, top, right, bottom);
 	}
 
+	/*
+    * getSelections
+    *
+    *  Returns the boolean array of selected cards
+    */
 	public boolean[] getSelections(){
 		return selections;
 	}
