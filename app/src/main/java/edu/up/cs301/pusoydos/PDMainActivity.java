@@ -10,6 +10,9 @@ import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 import android.graphics.Color;
 
+
+
+
 /**
  * this is the primary activity for pusoyDos game
  * 
