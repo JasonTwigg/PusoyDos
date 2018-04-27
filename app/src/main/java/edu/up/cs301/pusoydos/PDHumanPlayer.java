@@ -78,8 +78,6 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
     //Counter to see which player needs to be drawn
 	private int otherPlayerCounter;
 
-	//An array of selections, this keeps track of what the player selects, all of the values
-	//will start at false and any cards selected will be true
 	private boolean[] selections;
 
 	/**
@@ -121,15 +119,10 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 			Log.i("human player", "receiving");
 		}
 
-		//creates a new int for the size of the player's cards
 		int size = state.getDeck(playerNum).getCards().size();
-		//set the selections array to a size that matches the player's cards
 		selections = new boolean[size];
-		//loops through every value of selections and sets it to false
-		synchronized ( selections ) {
-			for (int i = 0; i < size; i++) {
-				selections[i] = false;
-			}
+		for(int i = 0; i < size; i++){
+			selections[i] = false;
 		}
 
 
@@ -695,6 +688,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		int y = (int) event.getY();
 
 		int find = -1;
+		//Gets the deck of the current player
 		Deck myDeck = state.getDeck(playerNum);
 		synchronized (cardPositions ) {
 			for (int i = 0; i < myDeck.size(); i++) {
@@ -708,9 +702,7 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 
 		if( find != -1 ){
 			//toggles the boolean in the select array with the same index as the cards.
-			synchronized (selections) {
-				selections[find] = !selections[find];
-			}
+			selections[find] = !selections[find];
 
 		} else if( passButton.contains(x,y)){
 
@@ -791,6 +783,11 @@ public class PDHumanPlayer extends GameHumanPlayer implements Animator {
 		return new RectF(left, top, right, bottom);
 	}
 
+	/*
+    * getSelections
+    *
+    *  Returns the boolean array of selected cards
+    */
 	public boolean[] getSelections(){
 		return selections;
 	}

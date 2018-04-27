@@ -35,14 +35,6 @@ public abstract class PDMoveAction extends GameAction {
     
     /**
      * @return
-     * 		whether the move was a slap
-     */
-    public boolean isSelect() {
-    	return false;
-    }
-    
-    /**
-     * @return
      * 		whether the move was a "play"
      */
     public boolean isPlay() {
@@ -56,8 +48,6 @@ public abstract class PDMoveAction extends GameAction {
     public boolean isPass() {
         return false;
     }
-
-
 
 
 }

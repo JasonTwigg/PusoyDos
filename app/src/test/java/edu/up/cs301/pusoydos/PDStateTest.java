@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
  * Created by Jason on 3/22/2018.
  */
 public class PDStateTest {
+
     @Test
     public void getDeck() throws Exception {
 
@@ -62,30 +63,72 @@ public class PDStateTest {
 
     }
 
+    @Test
+    public void setToPlay() throws Exception {
+
+    }
+
+    @Test
+    public void nullAllButTopOf2() throws Exception {
+
+    }
+
+    @Test
+    public void selectCard() throws Exception {
+
+        //PDState PDState = new PDState();
+        //int num = PDState.toPlay();
+
+        //PDState.selectCard(num,0);
+        //assertTrue(PDState.getDeck(num).getCards().get(0).isSelected());
 
 
+    }
 
     @Test
     public void playCard() throws Exception {
 
-        PDState PDState = new PDState();
+        //New Game State
+        PDState pdState = new PDState();
+        //The current players turn number
+        int num = pdState.getTurnNum();
+        //The number of cards in their hand
+        int size = pdState.getDeck(num).size();
 
-        int num = PDState.getTurnNum();
-        int size = PDState.getDeck(num).size();
-        //boolean[] selected = new boolean[];
-        //for( int i = 0; i < )
+        //This player selects their second best card
+        boolean selected[] = new boolean[size];
+        //Selects the second best card in the hand
+        selected[1] = true;
+        //Player tries to play a card besides the 3 of Clubs for the first play
+        pdState.playCard(num, selected);
+
+        //They should not have been able to play a card
+        assertFalse(pdState.getDeck(num).size() == size-1);
+
+        //It should still be this persons turn because they could not play
+        assertTrue(pdState.getTurnNum() == num);
+        //undo the selection from earlier
+        selected[1]=false;
+
+        //Player selects their 3 of clubs
+        selected[size-1] = true;
+
+        pdState.passAction(num);
+        //They should not be able to pass even though they selected the 3 of Clubs
+        assertFalse(pdState.getTurnNum() != num);
+
+        //Player plays their 3 of clubs
+        pdState.playCard(num, selected);
+        //The turn num should now be different
+        assertFalse(pdState.getTurnNum() == num);
+        //Set the array back
+        selected[size-1] = false;
 
 
-        //PDState.getDeck(num).getCards().get(12).setSelected(true);
-/*
-        assertTrue(PDState.playCard(num).equalsIgnoreCase("Player " + (num + 1) + " just played their " +
-                new Card(Rank.THREE, Suit.Club) + " to the center pile.\n"));
-*/
-        int num2 = PDState.getTurnNum();
-
-        assertNotEquals(num,num2);
-
-
+        //The current players turn number
+        int numTwo = pdState.getTurnNum();
+        //Make sure that the turn number moved
+        assertFalse(num == numTwo);
 
 
     }
@@ -93,10 +136,16 @@ public class PDStateTest {
     @Test
     public void passAction() throws Exception {
 
+        //New Game State
         PDState PDState = new PDState();
-        assertTrue(PDState.passAction(PDState.toPlay()).equalsIgnoreCase("You have Control Player " + (PDState.toPlay()+1) + ". You cannot Pass!\n"));
+        //The current players turn number
+        int num = PDState.getTurnNum();
+        //The number of cards in their hand
 
-
+        //Player tries to pass for their first move (of the game)
+        PDState.passAction(num);
+        //They should not have been able to pass on the start
+        assertTrue(PDState.getTurnNum() == num);
 
     }
 
@@ -164,6 +213,9 @@ public class PDStateTest {
 
     @Test
     public void getTurnNum() throws Exception {
+        PDState PDState = new PDState();
+
+
 
     }
 

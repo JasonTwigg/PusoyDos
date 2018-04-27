@@ -6,7 +6,14 @@ import edu.up.cs301.game.GamePlayer;
  * An action by which the player tells the game its name
  * (typically the human's name, if it's a GameHumanPlayer).
  *
- * @author Steven R. Vegdahl 
+ * @author Steven R. Vegdahl
+ *
+ * @author Jason Twigg
+ * @author Cole Holbrook
+ * @author Tawny Motoyama
+ * @author Josh Azicate
+ *
+ *
  * @version July 2013
  */
 public class ReadyAction extends GameAction {
